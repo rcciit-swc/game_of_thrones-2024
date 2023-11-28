@@ -15,7 +15,7 @@ export default function Footer() {
     { src: 'insta.svg', url: 'https://www.instagram.com/rcciit_kolkata' },
   ];
   return (
-    <footer className="mb-4 text-center text-sm p-4 bg-primary text-white font-got border-t-2 border-white">
+    <footer className="text-center text-sm p-4 bg-primary text-white font-got border-t-2 border-white">
       <div className="flex items-center justify-center mb-2">
         <Image src="/throne.png" alt="Throne" width={92} height={74} />
         <Image src="/footer.png" alt="G.O.T" width={110} height={58}  className='pt-3'/>
@@ -30,7 +30,7 @@ export default function Footer() {
           </span>
         ))}
       </div>
-      <div className="flex items-center justify-center mb-4 space-x-4">
+      <div className="flex items-center justify-center space-x-4">
         {socials.map((socials, index) => (
           <Link key={index} href={`${socials.url}`} target="_blank">
             <span>
