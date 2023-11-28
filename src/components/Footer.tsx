@@ -24,7 +24,7 @@ export default function Footer() {
       <div className="mb-4 font-mono font-medium flex flex-wrap justify-center">
         {links.map((link, index) => (
           <span key={index} className="mx-2 my-1" style={{borderRight: index < links.length - 1 ? '2px solid white' : 'none'}}>
-            <Link href={link.url}>
+            <Link href={link.url} target="_blank">
               <span className='pr-4'>{link.text}</span>
             </Link>
           </span>
@@ -32,7 +32,7 @@ export default function Footer() {
       </div>
       <div className="flex items-center justify-center mb-4 space-x-4">
         {socials.map((socials, index) => (
-          <Link key={index} href={`${socials.url}`}>
+          <Link key={index} href={`${socials.url}`} target="_blank">
             <span>
               <Image src={`/${socials.src}`} alt={`${socials.src}`} width={24} height={24} />
             </span>
