@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-const SponsorPage = () => {
+export default function SponsorPage() {
   return (
     <div className="font-got p-12" style={{ backgroundColor: '#1E1E1E', color: '#FFFFFF' }}>
       <div className='font-got relative z-0 flex py-12  justify-center items-center' style={{ 
@@ -43,5 +43,3 @@ const SponsorPage = () => {
       </div>
   );
 };
-
-export default SponsorPage;

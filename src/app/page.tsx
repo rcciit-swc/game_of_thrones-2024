@@ -1,7 +1,10 @@
+import SponsorPage from "@/components/Sponsor";
 export default function Home() {
-  return <main>main-page
-    <div>
-      <a href="/sponsors">Sponsors</a>
-    </div>
-  </main>;
+  return (
+    <main>
+      <SponsorPage />
+      <div>
+      </div>
+    </main>
+  );
 }
