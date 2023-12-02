@@ -2,11 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @font-face {
-    font-family: "Got";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(../../public/fonts/gameOfThrones.ttf);
+  font-family: "Got";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../../public/fonts/gameOfThrones.ttf);
+}
+
+body {
+  overflow-x: hidden; /* Hide scrollbars */
 }
