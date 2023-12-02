@@ -1,11 +1,11 @@
 import SponsorPage from "@/components/Sponsor";
-import PrincipalsDesk from '@/components/PrincipalsDesk';
+import TeachersDesk from '@/components/TeachersDesk';
 
 export default function Home() {
   return (
     <main>
+      <TeachersDesk />
       <SponsorPage />
-      <PrincipalsDesk />
     </main>
   );
 }
