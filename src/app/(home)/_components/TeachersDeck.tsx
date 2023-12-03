@@ -30,7 +30,7 @@ export default function TeachersDesk() {
           </p>
 
           {/* PC Image */}
-          <div className="absolute right-[-120px] top-[40%] mt-[-180px] hidden md:block">
+          <div className="absolute right-[-50px] top-[40%] mt-[-180px] hidden md:block lg:right-[-120px]">
             <Image
               alt="Principal's Image"
               className="h-[390px] w-[300px] rounded-3xl"

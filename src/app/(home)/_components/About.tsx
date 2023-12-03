@@ -21,7 +21,7 @@ const About = () => {
             height={0}
           />
         </div>
-        <div className="relative mx-auto mt-[20px] flex w-[320px] flex-col items-center justify-center md:mt-[200px] md:w-[60%] md:space-x-20 lg:flex-row">
+        <div className="relative mx-auto mt-[20px] flex w-[320px] flex-col items-center justify-center md:mt-[200px] md:w-[60%] lg:flex-row lg:space-x-20">
           <SectionHeader text="About" />
           <p className="text-justify text-sm md:text-lg">
             Game Of Thrones (GoT&apos;23), RCC Institute of Information

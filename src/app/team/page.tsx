@@ -2,11 +2,11 @@ import { constructMetaData } from "@/utils/metadata";
 import { Metadata } from "next";
 
 export const metadata: Metadata = constructMetaData({
-  title: "Gallery | GOT RCCIIT",
+  title: "Our Team | GOT RCCIIT",
 });
 
-const Gallery = () => {
-  return <div className="font-got">gallery</div>;
+const TeamsPage = () => {
+  return <div>teamsPage</div>;
 };
 
-export default Gallery;
+export default TeamsPage;

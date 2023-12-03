@@ -31,6 +31,7 @@ const Hero = () => {
           src="/assets/hero/line-1.svg"
           alt="footballer"
           className="relative h-screen w-full rotate-12 -scale-x-90 lg:-left-10 lg:mt-14 lg:scale-x-90  2xl:left-5 2xl:mt-0 "
+          priority
           width={0}
           height={0}
         />
