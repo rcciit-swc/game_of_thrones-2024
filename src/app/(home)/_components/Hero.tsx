@@ -3,50 +3,48 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className=" flex flex-row justify-between ">
-      
-      <div className="flex min-h-screen min-w-full flex-col ">
+    <div className="flex flex-row justify-between ">
+      <div className="flex  min-h-screen min-w-full flex-col ">
         <Image
-          src={"/assets/hero/lefttop.svg"}
+          src="/assets/hero/lefttop.svg"
           className="mt-10 w-5 max-lg:mt-[24%] lg:w-10 2xl:w-14  "
           height={0}
           width={0}
           alt="lefttop"
         />
         <Image
-          src={"/assets/hero/leftdown.svg"}
+          src="/assets/hero/leftdown.svg"
           className="h-3/5 w-10/12"
           height={0}
           width={0}
           alt="lefttop"
         />
-          <div className="md:hidden  z-40  w-full block ">
-        <button className=" absolute left-[14%] top-[76%]  rounded-xl border-2 border-white bg-[#2D3493] px-20 py-5 text-md font-semibold shadow-md shadow-white ">
-              Register Now
-        </button>
+        <div className="z-40 block w-full md:hidden ">
+          <button className="text-md absolute left-[14%] top-[72%] rounded-xl border-2 border-white bg-[#2D3493] px-20 py-5 font-semibold shadow-md shadow-white ">
+            Register Now
+          </button>
         </div>
       </div>
-     
-      <div className="max-md:overflow-x-hidden max-md:overflow-y-hidden absolute flex flex-row ">
+
+      <div className="absolute flex flex-row max-md:overflow-hidden">
         <Image
-          src={"/assets/hero/line 1.svg"}
+          src="/assets/hero/line-1.svg"
           alt="footballer"
           className="relative h-screen w-full rotate-12 -scale-x-90 lg:-left-10 lg:mt-14 lg:scale-x-90  2xl:left-5 2xl:mt-0 "
+          priority
           width={0}
           height={0}
         />
         <Image
-          src={"/assets/hero/footballer.svg"}
+          src="/assets/hero/footballer.svg"
           alt="footballer"
           className="absolute -right-10 z-20 h-screen w-full -scale-x-90 md:scale-x-90  lg:-left-20 2xl:left-0"
           width={0}
           height={0}
         />
-        
       </div>
 
-      <div className=" md:w-[45%] absolute top-[14%] z-30  p-4  max-md:left-3 lg:right-20">
-        {/* <Image src={"/assets/hero/Group 9.svg"} className="w-full h-full" alt="football" width={0} height={0} /> */}
+      <div className=" absolute top-[14%] z-30 p-4  max-md:left-3  md:w-[45%] lg:right-20">
         <div className="flex flex-col items-start gap-8 md:items-center lg:gap-16">
           <div className="flex flex-row items-center gap-3">
             <Image
@@ -74,26 +72,29 @@ const Hero = () => {
             <span>Inter-college national</span>
             <span>level sports fest</span>
           </div>
-          
-            <button className="hidden md:block rounded-xl border-2 border-white bg-[#2D3493] px-10 py-5 font-bold shadow-md shadow-white ">
-              Register Now
-            </button>
-          
+
+          <button className="hidden rounded-xl border-2 border-white bg-[#2D3493] px-10 py-5 font-bold shadow-md transition-all duration-300 ease-in-out hover:bg-[#242975] hover:shadow-white md:block">
+            Register Now
+          </button>
         </div>
-        
-      
       </div>
 
-      <div className="absolute z-0  max-lg:-left-10 max-lg:mt-[10%] lg:-right-16 overflow-x-hidden">
+      {/* <div className="absolute lg:-right-16    z-0 overflow-x-hidden max-lg:-left-10 max-lg:mt-[10%]  ">
         <Image
-          src={"/assets/hero/rightdown.svg"}
+          src="/assets/hero/rightdown.svg"
           alt="footballer"
-          className=" h-screen w-full -scale-x-90 lg:scale-x-90 overflow-x-hidden"
+          className=" h-screen w-full  -scale-x-90   lg:scale-x-90"
           width={0}
           height={0}
         />
-      
-      </div>
+      </div> */}
+       <Image
+          src="/assets/hero/rightdown.svg"
+          alt="footballer"
+          className="absolute lg:-right-[69px] 2xl:-right-[76px] z-0 overflow-x-hidden max-lg:-left-10 max-lg:mt-[10%] h-screen w-full lg:w-[80%]  -scale-x-90   lg:scale-x-90"
+          width={0}
+          height={0}
+        />
     </div>
   );
 };
