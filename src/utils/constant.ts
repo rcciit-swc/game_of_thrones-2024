@@ -1,3 +1,22 @@
+const navRoutes = [
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "Events",
+    href: "/events",
+  },
+  {
+    name: "Gallery",
+    href: "/gallery",
+  },
+  {
+    name: "Contact Us",
+    href: "/contact",
+  },
+];
+
 const links = [
   { text: "About RCCIIT", url: "https://www.rcciit.org/" },
   { text: "Events", url: "https://got.rcciit.org.in/#events" },
@@ -67,5 +86,27 @@ const sponsors = [
     ],
   },
 ];
+interface SponsorDataType {
+  name: string;
+  logo: string[];
+}
+const sponsorsData: SponsorDataType[] = [
+  {
+    name: "Brodcasting Partner",
+    logo: ["/sheffield.jpeg"],
+  },
+  {
+    name: "Medical Partner",
+    logo: ["/wsb.jpeg"],
+  },
+  {
+    name: "Kits Partner",
+    logo: ["/dec.png"],
+  },
+  {
+    name: "Banking Partners",
+    logo: ["/hdfc.png", "/idfc.jpeg", "/boi.png"],
+  },
+];
 
-export { links, socials, teachers, sponsors };
+export { links, socials, teachers, sponsors , sponsorsData , navRoutes };

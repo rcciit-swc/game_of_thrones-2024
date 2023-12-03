@@ -3,7 +3,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="flex flex-row justify-between ">
+    <div className="flex flex-row justify-between max-md:mt-[-10vh]">
       <div className="flex  min-h-screen min-w-full flex-col ">
         <Image
           src="/assets/hero/lefttop.svg"
@@ -20,7 +20,7 @@ const Hero = () => {
           alt="lefttop"
         />
         <div className="z-40 block w-full md:hidden ">
-          <button className="text-md absolute left-[14%] top-[72%] rounded-xl border-2 border-white bg-[#2D3493] px-20 py-5 font-semibold shadow-md shadow-white ">
+          <button className="text-md absolute left-[14%] top-[60%] rounded-xl border-2 border-white bg-[#2D3493] px-20 py-5 font-semibold shadow-md shadow-white ">
             Register Now
           </button>
         </div>
