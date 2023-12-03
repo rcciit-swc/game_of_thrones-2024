@@ -1,20 +1,10 @@
-export default function SectionHeader({ text }:{text:string}) {
-    console.log(text);
-    return (
-      <>
-        <div className='font-got relative z-0 flex py-12 justify-center items-center' style={{ 
-          color: "rgba(255, 255, 255, 0.08)", 
-          fontFamily: "got", 
-          fontSize: "70px", 
-          fontStyle: "normal", 
-          fontWeight: "300", 
-          lineHeight: "normal", 
-          letterSpacing: "7px", 
-          textAlign: "center" 
-      }}>
+export default function SectionHeader({ text }: { text: string }) {
+  return (
+    <div className="relative z-0 flex items-center justify-center py-12 text-center font-got text-[40px] tracking-[7.2px] text-neutral/[0.08] md:text-[70px]">
+      {text}
+      <p className="z-1 tracking-3.6px absolute text-[20px] text-neutral md:text-[40px]">
         {text}
-        <p className='absolute z-10 text-white text-[30px] xl:text-[45px] tracking-3.6px'>{text}</p>
-      </div>
-      </>
-    );
-  }
+      </p>
+    </div>
+  );
+}
