@@ -13,3 +13,10 @@
 body {
   overflow-x: hidden;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="radio"] {
+  accent-color: #f8714b;
+}
