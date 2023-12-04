@@ -35,6 +35,12 @@ const Hero = () => {
           width={0}
           height={0}
         />
+        <h1 className="z-[30] absolute flex flex-col leading-10 font-medium text-lg max-md:rotate-90 top-[30vh] right-[2vh] 2xl:text-4xl lg:gap-8  2xl:left-[25vh] 2xl:top-[15vh] lg:left-[15vh] lg:text-3xl lg:top-[15vh]">
+          <span className="md:block hidden">“ONE FOR</span> 
+          <span className="md:hidden block">"ONE FOR ALL,</span>
+          <span className="md:block hidden">ALL, </span>
+          <span>ALL FOR ONE.”</span>
+          </h1>
         <Image
           src="/assets/hero/footballer.svg"
           alt="footballer"
