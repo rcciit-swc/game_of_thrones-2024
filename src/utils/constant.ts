@@ -1,3 +1,22 @@
+const navRoutes = [
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "Events",
+    href: "/events",
+  },
+  {
+    name: "Gallery",
+    href: "/gallery",
+  },
+  {
+    name: "Contact Us",
+    href: "/contacts",
+  },
+];
+
 const links = [
   { text: "About RCCIIT", url: "https://www.rcciit.org/" },
   { text: "Events", url: "https://got.rcciit.org.in/#events" },
@@ -67,5 +86,105 @@ const sponsors = [
     ],
   },
 ];
+interface SponsorDataType {
+  name: string;
+  logo: string[];
+}
+const sponsorsData: SponsorDataType[] = [
+  {
+    name: "Brodcasting Partner",
+    logo: ["/sheffield.jpeg"],
+  },
+  {
+    name: "Medical Partner",
+    logo: ["/wsb.jpeg"],
+  },
+  {
+    name: "Kits Partner",
+    logo: ["/dec.png"],
+  },
+  {
+    name: "Banking Partners",
+    logo: ["/hdfc.png", "/idfc.jpeg", "/boi.png"],
+  },
+];
 
-export { links, socials, teachers, sponsors };
+const CommitteeDetails = [
+  {
+      title:"Faculty-In-Charge (Sports) and Assistant Professor, RCCIIT" ,
+      members:[{
+          name : "Sarbojit Mukherjee",
+          role:"",
+          phone : "+919433852385"
+      }]
+  },
+  {
+      title:"SWC Faculty Sub Committee (Sports)" ,
+      members:[{
+          name : "Naiwrita Dey",
+          role:"Assistant Professor, RCCIIT",
+          phone : "+918420479505"
+      },
+  {
+      name : "Dipan Bandyopadhyay",
+      role:"Assistant Professor, RCCIIT",
+      phone : "+917003467858"
+  },
+  {
+      name : "Deepam Gangopadhyay ",
+      role:"Assistant Professor, RCCIIT",
+      phone : "+918240668401"
+  }]
+  },
+  {
+      title:"For Event Details" ,
+      members:[{
+          name : "Pritam Sarkar",
+          role:"",
+          phone : " +918918969446"
+      },
+  {
+      name : "Prasanna Biswas ",
+      role:"",
+      phone : "+919830360175"
+  },
+  {
+      name : "Arnab Das",
+      role:"",
+      phone : " +916289881455"
+  }]
+  },
+  {
+      title:"For Sponsorship" ,
+      members:[{
+          name : "Aritra Kr. Basu ",
+          role:"",
+          phone : "+916291080552"
+      }]
+  },
+  {
+      title:"SWC Student Representatives" ,
+      members:[{
+          name : "Sanmoy Mallick  ",
+          role:" Assistant General Secretary , Cultural",
+          phone : " +919433018776"
+      },
+  {
+      name : "Arghya Guha",
+      role:" Assistant General Secretary,Tech",
+      phone : "+918777498780"
+  },
+  {
+      name : "Arghya Guha  ",
+      role:" Assistant General Secretary,Tech",
+      phone : "+918777498780"
+  },
+  {
+      name : "Gautami Sinha ",
+      role:"General Secretary",
+      phone : " +917980345714"
+  }
+]
+  },
+]
+export { links, socials, teachers, sponsors , sponsorsData , navRoutes , CommitteeDetails };

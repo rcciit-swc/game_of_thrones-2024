@@ -3,8 +3,8 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="flex flex-row justify-between">
-      <div className="flex min-h-screen min-w-full flex-col ">
+    <div className=" flex flex-row justify-between max-[380px]:mt-[-10vh] max-md:mt-[-14vh]">
+      <div className="flex  min-h-screen min-w-full flex-col ">
         <Image
           src="/assets/hero/lefttop.svg"
           className="mt-10 w-5 max-lg:mt-[24%] lg:w-10 2xl:w-14  "
@@ -20,7 +20,7 @@ const Hero = () => {
           alt="lefttop"
         />
         <div className="z-40 block w-full md:hidden ">
-          <button className="text-md absolute left-[14%] top-[76%] rounded-xl border-2 border-white bg-[#2D3493] px-20 py-5 font-semibold shadow-md shadow-white ">
+          <button className="text-md absolute left-[14%] top-[60%] rounded-xl border-2 border-white bg-[#2D3493] px-20 py-5 font-semibold shadow-md shadow-white ">
             Register Now
           </button>
         </div>
@@ -79,15 +79,22 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="absolute z-0 overflow-x-hidden max-lg:-left-10 max-lg:mt-[10%] lg:-right-16">
+      {/* <div className="absolute lg:-right-16    z-0 overflow-x-hidden max-lg:-left-10 max-lg:mt-[10%]  ">
         <Image
           src="/assets/hero/rightdown.svg"
           alt="footballer"
-          className=" h-screen w-full -scale-x-90 overflow-x-hidden lg:scale-x-90"
+          className=" h-screen w-full  -scale-x-90   lg:scale-x-90"
           width={0}
           height={0}
         />
-      </div>
+      </div> */}
+       <Image
+          src="/assets/hero/rightdown.svg"
+          alt="footballer"
+          className="absolute lg:-right-[48px] xl:-right-[56px] 2xl:-right-[70px] min-[1700px]:-right-[84px] z-0 overflow-x-hidden max-lg:-left-10 max-lg:mt-[10%] h-screen w-full lg:w-[80%]  -scale-x-90   lg:scale-x-90"
+          width={0}
+          height={0}
+        />
     </div>
   );
 };
