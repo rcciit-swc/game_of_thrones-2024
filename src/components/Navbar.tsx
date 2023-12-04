@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <>
            <div
-        className={` absolute z-40 max-md:border-b  mx-auto  pt-5 pb-2  w-full   transition-transform duration-300 ease-in-out 2xl:fixed ${
+        className={`absolute z-40 max-md:border-b  mx-auto  pt-5 pb-2  w-full   transition-transform duration-300 ease-in-out 2xl:fixed ${
           isMenuOpen ? "relative" : ""
         }`}
       >

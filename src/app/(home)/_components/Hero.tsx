@@ -3,7 +3,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="flex flex-row justify-between max-md:mt-[-10vh]">
+    <div className=" flex flex-row justify-between max-md:mt-[-10vh]">
       <div className="flex  min-h-screen min-w-full flex-col ">
         <Image
           src="/assets/hero/lefttop.svg"
