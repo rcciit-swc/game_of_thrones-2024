@@ -19,7 +19,7 @@ const Hero = () => {
           width={0}
           alt="lefttop"
         />
-        <div className="z-40 block w-full md:hidden">
+        <div className="z-[30] block w-full md:hidden">
           <button className="text-md absolute left-[14%] top-[60%] rounded-xl border-2 border-neutral bg-[#2D3493] px-20 py-5 font-semibold shadow-md shadow-neutral">
             Register Now
           </button>
