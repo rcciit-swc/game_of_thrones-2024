@@ -14,13 +14,12 @@ const Navbar = () => {
           isMenuOpen ? "relative" : ""
         }`}
       >
-        <div className="items-center justify-around gap-20 px-5   pb-2  md:flex md:px-10">
+        <div className="items-center justify-around gap-20 px-5 pb-2 md:flex md:px-10">
           <Link href={"/"}>
             <Image
               src={"/assets/navbar/logo.svg"}
-              className=" w-36 hover:scale-105 duration-500 ease-in-out cursor-pointer transition-colors  "
+              className="w-36 cursor-pointer transition-colors duration-500 ease-in-out hover:scale-105  "
               width={0}
-            
               height={0}
               alt="logo"
             />
@@ -30,7 +29,7 @@ const Navbar = () => {
             onClick={() => {
               setIsMenuOpen(!isMenuOpen);
             }}
-            className="absolute right-8  top-9 h-10 w-10 cursor-pointer text-white md:hidden"
+            className="absolute right-8 top-9 h-10 w-10 cursor-pointer text-white md:hidden"
           >
             {isMenuOpen ? (
               <h1 className="text-2xl font-semibold">X</h1>
@@ -45,24 +44,24 @@ const Navbar = () => {
           </div>
           <div className="flex flex-row items-center gap-20">
             <ul
-              className={`smooth-scroll absolute  left-0   z-[1] w-full  border-b bg-body pb-8  pl-9 transition-all duration-500 ease-in-out md:static md:z-auto md:flex md:w-auto md:items-center md:pb-0 md:pl-0 ${
+              className={`smooth-scroll absolute left-0 z-[1] w-full border-b bg-body pb-8  pl-9 transition-all duration-500 ease-in-out md:static md:z-auto md:flex md:w-auto md:items-center md:pb-0 md:pl-0 ${
                 isMenuOpen ? "bottom-[-350px]" : "top-[-490px]"
               }`}
             >
               {navRoutes.map((link, index) => (
-                <Link href={link.href}>
-                  <li className="my-4 pt-2 hover:scale-105 duration-500 ease-linear hover:text-yellow-300 font-semibold md:my-0 md:ml-8 xl:text-xl">
-                    <h1 className="cursor-pointer  p-2   transition   ">
+                <Link href={link.href} key={index}>
+                  <li className="my-4 pt-2 font-semibold duration-500 ease-linear hover:scale-105 hover:text-yellow-300 md:my-0 md:ml-8 xl:text-xl">
+                    <h1 className="cursor-pointer p-2 transition">
                       {link.name}
                     </h1>
                   </li>
                 </Link>
               ))}
-              <button className="text-md rounded-xl border bg-[#2D3493] px-10 py-2 font-semibold md:hidden">
+              <button className="text-md rounded-xl border bg-[#2D3493] px-10 py-2 font-semibold hover:bg-[#242975]  md:hidden">
                 Login
               </button>
             </ul>
-            <button className="hidden rounded-xl border bg-[#2D3493] px-14 py-3 text-lg font-semibold md:block">
+            <button className="hidden rounded-xl border bg-[#2D3493] px-14 py-3 text-lg font-semibold transition-all duration-300 ease-in-out hover:bg-[#242975] md:block">
               Login
             </button>
           </div>

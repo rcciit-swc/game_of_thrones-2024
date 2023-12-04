@@ -92,99 +92,120 @@ interface SponsorDataType {
 }
 const sponsorsData: SponsorDataType[] = [
   {
-    name: "Brodcasting Partner",
-    logo: ["/sheffield.jpeg"],
+    name: "Brodcasting",
+    logo: ["/sponsors/sheffieldTimes.jpeg"],
   },
   {
-    name: "Medical Partner",
-    logo: ["/wsb.jpeg"],
+    name: "Medical",
+    logo: ["/sponsors/wsbClinic.jpeg"],
   },
   {
-    name: "Kits Partner",
-    logo: ["/dec.png"],
+    name: "Kits",
+    logo: ["/sponsors/decathlon.png"],
   },
   {
-    name: "Banking Partners",
-    logo: ["/hdfc.png", "/idfc.jpeg", "/boi.png"],
+    name: "Banking",
+    logo: [
+      "/sponsors/hdfcBank.png",
+      "/sponsors/idfcBank.jpeg",
+      "/sponsors/boi.png",
+    ],
   },
 ];
 
 const CommitteeDetails = [
   {
-      title:"Faculty-In-Charge (Sports) and Assistant Professor, RCCIIT" ,
-      members:[{
-          name : "Sarbojit Mukherjee",
-          role:"",
-          phone : "+919433852385"
-      }]
-  },
-  {
-      title:"SWC Faculty Sub Committee (Sports)" ,
-      members:[{
-          name : "Naiwrita Dey",
-          role:"Assistant Professor, RCCIIT",
-          phone : "+918420479505"
+    title: "Faculty-In-Charge (Sports) and Assistant Professor, RCCIIT",
+    members: [
+      {
+        name: "Sarbojit Mukherjee",
+        role: "",
+        phone: "+919433852385",
       },
-  {
-      name : "Dipan Bandyopadhyay",
-      role:"Assistant Professor, RCCIIT",
-      phone : "+917003467858"
+    ],
   },
   {
-      name : "Deepam Gangopadhyay ",
-      role:"Assistant Professor, RCCIIT",
-      phone : "+918240668401"
-  }]
-  },
-  {
-      title:"For Event Details" ,
-      members:[{
-          name : "Pritam Sarkar",
-          role:"",
-          phone : " +918918969446"
+    title: "SWC Faculty Sub Committee (Sports)",
+    members: [
+      {
+        name: "Naiwrita Dey",
+        role: "Assistant Professor, RCCIIT",
+        phone: "+918420479505",
       },
-  {
-      name : "Prasanna Biswas ",
-      role:"",
-      phone : "+919830360175"
-  },
-  {
-      name : "Arnab Das",
-      role:"",
-      phone : " +916289881455"
-  }]
-  },
-  {
-      title:"For Sponsorship" ,
-      members:[{
-          name : "Aritra Kr. Basu ",
-          role:"",
-          phone : "+916291080552"
-      }]
-  },
-  {
-      title:"SWC Student Representatives" ,
-      members:[{
-          name : "Sanmoy Mallick  ",
-          role:" Assistant General Secretary , Cultural",
-          phone : " +919433018776"
+      {
+        name: "Dipan Bandyopadhyay",
+        role: "Assistant Professor, RCCIIT",
+        phone: "+917003467858",
       },
-  {
-      name : "Arghya Guha",
-      role:" Assistant General Secretary,Tech",
-      phone : "+918777498780"
+      {
+        name: "Deepam Gangopadhyay ",
+        role: "Assistant Professor, RCCIIT",
+        phone: "+918240668401",
+      },
+    ],
   },
   {
-      name : "Arghya Guha  ",
-      role:" Assistant General Secretary,Tech",
-      phone : "+918777498780"
+    title: "For Event Details",
+    members: [
+      {
+        name: "Pritam Sarkar",
+        role: "",
+        phone: " +918918969446",
+      },
+      {
+        name: "Prasanna Biswas ",
+        role: "",
+        phone: "+919830360175",
+      },
+      {
+        name: "Arnab Das",
+        role: "",
+        phone: " +916289881455",
+      },
+    ],
   },
   {
-      name : "Gautami Sinha ",
-      role:"General Secretary",
-      phone : " +917980345714"
-  }
-]
+    title: "For Sponsorship",
+    members: [
+      {
+        name: "Aritra Kr. Basu ",
+        role: "",
+        phone: "+916291080552",
+      },
+    ],
   },
-]
-export { links, socials, teachers, sponsors , sponsorsData , navRoutes , CommitteeDetails };
+  {
+    title: "SWC Student Representatives",
+    members: [
+      {
+        name: "Sanmoy Mallick  ",
+        role: " Assistant General Secretary , Cultural",
+        phone: " +919433018776",
+      },
+      {
+        name: "Arghya Guha",
+        role: " Assistant General Secretary,Tech",
+        phone: "+918777498780",
+      },
+      {
+        name: "Arghya Guha  ",
+        role: " Assistant General Secretary,Tech",
+        phone: "+918777498780",
+      },
+      {
+        name: "Gautami Sinha ",
+        role: "General Secretary",
+        phone: " +917980345714",
+      },
+    ],
+  },
+];
+export {
+  links,
+  socials,
+  teachers,
+  sponsors,
+  sponsorsData,
+  navRoutes,
+  CommitteeDetails,
+};

@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { SectionHeader } from "@/components";
-import { sponsors , sponsorsData } from "@/utils/constant";
+import { sponsorsData } from "@/utils/constant";
 
 export default function SponsorPage() {
   return (
-    <div className="mx-auto max-w-[1600px] bg-body font-got text-neutral ">
+    <section className="mx-auto max-w-[1600px] bg-body font-got text-neutral ">
       <SectionHeader text="SPONSORS" />
       <div className="flex flex-row flex-wrap items-center  justify-center gap-10  px-4  pb-20">
         {sponsorsData.map((sponsor, index) => {
@@ -15,7 +15,7 @@ export default function SponsorPage() {
               className="mx-auto flex  max-w-xl flex-col-reverse  items-center justify-center gap-5 rounded-xl   p-1 text-center"
             >
               <h2>
-                {sponsorName[0]} <br /> {sponsorName[1]}
+                {sponsorName[0]} <br /> Partner
               </h2>
               <div className="flex flex-row flex-wrap items-center justify-center space-x-4">
                 {sponsor.logo.map((logo, subindex) => {
@@ -35,6 +35,6 @@ export default function SponsorPage() {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 }
