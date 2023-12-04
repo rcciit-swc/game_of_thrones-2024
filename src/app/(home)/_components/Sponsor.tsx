@@ -4,9 +4,9 @@ import { sponsors , sponsorsData } from "@/utils/constant";
 
 export default function SponsorPage() {
   return (
-    <div className="mx-auto max-w-[1600px] bg-body font-got text-neutral">
+    <div className="mx-auto max-w-[1600px] bg-body font-got text-neutral ">
       <SectionHeader text="SPONSORS" />
-      <div className="flex flex-row flex-wrap items-center  justify-center gap-10  px-4  pb-10">
+      <div className="flex flex-row flex-wrap items-center  justify-center gap-10  px-4  pb-20">
         {sponsorsData.map((sponsor, index) => {
           const sponsorName = sponsor.name.split(" ");
           return (

@@ -3,7 +3,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className=" flex flex-row justify-between max-md:mt-[-10vh]">
+    <div className=" flex flex-row justify-between max-[380px]:mt-[-10vh] max-md:mt-[-14vh]">
       <div className="flex  min-h-screen min-w-full flex-col ">
         <Image
           src="/assets/hero/lefttop.svg"
@@ -91,7 +91,7 @@ const Hero = () => {
        <Image
           src="/assets/hero/rightdown.svg"
           alt="footballer"
-          className="absolute lg:-right-[69px] 2xl:-right-[76px] z-0 overflow-x-hidden max-lg:-left-10 max-lg:mt-[10%] h-screen w-full lg:w-[80%]  -scale-x-90   lg:scale-x-90"
+          className="absolute lg:-right-[48px] xl:-right-[56px] 2xl:-right-[70px] min-[1700px]:-right-[84px] z-0 overflow-x-hidden max-lg:-left-10 max-lg:mt-[10%] h-screen w-full lg:w-[80%]  -scale-x-90   lg:scale-x-90"
           width={0}
           height={0}
         />
