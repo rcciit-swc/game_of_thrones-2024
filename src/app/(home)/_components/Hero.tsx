@@ -30,12 +30,12 @@ const Hero = () => {
         <Image
           src="/assets/hero/line-1.svg"
           alt="footballer"
-          className="relative h-screen w-full rotate-12 -scale-x-90 lg:-left-10 lg:mt-14 lg:scale-x-90  2xl:left-5 2xl:mt-0"
+          className="relative overflow-hidden h-screen w-full lg:rotate-12 -scale-x-90 lg:-left-10 lg:mt-14 lg:scale-x-90  2xl:left-5 2xl:mt-0"
           priority
           width={0}
           height={0}
         />
-        <h1 className="z-[30] absolute flex flex-col leading-10 font-medium text-lg max-md:rotate-90 top-[30vh] right-[2vh] 2xl:text-4xl lg:gap-8  2xl:left-[25vh] 2xl:top-[15vh] lg:left-[15vh] lg:text-3xl lg:top-[15vh]">
+        <h1 className="z-[30] absolute flex flex-col leading-10 font-medium text-lg md:text-2xl 2xl:text-4xl max-md:rotate-90 top-[30vh] right-[2vh]  lg:gap-8  2xl:left-[25vh] 2xl:top-[15vh] lg:left-[15vh] lg:text-3xl lg:top-[15vh]">
           <span className="md:block hidden">“ONE FOR</span> 
           <span className="md:hidden block">"ONE FOR ALL,</span>
           <span className="md:block hidden">ALL, </span>
@@ -44,7 +44,7 @@ const Hero = () => {
         <Image
           src="/assets/hero/footballer.svg"
           alt="footballer"
-          className="absolute -right-10 z-20 h-screen w-full -scale-x-90 md:scale-x-90 lg:-left-20 2xl:left-0"
+          className="absolute max-md:-right-10 md:-right-12 z-20 h-screen w-full -scale-x-90 lg:scale-x-90 lg:-left-20 2xl:left-0"
           width={0}
           height={0}
         />
