@@ -29,7 +29,7 @@ const Navbar = () => {
         <div
           className={`${
             scrolling || isMenuOpen ? "bg-body" : "bg-transparent"
-          }   items-center max-md:border-b justify-around gap-20 px-7 py-2 md:flex lg:px-10`}
+          }   items-center justify-around gap-20 px-7 py-2 max-md:border-b md:flex lg:px-10`}
         >
           <div
             className="flex cursor-pointer items-center font-[Poppins] text-2xl font-bold 
@@ -61,10 +61,10 @@ const Navbar = () => {
               />
             )}
           </div>
-             
-             <ul
-            className={`absolute   z-[-1] w-full md:border-b border-white bg-body md:bg-transparent pb-12 pl-9 transition-all duration-500 ease-in md:static md:z-auto md:flex md:w-auto md:items-center md:pb-0 md:pl-0 ${
-              isMenuOpen ? "right-0 " : "right-[-590px]"
+
+          <ul
+            className={`absolute   z-[-1] w-full border-white bg-body pb-12 pl-9 transition-all duration-500 ease-in md:static md:z-auto md:flex md:w-auto md:items-center md:border-b md:bg-transparent md:pb-0 md:pl-0 ${
+              isMenuOpen ? "right-0 " : "right-[-790px]"
             }`}
           >
             {navRoutes.map((link, index) => (
@@ -78,16 +78,13 @@ const Navbar = () => {
                 </li>
               </Link>
             ))}
-            <li className="md:ml-20 max-md:mt-10">
-            <button className=" text-md  rounded-xl border  bg-[#2D3493] px-14 md:px-10 py-2 font-semibold hover:bg-[#242975] ">
+            <li className="max-md:mt-10 md:ml-20">
+              <button className=" text-md  rounded-xl border  bg-[#2D3493] px-14 py-2 font-semibold hover:bg-[#242975] md:px-10 ">
                 Login
               </button>
             </li>
           </ul>
-         
-             </div>
-         
-        
+        </div>
       </div>
     </>
   );

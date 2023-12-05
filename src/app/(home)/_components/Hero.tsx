@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Hero = () => {
@@ -53,13 +54,13 @@ const Hero = () => {
       <div className=" absolute top-[14%] z-30 p-4 max-md:left-3 md:w-[45%] lg:right-20">
         <div className="flex flex-col items-start gap-8 md:items-center lg:gap-16">
           <div className="flex flex-row items-center gap-3">
-            <Image
+            <Link href={"https://rcciit.org/"} target="_blank"><Image
               src="/assets/hero/rcc.svg"
               height={0}
               width={0}
               className=" h-16 w-16 lg:h-24 lg:w-24"
               alt="rcc"
-            />
+            /></Link>
             <div className="flex flex-col font-serif text-sm font-semibold lg:text-xl 2xl:text-3xl">
               <span>RCC Institute of</span>
               <span>Information Technology</span>
