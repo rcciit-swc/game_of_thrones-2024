@@ -63,7 +63,7 @@ const Navbar = () => {
           </div>
              
              <ul
-            className={`absolute   z-[-1] w-full border-b border-white bg-body lg:bg-transparent pb-12 pl-9 transition-all duration-500 ease-in md:static md:z-auto md:flex md:w-auto md:items-center md:pb-0 md:pl-0 ${
+            className={`absolute   z-[-1] w-full md:border-b border-white bg-body lg:bg-transparent pb-12 pl-9 transition-all duration-500 ease-in md:static md:z-auto md:flex md:w-auto md:items-center md:pb-0 md:pl-0 ${
               isMenuOpen ? "right-0 " : "right-[-490px]"
             }`}
           >

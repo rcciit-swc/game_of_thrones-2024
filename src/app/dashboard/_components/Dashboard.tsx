@@ -4,8 +4,8 @@ import React from 'react'
 
 const Dashboard = () => {
   return (
-    <div className='flex flex-col overflow-y-scroll h-screen  w-3/4'>
-        <div className='flex flex-row justify-between px-10 pt-10'>
+    <div className='flex flex-col  h-screen  md:w-3/4'>
+        <div className='flex flex-col md:flex-row justify-between px-5 md:px-10 pt-3 md:pt-10'>
                 <h1 className='text-2xl'>Dashboard</h1>
                 <div className='flex flex-row items-center gap-3'>
                 <Image
