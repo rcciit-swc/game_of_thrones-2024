@@ -5,7 +5,7 @@ import { navRoutes } from "@/utils/constant";
 import { useState, useEffect } from "react";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
 
   useEffect(() => {

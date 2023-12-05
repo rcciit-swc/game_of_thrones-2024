@@ -57,7 +57,7 @@ const Hero = () => {
               src="/assets/hero/rcc.svg"
               height={0}
               width={0}
-              className="h-16 w-16 lg:h-24 lg:w-24"
+              className=" h-16 w-16 lg:h-24 lg:w-24"
               alt="rcc"
             />
             <div className="flex flex-col font-serif text-sm font-semibold lg:text-xl 2xl:text-3xl">
@@ -68,8 +68,8 @@ const Hero = () => {
           <h1 className="lg:text-md font-got text-sm font-extralight 2xl:text-2xl">
             PRESENTS
           </h1>
-          <div className="flex flex-row items-center">
-            <div className="flex flex-col flex-wrap gap-3 font-got font-semibold lg:gap-6 lg:text-5xl 2xl:text-6xl">
+          <div className="avatar shadow-none flex flex-row items-center">
+            <div className=" flex flex-col flex-wrap gap-3 font-got font-semibold lg:gap-6 lg:text-5xl 2xl:text-6xl">
               <span>GAME OF</span>
               <span>THRONES</span>
             </div>
