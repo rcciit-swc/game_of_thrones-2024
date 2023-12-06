@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Hero = () => {
@@ -30,15 +31,21 @@ const Hero = () => {
         <Image
           src="/assets/hero/line-1.svg"
           alt="footballer"
-          className="relative h-screen w-full rotate-12 -scale-x-90 lg:-left-10 lg:mt-14 lg:scale-x-90  2xl:left-5 2xl:mt-0"
+          className="relative overflow-hidden h-screen w-full lg:rotate-12 -scale-x-90 lg:-left-10 lg:mt-14 lg:scale-x-90  2xl:left-5 2xl:mt-0"
           priority
           width={0}
           height={0}
         />
+        <h1 className="z-[30] absolute flex flex-col leading-10 font-medium text-lg md:text-2xl 2xl:text-4xl max-md:rotate-90 top-[30vh] right-[2vh]  lg:gap-8  2xl:left-[25vh] 2xl:top-[15vh] lg:left-[15vh] lg:text-3xl lg:top-[15vh]">
+          <span className="md:block hidden">“ONE FOR</span> 
+          <span className="md:hidden block">"ONE FOR ALL,</span>
+          <span className="md:block hidden">ALL, </span>
+          <span>ALL FOR ONE.”</span>
+          </h1>
         <Image
           src="/assets/hero/footballer.svg"
           alt="footballer"
-          className="absolute -right-10 z-20 h-screen w-full -scale-x-90 md:scale-x-90 lg:-left-20 2xl:left-0"
+          className="absolute max-md:-right-10 md:-right-12 z-20 h-screen w-full -scale-x-90 lg:scale-x-90 lg:-left-20 2xl:left-0"
           width={0}
           height={0}
         />
@@ -47,13 +54,13 @@ const Hero = () => {
       <div className=" absolute top-[14%] z-30 p-4 max-md:left-3 md:w-[45%] lg:right-20">
         <div className="flex flex-col items-start gap-8 md:items-center lg:gap-16">
           <div className="flex flex-row items-center gap-3">
-            <Image
+            <Link href={"https://rcciit.org/"} target="_blank"><Image
               src="/assets/hero/rcc.svg"
               height={0}
               width={0}
-              className="h-16 w-16 lg:h-24 lg:w-24"
+              className=" h-16 w-16 lg:h-24 lg:w-24"
               alt="rcc"
-            />
+            /></Link>
             <div className="flex flex-col font-serif text-sm font-semibold lg:text-xl 2xl:text-3xl">
               <span>RCC Institute of</span>
               <span>Information Technology</span>
@@ -62,8 +69,8 @@ const Hero = () => {
           <h1 className="lg:text-md font-got text-sm font-extralight 2xl:text-2xl">
             PRESENTS
           </h1>
-          <div className="flex flex-row items-center">
-            <div className="flex flex-col flex-wrap gap-3 font-got font-semibold lg:gap-6 lg:text-5xl 2xl:text-6xl">
+          <div className="avatar shadow-none flex flex-row items-center">
+            <div className=" flex flex-col flex-wrap gap-3 font-got font-semibold lg:gap-6 lg:text-5xl 2xl:text-6xl">
               <span>GAME OF</span>
               <span>THRONES</span>
             </div>

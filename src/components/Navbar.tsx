@@ -5,7 +5,7 @@ import { navRoutes } from "@/utils/constant";
 import { useState, useEffect } from "react";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
 
   useEffect(() => {
@@ -28,8 +28,8 @@ const Navbar = () => {
       <div className={` fixed left-0 top-0 z-[40] w-full`}>
         <div
           className={`${
-            scrolling ? "bg-body" : "bg-transparent"
-          } bg-tansparent items-center justify-around gap-20 px-7 py-2 md:flex md:px-10`}
+            scrolling || isMenuOpen ? "bg-body" : "bg-transparent"
+          }   items-center justify-around gap-20 px-7 py-2 max-md:border-b md:flex lg:px-10`}
         >
           <div
             className="flex cursor-pointer items-center font-[Poppins] text-2xl font-bold 
@@ -63,8 +63,8 @@ const Navbar = () => {
           </div>
 
           <ul
-            className={`absolute   z-[-1] w-full bg-body pb-12 pl-9 transition-all duration-500 ease-in md:static md:z-auto md:flex md:w-auto md:items-center md:pb-0 md:pl-0 ${
-              isMenuOpen ? "right-0 " : "right-[-490px]"
+            className={`absolute   z-[-1] w-full border-white bg-body pb-12 pl-9 transition-all duration-500 ease-in md:static md:z-auto md:flex md:w-auto md:items-center md:border-b md:bg-transparent md:pb-0 md:pl-0 ${
+              isMenuOpen ? "right-0 " : "right-[-790px]"
             }`}
           >
             {navRoutes.map((link, index) => (
@@ -78,8 +78,8 @@ const Navbar = () => {
                 </li>
               </Link>
             ))}
-            <li className="md:ml-20 max-md:mt-10">
-              <button className="text-md rounded-xl border  bg-[#2D3493] px-14 md:px-10 py-2 font-semibold hover:bg-[#242975] ">
+            <li className="max-md:mt-10 md:ml-20">
+              <button className=" text-md  rounded-xl border  bg-[#2D3493] px-14 py-2 font-semibold hover:bg-[#242975] md:px-10 ">
                 Login
               </button>
             </li>

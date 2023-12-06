@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section className="relative max-md:-mt-[22vh]">
       <div className="mx-auto max-w-[1600px]">
-        <div className="absolute top-0 -scale-x-90 overflow-x-hidden max-lg:-left-6 md:-right-14 lg:scale-x-90">
+        <div className="absolute top-0 -scale-x-90 overflow-x-hidden max-lg:-left-6 md:-right-14 md:scale-x-90">
           <Image
             src="about/vector-9-orange.svg"
             className="h-full w-full"
