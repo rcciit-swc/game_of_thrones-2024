@@ -1,14 +1,18 @@
 interface eventsType{
+    image: string ;
+    hoverImage: string ;
     title: string ;
     regFees: string ;
     prize: string ;
     venue: string ;
     date: string ;
-    rules: string[] ;
+    rules: string ;
 }
 
-const events = [
+const events:eventsType[] = [
     {
+        image: "/assets/events/cricket.svg",
+        hoverImage: "/assets/events/cricket2.svg",
         title:"Gully Cricket",
         regFees: "1000",
         prize:"15k",
@@ -47,6 +51,8 @@ const events = [
             `
     },
     {
+        image: "/assets/events/badminton.svg",
+        hoverImage: "/assets/events/badminton2.svg",
         title:"Badminton ",
         regFees: "1000",
         prize:"15k",
@@ -91,6 +97,8 @@ const events = [
         </html>`
     },
     {
+        image: "/assets/events/chess.svg",
+        hoverImage: "/assets/events/chess2.svg",
         title:"CHESS",
         regFees: "",
         prize:"",
@@ -123,7 +131,9 @@ const events = [
         `
     },
     {
-        title:"INTER-COLLEGE CARROM TOURNAMENT",
+        image: "/assets/events/carrom.svg",
+        hoverImage: "/assets/events/carrom2.svg",
+        title:"CARROM",
         regFees: "",
         prize:"",
         venue:"RCC IIT Common Room, old campus, Kolkata",
@@ -178,6 +188,8 @@ const events = [
         `
     },
     {
+        image: "/assets/events/badminton.svg",
+        hoverImage: "/assets/events/badminton2.svg",
         title:"Kabaddi (Girls and Boys) ",
         regFees: "400 /-",
         prize:"8K (INR)",
@@ -226,6 +238,8 @@ const events = [
         `
     },
     {
+        image: "/assets/events/tug.svg",
+        hoverImage: "/assets/events/tug2.svg",
         title:"Tug of War (boys and girls)",
         regFees: "400 (each team)",
         prize:"6k",
@@ -258,6 +272,8 @@ const events = [
         `
     },
     {
+        image: "/assets/events/football.svg",
+        hoverImage: "/assets/events/football2.svg",
         title:"FOOTBALL TOURNAMENT",
         regFees: "RS. 1500 (each team)",
         prize:"",
@@ -294,6 +310,8 @@ const events = [
         `
     },
     {
+        image: "/assets/events/tt.svg",
+        hoverImage: "/assets/events/tt2.svg",
         title:"Table Tennis",
         regFees: "Singles (Rs.100), Doubles (Rs.200)",
         prize:"4.5K (INR)",
@@ -328,6 +346,8 @@ const events = [
         `
     },
     {
+        image: "/assets/events/handball.svg",
+        hoverImage: "/assets/events/handball2.svg",
         title:"Handball(girls)",
         regFees: "Rs 250 (each team)",
         prize:"Rs900 (winner), Rs 600(1st runners’ up)",
@@ -378,6 +398,8 @@ const events = [
         `
     },
     {
+        image: "/assets/events/handball.svg",
+        hoverImage: "/assets/events/handball2.svg",
         title:"Volleyball (boys)",
         regFees: "500 (each team)",
         prize:"4.5 k",
