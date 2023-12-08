@@ -25,9 +25,9 @@ const page = ({ params: { event } }: Params) => {
   const eventTitle = decodeURIComponent(event);
   const eventObj = fetchEvent(eventTitle);
   return (
-    <div className="mt-[100px] flex flex-col  justify-center gap-8 px-3 md:px-10">
+    <div className="mt-[100px] max-w-[1600px] overflow-x-hidden mx-auto flex flex-col  justify-center gap-8 px-3 md:px-10">
       <SectionHeader text={eventTitle} />
-      <div className="flex flex-row flex-wrap-reverse items-center justify-between gap-8">
+      <div className=" flex flex-row flex-wrap-reverse items-center justify-between gap-8">
         <div className="flex flex-col gap-8 font-got text-xl font-semibold md:text-2xl">
           <h1>
             Registration Fees :{" "}
@@ -60,7 +60,7 @@ const page = ({ params: { event } }: Params) => {
           src={eventObj!.hoverImage}
           width={0}
           height={0}
-          className="w-[800px] rounded-lg md:h-[400px]"
+          className="w-[700px] max-2xl:mx-auto rounded-lg md:h-[400px]"
           alt={eventTitle}
         />
       </div>

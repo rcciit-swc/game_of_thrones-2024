@@ -3,15 +3,18 @@ import { useState } from "react";
 import { SectionHeader } from "@/components";
 import events from "@/utils/events";
 import Link from "next/link";
+import Image from "next/image";
+import EventCard from "@/app/events/_components/EventCard";
 
 const Events = () => {
   const [hover, setHover] = useState(false);
+  
   return (
     <section>
       <div className="mx-auto max-w-full ">
         <SectionHeader text="Events" />
-        <div className="mt-[10px] h-full w-full">
-          <ul className="accordion flex-wrap">
+        <div className={`mt-[10px] h-full w-full`}>
+         <ul className="xl:flex justify-center hidden accordion flex-wrap">
             {
               events.map((event , index) => (
               <li key={index}
@@ -45,6 +48,16 @@ const Events = () => {
             }
             
           </ul>
+           <div className="xl:hidden  max-w-[1600px] flex flex-wrap items-center justify-center gap-16 rounded-2xl   mx-auto">
+           {
+             events.map((event , index) => (
+               <div>
+                  <EventCard key={index} event={event} />
+               </div>
+             ))
+           }
+          </div>
+          
         </div>
       </div>
       <div></div>

@@ -36,13 +36,13 @@ const Navbar = () => {
       text-gray-800"
           >
             <span className="mr-1 pt-2 text-3xl text-indigo-600">
-              <Image
+              <Link href={"/"}><Image
                 src={"/assets/navbar/logo.svg"}
                 className="w-36 cursor-pointer transition-colors duration-500 ease-in-out hover:scale-105  "
                 width={0}
                 height={0}
                 alt="logo"
-              />
+              /></Link>
             </span>
           </div>
 
