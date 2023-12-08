@@ -15,7 +15,7 @@ const events:eventsType[] = [
         hoverImage: "/assets/events/cricket2.svg",
         title:"Gully Cricket",
         regFees: "1000",
-        prize:"15k",
+        prize:"15k (Winner-6K, runners up-4K,Trophy-5K)",
         venue:"College Ground",
         date:"",
         rules: `<!DOCTYPE html>
@@ -24,8 +24,7 @@ const events:eventsType[] = [
                 <title>Tournament Rules</title>
             </head>
             <body>
-                <h2>Tournament Rules</h2>
-                <ol>
+                <ol class="flex flex-col gap-3 text-xl">
                     <li>1. A team should have a total of 8 players with a maximum of 2 reserve players.</li>
                     <li>2. Each innings will be 6 overs. A maximum of 2 bowlers can bowl a maximum of 2 overs, and every other player can bowl a maximum of 1 over.</li>
                     <li>3. Members must carry their college ID cards during the entire event.</li>
@@ -53,7 +52,7 @@ const events:eventsType[] = [
     {
         image: "/assets/events/badminton.svg",
         hoverImage: "/assets/events/badminton2.svg",
-        title:"Badminton ",
+        title:"Badminton",
         regFees: "1000",
         prize:"15k",
         venue:"College Ground",
@@ -64,11 +63,11 @@ const events:eventsType[] = [
             <title>Tournament Rules</title>
         </head>
         <body>
-            <h2>Tournament Rules</h2>
-            <ul>
+           
+            <ul class="flex flex-col gap-3 text-xl">
                 <li>• Singles and double tournaments will be organized separately.</li>
                 <li>• All students must carry their student-identity card.</li>
-                <li>• Each match will be of ‘knock-out’ type.</li>
+                <li>• Each match will be of "knock-out" type.</li>
                 <li>• Each player should be a college student.</li>
                 <li>• Shuttlecock will be provided by the tournament officials.</li>
                 <li>• Each player should have their own racket.</li>
@@ -78,20 +77,20 @@ const events:eventsType[] = [
                 <li>• Every participant must arrive 30 minutes before the start of the tournament.</li>
                 <li>• Game officials have the right to modify rules as per necessity.</li>
             </ul>
-            <h3>Singles Boundary Rules:</h3>
-            <ul>
+            <h3 class="text-xl font-bold underline tracking-wider py-3">Singles Boundary Rules:</h3>
+            <ul class="flex flex-col gap-3 text-xl">
                 <li>Sidelines: The shuttlecock must land within the inner boundary lines of the court's singles sideline.</li>
                 <li>Baselines: The shuttlecock must land within the inner boundary lines of the court's singles baseline.</li>
                 <li>Service Courts: During service, the shuttlecock must be hit within the diagonally opposite service court. The server must stand within the service court and hit the shuttlecock to the diagonally opposite service court. Third court service will be considered out.</li>
                 <li>Mid-Court Line: During a serve, the shuttlecock must pass over the first court line without touching it. Players should not touch any of the lines on the court during a serve. This includes the feet of the server and receiver. Players can stand anywhere in their half of the court, but they cannot touch any of the lines or be outside of the playing court.</li>
             </ul>
             
-            <h3>Doubles Boundary Rules:</h3>
-            <ul>
-                <li>Sidelines: Similar to singles, the shuttlecock must land within the inner boundary lines of the court's doubles sideline.</li>
-                <li>Baselines: The shuttlecock must land within the inner boundary lines of the court's doubles baseline.</li>
-                <li>Service Courts: The service must be delivered diagonally, and both service courts are in play. The server must stand within their respective service court and hit the shuttlecock to the diagonally opposite service court.</li>
-                <li>Mid-Court Line: During a serve, the shuttlecock must pass over the short service line without touching it.</li>
+            <h3 class="text-xl font-bold underline tracking-wider pt-2">Doubles Boundary Rules:</h3>
+            <ul class="flex flex-col gap-3 text-xl py-3">
+                <li><b>Sidelines:</b> Similar to singles, the shuttlecock must land within the inner boundary lines of the court's doubles sideline.</li>
+                <li><b>Baselines:</b> The shuttlecock must land within the inner boundary lines of the court's doubles baseline.</li>
+                <li><b>Service Courts:</b> The service must be delivered diagonally, and both service courts are in play. The server must stand within their respective service court and hit the shuttlecock to the diagonally opposite service court.</li>
+                <li><b>Mid-Court Line:</b> During a serve, the shuttlecock must pass over the short service line without touching it.</li>
             </ul>
         </body>
         </html>`
@@ -110,8 +109,7 @@ const events:eventsType[] = [
             <title>Tournament Rules</title>
         </head>
         <body>
-            <h2>Tournament Rules</h2>
-            <ul>
+            <ul class="flex flex-col gap-3 text-xl">
                 <li>• The Tournament will be in Swiss format, i.e., competitors meet one-on-one in each round and are paired using a set of rules designed to ensure that each competitor plays opponents with a similar running score but does not play the same.</li>
                 <li>• Total Number of rounds will be 5.</li>
                 <li>• Time control for the tournament is 15+0 in each round.</li>
@@ -144,40 +142,48 @@ const events:eventsType[] = [
             <title>Carrom Tournament Rules</title>
         </head>
         <body>
-            <h2>General Rules:</h2>
-            <ol>
-                <li>All the participants must carry their own college ID Card and Aadhar Card during the entire event.</li>
-                <li>Unsporting behavior of any player may result in direct disqualification of the team/player.</li>
-                <li>Once enlisted, players cannot switch teams/players.</li>
+            <h2 class="text-2xl font-semibold py-3">General Rules:</h2>
+            <ol  class="flex flex-col gap-3 text-xl">
+                <li>1. All the participants must carry their own college ID Card and Aadhar Card during the entire event.</li>
+                <li>2. Unsporting behavior of any player may result in direct disqualification of the team/player.</li>
+                <li>3. Once enlisted, players cannot switch teams/players.</li>
             </ol>
         
-            <h2>Game Rules:</h2>
-        
-            <h3>How to Win a Match:</h3>
+            <h2 class="text-2xl font-semibold py-3">Game Rules:</h2>
+            <div class="text-xl flex flex-col items-start gap-5">
+            <div>
+            <h3><b>How to Win a Match:</b></h3>
             <p>Round of 16 and Quarter-finals will be in Knockout Mode. Only one board will be played. You have to win the game to qualify for the next round. Semi-finals and Final match will be played with three (3) sets of board game. Whoever wins two sets will win the match. There will be no points calculation. Whoever finishes all of their carrommen first, legally, will win the board.</p>
-        
+            </div>
+            <div>
             <h3>Serving First Rules:</h3>
             <p>Who serves first in Carrommen: Rules for serving first in a carrom board. In order to decide on the first server, you can hold a toss or use any such method.</p>
-        
+            </div>
+            <div>
             <h3>Striking the Carrommen with Striker:</h3>
             <p>How to strike carrommen: Rules for striking the carrommen with the striker. As per carrom board rules, the first server has three(3) attempts to break the cluster of carrommen on their first strike. However, after the first turn is over, you have only one chance to strike the carrommen properly. To make the most of one’s strike, one must bear the following points in mind:</p>
             <!-- Include all the points -->
-        
+            </div>
+            <div>
             <h3>Rules for Queen/Red Queen:</h3>
             <p>How and when to cover the Queen: Rules for the queen/ Rules for the red coin As per the rules of carrom board, you can neither pocket nor cover the queen whenever you like. So, let’s see when and how you can pocket and cover the queen:</p>
             <!-- Include all the rules for the queen -->
-        
+            </div>
+            <div>
             <h3>Carrom Board Arrow Rules:</h3>
             <p>Position and Role of arrows and Lines on Carrom Board. When it comes to the diagonal arrows on the board, they should not be touched by the striker while attempting a stroke. These arrows define the limits within which one must confine one’s striker.</p>
-        
+            </div>
+            <div>
             <h3>Last Coin Rules:</h3>
             <p>Carrom board last coin of opponent’s rule; last coin and the queen rule A) Rule for the last coin of the opponent. When a player pockets his opponent’s last carromman onboard, he/they will lose the board. Therefore, one has to be extra vigilant in these situations and avoid striking the last carromman of one’s opponent. B) Rule for the last coin and the queen. In case a player has only one piece left, and the queen has not been pocketed yet, he can strike his last coin without any penalty; however, he cannot pocket it before the queen.</p>
             <!-- Include all the rules for the last coin and queen -->
-        
+            </div>
+            <div>
             <h3>Position Rules:</h3>
             <p>Rules for the Position of Pieces and strikers after they leave the board or get entangled. During the course of play, some pieces and the striker may take awkward positions or may go out of the board and fall on the ground. Let’s see what the rules for such situations are:</p>
             <!-- Include all the position rules -->
-        
+            </div>
+            </div>
             <h3>Rules for Faults & Penalties:</h3>
             <ol>
                 <!-- Include all the fault and penalty rules -->
@@ -190,7 +196,7 @@ const events:eventsType[] = [
     {
         image: "/assets/events/badminton.svg",
         hoverImage: "/assets/events/badminton2.svg",
-        title:"Kabaddi (Girls and Boys) ",
+        title:"Kabaddi (Girls and Boys)",
         regFees: "400 /-",
         prize:"8K (INR)",
         venue:"KOLKATA KABADDI COACHING(Near Girish Park Metro)",
