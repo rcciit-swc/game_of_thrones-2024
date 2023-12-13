@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="flex min-h-screen min-w-full flex-col ">
         <Image
           src="/assets/hero/lefttop.svg"
-          className="mt-10 w-5 max-lg:mt-[24%] lg:w-10 2xl:w-14  "
+          className="mt-10 w-5 max-md:mt-[50%] max-lg:mt-[24%] lg:w-10 2xl:w-14  "
           height={0}
           width={0}
           alt="lefttop"
@@ -45,20 +45,20 @@ const Hero = () => {
         <Image
           src="/assets/hero/footballer.svg"
           alt="footballer"
-          className="absolute max-md:-right-10 md:-right-12 z-20 h-screen w-full -scale-x-90 lg:scale-x-90 lg:-left-20 2xl:left-0"
+          className="absolute max-md:-right-10 md:-right-10 lg:-right-14 z-20 h-screen w-full -scale-x-90 lg:scale-x-90 lg:-left-20 2xl:left-0"
           width={0}
           height={0}
         />
       </div>
 
       <div className=" absolute top-[14%] z-30 p-4 max-md:left-3 md:w-[45%] lg:right-20">
-        <div className="flex flex-col items-start gap-8 md:items-center lg:gap-16">
+        <div className="flex flex-col items-start gap-8 md:items-center md:gap-12 lg:gap-16">
           <div className="flex flex-row items-center gap-3">
             <Link href={"https://rcciit.org/"} target="_blank"><Image
               src="/assets/hero/rcc.svg"
               height={0}
               width={0}
-              className=" h-16 w-16 lg:h-24 lg:w-24"
+              className=" h-16 w-16 md:w-20 md:h-20 lg:h-24 lg:w-24"
               alt="rcc"
             /></Link>
             <div className="flex flex-col font-serif text-sm font-semibold lg:text-xl 2xl:text-3xl">
@@ -66,16 +66,16 @@ const Hero = () => {
               <span>Information Technology</span>
             </div>
           </div>
-          <h1 className="lg:text-md font-got text-sm font-extralight 2xl:text-2xl">
+          <h1 className="lg:text-md font-got text-sm md:text-lg font-extralight 2xl:text-2xl">
             PRESENTS
           </h1>
           <div className="avatar shadow-none flex flex-row items-center">
-            <div className=" flex flex-col flex-wrap gap-3 font-got font-semibold lg:gap-6 lg:text-5xl 2xl:text-6xl">
+            <div className=" flex flex-col flex-wrap gap-3 font-got font-semibold  md:text-3xl lg:gap-6 lg:text-5xl 2xl:text-6xl">
               <span>GAME OF</span>
               <span>THRONES</span>
             </div>
           </div>
-          <div className="flex flex-col items-center font-semibold lg:text-2xl 2xl:text-3xl">
+          <div className="flex flex-col items-center font-semibold md:text-xl lg:text-2xl 2xl:text-3xl">
             <span>Inter-college national</span>
             <span>level sports fest</span>
           </div>

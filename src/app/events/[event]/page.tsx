@@ -5,6 +5,7 @@ import { constructMetaData } from "@/utils/metadata";
 import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
+import { CoordinatorCard } from "../_components/CoordinatorCard";
 
 export const metadata: Metadata = constructMetaData({
   title: "Events | GOT RCCIIT",
@@ -25,9 +26,9 @@ const page = ({ params: { event } }: Params) => {
   const eventTitle = decodeURIComponent(event);
   const eventObj = fetchEvent(eventTitle);
   return (
-    <div className="mt-[100px] max-w-[1600px] overflow-x-hidden mx-auto flex flex-col  justify-center gap-8 px-3 md:px-10">
+    <div className="mt-[100px] max-w-[1600px] overflow-x-hidden mx-auto flex flex-col  justify-between gap-12 px-3 md:px-10">
       <SectionHeader text={eventTitle} />
-      <div className=" flex flex-row flex-wrap-reverse items-center justify-between gap-8">
+      <div className=" flex flex-row flex-wrap-reverse items-center justify-between gap-5 md:gap-10">
         <div className="flex flex-col gap-8 font-got text-xl font-semibold md:text-2xl">
           <h1>
             Registration Fees :{" "}
@@ -55,7 +56,12 @@ const page = ({ params: { event } }: Params) => {
               {eventObj?.date == "" ? "Yet to be Announced" : eventObj?.date}
             </span>
           </h1>
+        
+          <CoordinatorCard event={eventObj} />
+          
+         
         </div>
+       
         <Image
           src={eventObj!.hoverImage}
           width={0}
