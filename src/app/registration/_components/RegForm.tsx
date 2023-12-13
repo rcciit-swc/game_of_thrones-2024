@@ -14,7 +14,7 @@ const RegForm = () => {
     phone: "",
     college: "",
     roll: "",
-    gender: ""
+    gender: "",
   };
   const [formValues, setFormValues] = useState(initialValues);
   const [formValid, setFormValid] = useState(false);
@@ -23,7 +23,13 @@ const RegForm = () => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
   const validate = (values: valuesType) => {
-    const errors = { username: "", phone: "", college: "", roll: "" , gender:"" };
+    const errors = {
+      username: "",
+      phone: "",
+      college: "",
+      roll: "",
+      gender: "",
+    };
     const regexPhone =
       /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
     const regexName = /^[a-zA-Z ]{2,30}$/;
@@ -49,7 +55,7 @@ const RegForm = () => {
     } else if (!regexRoll.test(values.roll)) {
       errors.roll = "Roll is invalid";
     }
-    if(!values.gender){
+    if (!values.gender) {
       errors.gender = "Gender is required";
     }
     return errors;
@@ -59,7 +65,7 @@ const RegForm = () => {
     e.preventDefault();
     setFormErrors(validate(formValues));
   };
- 
+
   return (
     <form
       action=""
@@ -136,39 +142,39 @@ const RegForm = () => {
           <div className="flex flex-col items-start gap-2">
             <label htmlFor="gender">Gender</label>
             <div className="flex flex-col items-start gap-5 md:flex-row md:items-center md:gap-16">
-            <label className="flex flex-row items-center gap-1">
-            <input
-              name="gender"
-              type="radio"
-              value="male"
-              className="text-primary"
-              checked={formValues.gender === 'male'}
-              onChange={handleChange}
-            />
-            Male
-          </label>
-          <label className="flex flex-row items-center gap-1">
-            <input
-              name="gender"
-              type="radio"
-              value="female"
-              className="text-primary"
-              checked={formValues.gender === 'female'}
-              onChange={handleChange}
-            />
-            Female
-          </label>
-          <label className="flex flex-row items-center gap-1">
-            <input
-              name="gender"
-              type="radio"
-              value="others"
-              className="text-primary"
-              checked={formValues.gender === 'others'}
-              onChange={handleChange}
-            />
-            Others
-          </label>
+              <label className="flex flex-row items-center gap-1">
+                <input
+                  name="gender"
+                  type="radio"
+                  value="male"
+                  className="text-primary"
+                  checked={formValues.gender === "male"}
+                  onChange={handleChange}
+                />
+                Male
+              </label>
+              <label className="flex flex-row items-center gap-1">
+                <input
+                  name="gender"
+                  type="radio"
+                  value="female"
+                  className="text-primary"
+                  checked={formValues.gender === "female"}
+                  onChange={handleChange}
+                />
+                Female
+              </label>
+              <label className="flex flex-row items-center gap-1">
+                <input
+                  name="gender"
+                  type="radio"
+                  value="others"
+                  className="text-primary"
+                  checked={formValues.gender === "others"}
+                  onChange={handleChange}
+                />
+                Others
+              </label>
             </div>
             {formErrors.gender && (
               <span className="text-sm text-red-500">{formErrors.gender}</span>

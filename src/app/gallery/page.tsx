@@ -10,18 +10,22 @@ export const metadata: Metadata = constructMetaData({
 
 const Gallery = () => {
   return (
-  <div className="pt-[100px] font-got">
-    <SectionHeader text="gallery" />
-     <div className="max-w-[1600px] rounded-2xl  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 md:py-20 gap-12 px-5 md:px-10 md:border mx-auto">
-      {
-        events.map((event , index) => (
+    <div className="pt-[100px] font-got">
+      <SectionHeader text="gallery" />
+      <div className="max-w-[1600px] rounded-2xl  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 md:py-20 gap-12 px-5 md:px-10 md:border mx-auto">
+        {events.map((event, index) => (
           <div key={index}>
-            <Image src={event.hoverImage} alt='football' className='w-full h-full' width={0} height={0} />
+            <Image
+              src={event.hoverImage}
+              alt="football"
+              className="w-full h-full"
+              width={0}
+              height={0}
+            />
           </div>
-        ))
-      }
-     </div>
-  </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

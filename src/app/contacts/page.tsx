@@ -1,4 +1,3 @@
-
 import { SectionHeader } from "@/components";
 import { constructMetaData } from "@/utils/metadata";
 import { Metadata } from "next";
@@ -12,11 +11,11 @@ export const metadata: Metadata = constructMetaData({
 });
 
 const ContactUs = () => {
-  return(
+  return (
     <>
-    <Block />
+      <Block />
     </>
-  )
+  );
 };
 
 export default ContactUs;

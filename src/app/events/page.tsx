@@ -10,20 +10,16 @@ export const metadata: Metadata = constructMetaData({
 const EventsPage = () => {
   return (
     <div className="pt-[100px]">
-     <SectionHeader text="Events" />
-     <div className="flex flex-row flex-wrap gap-20 justify-center items-center">
-     {
-        events.map((event , index) => (
+      <SectionHeader text="Events" />
+      <div className="flex flex-row flex-wrap gap-20 justify-center items-center">
+        {events.map((event, index) => (
           <div key={index}>
-<EventCard  event={event} />
+            <EventCard event={event} />
           </div>
-          
-        ))
-     }
-     </div>
-     
+        ))}
+      </div>
     </div>
-    );
+  );
 };
 
 export default EventsPage;

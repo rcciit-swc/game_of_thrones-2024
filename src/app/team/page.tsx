@@ -8,7 +8,7 @@ export const metadata: Metadata = constructMetaData({
 });
 
 const TeamsPage = () => {
-  return(
+  return (
     <div className="mt-[60px]">
       <SectionHeader text="Our Team" />
       <TeamCard />

@@ -56,12 +56,10 @@ const page = ({ params: { event } }: Params) => {
               {eventObj?.date == "" ? "Yet to be Announced" : eventObj?.date}
             </span>
           </h1>
-        
+
           <CoordinatorCard event={eventObj} />
-          
-         
         </div>
-       
+
         <Image
           src={eventObj!.hoverImage}
           width={0}

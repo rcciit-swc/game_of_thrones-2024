@@ -25,7 +25,9 @@ const Navbar = () => {
   }, []);
   return (
     <>
-      <div className={` fixed left-0 top-0 z-[40] w-screen lg:w-full lg:overflow-x-hidden`}>
+      <div
+        className={` fixed left-0 top-0 z-[40] w-screen lg:w-full lg:overflow-x-hidden`}
+      >
         <div
           className={`${
             scrolling || isMenuOpen ? "bg-body" : "bg-transparent"
@@ -36,13 +38,15 @@ const Navbar = () => {
       text-gray-800"
           >
             <span className="mr-1 pt-2 text-3xl text-indigo-600">
-              <Link href={"/"}><Image
-                src={"/assets/navbar/logo.svg"}
-                className="w-36 cursor-pointer transition-colors duration-500 ease-in-out hover:scale-105  "
-                width={0}
-                height={0}
-                alt="logo"
-              /></Link>
+              <Link href={"/"}>
+                <Image
+                  src={"/assets/navbar/logo.svg"}
+                  className="w-36 cursor-pointer transition-colors duration-500 ease-in-out hover:scale-105  "
+                  width={0}
+                  height={0}
+                  alt="logo"
+                />
+              </Link>
             </span>
           </div>
 
