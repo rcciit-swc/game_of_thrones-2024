@@ -82,11 +82,11 @@ const Navbar = () => {
                 </li>
               </Link>
             ))}
-            <li className="max-md:mt-10 md:ml-6 lg:ml-20">
+            {/* <li className="max-md:mt-10 md:ml-6 lg:ml-20">
               <button className=" text-md  rounded-xl border  bg-[#2D3493] px-14 py-2 font-semibold hover:bg-[#242975] md:px-10 ">
                 Login
               </button>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

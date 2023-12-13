@@ -12,7 +12,7 @@ export default function TeachersDesk() {
         <div className="relative block md:hidden">
           <div className="absolute z-[-10] ml-[-10px] mt-[10px] h-[250px] w-[100px] rounded-3xl bg-primary" />
           <Image
-            src="/teachers/principal.png"
+            src="/assets/teachers/principal.png"
             className="h-72 w-60"
             alt="Principal"
             priority
@@ -36,7 +36,7 @@ export default function TeachersDesk() {
               className="h-[390px] w-[300px] rounded-3xl"
               height={390}
               width={300}
-              src={`/${teachers[0].img}`}
+              src={`${teachers[0].img}`}
             />
             <div className="ml-[-10px] mt-[-330px] h-[320px] w-[300px] rounded-3xl md:bg-black" />
           </div>
