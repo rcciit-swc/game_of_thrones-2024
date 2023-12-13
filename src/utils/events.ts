@@ -1,11 +1,17 @@
+interface coordinatorType{
+    name: string ;
+    phone: string ;
+}
 interface eventsType{
     image: string ;
     hoverImage: string ;
     title: string ;
+    description?: string ;
     regFees: string ;
     prize: string ;
     venue: string ;
     date: string ;
+    coordinators?: coordinatorType[] ;
     rules: string ;
 }
 
@@ -13,11 +19,26 @@ const events:eventsType[] = [
     {
         image: "/assets/events/cricket.svg",
         hoverImage: "/assets/events/cricket2.svg",
-        title:"Gully Cricket",
+        title:"Short Hand Cricket",
+        description:"",
         regFees: "1000",
         prize:"15k (Winner-6K, runners up-4K,Trophy-5K)",
         venue:"College Ground",
         date:"",
+        coordinators:[
+            {
+                name: "Tahir Imam",
+                phone: "8910303288"
+            },
+            {
+                name: "Basanta Kumar Shaw",
+                phone: "7547927975"
+            },
+            {
+                name: "Soumyadip Pal",
+                phone: "8617321378"
+            }
+        ],
         rules: `<!DOCTYPE html>
             <html>
             <head>
@@ -53,10 +74,30 @@ const events:eventsType[] = [
         image: "/assets/events/badminton.svg",
         hoverImage: "/assets/events/badminton2.svg",
         title:"Badminton",
+        description:"",
         regFees: "1000",
         prize:"15k",
         venue:"College Ground",
         date:"20-21st January,2024",
+        coordinators:[
+            {
+                name: "Arnab Dey",
+                phone: "6291453074"
+            },
+            {
+                name: "Atanu Biswas",
+                phone: "8116335804"
+            },
+            {
+                name: "Shreya Shome",
+                phone: "8777358502"
+            },
+            {
+                name: "Sauradip Paul",
+                phone: "6289071523"
+            }
+        ],
+        
         rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -99,10 +140,22 @@ const events:eventsType[] = [
         image: "/assets/events/chess.svg",
         hoverImage: "/assets/events/chess2.svg",
         title:"CHESS",
+        description:"",
         regFees: "",
         prize:"",
         venue:"RCCIIT,Kolkata",
         date:"19th January,2024",
+        coordinators:[
+            {
+                name: "Soumyadeep Chakraborty",
+                phone: "6285408423"
+            },
+            {
+                name: "Dibakar Banerjee",
+                phone: "9051484336"
+            }
+        ],
+        
         rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -132,10 +185,26 @@ const events:eventsType[] = [
         image: "/assets/events/carrom.svg",
         hoverImage: "/assets/events/carrom2.svg",
         title:"CARROM",
+        description:"",
         regFees: "",
         prize:"",
         venue:"RCC IIT Common Room, old campus, Kolkata",
         date:"",
+        coordinators:[
+            {
+                name: "Riyan Sarkar",
+                phone: "9123674274"
+            },
+            {
+                name: "Sneha Das",
+                phone: "7890813060"
+            },
+            {
+                name: "Grantha Das",
+                phone: "7278271477"
+            }
+        ],
+        
         rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -194,10 +263,22 @@ const events:eventsType[] = [
         image: "/assets/events/badminton.svg",
         hoverImage: "/assets/events/badminton2.svg",
         title:"Kabaddi (Girls and Boys)",
+        description:"",
         regFees: "400 /-",
         prize:"8K (INR)",
         venue:"KOLKATA KABADDI COACHING(Near Girish Park Metro)",
         date:"13 th & 14 th January,2024 (10.00 am onwards)",
+        coordinators:[
+            {
+                name: "Harsh Jaiswal",
+                phone: "7903717738"
+            },
+            {
+                name: "Sreya Sahoo",
+                phone: "7864061484"
+            }
+        ],
+        
         rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -243,10 +324,26 @@ const events:eventsType[] = [
         image: "/assets/events/tug.svg",
         hoverImage: "/assets/events/tug2.svg",
         title:"Tug of War (boys and girls)",
+        description:"",
         regFees: "400 (each team)",
         prize:"6k",
         venue:"College Ground",
         date:"",
+        coordinators:[
+            {
+                name: "Swastika Bose",
+                phone: "7044669104"
+            },
+            {
+                name: "Swapnil Chowdhury",
+                phone: "9433936906"
+            },
+            {
+                name: "Souvik Panda",
+                phone: "9903403585"
+            }
+        ],
+        
         rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -276,10 +373,29 @@ const events:eventsType[] = [
         image: "/assets/events/football.svg",
         hoverImage: "/assets/events/football2.svg",
         title:"FOOTBALL TOURNAMENT",
+        description:"",
         regFees: "RS. 1500 (each team)",
         prize:"",
         venue:"",
         date:"",
+        coordinators:[
+            {
+                name: "Deep Das",
+                phone: "8777659627"
+            },
+            {
+                name: "Dwaipayan Bhattacharjee",
+                phone: "8017765623"
+            },
+            {
+                name: "Pritam Das",
+                phone: "8420002044"
+            },
+            {
+                name: "Joydeep Das",
+                phone: "9681162881"
+            }
+        ],
         rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -313,10 +429,26 @@ const events:eventsType[] = [
         image: "/assets/events/tt.svg",
         hoverImage: "/assets/events/tt2.svg",
         title:"Table Tennis",
+        description:"",
         regFees: "Singles (Rs.100), Doubles (Rs.200)",
         prize:"4.5K (INR)",
         venue:"East Calcutta District Sports Council",
         date:"13 th January,2024 (10.30 am onwards)",
+        coordinators:[
+            {
+                name: "Subhranil Saha",
+                phone: "8101696445"
+            },
+            {
+                name: "Debasmita Dey",
+                phone: "6291145072"
+            },
+            {
+                name: "Souvik Mandal",
+                phone: "9330613148"
+            }
+        ],
+        
         rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -348,10 +480,22 @@ const events:eventsType[] = [
         image: "/assets/events/handball.svg",
         hoverImage: "/assets/events/handball2.svg",
         title:"Handball(girls)",
+        description:"",
         regFees: "Rs 250 (each team)",
         prize:"Rs900 (winner), Rs 600(1st runners’ up)",
         venue:"Middle Ground(College)",
         date:"",
+        coordinators:[
+            {
+                name: "Ankita Naskar",
+                phone: "9073569808"
+            },
+            {
+                name: "Ankuri Sen",
+                phone: "9903290308"
+            }
+        ],
+        
         rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -392,24 +536,39 @@ const events:eventsType[] = [
             </ol>
         </body>
         </html>
-        
         `
     },
     {
         image: "/assets/events/handball.svg",
         hoverImage: "/assets/events/handball2.svg",
         title:"Volleyball (boys)",
+        description:"",
         regFees: "500 (each team)",
         prize:"4.5 k",
         venue:"Beleghata Balak Brinda Club, CIT More",
         date:"14 Jan, Sunday",
+        coordinators:[
+            {
+                name: "Subhasis Ghosh",
+                phone: "8145520227"
+            },
+            {
+                name: "Subhodip Chakraborty",
+                phone: "8370874299"
+            },
+            {
+                name: "Piyush Prasad",
+                phone: "8910170643"
+            }
+        ],
+        
         rules: `<!DOCTYPE html>
         <html>
         <head>
             <title>Volleyball Tournament Rules</title>
         </head>
         <body>
-            <ol  class="flex flex-col gap-3 text-xl">
+            <ol class="flex flex-col gap-3 text-xl">
                 <li>1. A team should have a total of 6 players with 2 reserve players.</li>
                 <li>2. Each match will be of Knock-out type.</li>
                 <li>3. Only 6 players on the floor at any given time: 3 in the front row and 3 in the back row.</li>

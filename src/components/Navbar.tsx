@@ -25,11 +25,11 @@ const Navbar = () => {
   }, []);
   return (
     <>
-      <div className={` fixed left-0 top-0 z-[40] w-full`}>
+      <div className={` fixed left-0 top-0 z-[40] w-screen lg:w-full lg:overflow-x-hidden`}>
         <div
           className={`${
             scrolling || isMenuOpen ? "bg-body" : "bg-transparent"
-          }   items-center justify-around gap-20 px-7 py-2 max-md:border-b md:flex lg:px-10`}
+          }   items-center justify-around  gap-20 px-2 py-2 max-md:border-b md:flex lg:px-10`}
         >
           <div
             className="flex cursor-pointer items-center font-[Poppins] text-2xl font-bold 
@@ -73,12 +73,12 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
                 key={index}
               >
-                <li className="my-4 pt-2 font-semibold duration-500 ease-linear md:my-0 md:ml-8 md:hover:scale-105 md:hover:text-yellow-300 xl:text-xl">
+                <li className="my-4 pt-2 font-semibold duration-500 ease-linear md:my-0 md:ml-4 lg:ml-8 md:hover:scale-105 md:hover:text-yellow-300 xl:text-xl">
                   <h1 className="cursor-pointer p-2 transition">{link.name}</h1>
                 </li>
               </Link>
             ))}
-            <li className="max-md:mt-10 md:ml-20">
+            <li className="max-md:mt-10 md:ml-6 lg:ml-20">
               <button className=" text-md  rounded-xl border  bg-[#2D3493] px-14 py-2 font-semibold hover:bg-[#242975] md:px-10 ">
                 Login
               </button>
