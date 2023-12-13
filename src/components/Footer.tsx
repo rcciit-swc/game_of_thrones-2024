@@ -5,7 +5,7 @@ import { links, socials } from "@/utils/constant";
 
 export default function Footer() {
   return (
-    <footer className=" border-t-2 mt-10 border-white bg-primary p-4 text-center text-sm text-neutral">
+    <footer className=" border-t-2 mt-10 border-white bg-primary p-4 text-center  text-sm text-neutral">
       <div className="mb-2 flex items-center justify-center">
         <Image src="/throne.png" alt="Throne" width={92} height={74} />
         <Image

@@ -12,6 +12,10 @@ const navRoutes = [
     href: "/gallery",
   },
   {
+    name:"Team",
+    href:"/team",
+  },
+  {
     name: "Contact Us",
     href: "/contacts",
   },
