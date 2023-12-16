@@ -21,8 +21,8 @@ const events: eventsType[] = [
     hoverImage: "/assets/events/cricket2.svg",
     title: "Short Hand Cricket",
     description: "",
-    regFees: "1000",
-    prize: "15k (Winner-6K, runners up-4K,Trophy-5K)",
+    regFees: "Rs. 1000 /- (each team)",
+    prize: "Rs. 15000 /- (Winner-6K, Runners up-4K, Trophy-5K)",
     venue: "College Ground",
     date: "",
     coordinators: [
@@ -75,9 +75,9 @@ const events: eventsType[] = [
     hoverImage: "/assets/events/badminton2.svg",
     title: "Badminton",
     description: "",
-    regFees: "1000",
-    prize: "15k",
-    venue: "College Ground",
+    regFees: "",
+    prize: "",
+    venue: "",
     date: "20-21st January,2024",
     coordinators: [
       {
@@ -264,8 +264,8 @@ const events: eventsType[] = [
     hoverImage: "/assets/events/badminton2.svg",
     title: "Kabaddi (Girls and Boys)",
     description: "",
-    regFees: "400 /-",
-    prize: "8K (INR)",
+    regFees: "Rs. 400 /- per Team",
+    prize: "Rs. 8000",
     venue: "KOLKATA KABADDI COACHING(Near Girish Park Metro)",
     date: "13 th & 14 th January,2024 (10.00 am onwards)",
     coordinators: [
@@ -325,8 +325,8 @@ const events: eventsType[] = [
     hoverImage: "/assets/events/tug2.svg",
     title: "Tug of War (boys and girls)",
     description: "",
-    regFees: "400 (each team)",
-    prize: "6k",
+    regFees: "Rs. 400 /- (each team)",
+    prize: "Rs. 6000 /-",
     venue: "College Ground",
     date: "",
     coordinators: [
@@ -431,7 +431,7 @@ const events: eventsType[] = [
     title: "Table Tennis",
     description: "",
     regFees: "Singles (Rs.100), Doubles (Rs.200)",
-    prize: "4.5K (INR)",
+    prize: "Rs. 4,500 /-",
     venue: "East Calcutta District Sports Council",
     date: "13 th January,2024 (10.30 am onwards)",
     coordinators: [
@@ -479,10 +479,10 @@ const events: eventsType[] = [
   {
     image: "/assets/events/handball.svg",
     hoverImage: "/assets/events/handball2.svg",
-    title: "Handball(girls)",
+    title: "Handball (Girls)",
     description: "",
-    regFees: "Rs 250 (each team)",
-    prize: "Rs900 (winner), Rs 600(1st runners’ up)",
+    regFees: "Rs. 250 /- (each team)",
+    prize: "Rs. 900 (winner), Rs 600 (1st runners’ up)",
     venue: "Middle Ground(College)",
     date: "",
     coordinators: [
@@ -541,10 +541,10 @@ const events: eventsType[] = [
   {
     image: "/assets/events/handball.svg",
     hoverImage: "/assets/events/handball2.svg",
-    title: "Volleyball (boys)",
+    title: "Volleyball (Boys)",
     description: "",
-    regFees: "500 (each team)",
-    prize: "4.5 k",
+    regFees: "Rs. 500 /- (each team)",
+    prize: "Rs. 4,500 /-",
     venue: "Beleghata Balak Brinda Club, CIT More",
     date: "14 Jan, Sunday",
     coordinators: [

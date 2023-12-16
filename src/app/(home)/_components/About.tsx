@@ -7,14 +7,14 @@ const About = () => {
       <div className="mx-auto max-w-[1600px]">
         <div className="absolute top-0 -scale-x-90 overflow-x-hidden max-lg:-left-6 md:-right-10 lg:-right-[54px]  md:scale-x-90">
           <Image
-            src="about/vector-9-orange.svg"
+            src="/assets/about/vector-9-orange.svg"
             className="h-full w-full"
             alt="football"
             width={0}
             height={0}
           />
           <Image
-            src="about/line.svg"
+            src="/assets/about/line.svg"
             className="absolute -right-32 top-0 h-full w-full"
             alt="football"
             width={0}
@@ -24,9 +24,9 @@ const About = () => {
         <div className="relative mx-auto mt-[20px] flex w-[320px] flex-col items-center justify-center md:mt-[200px] md:w-[60%] lg:flex-row lg:space-x-20">
           <SectionHeader text="About" />
           <p className="text-justify text-sm md:text-lg">
-            Game Of Thrones (GoT&apos;23), RCC Institute of Information
+            Game Of Thrones (GOT&apos;24), RCC Institute of Information
             Technology&apos;s Annual Sports Meet, is back as a National Inter
-            College Sports Tournament in Kolkata from Feb 17 to Mar 5, 2023.
+            College Sports Tournament in Kolkata happening in January 2024.
             Featuring diverse sports competitions and attractive prizes,
             GoT&apos;23 invites colleges nationwide for intense and inclusive
             contests. Beyond rivalry, it emphasizes sportsmanship and teamwork,

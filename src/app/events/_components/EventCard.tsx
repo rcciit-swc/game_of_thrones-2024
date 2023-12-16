@@ -18,7 +18,7 @@ const EventCard = ({ event }: { event: any }) => {
             {event.title}
           </h1>
           <p className="px-4 py-2">
-            {event.description} Lorem ipsum dolor sit amet.
+            {event.description}
           </p>
           <div className="pt-3 flex flex-row gap-5  justify-between px-5">
             <Link href={`/events/${event.title.toLowerCase()}`}>
@@ -26,7 +26,7 @@ const EventCard = ({ event }: { event: any }) => {
                 See More
               </button>
             </Link>
-            <button className="px-2 bg-violet-800 py-1 rounded-xl font-medium">
+            <button className="px-2 bg-violet-800 py-1 rounded-xl font-medium cursor-not-allowed" disabled>
               Register Now
             </button>
           </div>
