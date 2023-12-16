@@ -9,9 +9,11 @@ export const metadata: Metadata = constructMetaData({
 
 const TeamsPage = () => {
   return (
-    <div className="mt-[60px]">
+    <div className="mt-[60px] ">
       <SectionHeader text="Our Team" />
-      <TeamCard />
+      <div className="flex flex-col items-center justify-center ">
+        <SectionHeader text="Coming Soon" />
+      </div>
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export function constructMetaData({
-  title = "Game of thrones",
-  description = "Game of thrones(GOT) is the official intercollege national level sports fest conducted by RCCIIT",
+  title = "Game of Thrones 2024",
+  description = "Game of thrones(GOT) is the official intercollege national level sports fest conducted by RCCIIT.",
   image = "/thumbnail.png", // put a thumbnail.png in public folder, resolution 1200x630
   icons = "/favicon.ico",
   noIndex = false,
