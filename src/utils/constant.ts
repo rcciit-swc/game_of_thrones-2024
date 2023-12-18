@@ -50,21 +50,21 @@ const teachers = [
       'I am thrilled to introduce the upcoming sports extravaganza, "Game of Thrones," that will undoubtedly set the college ablaze with excitement and fervor. As we gear up for this thrilling event, let us embrace the spirit of competition, camaraderie, and sportsmanship. "Game of Thrones" is not just a series of matches; it is a celebration of our college spirit and unity. I encourage each one of you to participate wholeheartedly, whether as a competitor or a fervent supporter. Together, let us make this event a resounding success and create memories that will be etched in the annals of our college\'s history. May the games begin!',
     signL1: "Prof.(Dr.) Anirban Mukherjee",
     signL2: "Principal (Officiating) RCCIIT &Professor, IT, RCCIIT",
-    img: "/assets/teachers/principal.png",
+    img: "https://i.imgur.com/QNCJB8M.png",
   },
   {
     speech:
       'I am delighted to welcome you all to the 2021 edition of "Game of Thrones," the annual sports fest of RCCIIT. This year, we are hosting the event virtually, and I am confident that it will be a grand success. I am sure that the participants will give their best and make the event a memorable one. I wish all the participants the very best and hope that they will enjoy the event to the fullest.',
     signL1: "Prof.(Dr.) Anirban Mukherjee",
     signL2: "Principal (Officiating) RCCIIT &Professor, IT, RCCIIT",
-    img: "/assets/teachers/s.png",
+    img: "https://i.imgur.com/QNCJB8M.png",
   },
   {
     speech:
       'It gives me immense pleasure to welcome you all to the 2021 edition of "Game of Thrones," the annual sports fest of RCCIIT. This year, we are hosting the event virtually, and I am confident that it will be a grand success. I am sure that the participants will give their best and make the event a memorable one. I wish all the participants the very best and hope that they will enjoy the event to the fullest.It gives me immense pleasure to welcome you all to the 2021 edition of "Game of Thrones," the annual sports fest of RCCIIT. This year, we are hosting the event virtually, and I am confident that it will be a grand success. I am sure that the participants will give their best and make the event a memorable one. I wish all the participants the very best and hope that they will enjoy the event to the fullest.',
     signL1: "Prof.(Dr.) Anirban Mukherjee",
     signL2: "Principal (Officiating) RCCIIT &Professor, IT, RCCIIT",
-    img: "/assets/teachers/h.png",
+    img: "https://i.imgur.com/QNCJB8M.png",
   },
 ];
 
@@ -97,22 +97,22 @@ interface SponsorDataType {
 const sponsorsData: SponsorDataType[] = [
   {
     name: "Brodcasting",
-    logo: ["/assets/sponsors/sheffieldTimes.jpeg"],
+    logo: ["https://i.imgur.com/7FUt9No.jpg"],
   },
   {
     name: "Medical",
-    logo: ["/assets/sponsors/wsbClinic.jpeg"],
+    logo: ["https://i.imgur.com/emWVQXE.jpg"],
   },
   {
     name: "Kits",
-    logo: ["/assets/sponsors/decathlon.png"],
+    logo: ["https://i.imgur.com/I0jZRoR.png"],
   },
   {
     name: "Banking",
     logo: [
-      "/assets/sponsors/hdfcBank.png",
-      "/assets/sponsors/idfcBank.jpeg",
-      "/assets/sponsors/boi.png",
+      "https://i.imgur.com/h5axSQ5.png",
+      "https://i.imgur.com/R8zURqG.jpg",
+      "https://i.imgur.com/wOa6bYo.png",
     ],
   },
 ];
@@ -207,27 +207,52 @@ const CommitteeDetails = [
 
 const gallery=[
   {
-    image:"/assets/gallery/1.jpg",
+    image:"https://i.imgur.com/SHBXkRE.jpg",
     title:"Game of Thrones 2023",
     sport:"Carrom",
   },
   {
-    image:"/assets/gallery/2.jpg",
+    image:"https://i.imgur.com/u2P39Nq.jpg",
     title:"Game of Thrones 2023",
     sport:"Kabaddi",
   },
   {
-    image:"/assets/gallery/3.jpg",
+    image:"https://i.imgur.com/s9Wk8Y0.jpg",
+    title:"Game of Thrones 2023",
+    sport:"Prize Distribution",
+  },
+  {
+    image:"https://i.imgur.com/g88ASiX.jpg",
+    title:"Game of Thrones 2023",
+    sport:"Our Principal Sir",
+  },
+  {
+    image:"https://i.imgur.com/DTgsRgf.jpg",
+    title:"Game of Thrones 2023",
+    sport:"Football",
+  },
+  {
+    image:"https://i.imgur.com/EKK6eT3.jpg",
+    title:"Game of Thrones 2023",
+    sport:"Football",
+  },
+  {
+    image:"https://i.imgur.com/wqZ8enj.jpg",
+    title:"Game of Thrones 2023",
+    sport:"Badminton",
+  },
+  {
+    image:"https://i.imgur.com/wltRKfO.jpg",
     title:"Game of Thrones 2023",
     sport:"Cricket",
   },
   {
-    image:"/assets/gallery/4.jpg",
+    image:"https://i.imgur.com/NBlrs4A.jpg",
     title:"Game of Thrones 2023",
     sport:"Our Faculties",
   },
   {
-    image:"/assets/gallery/5.jpg",
+    image:"https://i.imgur.com/SuhFhE9.jpg",
     title:"Game of Thrones 2023",
     sport:"Cricket",
   },
@@ -236,48 +261,27 @@ const gallery=[
   //   title:"Game of Thrones",
   //   sport:"Cricket",
   // },
+  
+
+  
   {
-    image:"/assets/gallery/7.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Prize Distribution",
-  },
-  {
-    image:"/assets/gallery/8.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Our Principal Sir",
-  },
-  {
-    image:"/assets/gallery/9.jpg",
+    image:"https://i.imgur.com/Eva7WcO.jpg",
     title:"Game of Thrones 2023",
     sport:"Badminton",
   },
+  
   {
-    image:"/assets/gallery/10.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Badminton",
-  },
-  {
-    image:"/assets/gallery/11.jpg",
+    image:"https://i.imgur.com/wrrNl9y.jpg",
     title:"Game of Thrones 2023",
     sport:"Football",
   },
   {
-    image:"/assets/gallery/12.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Football",
-  },
-  {
-    image:"/assets/gallery/13.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Football",
-  },
-  {
-    image:"/assets/gallery/14.jpg",
+    image:"https://i.imgur.com/1g5f0Tc.jpg",
     title:"Game of Thrones 2023",
     sport:"Tug of War",
   },
   {
-    image:"/assets/gallery/15.jpg",
+    image:"https://i.imgur.com/EkSWxv6.jpg",
     title:"Game of Thrones 2023",
     sport:"Chess",
   },
