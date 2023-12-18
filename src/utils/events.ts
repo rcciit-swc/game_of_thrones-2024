@@ -21,10 +21,10 @@ const events: eventsType[] = [
     hoverImage: "/assets/events/cricket2.svg",
     title: "Short Hand Cricket",
     description: "",
-    regFees: "Rs. 1000 /- (each team)",
-    prize: "Rs. 15000 /- (Winner-6K, Runners up-4K, Trophy-5K)",
-    venue: "College Ground",
-    date: "",
+    regFees: "Rs. 1,000 /- (each team)",
+    prize: "Rs. 15,000 /- ",
+    venue: "RCCIIT College Ground",
+    date: "12th to 14th January, 2024 ",
     coordinators: [
       {
         name: "Tahir Imam",
@@ -75,9 +75,9 @@ const events: eventsType[] = [
     hoverImage: "/assets/events/badminton2.svg",
     title: "Badminton",
     description: "",
-    regFees: "",
-    prize: "",
-    venue: "",
+    regFees: "Rs. 100 /- (Singles)  ;  Rs. 200 /- (Doubles)",
+    prize: "Rs. 7,000 /-",
+    venue: "Spuddy Badminton Academy",
     date: "20-21st January,2024",
     coordinators: [
       {
@@ -141,8 +141,8 @@ const events: eventsType[] = [
     hoverImage: "/assets/events/chess2.svg",
     title: "CHESS",
     description: "",
-    regFees: "",
-    prize: "",
+    regFees: "Rs. 150 /-",
+    prize: "Rs. 2,500 /-",
     venue: "RCCIIT,Kolkata",
     date: "19th January,2024",
     coordinators: [
@@ -186,10 +186,10 @@ const events: eventsType[] = [
     hoverImage: "/assets/events/carrom2.svg",
     title: "CARROM",
     description: "",
-    regFees: "",
-    prize: "",
-    venue: "RCC IIT Common Room, old campus, Kolkata",
-    date: "",
+    regFees: "Rs. 100 /- (Singles)  ;  Rs. 200 /- (Doubles)",
+    prize: "Rs. 7,000 /-",
+    venue: "RCCIIT College Campus",
+    date: "12th & 13th January,2024",
     coordinators: [
       {
         name: "Riyan Sarkar",
@@ -265,9 +265,9 @@ const events: eventsType[] = [
     title: "Kabaddi (Girls and Boys)",
     description: "",
     regFees: "Rs. 400 /- per Team",
-    prize: "Rs. 8000",
-    venue: "KOLKATA KABADDI COACHING(Near Girish Park Metro)",
-    date: "13 th & 14 th January,2024 (10.00 am onwards)",
+    prize: "Rs. 8,000 /-",
+    venue: "KOLKATA KABADDI COACHING (Near Girish Park Metro)",
+    date: "13 th & 14 th January, 2024",
     coordinators: [
       {
         name: "Harsh Jaiswal",
@@ -326,9 +326,9 @@ const events: eventsType[] = [
     title: "Tug of War (boys and girls)",
     description: "",
     regFees: "Rs. 400 /- (each team)",
-    prize: "Rs. 6000 /-",
-    venue: "College Ground",
-    date: "",
+    prize: "Rs. 8,000 /-",
+    venue: "RCCIIT College Ground",
+    date: "19th January, 2024",
     coordinators: [
       {
         name: "Swastika Bose",
@@ -342,6 +342,10 @@ const events: eventsType[] = [
         name: "Souvik Panda",
         phone: "9903403585",
       },
+      {
+        name: "Shreya Sarkar",
+        phone: "7439727696",
+      }
     ],
 
     rules: `<!DOCTYPE html>
@@ -375,9 +379,9 @@ const events: eventsType[] = [
     title: "FOOTBALL TOURNAMENT",
     description: "",
     regFees: "RS. 1500 (each team)",
-    prize: "",
+    prize: "Rs. 20,000 /-",
     venue: "",
-    date: "",
+    date: "20th & 21st January, 2024",
     coordinators: [
       {
         name: "Deep Das",
@@ -430,10 +434,10 @@ const events: eventsType[] = [
     hoverImage: "/assets/events/tt2.svg",
     title: "Table Tennis",
     description: "",
-    regFees: "Singles (Rs.100), Doubles (Rs.200)",
+    regFees: "Rs. 100 /- (Singles)  ;  Rs. 200 /- (Doubles)",
     prize: "Rs. 4,500 /-",
     venue: "East Calcutta District Sports Council",
-    date: "13 th January,2024 (10.30 am onwards)",
+    date: "13th January, 2024",
     coordinators: [
       {
         name: "Subhranil Saha",
@@ -482,9 +486,9 @@ const events: eventsType[] = [
     title: "Handball (Girls)",
     description: "",
     regFees: "Rs. 250 /- (each team)",
-    prize: "Rs. 900 (winner), Rs 600 (1st runners’ up)",
-    venue: "Middle Ground(College)",
-    date: "",
+    prize: "Rs. 2,000 /-",
+    venue: "RCCIIT College Middle Ground , Kolkata",
+    date: "19th January, 2024",
     coordinators: [
       {
         name: "Ankita Naskar",
@@ -494,6 +498,14 @@ const events: eventsType[] = [
         name: "Ankuri Sen",
         phone: "9903290308",
       },
+      {
+        name: "Srinanda Das",
+        phone: "7980505034",
+      },
+      {
+        name: "Pritha Majumder",
+        phone: "7586909097",
+      }
     ],
 
     rules: `<!DOCTYPE html>
@@ -546,7 +558,7 @@ const events: eventsType[] = [
     regFees: "Rs. 500 /- (each team)",
     prize: "Rs. 4,500 /-",
     venue: "Beleghata Balak Brinda Club, CIT More",
-    date: "14 Jan, Sunday",
+    date: "14th January, 2024",
     coordinators: [
       {
         name: "Subhasis Ghosh",
