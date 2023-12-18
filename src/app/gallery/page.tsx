@@ -13,13 +13,13 @@ const Gallery = () => {
   return (
     <div className="pt-[100px] ">
       <SectionHeader text="gallery" />
-      <div className="max-w-[1600px] font-sans rounded-2xl justify-center  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 md:py-20 gap-20 px-5 md:px-10 md:border mx-auto">
+      <div className="max-w-[1600px] font-sans rounded-2xl justify-center items-center  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 md:py-20 gap-20 px-5 md:px-10 md:border mx-auto">
         {gallery.map((photo, index) => (
           <div key={index}>
             <img
               src={photo.image}
               alt="football"
-              className="w-full h-full rounded-2xl object-cover"
+              className="w-full  rounded-2xl object-cover "
               width={0}
               height={0}
             />

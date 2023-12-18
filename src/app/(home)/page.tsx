@@ -1,4 +1,5 @@
-import { Hero, SponsorPage, TeachersDeck, About, Events } from "./_components";
+import {  SponsorPage, TeachersDeck, About, Events, Hero } from "./_components";
+
 
 export default function Home() {
   return (

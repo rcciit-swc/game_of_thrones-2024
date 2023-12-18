@@ -12,7 +12,7 @@ export default function TeachersDesk() {
         <div className="relative block md:hidden">
           <div className="absolute z-[-10] ml-[-10px] mt-[10px] h-[250px] w-[100px] rounded-3xl bg-primary" />
           <Image
-            src="/assets/teachers/principal.png"
+            src="https://i.imgur.com/QNCJB8M.png"
             className="h-72 w-60"
             alt="Principal"
             priority

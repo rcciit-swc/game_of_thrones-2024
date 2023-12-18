@@ -14,7 +14,7 @@ const Events = () => {
       <div className="mx-auto max-w-full ">
         <SectionHeader text="Events" />
         <div className={`mt-[10px] h-full w-full`}>
-          <ul className="oveflow-x-scroll accordion hidden justify-center xl:flex">
+          <ul className="oveflow-x-scroll accordion gap-2 hidden justify-center xl:flex">
             {events.map((event, index) => (
               <li
                 key={index}
