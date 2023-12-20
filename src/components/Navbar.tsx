@@ -33,7 +33,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
       checkSession().then(async (res: any) => {
-        if (res !== null || res !== undefined) {
+        if (res?.userData !== undefined || res?.data !== undefined) {
           const userData = res?.session?.user!;
           const userInfo = { userData, data: await getUserInfo() };
           dispatch(setUser(userInfo));
@@ -43,7 +43,7 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    console.log("Updated User:", user); // Log the updated user state
+    console.log("Updated User:", user , isLoggedIn); // Log the updated user state
   }, [user]);
   return (
     <>

@@ -129,6 +129,16 @@ const CommitteeDetails = [
     ],
   },
   {
+    title: "Faculty-In-Charge SA & SW",
+    members: [
+      {
+        name: "Mr. Harinandan Tunga",
+        role: "Associate Professor, RCCIIT",
+        phone: "+919339877213 ",
+      },
+    ],
+  },
+  {
     title: "SWC Faculty Sub-Committee (Sports)",
     members: [
       {
@@ -152,20 +162,10 @@ const CommitteeDetails = [
     title: "For Event Details",
     members: [
       {
-        name: "Aritra Mitra",
-        role: "",
-        phone: "+91 9674508498",
-      },
-      {
         name: "Shatabdi Das",
         role: "",
         phone: "+91 9051805749",
-      },
-      {
-        name: "Souvik Debnath",
-        role: "",
-        phone: "+91 8637096286",
-      },
+      }
     ],
   },
   {
@@ -175,11 +175,6 @@ const CommitteeDetails = [
         name: "Aranya Nandi",
         role: "",
         phone: "+91 6296851026",
-      },
-      {
-        name: "Shourya Shikhar Ghosh",
-        role: " Assistant General Secretary, Tech",
-        phone: "+91 9732020301",
       }
     ],
   },
