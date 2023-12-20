@@ -33,7 +33,10 @@ const links = [
 ];
 
 const socials = [
-  { src: "assets/socials/google.svg", url: "https://www.google.com/search?q=rcciit" },
+  {
+    src: "assets/socials/google.svg",
+    url: "https://www.google.com/search?q=rcciit",
+  },
   {
     src: "assets/socials/facebook.svg",
     url: "https://www.facebook.com/rcciitofficial",
@@ -51,6 +54,7 @@ const teachers = [
     signL1: "Prof.(Dr.) Anirban Mukherjee",
     signL2: "Principal (Officiating) RCCIIT &Professor, IT, RCCIIT",
     img: "https://i.imgur.com/QNCJB8M.png",
+    header: "Principal's Desk",
   },
   {
     speech:
@@ -58,6 +62,7 @@ const teachers = [
     signL1: "Prof.(Dr.) Anirban Mukherjee",
     signL2: "Principal (Officiating) RCCIIT &Professor, IT, RCCIIT",
     img: "https://i.imgur.com/QNCJB8M.png",
+    header: "Chief's Desk",
   },
   {
     speech:
@@ -65,6 +70,7 @@ const teachers = [
     signL1: "Prof.(Dr.) Anirban Mukherjee",
     signL2: "Principal (Officiating) RCCIIT &Professor, IT, RCCIIT",
     img: "https://i.imgur.com/QNCJB8M.png",
+    header: "CEO's Desk",
   },
 ];
 
@@ -165,7 +171,7 @@ const CommitteeDetails = [
         name: "Shatabdi Das",
         role: "",
         phone: "+91 9051805749",
-      }
+      },
     ],
   },
   {
@@ -175,7 +181,7 @@ const CommitteeDetails = [
         name: "Aranya Nandi",
         role: "",
         phone: "+91 6296851026",
-      }
+      },
     ],
   },
   {
@@ -205,87 +211,85 @@ const CommitteeDetails = [
   },
 ];
 
-const gallery=[
+const gallery = [
   {
-    image:"https://i.imgur.com/SHBXkRE.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Carrom",
+    image: "https://i.imgur.com/SHBXkRE.jpg",
+    title: "Game of Thrones 2023",
+    sport: "Carrom",
   },
   {
-    image:"https://i.imgur.com/u2P39Nq.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Kabaddi",
+    image: "https://i.imgur.com/u2P39Nq.jpg",
+    title: "Game of Thrones 2023",
+    sport: "Kabaddi",
   },
   {
-    image:"https://i.imgur.com/s9Wk8Y0.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Prize Distribution",
+    image: "https://i.imgur.com/s9Wk8Y0.jpg",
+    title: "Game of Thrones 2023",
+    sport: "Prize Distribution",
   },
   {
-    image:"https://i.imgur.com/g88ASiX.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Our Principal Sir",
+    image: "https://i.imgur.com/g88ASiX.jpg",
+    title: "Game of Thrones 2023",
+    sport: "Our Principal Sir",
   },
   {
-    image:"https://i.imgur.com/DTgsRgf.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Football",
+    image: "https://i.imgur.com/DTgsRgf.jpg",
+    title: "Game of Thrones 2023",
+    sport: "Football",
   },
   {
-    image:"https://i.imgur.com/EKK6eT3.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Football",
+    image: "https://i.imgur.com/EKK6eT3.jpg",
+    title: "Game of Thrones 2023",
+    sport: "Football",
   },
   {
-    image:"https://i.imgur.com/wqZ8enj.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Badminton",
+    image: "https://i.imgur.com/wqZ8enj.jpg",
+    title: "Game of Thrones 2023",
+    sport: "Badminton",
   },
   {
-    image:"https://i.imgur.com/wltRKfO.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Cricket",
+    image: "https://i.imgur.com/wltRKfO.jpg",
+    title: "Game of Thrones 2023",
+    sport: "Cricket",
   },
   {
-    image:"https://i.imgur.com/NBlrs4A.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Our Faculties",
+    image: "https://i.imgur.com/NBlrs4A.jpg",
+    title: "Game of Thrones 2023",
+    sport: "Our Faculties",
   },
   {
-    image:"https://i.imgur.com/SuhFhE9.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Cricket",
+    image: "https://i.imgur.com/SuhFhE9.jpg",
+    title: "Game of Thrones 2023",
+    sport: "Cricket",
   },
   // {
   //   image:"/assets/gallery/6.jpg",
   //   title:"Game of Thrones",
   //   sport:"Cricket",
   // },
-  
 
-  
   {
-    image:"https://i.imgur.com/Eva7WcO.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Badminton",
+    image: "https://i.imgur.com/Eva7WcO.jpg",
+    title: "Game of Thrones 2023",
+    sport: "Badminton",
   },
-  
+
   {
-    image:"https://i.imgur.com/wrrNl9y.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Football",
-  },
-  {
-    image:"https://i.imgur.com/1g5f0Tc.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Tug of War",
+    image: "https://i.imgur.com/wrrNl9y.jpg",
+    title: "Game of Thrones 2023",
+    sport: "Football",
   },
   {
-    image:"https://i.imgur.com/EkSWxv6.jpg",
-    title:"Game of Thrones 2023",
-    sport:"Chess",
+    image: "https://i.imgur.com/1g5f0Tc.jpg",
+    title: "Game of Thrones 2023",
+    sport: "Tug of War",
   },
-]
+  {
+    image: "https://i.imgur.com/EkSWxv6.jpg",
+    title: "Game of Thrones 2023",
+    sport: "Chess",
+  },
+];
 export {
   links,
   socials,
@@ -294,5 +298,5 @@ export {
   sponsorsData,
   navRoutes,
   CommitteeDetails,
-  gallery
+  gallery,
 };
