@@ -53,7 +53,7 @@ const Hero = () => {
 
       <div className=" absolute top-[14%] z-30 p-4 max-md:left-3 md:w-[45%] lg:right-20">
         <div className="flex flex-col items-start gap-8 md:items-center md:gap-12 lg:gap-16">
-          <div className="flex flex-row items-center gap-3">
+          <div className="flex flex-row items-center gap-2">
             <Link href={"https://rcciit.org/"} target="_blank">
               <Image
                 src="/assets/hero/rcc.svg"

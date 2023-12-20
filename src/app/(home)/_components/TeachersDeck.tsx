@@ -5,7 +5,7 @@ import { SectionHeader } from "@/components";
 export default function TeachersDesk() {
   return (
     <section className="text-neutral">
-      <SectionHeader text="Principal's Deck" />
+      <SectionHeader text="Principal's Desk" />
 
       <div className="flex flex-col items-center justify-center gap-8 lg:flex-row">
         {/* Mobile Image */}

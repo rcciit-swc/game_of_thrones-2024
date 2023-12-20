@@ -27,16 +27,16 @@ const links = [
   { text: "Gallery", url: "https://got.rcciit.org.in/gallery" },
   {
     text: "Sponsorship Brochure",
-    url: "https://drive.google.com/file/d/14b8aQFhIhg3PDtByyscxF50MkNfq43B_/view",
+    url: "https://drive.google.com/file/d/1h2i1Qe8KqKFs4RrfEyEc3FPHkxd3u5xD/view?usp=sharing",
   },
-  { text: "Contact Us", url: "https://got.rcciit.org.in/#contact" },
+  { text: "Contact Us", url: "https://got.rcciit.org.in/contacts" },
 ];
 
 const socials = [
   { src: "assets/socials/google.svg", url: "https://www.google.com/search?q=rcciit" },
   {
     src: "assets/socials/facebook.svg",
-    url: "https://www.facebook.com/rcciit_kolkata",
+    url: "https://www.facebook.com/rcciitofficial",
   },
   {
     src: "assets/socials/insta.svg",
@@ -129,6 +129,16 @@ const CommitteeDetails = [
     ],
   },
   {
+    title: "Faculty-In-Charge SA & SW",
+    members: [
+      {
+        name: "Mr. Harinandan Tunga",
+        role: "Associate Professor, RCCIIT",
+        phone: "+919339877213 ",
+      },
+    ],
+  },
+  {
     title: "SWC Faculty Sub-Committee (Sports)",
     members: [
       {
@@ -152,20 +162,10 @@ const CommitteeDetails = [
     title: "For Event Details",
     members: [
       {
-        name: "Aritra Mitra",
-        role: "",
-        phone: "+91 9674508498",
-      },
-      {
         name: "Shatabdi Das",
         role: "",
         phone: "+91 9051805749",
-      },
-      {
-        name: "Souvik Debnath",
-        role: "",
-        phone: "+91 8637096286",
-      },
+      }
     ],
   },
   {
@@ -175,7 +175,7 @@ const CommitteeDetails = [
         name: "Aranya Nandi",
         role: "",
         phone: "+91 6296851026",
-      },
+      }
     ],
   },
   {
