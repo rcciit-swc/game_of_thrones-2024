@@ -29,14 +29,14 @@ const links = [
     text: "Sponsorship Brochure",
     url: "https://drive.google.com/file/d/14b8aQFhIhg3PDtByyscxF50MkNfq43B_/view",
   },
-  { text: "Contact Us", url: "https://got.rcciit.org.in/#contact" },
+  { text: "Contact Us", url: "https://got.rcciit.org.in/contacts" },
 ];
 
 const socials = [
   { src: "assets/socials/google.svg", url: "https://www.google.com/search?q=rcciit" },
   {
     src: "assets/socials/facebook.svg",
-    url: "https://www.facebook.com/rcciit_kolkata",
+    url: "https://www.facebook.com/rcciitofficial",
   },
   {
     src: "assets/socials/insta.svg",
@@ -176,6 +176,11 @@ const CommitteeDetails = [
         role: "",
         phone: "+91 6296851026",
       },
+      {
+        name: "Shourya Shikhar Ghosh",
+        role: " Assistant General Secretary, Tech",
+        phone: "+91 9732020301",
+      }
     ],
   },
   {
