@@ -104,7 +104,7 @@ const Navbar = () => {
                 </li>
               </Link>
             ))}
-            {isLoggedIn && user != null && user != undefined ? (
+            {/* {isLoggedIn && user != null && user != undefined ? (
               <div className="overflow-hidden md:ml-10 border-none">
                 <Dropdown
                   className="bg-body border-none  text-white "
@@ -119,7 +119,7 @@ const Navbar = () => {
                   }
                   dismissOnClick={false}
                 >
-                  {/* <Dropdown.Item>Show Profile</Dropdown.Item> */}
+                   <Dropdown.Item>Show Profile</Dropdown.Item> 
 
                   <Dropdown.Item
                     onClick={() => {
@@ -142,7 +142,7 @@ const Navbar = () => {
                   Login
                 </button>
               </li>
-            )}
+            )} */}
           </ul>
         </div>
       </div>
