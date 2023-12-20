@@ -12,7 +12,7 @@ const ProfileCard = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();
   return (
-    <div className="block md:hidden">
+    <div className="block lg:hidden">
           <Dropdown
             className="bg-body  text-white "
             label={
@@ -26,7 +26,7 @@ const ProfileCard = () => {
             }
             dismissOnClick={false}
           >
-            <Dropdown.Item>Show Profile</Dropdown.Item>
+            {/* <Dropdown.Item>Show Profile</Dropdown.Item> */}
 
             <Dropdown.Item onClick={()=>{
               logOut().then(()=>{

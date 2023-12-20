@@ -119,7 +119,7 @@ const Navbar = () => {
                   }
                   dismissOnClick={false}
                 >
-                  <Dropdown.Item>Show Profile</Dropdown.Item>
+                  {/* <Dropdown.Item>Show Profile</Dropdown.Item> */}
 
                   <Dropdown.Item
                     onClick={() => {

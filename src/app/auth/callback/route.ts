@@ -24,12 +24,13 @@ export async function GET(request: NextRequest) {
 
     if (data.user) {
       const userExists = await checkUserExistsinDatabase(data.user.id);
-      if (!userExists && requestUrl.pathname !== "/registration") {
+      if (!userExists) {
         return NextResponse.redirect(`${requestUrl.origin}/registration`);
       }
-
+      if(userExists){
       return NextResponse.redirect(`${requestUrl.origin}/dashboard`);
     }
+  }
   }
 
   // URL to redirect to after sign in process completes
