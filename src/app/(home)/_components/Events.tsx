@@ -33,7 +33,7 @@ const Events = () => {
                       <h2 className="text-center font-got text-xl font-semibold">
                         {event.title}
                       </h2>
-                      <p className="text-center">Description</p>
+                      <p className="text-center">{event.description}</p>
                     </div>
                     <Link href={`/events/${event.title.toLowerCase()}`}>
                       <button className="pb-5 tracking-widest duration-300 hover:scale-105 hover:text-green-300">
