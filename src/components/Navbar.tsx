@@ -85,8 +85,8 @@ const Navbar = () => {
               </Link>
             ))}
 
-            <div className="overflow-hidden md:ml-10 border-none">
-              {/* Conditionally Render two blocks between Logout and Login */}
+            {/* <div className="overflow-hidden md:ml-10 border-none">
+             
               <Dropdown
                 className="bg-body border-none  text-white "
                 label={
@@ -112,7 +112,7 @@ const Navbar = () => {
               >
                 Login
               </button>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

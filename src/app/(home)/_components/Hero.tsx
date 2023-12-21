@@ -51,7 +51,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className=" absolute top-[14%] z-30 p-4 max-md:left-3 md:w-[45%] lg:right-20">
+      <div className=" absolute max-lg:top-[12%] top-[8%] z-30 p-4 max-md:left-1 md:w-[45%] lg:right-20">
         <div className="flex flex-col items-start gap-8 md:items-center md:gap-12 lg:gap-16">
           <div className="flex flex-row items-center gap-2">
             <Link href={"https://rcciit.org/"} target="_blank">
@@ -78,7 +78,7 @@ const Hero = () => {
             </div>
           </div>
           <div className="flex flex-col items-center font-semibold md:text-xl lg:text-2xl 2xl:text-3xl">
-            <span>Inter-college national</span>
+            <span>Inter-college state</span>
             <span>level sports fest</span>
           </div>
 

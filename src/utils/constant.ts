@@ -47,7 +47,17 @@ const socials = [
 const teachers = [
   {
     speech:
-      'I am thrilled to introduce the upcoming sports extravaganza, "Game of Thrones," that will undoubtedly set the college ablaze with excitement and fervor. As we gear up for this thrilling event, let us embrace the spirit of competition, camaraderie, and sportsmanship. "Game of Thrones" is not just a series of matches; it is a celebration of our college spirit and unity. I encourage each one of you to participate wholeheartedly, whether as a competitor or a fervent supporter. Together, let us make this event a resounding success and create memories that will be etched in the annals of our college\'s history. May the games begin!',
+      `Life is big – achieving perfection in academic or technical domain is important for professional success in life. But that is not all; one must look for opportunities to explore life beyond that. The young undergrads are having lot of energy and spirit within them which needs expression in different forms. After entering the college, while enjoying the adulthood for the first time in life, a student gets some reprieve from the pressure of
+      competitive academics and gets time and
+      freedom to nurture his/her talent in sports, arts, performing arts, innovations and all.
+      The college fests provide the real platform to showcase their talents and unleash their energy - their youthful exuberance.
+      Game of Thrones (GoT) – the annual sports fest of RCCIIT is one such platform created and traditionally supported by RCCIIT. Members of the Student Welfare
+      Committee along with hundreds of senior and junior student volunteers have come up and are working together under the careful guidance of senior faculty members to make the 2024 version of GoT a grand success. From last year GoT  has taken up a big challenge by scaling it up to
+      the extent of Inter-College Sports Meet attracting participants from Kolkata, other Districts and even other States. This time also it will be a multi-tournament event organized at multiple venues within and outside college. Cricket, Football, Badminton and other sports competitions at college level are now
+      fewer in numbers compared to earlier days. Trendy games like gully cricket, futsal are
+      more popular which doesn’t hold the traditional spirit of the on-field games. Moreover, it is observed that students are now more inclined towards digital games, which is
+      detrimental to their mental and physical health. This is one reason why RCCIIT has put lot of emphasis on games and sports. By accommodating traditional versions of the games in GoT and making those open for all, we believe it will uphold the true spirit of
+      games and sports and foster sportsmanship, positivity and friendship among the students. I wish all success of this mega event and hope it will be even better organized this year, particularly considering the institute's silver jubilee celebration year 2024. I also expect better participation and competition this time.`,
     signL1: "Prof.(Dr.) Anirban Mukherjee",
     signL2: "Principal (Officiating) RCCIIT &Professor, IT, RCCIIT",
     img: "https://i.imgur.com/QNCJB8M.png",
@@ -286,6 +296,24 @@ const gallery=[
     sport:"Chess",
   },
 ]
+
+const locations = [
+  {
+    name: "Canal S Rd, Beleghata, Kolkata, West Bengal 700015",
+    landmark: " RCC Institute of Information Technology.",
+    place: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.562428918149!2d88.39410617591764!3d22.558058533501942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02768400b479b1%3A0x5ad44b718c770205!2sRCC%20INSTITUTE%20OF%20INFORMATION%20TECHNOLOGY%20(New%20Campus)!5e0!3m2!1sen!2sin!4v1701647880889!5m2!1sen!2sin"
+  },
+  {
+    name: "Spuddy Badminton Academy Kolkata",
+    landmark: "near Salt Lake, Kadapara, Phool Bagan, Kankurgachi, Kolkata",
+    place: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.214541279687!2d88.39865027601422!3d22.571077879492776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027733c660b6ed%3A0x57fe333dbcb1c621!2sSpuddy%20Badminton%20Academy%20Kolkata!5e0!3m2!1sen!2sin!4v1703173867204!5m2!1sen!2sin"
+  },
+  {
+    name: "Netaji Subhash Eastern Center",
+    landmark: " Sector 3, Bidhannagar, Kolkata",
+    place: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.3830077589655!2d88.40770427601406!3d22.564774079497397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02742cd148e14b%3A0xc91b0ac3803b0462!2sSports%20Authority%20Of%20India!5e0!3m2!1sen!2sin!4v1703174045601!5m2!1sen!2sin"
+  }
+]
 export {
   links,
   socials,
@@ -294,5 +322,5 @@ export {
   sponsorsData,
   navRoutes,
   CommitteeDetails,
-  gallery
+  gallery,locations
 };
