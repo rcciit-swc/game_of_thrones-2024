@@ -3,7 +3,7 @@ import { SectionHeader } from "@/components";
 
 const About = () => {
   return (
-    <section className="relative max-[550px]:-mt-[21vh]    md:-mt-[4vh] lg:mt-0">
+    <section className="relative max-[550px]:-mt-[21vh] md:-mt-[4vh] lg:mt-0">
       <div className="mx-auto max-w-[1600px]">
         <div className="absolute top-0 -scale-x-90 overflow-x-hidden max-lg:-left-6 md:-right-10 lg:-right-[54px]  md:scale-x-90">
           <Image
@@ -21,7 +21,7 @@ const About = () => {
             height={0}
           />
         </div>
-        <div className="relative mx-auto mt-[20px] flex w-[320px] flex-col items-center justify-center md:mt-[200px] md:w-[60%] lg:flex-row lg:space-x-20">
+        <div className="relative mx-auto mt-[20px] flex w-[320px] flex-col items-center justify-center md:mt-[200px] md:w-[80%] lg:flex-row lg:space-x-20">
           <SectionHeader text="About" />
           <p className="text-justify text-sm md:text-lg">
             Game Of Thrones (GOT&apos;24), RCC Institute of Information

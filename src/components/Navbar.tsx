@@ -103,40 +103,44 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
                 key={index}
               >
-                <li className="my-4 pt-2 font-semibold duration-500 ease-linear md:my-0 md:ml-4 lg:ml-8 md:hover:scale-105 md:hover:text-yellow-300 xl:text-xl">
+                <li
+                  className={`my-4 pt-2 font-semibold duration-200 ease-linear md:my-0 md:ml-4 lg:ml-8 md:hover:scale-105 md:hover:text-yellow-300 xl:text-xl ${
+                    pathname === link.href && "text-yellow-300"
+                  }`}
+                >
                   <h1 className="cursor-pointer p-2 transition">{link.name}</h1>
                 </li>
               </Link>
             ))}
 
-             <div className="overflow-hidden md:ml-10 border-none">
-             
-              <Dropdown
-                className="bg-body border-none text-white "
-                label={
-                  <Image
-                    src={user?.user_metadata?.avatar_url}
-                    className="w-12 rounded-full cursor-pointer pr-2 duration-500 ease-in-out hover:scale-105"
-                    width={100}
-                    height={100}
-                    alt="logo"
-                  />
-                }
-                dismissOnClick={false}
-              >
-                <Dropdown.Item className="hover:bg-slate-400">
-                  Show Profile
-                </Dropdown.Item>
-
-                <Dropdown.Item
-                  onClick={handleLogout}
-                  className="hover:bg-slate-400"
+            {user && (
+              <div className="overflow-hidden md:ml-10 border-none">
+                <Dropdown
+                  className="bg-body border-none text-white "
+                  label={
+                    <Image
+                      src={user?.user_metadata?.avatar_url}
+                      className="w-12 rounded-full cursor-pointer pr-2 duration-500 ease-in-out hover:scale-105"
+                      width={100}
+                      height={100}
+                      alt="logo"
+                    />
+                  }
+                  dismissOnClick={false}
                 >
-                  Logout
-                </Dropdown.Item>
-              </Dropdown>
-            </div>
-              {!user && (
+                  <Dropdown.Item className="hover:bg-slate-400">
+                    Show Profile
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onClick={handleLogout}
+                    className="hover:bg-slate-400"
+                  >
+                    Logout
+                  </Dropdown.Item>
+                </Dropdown>
+              </div>
+            )}
+            {!user && (
               <li className="max-md:mt-10 md:ml-6 lg:ml-20 ">
                 <button
                   className="text-md rounded-xl border bg-[#2D3493] px-14 py-2 font-semibold hover:bg-[#242975] md:px-10"

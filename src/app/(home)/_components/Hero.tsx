@@ -88,19 +88,10 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* <div className="absolute lg:-right-16    z-0 overflow-x-hidden max-lg:-left-10 max-lg:mt-[10%]  ">
-        <Image
-          src="/assets/hero/rightdown.svg"
-          alt="footballer"
-          className=" h-screen w-full  -scale-x-90   lg:scale-x-90"
-          width={0}
-          height={0}
-        />
-      </div> */}
       <Image
         src="/assets/hero/rightdown.svg"
         alt="footballer"
-        className="absolute z-0 h-screen w-full -scale-x-90 overflow-x-hidden max-lg:-left-10 max-lg:mt-[10%] lg:-right-[48px] lg:w-[80%] lg:scale-x-90 xl:-right-[56px] 2xl:-right-[70px] min-[1700px]:-right-[84px]"
+        className="absolute z-0 h-screen w-full -scale-x-90 overflow-x-hidden max-lg:left-10 max-lg:mt-[10%] lg:-right-[48px] lg:w-[80%] lg:scale-x-90 xl:-right-[56px] 2xl:-right-[70px] min-[1700px]:-right-[84px]"
         width={0}
         height={0}
       />
