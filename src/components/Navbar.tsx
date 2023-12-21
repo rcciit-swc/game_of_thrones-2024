@@ -109,8 +109,8 @@ const Navbar = () => {
               </Link>
             ))}
 
-            <div className="overflow-hidden md:ml-10 border-none">
-              {/* Conditionally Render two blocks between Logout and Login */}
+             <div className="overflow-hidden md:ml-10 border-none">
+             
               <Dropdown
                 className="bg-body border-none text-white "
                 label={
@@ -136,8 +136,7 @@ const Navbar = () => {
                 </Dropdown.Item>
               </Dropdown>
             </div>
-
-            {!user && (
+              {!user && (
               <li className="max-md:mt-10 md:ml-6 lg:ml-20 ">
                 <button
                   className="text-md rounded-xl border bg-[#2D3493] px-14 py-2 font-semibold hover:bg-[#242975] md:px-10"
