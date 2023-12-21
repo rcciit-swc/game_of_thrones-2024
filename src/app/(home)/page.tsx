@@ -1,5 +1,5 @@
-import {  SponsorPage, TeachersDeck, About, Events, Hero } from "./_components";
-
+import { SponsorPage, TeachersDeck, About, Events, Hero } from "./_components";
+import { teachers } from "@/utils/constant";
 
 export default function Home() {
   return (
@@ -10,8 +10,10 @@ export default function Home() {
         <About />
       </div>
       <Events />
-      <TeachersDeck />
-      <SponsorPage />
+      {teachers.map((value, index) => (
+        <TeachersDeck value={value} key={index} />
+      ))}
+      {/* <SponsorPage /> */}
     </main>
   );
 }

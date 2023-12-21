@@ -1,3 +1,4 @@
+import { checkUserExistsinDatabase } from "@/utils/functions/existUser";
 import { Database } from "@/utils/supabase";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
@@ -14,7 +15,22 @@ export async function GET(request: NextRequest) {
     const supabase = createRouteHandlerClient<Database>({
       cookies: () => cookieStore,
     });
-    await supabase.auth.exchangeCodeForSession(code);
+    const { data, error } = await supabase.auth.exchangeCodeForSession(code);
+    if (error) {
+      // Handle error, perhaps redirect to an error page
+      console.error("Error exchanging code for session:", error);
+      return NextResponse.redirect("/error"); // Redirect to an error page
+    }
+
+    if (data.user) {
+      const userExists = await checkUserExistsinDatabase(data.user.id);
+      if (!userExists) {
+        return NextResponse.redirect(`${requestUrl.origin}/registration`);
+      }
+      if(userExists){
+      return NextResponse.redirect(`${requestUrl.origin}/dashboard`);
+    }
+  }
   }
 
   // URL to redirect to after sign in process completes

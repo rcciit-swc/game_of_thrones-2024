@@ -14,7 +14,7 @@ const Events = () => {
       <div className="mx-auto max-w-full ">
         <SectionHeader text="Events" />
         <div className={`mt-[10px] h-full w-full`}>
-          <ul className="oveflow-x-scroll accordion gap-2 hidden justify-center xl:flex">
+          <ul className="oveflow-x-scroll accordion gap-2 hidden justify-center space-x-2 xl:flex">
             {events.map((event, index) => (
               <li
                 key={index}
@@ -23,12 +23,11 @@ const Events = () => {
               >
                 <img
                   src={`${hover ? event.hoverImage : event.image} `}
-                  className=""
                   height={0}
                   width={0}
                   alt="image"
                 />
-                <div className="content  ">
+                <div className="content">
                   <span className="flex flex-col items-center justify-around bg-white bg-opacity-10">
                     <div className="py-5">
                       <h2 className="text-center font-got text-xl font-semibold">
@@ -46,7 +45,7 @@ const Events = () => {
               </li>
             ))}
           </ul>
-          <div className="mx-auto   flex max-w-[1600px] flex-wrap items-center justify-center gap-16 rounded-2xl   xl:hidden">
+          <div className="mx-auto flex max-w-[1600px] flex-wrap items-center justify-center gap-16 rounded-md xl:hidden">
             {events.map((event, index) => (
               <div key={index}>
                 <EventCard event={event} />
@@ -55,7 +54,6 @@ const Events = () => {
           </div>
         </div>
       </div>
-      <div></div>
     </section>
   );
 };

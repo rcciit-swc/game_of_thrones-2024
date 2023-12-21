@@ -1,13 +1,14 @@
 "use client";
+
+import { useAppDispatch } from "@/redux/hooks";
+import { setUser } from "@/redux/slices/user";
+import { checkSession } from "@/utils/functions/checkSession";
+import { getUserInfo } from "@/utils/functions/getUserInfo";
+import { regUser } from "@/utils/functions/regUser";
+import { validate, valuesType } from "@/utils/functions/validate";
+import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
-interface valuesType {
-  username: string;
-  phone: string;
-  college: string;
-  roll: string;
-  gender: string;
-}
 const RegForm = () => {
   const initialValues: valuesType = {
     username: "",
@@ -19,51 +20,31 @@ const RegForm = () => {
   const [formValues, setFormValues] = useState(initialValues);
   const [formValid, setFormValid] = useState(false);
   const [formErrors, setFormErrors] = useState<any>({});
+  const router = useRouter();
   const handleChange = (e: any) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
-  const validate = (values: valuesType) => {
-    const errors = {
-      username: "",
-      phone: "",
-      college: "",
-      roll: "",
-      gender: "",
-    };
-    const regexPhone =
-      /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
-    const regexName = /^[a-zA-Z ]{2,30}$/;
-    const regexRoll = /^[a-zA-Z0-9]{2,30}$/;
-    const regexCollege = /^[a-zA-Z ]{2,50}$/;
-    if (!values.username) {
-      errors.username = "Name is required";
-    } else if (!regexName.test(values.username)) {
-      errors.username = "Name is invalid";
-    }
-    if (!values.phone) {
-      errors.phone = "Phone is required";
-    } else if (!regexPhone.test(values.phone)) {
-      errors.phone = "Phone is invalid";
-    }
-    if (!values.college) {
-      errors.college = "College is required";
-    } else if (!regexCollege.test(values.college)) {
-      errors.college = "College is invalid";
-    }
-    if (!values.roll) {
-      errors.roll = "Roll is required";
-    } else if (!regexRoll.test(values.roll)) {
-      errors.roll = "Roll is invalid";
-    }
-    if (!values.gender) {
-      errors.gender = "Gender is required";
-    }
-    return errors;
-  };
+  const dispatch = useAppDispatch();
+  
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    setFormErrors(validate(formValues));
+    const errors = validate(formValues);
+    const isValid = Object.values(errors).every((value) => value === "");
+    if (!isValid) {
+      setFormErrors(errors);
+      return;
+    }
+    const { username, phone, college } = formValues;
+    regUser(username, college, phone);
+    checkSession().then(async(res: any) => {
+      if (res !== null || res !== undefined) {
+        const userData = res?.session?.user!;
+        const userInfo = { userData, data:await getUserInfo() };
+        dispatch(setUser(userInfo));
+      }
+    });
+    router.push("/dashboard");
   };
 
   return (
@@ -164,7 +145,7 @@ const RegForm = () => {
                 />
                 Female
               </label>
-              <label className="flex flex-row items-center gap-1">
+              {/* <label className="flex flex-row items-center gap-1">
                 <input
                   name="gender"
                   type="radio"
@@ -174,7 +155,7 @@ const RegForm = () => {
                   onChange={handleChange}
                 />
                 Others
-              </label>
+              </label>*/}
             </div>
             {formErrors.gender && (
               <span className="text-sm text-red-500">{formErrors.gender}</span>
@@ -183,6 +164,7 @@ const RegForm = () => {
 
           <input
             type="submit"
+            onClick={handleSubmit}
             value="Submit"
             className="mx-auto w-[80%] rounded-full bg-primary py-3 font-semibold tracking-wider"
           />
