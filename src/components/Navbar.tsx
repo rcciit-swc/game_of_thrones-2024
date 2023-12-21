@@ -4,21 +4,11 @@ import Link from "next/link";
 import { navRoutes } from "@/utils/constant";
 import { useState, useEffect } from "react";
 import { Dropdown } from "flowbite-react";
-import { useRouter } from "next/navigation";
-import { checkSession } from "@/utils/functions/checkSession";
-import { handleLogin } from "@/utils/functions/login";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { removeUser, setUser } from "@/redux/slices/user";
-import { logOut } from "@/utils/functions/logout";
-import { getUserInfo } from "@/utils/functions/getUserInfo";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
-  const dispatch = useAppDispatch();
-  const user: any = useAppSelector((state) => state.user?.user!);
-  const isLoggedIn = useAppSelector((state) => state.user?.isLoggedIn!);
-  const router = useRouter();
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -32,19 +22,9 @@ const Navbar = () => {
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      checkSession().then(async (res: any) => {
-        if (res?.userData !== undefined || res?.data !== undefined) {
-          const userData = res?.session?.user!;
-          const userInfo = { userData, data: await getUserInfo() };
-          dispatch(setUser(userInfo));
-        }
-      });
     };
   }, []);
 
-  useEffect(() => {
-    console.log("Updated User:", user , isLoggedIn); // Log the updated user state
-  }, [user]);
   return (
     <>
       <div
@@ -104,45 +84,35 @@ const Navbar = () => {
                 </li>
               </Link>
             ))}
-            {/* {isLoggedIn && user != null && user != undefined ? (
-              <div className="overflow-hidden md:ml-10 border-none">
-                <Dropdown
-                  className="bg-body border-none  text-white "
-                  label={
-                    <Image
-                      src={user?.userData?.user_metadata?.avatar_url!}
-                      className="w-12 rounded-full cursor-pointer pr-2 transition-colors duration-500 ease-in-out hover:scale-105  "
-                      width={0}
-                      height={0}
-                      alt="logo"
-                    />
-                  }
-                  dismissOnClick={false}
-                >
-                   <Dropdown.Item>Show Profile</Dropdown.Item> 
 
-                  <Dropdown.Item
-                    onClick={() => {
-                      logOut().then(() => {
-                        dispatch(removeUser());
-                        router.push("/");
-                      });
-                    }}
-                  >
-                    Logout
-                  </Dropdown.Item>
-                </Dropdown>
-              </div>
-            ) : (
-              <li className="max-md:mt-10 md:ml-6 lg:ml-20 ">
-                <button
-                  onClick={handleLogin}
-                  className=" text-md  rounded-xl border  bg-[#2D3493] px-14 py-2 font-semibold hover:bg-[#242975] md:px-10 "
-                >
-                  Login
-                </button>
-              </li>
-            )} */}
+            <div className="overflow-hidden md:ml-10 border-none">
+              {/* Conditionally Render two blocks between Logout and Login */}
+              <Dropdown
+                className="bg-body border-none  text-white "
+                label={
+                  <Image
+                    src={""}
+                    className="w-12 rounded-full cursor-pointer pr-2 transition-colors duration-500 ease-in-out hover:scale-105  "
+                    width={0}
+                    height={0}
+                    alt="logo"
+                  />
+                }
+                dismissOnClick={false}
+              >
+                <Dropdown.Item>Show Profile</Dropdown.Item>
+
+                <Dropdown.Item>Logout</Dropdown.Item>
+              </Dropdown>
+            </div>
+
+            <li className="max-md:mt-10 md:ml-6 lg:ml-20 ">
+              <button
+                className=" text-md  rounded-xl border  bg-[#2D3493] px-14 py-2 font-semibold hover:bg-[#242975] md:px-10 "
+              >
+                Login
+              </button>
+            </li>
           </ul>
         </div>
       </div>
