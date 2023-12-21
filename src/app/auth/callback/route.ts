@@ -1,30 +1,38 @@
-import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs'
-import { NextResponse } from 'next/server'
+import { cookies } from "next/headers";
+import { NextResponse } from "next/server";
+import { type CookieOptions, createServerClient } from "@supabase/ssr";
 
-import type { NextRequest } from 'next/server'
+export async function GET(request: Request) {
+  const { searchParams, origin } = new URL(request.url);
+  const code = searchParams.get("code");
+  // if "next" is in param, use it as the redirect URL
+  const next = searchParams.get("next") ?? "/";
 
+  if (code) {
+    const cookieStore = cookies();
+    const supabase = createServerClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      {
+        cookies: {
+          get(name: string) {
+            return cookieStore.get(name)?.value;
+          },
+          set(name: string, value: string, options: CookieOptions) {
+            cookieStore.set({ name, value, ...options });
+          },
+          remove(name: string, options: CookieOptions) {
+            cookieStore.delete({ name, ...options });
+          },
+        },
+      },
+    );
+    const { error } = await supabase.auth.exchangeCodeForSession(code);
+    if (!error) {
+      return NextResponse.redirect(`${origin}${next}`);
+    }
+  }
 
-export async function middleware(req: NextRequest) {
-  const res = NextResponse.next()
-
-  // Create a Supabase client configured to use cookies
-  const supabase = createMiddlewareClient({ req, res })
-
-  // Refresh session if expired - required for Server Components
-  await supabase.auth.getSession()
-
-  return res
-}
-
-// Ensure the middleware is only called for relevant paths.
-export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    '/((?!_next/static|_next/image|favicon.ico).*)',
-  ],
+  // return the user to an error page with instructions
+  return NextResponse.redirect(`${origin}/auth/auth-code-error`);
 }

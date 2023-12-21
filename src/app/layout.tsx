@@ -1,8 +1,9 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { constructMetaData } from "@/utils/metadata";
+import SessionProvider from "@/components/session-provider";
 import { Navbar, Footer } from "@/components";
-import { Providers } from "@/redux/provider";
+import { Toaster } from "sonner";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -21,11 +22,11 @@ export default function RootLayout({
       <body
         className={`min-h-screen ${poppins.className} bg-body text-neutral`}
       >
-        <Providers>
-          <Navbar />
-          {children}
-          <Footer />
-        </Providers>
+        <Navbar />
+        <Toaster position="bottom-center" />
+        {children}
+        <Footer />
+        <SessionProvider />
       </body>
     </html>
   );
