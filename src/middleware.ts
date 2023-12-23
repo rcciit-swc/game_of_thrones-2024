@@ -44,24 +44,40 @@ export async function middleware(request: NextRequest) {
     },
   );
 
-  const { data } = await supabase.auth.getSession();
-  if (!data.session) {
-    return NextResponse.redirect(new URL("/", request.url));
+  // if (request.nextUrl.pathname.startsWith("/events")) {
+  //   console.log(request.nextUrl);
+  //   return NextResponse.redirect(new URL("/gallery", request.url));
+  // }
+
+  // if (
+  //   request.nextUrl.href.includes("dashboard") ||
+  //   request.nextUrl.href.includes("profile")
+  // ) {
+  //   const { data } = await supabase.auth.getSession();
+  //   if (!data.session) {
+  //     return NextResponse.redirect(new URL("/", request.url));
+  //   }
+  //   return response;
+  // }
+
+  if (request.nextUrl.href.includes("dashboard")) {
+    const { data } = await supabase.auth.getSession();
+    if (!data.session) {
+      return NextResponse.redirect(new URL("/", request.url));
+    }
+    return response;
   }
 
-  return response;
+  if (request.nextUrl.href.includes("profile")) {
+    const { data } = await supabase.from("users").select();
+    const data2 = await supabase.auth.getSession();
+    console;
+    const isNamePresent = data?.some(
+      (da) => da.id === data2.data.session?.user.id,
+    );
+    if (isNamePresent) {
+      return NextResponse.redirect(new URL("/dashboard", request.url));
+    }
+    return response;
+  }
 }
-
-export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * Feel free to modify this pattern to include more paths.
-     */
-    "/dashboard/:path*",
-    "/profile/:path*",
-  ],
-};
