@@ -4,11 +4,11 @@ import Link from "next/link";
 const EventCard = ({ event }: { event: any }) => {
   return (
     <>
-      <div className="cursor-pointer card w-[300px] md:w-[450px] rounded-md relative overflow-hidden">
+      <div className="cursor-pointer card w-[300px] md:h-[250px] md:w-[350px] rounded-md relative overflow-hidden">
         <Image
           src={event.hoverImage}
           alt="football"
-          className="w-full h-3/4"
+          className="w-full h-full object-cover"
           width={0}
           height={0}
         />
@@ -26,7 +26,7 @@ const EventCard = ({ event }: { event: any }) => {
             </Link>
             <button
               className="px-2 bg-violet-800 py-1 rounded-xl font-medium cursor-not-allowed"
-              disabled
+              
             >
               Register Now
             </button>

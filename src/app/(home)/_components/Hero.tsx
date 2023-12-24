@@ -51,7 +51,7 @@ const Hero = () => {
         <Image
           src="/assets/hero/line-1.svg"
           alt="footballer"
-          className="relative h-screen w-full -scale-x-90 overflow-hidden lg:-left-10 lg:mt-14 lg:rotate-12 lg:scale-x-90  2xl:left-5 2xl:mt-0"
+          className="relative h-screen w-full z-[-1] -scale-x-90 overflow-hidden lg:-left-10 lg:mt-14 lg:rotate-12 lg:scale-x-90  2xl:left-5 2xl:mt-0"
           priority
           width={0}
           height={0}
@@ -123,7 +123,7 @@ const Hero = () => {
       <Image
         src="/assets/hero/rightdown.svg"
         alt="footballer"
-        className="absolute z-0 h-screen w-full -scale-x-90 overflow-x-hidden max-lg:left-10 max-lg:mt-[10%] lg:-right-[48px] lg:w-[80%] lg:scale-x-90 xl:-right-[56px] 2xl:-right-[70px] min-[1700px]:-right-[84px]"
+        className="absolute z-0 h-screen w-full -scale-x-90 overflow-x-hidden max-md:-left-8 max-lg:-left-12 max-lg:mt-[10%] lg:-right-[48px] lg:w-[80%] lg:scale-x-90 xl:-right-[56px] 2xl:-right-[70px] min-[1700px]:-right-[84px]"
         width={0}
         height={0}
       />

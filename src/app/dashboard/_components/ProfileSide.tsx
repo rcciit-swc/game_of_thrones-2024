@@ -4,7 +4,7 @@ import ProfileCard from "./ProfileCard";
 
 const ProfileSide = () => {
   return (
-    <div className="sticky  flex lg:h-screen flex-col lg:w-1/4 lg:border-r ">
+    <div className="sticky top-0  overflow-y-auto  flex lg:h-screen flex-col lg:w-1/4 lg:border-r ">
       <Image
         src={"/assets/navbar/logo.svg"}
         className="hidden w-44 cursor-pointer pl-10 pt-10 transition-colors duration-500 ease-in-out hover:scale-105 md:block  "
