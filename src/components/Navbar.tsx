@@ -14,6 +14,8 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
 
+  const [userImg, setUserImg] = useState("");
+
   const router = useRouter();
 
   const pathname = usePathname();
@@ -33,6 +35,14 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+
+    const readUserSession = async () => {
+      const { data } = await supabase.auth.getSession();
+      if (data) {
+        setUserImg(data?.session?.user.user_metadata?.avatar_url);
+      }
+    }
+
     const handleScroll = () => {
       if (window.scrollY > 0) {
         setScrolling(true);
@@ -42,6 +52,8 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
+
+    readUserSession();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -115,7 +127,7 @@ const Navbar = () => {
                   className="bg-body border-none text-white "
                   label={
                     <Image
-                      src={user?.user_metadata?.avatar_url}
+                      src={userImg}
                       className="w-12 rounded-full cursor-pointer pr-2 duration-500 ease-in-out hover:scale-105"
                       width={100}
                       height={100}

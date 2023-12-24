@@ -1,15 +1,18 @@
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createBrowserClient } from "@supabase/ssr";
+
 export async function getUserInfo(){
-    const supabase = createClientComponentClient();
-    const { data: { user } } = await supabase.auth.getUser();
-    const {data, error} = await supabase
-        .from("users")
-        .select("*")
-        .eq("id", user?.id)
-        .single();
+
+    const supabase = createBrowserClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      );
+      const { data, error } = await supabase.auth.getSession();
+      const userDetails = await supabase.from('users').select().eq('id', data.session?.user.id);
+    
+    
     if (error) {
         console.error("Error getting user data:", error);
         return;
     }
-    return data;
+    return userDetails?.data?.[0];
 }

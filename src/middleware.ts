@@ -80,8 +80,10 @@ export async function middleware(request: NextRequest) {
     }
 
     const userRoles = await supabase
-    .from("roles").select().eq("user_id", data.session?.user.id);
-    console.log(userRoles);
+    .from("roles").select().eq("id", data.session?.user.id);
+    if (!userRoles?.data?.[0]?.role?.includes("super_admin")) {
+      return NextResponse.redirect(new URL("/", request.url));
+    }
     return response;
   }
 
