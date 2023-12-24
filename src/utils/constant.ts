@@ -49,8 +49,7 @@ const socials = [
 
 const teachers = [
   {
-    speech:
-      `Life is big – achieving perfection in academic or technical domain is important for professional success in life. But that is not all; one must look for opportunities to explore life beyond that. The young undergrads are having lot of energy and spirit within them which needs expression in different forms. After entering the college, while enjoying the adulthood for the first time in life, a student gets some reprieve from the pressure of
+    speech: `Life is big – achieving perfection in academic or technical domain is important for professional success in life. But that is not all; one must look for opportunities to explore life beyond that. The young undergrads are having lot of energy and spirit within them which needs expression in different forms. After entering the college, while enjoying the adulthood for the first time in life, a student gets some reprieve from the pressure of
       competitive academics and gets time and
       freedom to nurture his/her talent in sports, arts, performing arts, innovations and all.
       The college fests provide the real platform to showcase their talents and unleash their energy - their youthful exuberance.
@@ -65,22 +64,6 @@ const teachers = [
     signL2: "Principal (Officiating) RCCIIT &Professor, IT, RCCIIT",
     img: "https://i.imgur.com/QNCJB8M.png",
     header: "Principal's Desk",
-  },
-  {
-    speech:
-      'I am delighted to welcome you all to the 2021 edition of "Game of Thrones," the annual sports fest of RCCIIT. This year, we are hosting the event virtually, and I am confident that it will be a grand success. I am sure that the participants will give their best and make the event a memorable one. I wish all the participants the very best and hope that they will enjoy the event to the fullest.',
-    signL1: "Prof.(Dr.) Anirban Mukherjee",
-    signL2: "Principal (Officiating) RCCIIT &Professor, IT, RCCIIT",
-    img: "https://i.imgur.com/QNCJB8M.png",
-    header: "Chief's Desk",
-  },
-  {
-    speech:
-      'It gives me immense pleasure to welcome you all to the 2021 edition of "Game of Thrones," the annual sports fest of RCCIIT. This year, we are hosting the event virtually, and I am confident that it will be a grand success. I am sure that the participants will give their best and make the event a memorable one. I wish all the participants the very best and hope that they will enjoy the event to the fullest.It gives me immense pleasure to welcome you all to the 2021 edition of "Game of Thrones," the annual sports fest of RCCIIT. This year, we are hosting the event virtually, and I am confident that it will be a grand success. I am sure that the participants will give their best and make the event a memorable one. I wish all the participants the very best and hope that they will enjoy the event to the fullest.',
-    signL1: "Prof.(Dr.) Anirban Mukherjee",
-    signL2: "Principal (Officiating) RCCIIT &Professor, IT, RCCIIT",
-    img: "https://i.imgur.com/QNCJB8M.png",
-    header: "CEO's Desk",
   },
 ];
 
@@ -305,19 +288,22 @@ const locations = [
   {
     name: "Canal S Rd, Beleghata, Kolkata, West Bengal 700015",
     landmark: " RCC Institute of Information Technology.",
-    place: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.562428918149!2d88.39410617591764!3d22.558058533501942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02768400b479b1%3A0x5ad44b718c770205!2sRCC%20INSTITUTE%20OF%20INFORMATION%20TECHNOLOGY%20(New%20Campus)!5e0!3m2!1sen!2sin!4v1701647880889!5m2!1sen!2sin"
+    place:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.562428918149!2d88.39410617591764!3d22.558058533501942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02768400b479b1%3A0x5ad44b718c770205!2sRCC%20INSTITUTE%20OF%20INFORMATION%20TECHNOLOGY%20(New%20Campus)!5e0!3m2!1sen!2sin!4v1701647880889!5m2!1sen!2sin",
   },
   {
     name: "Spuddy Badminton Academy Kolkata",
     landmark: "near Salt Lake, Kadapara, Phool Bagan, Kankurgachi, Kolkata",
-    place: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.214541279687!2d88.39865027601422!3d22.571077879492776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027733c660b6ed%3A0x57fe333dbcb1c621!2sSpuddy%20Badminton%20Academy%20Kolkata!5e0!3m2!1sen!2sin!4v1703173867204!5m2!1sen!2sin"
+    place:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.214541279687!2d88.39865027601422!3d22.571077879492776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027733c660b6ed%3A0x57fe333dbcb1c621!2sSpuddy%20Badminton%20Academy%20Kolkata!5e0!3m2!1sen!2sin!4v1703173867204!5m2!1sen!2sin",
   },
   {
     name: "Netaji Subhash Eastern Center",
     landmark: " Sector 3, Bidhannagar, Kolkata",
-    place: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.3830077589655!2d88.40770427601406!3d22.564774079497397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02742cd148e14b%3A0xc91b0ac3803b0462!2sSports%20Authority%20Of%20India!5e0!3m2!1sen!2sin!4v1703174045601!5m2!1sen!2sin"
-  }
-]
+    place:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.3830077589655!2d88.40770427601406!3d22.564774079497397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02742cd148e14b%3A0xc91b0ac3803b0462!2sSports%20Authority%20Of%20India!5e0!3m2!1sen!2sin!4v1703174045601!5m2!1sen!2sin",
+  },
+];
 export {
   links,
   socials,
@@ -326,6 +312,6 @@ export {
   sponsorsData,
   navRoutes,
   CommitteeDetails,
-  gallery,locations
-
+  gallery,
+  locations,
 };
