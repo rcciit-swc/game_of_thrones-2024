@@ -26,9 +26,6 @@ const EventReg = () => {
     updatedMembersPhone[index] = phoneNumber;
     setMembersPhone(updatedMembersPhone);
   };
-  console.log(formValues);
-  console.log(membersPhone);
-  console.log(file);
 
   return (
     <form

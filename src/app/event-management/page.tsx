@@ -1,16 +1,6 @@
+"use client";
 import React from "react";
 import EventForm from "./_components/EventForm";
-
-interface valuesType {
-  name: string;
-  imageUrl: string;
-  description: string;
-  date: string;
-  time: string;
-  venue: string;
-  fees: number;
-  prizePool: string;
-}
 
 const EventManagement = () => {
   return (
