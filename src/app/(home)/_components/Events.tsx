@@ -18,14 +18,15 @@ const Events = () => {
             {events.map((event, index) => (
               <li
                 key={index}
-                onMouseOver={() => setHover(true)}
-                onMouseLeave={() => setHover(false)}
               >
                 <img
-                  src={`${hover ? event.hoverImage : event.image} `}
+                  src={`${event.image} `}
                   height={0}
                   width={0}
                   alt="image"
+                  style={{
+                    backgroundPosition: "cover",
+                  }}
                 />
                 <div className="content">
                   <span className="flex flex-col items-center justify-around bg-white bg-opacity-10">

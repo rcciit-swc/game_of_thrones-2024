@@ -5,8 +5,11 @@ import { useState } from "react";
 import { createBrowserClient } from "@supabase/ssr";
 import { useUser } from "@/lib/store/user";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const RegForm = () => {
+  const router = useRouter();
+
   const initialValues: valuesType = {
     username: "",
     phone: "",
@@ -41,6 +44,7 @@ const RegForm = () => {
         throw error;
       }
       toast.success("Form submitted successfully.");
+      router.push("/dashboard");
     } catch (error) {
       console.log("Error occurred", { error });
     }

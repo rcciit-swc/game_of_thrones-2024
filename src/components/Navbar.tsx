@@ -6,11 +6,15 @@ import { useState, useEffect } from "react";
 import { Dropdown } from "flowbite-react";
 import { useUser } from "@/lib/store/user";
 import { createBrowserClient } from "@supabase/ssr";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { revalidatePath } from "next/cache";
+import { handleLogin } from "@/utils/functions/login";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
+
+  const router = useRouter();
 
   const pathname = usePathname();
 
@@ -22,18 +26,10 @@ const Navbar = () => {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
   );
 
-  const handleLogin = () => {
-    supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: location.origin + "/auth/callback?next=" + pathname,
-      },
-    });
-  };
-
   const handleLogout = async () => {
     await supabase.auth.signOut();
     setUser(undefined);
+    router.push("/");
   };
 
   useEffect(() => {

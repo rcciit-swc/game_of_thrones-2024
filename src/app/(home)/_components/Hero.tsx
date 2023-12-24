@@ -1,8 +1,16 @@
+"use client";
+import { useUser } from "@/lib/store/user";
+import { handleLogin } from "@/utils/functions/login";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const Hero = () => {
+  const router = useRouter();
+
+  const user = useUser((state) => state.user);
+
   return (
     <section className="flex flex-row justify-between max-md:mt-[-14vh] max-[380px]:mt-[-10vh]">
       <div className="flex min-h-screen min-w-full flex-col ">
@@ -21,9 +29,21 @@ const Hero = () => {
           alt="lefttop"
         />
         <div className="z-[30] block w-full md:hidden">
-          <button className="text-md absolute left-[14%] top-[60%] rounded-xl border-2 border-neutral bg-[#2D3493] px-20 py-5 font-semibold shadow-md shadow-neutral">
-            Register Now
-          </button>
+          {user ? (
+            <button
+              className="text-md absolute left-[14%] top-[60%] rounded-xl border-2 border-neutral bg-[#2D3493] px-20 py-5 font-semibold shadow-md shadow-neutral"
+              onClick={() => router.push("/dashboard")}
+            >
+              View Dashboard
+            </button>
+          ) : (
+            <button
+              className="text-md absolute left-[14%] top-[60%] rounded-xl border-2 border-neutral bg-[#2D3493] px-20 py-5 font-semibold shadow-md shadow-neutral"
+              onClick={handleLogin}
+            >
+              Register Now
+            </button>
+          )}
         </div>
       </div>
 
@@ -82,9 +102,21 @@ const Hero = () => {
             <span>level sports fest</span>
           </div>
 
-          <button className="hidden rounded-xl border-2 border-neutral bg-[#2D3493] px-10 py-5 font-bold shadow-md transition-all duration-300 ease-in-out hover:bg-[#242975] hover:shadow-neutral md:block">
-            Register Now
-          </button>
+          {user ? (
+            <button
+              className="hidden rounded-xl border-2 border-neutral bg-[#2D3493] px-10 py-5 font-bold shadow-md transition-all duration-300 ease-in-out hover:bg-[#242975] hover:shadow-neutral md:block"
+              onClick={() => router.push("/dashboard")}
+            >
+              View Dashboard
+            </button>
+          ) : (
+            <button
+              className="hidden rounded-xl border-2 border-neutral bg-[#2D3493] px-10 py-5 font-bold shadow-md transition-all duration-300 ease-in-out hover:bg-[#242975] hover:shadow-neutral md:block"
+              onClick={handleLogin}
+            >
+              Register Now
+            </button>
+          )}
         </div>
       </div>
 

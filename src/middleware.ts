@@ -1,5 +1,7 @@
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { checkUserDetails } from "./utils/functions/checkUserDetails";
+import { toast } from "sonner";
 
 export async function middleware(request: NextRequest) {
   let response = NextResponse.next({
@@ -60,24 +62,50 @@ export async function middleware(request: NextRequest) {
   //   return response;
   // }
 
-  if (request.nextUrl.href.includes("dashboard")) {
+  const protectedRoutes = ["dashboard", "event-management", "role-management"];
+
+  const pageIndex = request.nextUrl.pathname.split("/")?.[1];
+
+  if (protectedRoutes.includes(pageIndex)) {
     const { data } = await supabase.auth.getSession();
     if (!data.session) {
       return NextResponse.redirect(new URL("/", request.url));
     }
+    const userDetails = await supabase
+      .from("users")
+      .select()
+      .eq("id", data.session?.user.id);
+    if (!checkUserDetails(userDetails?.data?.[0])) {
+      return NextResponse.redirect(new URL("/profile", request.url));
+    }
+
+    const userRoles = await supabase
+    .from("roles").select().eq("user_id", data.session?.user.id);
+    console.log(userRoles);
     return response;
   }
 
-  if (request.nextUrl.href.includes("profile")) {
-    const { data } = await supabase.from("users").select();
-    const data2 = await supabase.auth.getSession();
-    console;
-    const isNamePresent = data?.some(
-      (da) => da.id === data2.data.session?.user.id,
-    );
-    if (isNamePresent) {
-      return NextResponse.redirect(new URL("/dashboard", request.url));
-    }
-    return response;
-  }
+  // if (request.nextUrl.href.includes("dashboard")) {
+  //   const { data } = await supabase.auth.getSession();
+  //   if (!data.session) {
+  //     return NextResponse.redirect(new URL("/", request.url));
+  //   }
+  //   return response;
+  // }
+
+  // if (request.nextUrl.href.includes("profile")) {
+  //   const { data } = await supabase.auth.getSession();
+  //   if (!data.session) {
+  //     return NextResponse.redirect(new URL("/", request.url));
+  //   }
+  //   const userDetails = await supabase
+  //     .from("users")
+  //     .select()
+  //     .eq("id", data.session?.user.id);
+
+  //   if (!checkUserDetails(userDetails?.data?.[0])) {
+  //     return response;
+  //   }
+  //   return NextResponse.redirect(request.nextUrl.origin);
+  // }
 }
