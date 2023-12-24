@@ -46,23 +46,7 @@ export async function middleware(request: NextRequest) {
     },
   );
 
-  // if (request.nextUrl.pathname.startsWith("/events")) {
-  //   console.log(request.nextUrl);
-  //   return NextResponse.redirect(new URL("/gallery", request.url));
-  // }
-
-  // if (
-  //   request.nextUrl.href.includes("dashboard") ||
-  //   request.nextUrl.href.includes("profile")
-  // ) {
-  //   const { data } = await supabase.auth.getSession();
-  //   if (!data.session) {
-  //     return NextResponse.redirect(new URL("/", request.url));
-  //   }
-  //   return response;
-  // }
-
-  const protectedRoutes = ["dashboard", "event-management", "role-management"];
+  const protectedRoutes = ["event-management", "role-management"];
 
   const pageIndex = request.nextUrl.pathname.split("/")?.[1];
 
@@ -71,6 +55,7 @@ export async function middleware(request: NextRequest) {
     if (!data.session) {
       return NextResponse.redirect(new URL("/", request.url));
     }
+
     const userDetails = await supabase
       .from("users")
       .select()
@@ -80,34 +65,36 @@ export async function middleware(request: NextRequest) {
     }
 
     const userRoles = await supabase
-    .from("roles").select().eq("id", data.session?.user.id);
+      .from("roles")
+      .select()
+      .eq("id", data.session?.user.id);
     if (!userRoles?.data?.[0]?.role?.includes("super_admin")) {
       return NextResponse.redirect(new URL("/", request.url));
     }
     return response;
   }
 
-  // if (request.nextUrl.href.includes("dashboard")) {
-  //   const { data } = await supabase.auth.getSession();
-  //   if (!data.session) {
-  //     return NextResponse.redirect(new URL("/", request.url));
-  //   }
-  //   return response;
-  // }
+  if (pageIndex.includes("dashboard")) {
+    const { data } = await supabase.auth.getSession();
+    if (!data.session) {
+      return NextResponse.redirect(new URL("/", request.url));
+    }
+    const userDetails = await supabase
+      .from("users")
+      .select()
+      .eq("id", data.session?.user.id);
 
-  // if (request.nextUrl.href.includes("profile")) {
-  //   const { data } = await supabase.auth.getSession();
-  //   if (!data.session) {
-  //     return NextResponse.redirect(new URL("/", request.url));
-  //   }
-  //   const userDetails = await supabase
-  //     .from("users")
-  //     .select()
-  //     .eq("id", data.session?.user.id);
+    if (!checkUserDetails(userDetails?.data?.[0])) {
+      return NextResponse.redirect(new URL("/profile", request.url));
+    }
+    return response;
+  }
 
-  //   if (!checkUserDetails(userDetails?.data?.[0])) {
-  //     return response;
-  //   }
-  //   return NextResponse.redirect(request.nextUrl.origin);
-  // }
+  if (pageIndex.includes("profile")) {
+    const { data } = await supabase.auth.getSession();
+    if (!data.session) {
+      return NextResponse.redirect(new URL("/", request.url));
+    }
+    return response;
+  }
 }

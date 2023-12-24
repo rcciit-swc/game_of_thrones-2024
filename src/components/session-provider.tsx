@@ -8,11 +8,6 @@ import { useEffect } from "react";
 const SessionProvider = () => {
   const setUser = useUser((state) => state.setUser);
 
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-  );
-
   const readUserSession = async () => {
     const userData = await getUserInfo();
     setUser(userData);
@@ -20,7 +15,6 @@ const SessionProvider = () => {
 
   useEffect(() => {
     readUserSession();
-
     //eslint-disable-next-line
   }, []);
 
