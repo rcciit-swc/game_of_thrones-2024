@@ -1,4 +1,5 @@
 "use client";
+import { fetchEvents } from "@/utils/functions/fetchEvents";
 import React, { useEffect, useState } from "react";
 
 interface formDataType {
@@ -26,7 +27,7 @@ const EventReg = () => {
     updatedMembersPhone[index] = phoneNumber;
     setMembersPhone(updatedMembersPhone);
   };
-
+  
   return (
     <form
       action=""
@@ -108,7 +109,7 @@ const EventReg = () => {
           className="rounded-xl border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
         />
       </div>
-      <button className="mx-auto w-1/3 bg-primary rounded-xl py-2 px-5 font-medium text-xl hover:bg-opacity-70 ">
+      <button className="mx-auto w-1/3 bg-primary rounded-xl py-2 px-5 font-medium text-md text-center hover:bg-opacity-70 ">
         Submit
       </button>
     </form>
