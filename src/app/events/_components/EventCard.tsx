@@ -1,7 +1,21 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import RegModal from "./RegModal";
+import { fetchEvents } from "@/utils/functions/fetchEvents";
 
 const EventCard = ({ event }: { event: any }) => {
+  const [openModal, setOpenModal] = useState(false);
+
+  useEffect(() => {
+    const fetchEventsData = async () => {
+      const events = await fetchEvents(event.title);
+      console.log(events);
+    };
+    fetchEventsData();
+  },[])
   return (
     <>
       <div className="cursor-pointer card w-[300px] md:h-[250px] md:w-[350px] rounded-md relative overflow-hidden">
@@ -12,7 +26,6 @@ const EventCard = ({ event }: { event: any }) => {
           width={0}
           height={0}
         />
-
         <div className="card-body absolute bottom-[-100%] duration-500 w-full flex flex-col items-center justify-center h-full bg-[#1f3d4738] backdrop-blur-[5px]">
           <h1 className="text-center font-semibold font-got md:text-2xl pt-2">
             {event.title}
@@ -25,14 +38,18 @@ const EventCard = ({ event }: { event: any }) => {
               </button>
             </Link>
             <button
-              className="px-2 bg-violet-800 py-1 rounded-xl font-medium cursor-not-allowed"
-              
+              className="px-2 bg-violet-800 py-1 rounded-xl font-medium "
+              onClick={() => setOpenModal(true)}
             >
               Register Now
             </button>
           </div>
         </div>
       </div>
+
+     
+      <RegModal openModal={openModal} setOpenModal={setOpenModal}  />
+    
     </>
   );
 };
