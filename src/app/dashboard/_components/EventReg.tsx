@@ -26,9 +26,6 @@ const EventReg = () => {
     updatedMembersPhone[index] = phoneNumber;
     setMembersPhone(updatedMembersPhone);
   };
-  console.log(formValues);
-  console.log(membersPhone);
-  console.log(file);
 
   return (
     <form
@@ -68,7 +65,9 @@ const EventReg = () => {
         {Array(members)
           .fill(0)
           .map((_, index) => (
-            <div className="flex flex-col items-start flex-wrap gap-3">
+            <div className="flex flex-col items-start flex-wrap gap-3"
+            key={index}
+            >
               <label htmlFor="">Member {index + 1} Phone</label>
               <div className="flex flex-row items-center gap-2">
                 <button className="rounded-xl bg-white p-3 text-black ">

@@ -1,9 +1,11 @@
 "use client";
 import { createBrowserClient } from "@supabase/ssr";
+import dynamic from "next/dynamic";
 import React, { useMemo } from "react";
-import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { toast } from "sonner";
+
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 interface valuesType {
   name: string;
@@ -100,8 +102,6 @@ const EventForm = () => {
     "background",
     "align",
     "link",
-    "image",
-    "video",
   ];
 
   return (

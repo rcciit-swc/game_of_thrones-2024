@@ -31,7 +31,6 @@ const RegForm = () => {
 
   async function handleSubmit(e: any) {
     e.preventDefault();
-    console.log(user);
     const { username, phone, college, gender, roll } = formValues;
     try {
       const { error } = await supabase
