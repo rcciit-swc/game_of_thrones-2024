@@ -1,11 +1,14 @@
 import { SectionHeader } from "@/components";
 import Image from "next/image";
 import React from "react";
+import EventReg from "./EventReg";
+import EventSide from "./EventSide";
+
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-col  h-screen  lg:w-3/4">
-      <div className="flex flex-col md:flex-row justify-between  md:px-10 pt-3 md:pt-10">
+    <div className="flex flex-col  h-full  lg:w-3/4 overflow-y-auto">
+      <div className="sticky flex flex-col md:flex-row justify-between  md:px-10 pt-3 md:pt-10">
         <h1 className="text-2xl">Dashboard</h1>
         <div className="flex flex-row items-center gap-3">
           <Image
@@ -25,8 +28,8 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="flex justify-center my-auto items-center">
-        <SectionHeader text="Coming Soon" />
+      <div className="flex  justify-center items-center w-full h-full mt-10">
+     <EventReg />
       </div>
     </div>
   );

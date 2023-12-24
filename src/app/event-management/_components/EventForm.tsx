@@ -12,6 +12,7 @@ interface valuesType {
   minMembers: number;
   maxMembers: number;
   fees: number;
+  gender:string;
 }
 
 const EventForm = () => {
@@ -27,6 +28,7 @@ const EventForm = () => {
     minMembers: 0,
     maxMembers: 0,
     fees: 0,
+    gender: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -172,13 +174,55 @@ const EventForm = () => {
           className="w-[95%] rounded-xl  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
         />
       </div>
+      
+      <div className="flex flex-col items-start gap-2">
+            <label htmlFor="gender">Gender</label>
+            <div className="flex flex-col items-start gap-5 md:flex-row md:items-center md:gap-16">
+              <label className="flex flex-row items-center gap-1">
+                <input
+                  name="gender"
+                  type="radio"
+                  value="male"
+                  className="text-primary"
+                  checked={formValues.gender === "male"}
+                  onChange={handleChange}
+                  required={true}
+                />
+                Male
+              </label>
+              <label className="flex flex-row items-center gap-1">
+                <input
+                  name="gender"
+                  type="radio"
+                  value="female"
+                  className="text-primary"
+                  checked={formValues.gender === "female"}
+                  onChange={handleChange}
+                  required={true}
+                />
+                Female
+              </label>
+              <label className="flex flex-row items-center gap-1">
+                <input
+                  name="gender"
+                  type="radio"
+                  value="mixed"
+                  className="text-primary"
+                  checked={formValues.gender === "mixed"}
+                  onChange={handleChange}
+                  required={true}
+                />
+                Mixed
+              </label>
+            </div>
+          </div>
 
       <ReactQuill
         theme="snow"
         value={formValues.description}
         modules={modules}
         formats={formats}
-        onChange={(value) =>
+        onChange={(value:any) =>
           setFormValues({ ...formValues, description: value })
         }
         className="w-full rounded-xl text-black bg-white border-b border-slate-400 bg-transparent p-5  placeholder:text-slate-400 md:w-full"
