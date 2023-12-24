@@ -20,7 +20,7 @@ export default function TeachersDesk({ value }: any) {
             height={74}
           />
         </div>
-        <div className="relative mx-2 flex w-[340px] flex-col rounded-xl bg-primary md:w-[600px] lg:w-[800px]">
+        <div className="relative mx-2 flex w-[340px] flex-col rounded-xl bg-primary md:w-[600px] lg:w-[1200px]">
           <div className="my-6 pl-8 text-2xl">Dear students,</div>
           <p className="px-4 text-justify text-sm md:pl-12 md:pr-72 md:text-xl">
             {value.speech}
@@ -30,7 +30,7 @@ export default function TeachersDesk({ value }: any) {
           </p>
 
           {/* PC Image */}
-          <div className="absolute right-[-50px] top-[40%] mt-[-180px] hidden md:block lg:right-[-120px]">
+          <div className="absolute right-[-50px] top-[40%] mt-[-180px] hidden md:block lg:right-[-50px]">
             <Image
               alt="Principal's Image"
               className="h-[390px] w-[300px] rounded-3xl"

@@ -1,8 +1,16 @@
+"use client";
+import { useUser } from "@/lib/store/user";
+import { handleLogin } from "@/utils/functions/login";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const Hero = () => {
+  const router = useRouter();
+
+  const user = useUser((state) => state.user);
+
   return (
     <section className="flex flex-row justify-between max-md:mt-[-14vh] max-[380px]:mt-[-10vh]">
       <div className="flex min-h-screen min-w-full flex-col ">
@@ -21,9 +29,21 @@ const Hero = () => {
           alt="lefttop"
         />
         <div className="z-[30] block w-full md:hidden">
-          <button className="text-md absolute left-[14%] top-[60%] rounded-xl border-2 border-neutral bg-[#2D3493] px-20 py-5 font-semibold shadow-md shadow-neutral">
-            Register Now
-          </button>
+          {user ? (
+            <button
+              className="text-md absolute left-[14%] top-[60%] rounded-xl border-2 border-neutral bg-[#2D3493] px-20 py-5 font-semibold shadow-md shadow-neutral"
+              onClick={() => router.push("/dashboard")}
+            >
+              View Dashboard
+            </button>
+          ) : (
+            <button
+              className="text-md absolute left-[14%] top-[60%] rounded-xl border-2 border-neutral bg-[#2D3493] px-20 py-5 font-semibold shadow-md shadow-neutral"
+              onClick={handleLogin}
+            >
+              Register Now
+            </button>
+          )}
         </div>
       </div>
 
@@ -31,7 +51,7 @@ const Hero = () => {
         <Image
           src="/assets/hero/line-1.svg"
           alt="footballer"
-          className="relative h-screen w-full -scale-x-90 overflow-hidden lg:-left-10 lg:mt-14 lg:rotate-12 lg:scale-x-90  2xl:left-5 2xl:mt-0"
+          className="relative h-screen w-full z-[-1] -scale-x-90 overflow-hidden lg:-left-10 lg:mt-14 lg:rotate-12 lg:scale-x-90  2xl:left-5 2xl:mt-0"
           priority
           width={0}
           height={0}
@@ -51,7 +71,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className=" absolute top-[14%] z-30 p-4 max-md:left-3 md:w-[45%] lg:right-20">
+      <div className=" absolute max-lg:top-[12%] top-[8%] z-30 p-4 max-md:left-1 md:w-[45%] lg:right-20">
         <div className="flex flex-col items-start gap-8 md:items-center md:gap-12 lg:gap-16">
           <div className="flex flex-row items-center gap-2">
             <Link href={"https://rcciit.org/"} target="_blank">
@@ -78,29 +98,32 @@ const Hero = () => {
             </div>
           </div>
           <div className="flex flex-col items-center font-semibold md:text-xl lg:text-2xl 2xl:text-3xl">
-            <span>Inter-college national</span>
+            <span>Inter-college state</span>
             <span>level sports fest</span>
           </div>
 
-          <button className="hidden rounded-xl border-2 border-neutral bg-[#2D3493] px-10 py-5 font-bold shadow-md transition-all duration-300 ease-in-out hover:bg-[#242975] hover:shadow-neutral md:block">
-            Register Now
-          </button>
+          {user ? (
+            <button
+              className="hidden rounded-xl border-2 border-neutral bg-[#2D3493] px-10 py-5 font-bold shadow-md transition-all duration-300 ease-in-out hover:bg-[#242975] hover:shadow-neutral md:block"
+              onClick={() => router.push("/dashboard")}
+            >
+              View Dashboard
+            </button>
+          ) : (
+            <button
+              className="hidden rounded-xl border-2 border-neutral bg-[#2D3493] px-10 py-5 font-bold shadow-md transition-all duration-300 ease-in-out hover:bg-[#242975] hover:shadow-neutral md:block"
+              onClick={handleLogin}
+            >
+              Register Now
+            </button>
+          )}
         </div>
       </div>
 
-      {/* <div className="absolute lg:-right-16    z-0 overflow-x-hidden max-lg:-left-10 max-lg:mt-[10%]  ">
-        <Image
-          src="/assets/hero/rightdown.svg"
-          alt="footballer"
-          className=" h-screen w-full  -scale-x-90   lg:scale-x-90"
-          width={0}
-          height={0}
-        />
-      </div> */}
       <Image
         src="/assets/hero/rightdown.svg"
         alt="footballer"
-        className="absolute z-0 h-screen w-full -scale-x-90 overflow-x-hidden max-lg:-left-10 max-lg:mt-[10%] lg:-right-[48px] lg:w-[80%] lg:scale-x-90 xl:-right-[56px] 2xl:-right-[70px] min-[1700px]:-right-[84px]"
+        className="absolute z-0 h-screen w-full -scale-x-90 overflow-x-hidden max-md:-left-8 max-lg:-left-12 max-lg:mt-[10%] lg:-right-[48px] lg:w-[80%] lg:scale-x-90 xl:-right-[56px] 2xl:-right-[70px] min-[1700px]:-right-[84px]"
         width={0}
         height={0}
       />

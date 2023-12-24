@@ -18,14 +18,15 @@ const Events = () => {
             {events.map((event, index) => (
               <li
                 key={index}
-                onMouseOver={() => setHover(true)}
-                onMouseLeave={() => setHover(false)}
               >
                 <img
-                  src={`${hover ? event.hoverImage : event.image} `}
+                  src={`${event.image} `}
                   height={0}
                   width={0}
                   alt="image"
+                  style={{
+                    backgroundPosition: "cover",
+                  }}
                 />
                 <div className="content">
                   <span className="flex flex-col items-center justify-around bg-white bg-opacity-10">
@@ -33,7 +34,7 @@ const Events = () => {
                       <h2 className="text-center font-got text-xl font-semibold">
                         {event.title}
                       </h2>
-                      <p className="text-center">Description</p>
+                      <p className="text-center">{event.description}</p>
                     </div>
                     <Link href={`/events/${event.title.toLowerCase()}`}>
                       <button className="pb-5 tracking-widest duration-300 hover:scale-105 hover:text-green-300">

@@ -4,22 +4,45 @@ import Link from "next/link";
 import { navRoutes } from "@/utils/constant";
 import { useState, useEffect } from "react";
 import { Dropdown } from "flowbite-react";
-import { useRouter } from "next/navigation";
-import { checkSession } from "@/utils/functions/checkSession";
+import { useUser } from "@/lib/store/user";
+import { createBrowserClient } from "@supabase/ssr";
+import { usePathname, useRouter } from "next/navigation";
+import { revalidatePath } from "next/cache";
 import { handleLogin } from "@/utils/functions/login";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { removeUser, setUser } from "@/redux/slices/user";
-import { logOut } from "@/utils/functions/logout";
-import { getUserInfo } from "@/utils/functions/getUserInfo";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
-  const dispatch = useAppDispatch();
-  const user: any = useAppSelector((state) => state.user?.user!);
-  const isLoggedIn = useAppSelector((state) => state.user?.isLoggedIn!);
+
+  const [userImg, setUserImg] = useState("");
+
   const router = useRouter();
+
+  const pathname = usePathname();
+
+  const user = useUser((state) => state.user);
+  const setUser = useUser((state) => state.setUser);
+
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+  );
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setUser(undefined);
+    router.push("/");
+  };
+
   useEffect(() => {
+
+    const readUserSession = async () => {
+      const { data } = await supabase.auth.getSession();
+      if (data) {
+        setUserImg(data?.session?.user.user_metadata?.avatar_url);
+      }
+    }
+
     const handleScroll = () => {
       if (window.scrollY > 0) {
         setScrolling(true);
@@ -30,40 +53,29 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
 
+    readUserSession();
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      checkSession().then(async (res: any) => {
-        if (res?.userData !== undefined || res?.data !== undefined) {
-          const userData = res?.session?.user!;
-          const userInfo = { userData, data: await getUserInfo() };
-          dispatch(setUser(userInfo));
-        }
-      });
     };
   }, []);
 
-  useEffect(() => {
-    console.log("Updated User:", user , isLoggedIn); // Log the updated user state
-  }, [user]);
   return (
     <>
       <div
-        className={` fixed left-0 top-0 z-[40] w-screen lg:w-full lg:overflow-x-hidden`}
+        className={`fixed left-0 top-0 z-[40] w-screen lg:w-full lg:overflow-x-hidden`}
       >
         <div
           className={`${
             scrolling || isMenuOpen ? "bg-body" : "bg-transparent"
-          }   items-center justify-around  gap-20 px-2 py-2 overflow-hidden md:mb-20 max-md:border-b md:flex lg:px-10`}
+          } items-center justify-around  gap-20 px-2 py-2 overflow-hidden md:mb-20 max-md:border-b md:flex lg:px-10`}
         >
-          <div
-            className="flex cursor-pointer items-center font-[Poppins] text-2xl font-bold 
-      text-gray-800"
-          >
+          <div className="flex cursor-pointer items-center font-[Poppins] text-2xl font-bold text-gray-800">
             <span className="mr-1 pt-2 text-3xl text-indigo-600">
               <Link href={"/"}>
                 <Image
                   src={"/assets/navbar/logo.svg"}
-                  className="w-36 cursor-pointer transition-colors duration-500 ease-in-out hover:scale-105  "
+                  className="w-36 cursor-pointer transition-colors duration-500 ease-in-out hover:scale-105"
                   width={0}
                   height={0}
                   alt="logo"
@@ -89,8 +101,8 @@ const Navbar = () => {
           </div>
 
           <ul
-            className={`absolute   z-[-1] w-full border-white bg-body pb-12 pl-9 transition-all duration-500 ease-in md:static md:z-auto md:flex md:w-auto md:items-center md:border-b md:bg-transparent md:pb-0  md:pl-0 ${
-              isMenuOpen ? "right-0 " : "right-[-790px]"
+            className={`absolute z-[-1] w-full border-white bg-body pb-12 pl-9 transition-all duration-500 ease-in md:static md:z-auto md:flex md:w-auto md:items-center md:border-b md:bg-transparent md:pb-0 md:pl-0 ${
+              isMenuOpen ? "right-0" : "right-[-790px]"
             }`}
           >
             {navRoutes.map((link, index) => (
@@ -99,50 +111,53 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
                 key={index}
               >
-                <li className="my-4 pt-2 font-semibold duration-500 ease-linear md:my-0 md:ml-4 lg:ml-8 md:hover:scale-105 md:hover:text-yellow-300 xl:text-xl">
+                <li
+                  className={`my-4 pt-2 font-semibold duration-200 ease-linear md:my-0 md:ml-4 lg:ml-8 md:hover:scale-105 md:hover:text-yellow-300 xl:text-xl ${
+                    pathname === link.href && "text-yellow-300"
+                  }`}
+                >
                   <h1 className="cursor-pointer p-2 transition">{link.name}</h1>
                 </li>
               </Link>
             ))}
-            {/* {isLoggedIn && user != null && user != undefined ? (
+
+            {user && (
               <div className="overflow-hidden md:ml-10 border-none">
                 <Dropdown
-                  className="bg-body border-none  text-white "
+                  className="bg-body border-none text-white "
                   label={
                     <Image
-                      src={user?.userData?.user_metadata?.avatar_url!}
-                      className="w-12 rounded-full cursor-pointer pr-2 transition-colors duration-500 ease-in-out hover:scale-105  "
-                      width={0}
-                      height={0}
+                      src={userImg}
+                      className="w-12 rounded-full cursor-pointer pr-2 duration-500 ease-in-out hover:scale-105"
+                      width={100}
+                      height={100}
                       alt="logo"
                     />
                   }
                   dismissOnClick={false}
                 >
-                   <Dropdown.Item>Show Profile</Dropdown.Item> 
-
+                  <Dropdown.Item className="hover:bg-slate-400">
+                    Show Profile
+                  </Dropdown.Item>
                   <Dropdown.Item
-                    onClick={() => {
-                      logOut().then(() => {
-                        dispatch(removeUser());
-                        router.push("/");
-                      });
-                    }}
+                    onClick={handleLogout}
+                    className="hover:bg-slate-400"
                   >
                     Logout
                   </Dropdown.Item>
                 </Dropdown>
               </div>
-            ) : (
+            )}
+            {!user && (
               <li className="max-md:mt-10 md:ml-6 lg:ml-20 ">
                 <button
+                  className="text-md rounded-xl border bg-[#2D3493] px-14 py-2 font-semibold hover:bg-[#242975] md:px-10"
                   onClick={handleLogin}
-                  className=" text-md  rounded-xl border  bg-[#2D3493] px-14 py-2 font-semibold hover:bg-[#242975] md:px-10 "
                 >
                   Login
                 </button>
               </li>
-            )} */}
+            )}
           </ul>
         </div>
       </div>
