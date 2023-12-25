@@ -7,7 +7,6 @@ import { Dropdown } from "flowbite-react";
 import { useUser } from "@/lib/store/user";
 import { createBrowserClient } from "@supabase/ssr";
 import { usePathname, useRouter } from "next/navigation";
-import { revalidatePath } from "next/cache";
 import { handleLogin } from "@/utils/functions/login";
 
 const Navbar = () => {
@@ -35,13 +34,12 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-
     const readUserSession = async () => {
       const { data } = await supabase.auth.getSession();
       if (data) {
         setUserImg(data?.session?.user.user_metadata?.avatar_url);
       }
-    }
+    };
 
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -151,7 +149,7 @@ const Navbar = () => {
             {!user && (
               <li className="max-md:mt-10 md:ml-6 lg:ml-20 ">
                 <button
-                  className="text-md rounded-xl border bg-[#2D3493] px-14 py-2 font-semibold hover:bg-[#242975] md:px-10"
+                  className="text-md rounded-md border bg-[#2D3493] px-14 py-2 font-semibold hover:bg-[#242975] md:px-10"
                   onClick={handleLogin}
                 >
                   Login

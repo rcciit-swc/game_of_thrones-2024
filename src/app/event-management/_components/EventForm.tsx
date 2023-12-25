@@ -5,7 +5,7 @@ import React, { useMemo } from "react";
 import "react-quill/dist/quill.snow.css";
 import { toast } from "sonner";
 
-const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 interface valuesType {
   name: string;
@@ -14,7 +14,7 @@ interface valuesType {
   minMembers: number;
   maxMembers: number;
   fees: number;
-  gender:string;
+  gender: string;
 }
 
 const EventForm = () => {
@@ -43,20 +43,19 @@ const EventForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const {data,error} = await supabase.from("events").insert({
+      const { data, error } = await supabase.from("events").insert({
         fest_name: "Game of Thrones",
         year: 2024,
         event_name: formValues.name,
         event_image_url: formValues.imageUrl,
         desc: formValues.description,
-        min_team_member: formValues.minMembers,    
+        min_team_member: formValues.minMembers,
         max_team_member: formValues.maxMembers,
         registration_fees: formValues.fees,
       });
-      if (error){
+      if (error) {
         toast.error("Error occurred while adding event.");
-      }
-      else{
+      } else {
         toast.success("Event added successfully.");
       }
     } catch (error) {
@@ -119,7 +118,7 @@ const EventForm = () => {
           required={true}
           id="name"
           placeholder="Event Name"
-          className="w-[95%] rounded-xl  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
+          className="w-[95%] rounded-md  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
         />
       </div>
       <div className="flex flex-col items-start gap-5">
@@ -132,7 +131,7 @@ const EventForm = () => {
           required={true}
           id="imageUrl"
           placeholder="Event Image Url"
-          className="w-[95%] rounded-xl  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
+          className="w-[95%] rounded-md  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
         />
       </div>
       <div className="flex flex-col items-start gap-5">
@@ -145,7 +144,7 @@ const EventForm = () => {
           required={true}
           id="minMembers"
           placeholder="Minimum Members"
-          className="w-[95%] rounded-xl  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
+          className="w-[95%] rounded-md  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
         />
       </div>
       <div className="flex flex-col items-start gap-5">
@@ -158,7 +157,7 @@ const EventForm = () => {
           required={true}
           id="maxMembers"
           placeholder="Maximum Members"
-          className="w-[95%] rounded-xl  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
+          className="w-[95%] rounded-md  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
         />
       </div>
       <div className="flex flex-col items-start gap-5">
@@ -171,66 +170,66 @@ const EventForm = () => {
           required={true}
           id="fees"
           placeholder="Registration Fees"
-          className="w-[95%] rounded-xl  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
+          className="w-[95%] rounded-md  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
         />
       </div>
-      
+
       <div className="flex flex-col items-start gap-2">
-            <label htmlFor="gender">Gender</label>
-            <div className="flex flex-col items-start gap-5 md:flex-row md:items-center md:gap-16">
-              <label className="flex flex-row items-center gap-1">
-                <input
-                  name="gender"
-                  type="radio"
-                  value="male"
-                  className="text-primary"
-                  checked={formValues.gender === "male"}
-                  onChange={handleChange}
-                  required={true}
-                />
-                Male
-              </label>
-              <label className="flex flex-row items-center gap-1">
-                <input
-                  name="gender"
-                  type="radio"
-                  value="female"
-                  className="text-primary"
-                  checked={formValues.gender === "female"}
-                  onChange={handleChange}
-                  required={true}
-                />
-                Female
-              </label>
-              <label className="flex flex-row items-center gap-1">
-                <input
-                  name="gender"
-                  type="radio"
-                  value="mixed"
-                  className="text-primary"
-                  checked={formValues.gender === "mixed"}
-                  onChange={handleChange}
-                  required={true}
-                />
-                Mixed
-              </label>
-            </div>
-          </div>
+        <label htmlFor="gender">Gender</label>
+        <div className="flex flex-col items-start gap-5 md:flex-row md:items-center md:gap-16">
+          <label className="flex flex-row items-center gap-1">
+            <input
+              name="gender"
+              type="radio"
+              value="male"
+              className="text-primary"
+              checked={formValues.gender === "male"}
+              onChange={handleChange}
+              required={true}
+            />
+            Male
+          </label>
+          <label className="flex flex-row items-center gap-1">
+            <input
+              name="gender"
+              type="radio"
+              value="female"
+              className="text-primary"
+              checked={formValues.gender === "female"}
+              onChange={handleChange}
+              required={true}
+            />
+            Female
+          </label>
+          <label className="flex flex-row items-center gap-1">
+            <input
+              name="gender"
+              type="radio"
+              value="mixed"
+              className="text-primary"
+              checked={formValues.gender === "mixed"}
+              onChange={handleChange}
+              required={true}
+            />
+            Mixed
+          </label>
+        </div>
+      </div>
 
       <ReactQuill
         theme="snow"
         value={formValues.description}
         modules={modules}
         formats={formats}
-        onChange={(value:any) =>
+        onChange={(value: any) =>
           setFormValues({ ...formValues, description: value })
         }
-        className="w-full rounded-xl text-black bg-white border-b border-slate-400 bg-transparent p-5  placeholder:text-slate-400 md:w-full"
+        className="w-full rounded-md text-black bg-white border-b border-slate-400 bg-transparent p-5  placeholder:text-slate-400 md:w-full"
       />
 
       <button
         type="submit"
-        className="bg-primary text-white px-5 py-2 rounded-xl"
+        className="bg-primary text-white px-5 py-2 rounded-md"
       >
         Add Event
       </button>

@@ -1,6 +1,5 @@
 import { SectionHeader } from "@/components";
 import { gallery } from "@/utils/constant";
-import events from "@/utils/events";
 import { constructMetaData } from "@/utils/metadata";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -24,7 +23,9 @@ const Gallery = () => {
               height={480}
               sizes="(min-width: 1680px) 453px, (min-width: 1040px) calc(30.16vw - 48px), (min-width: 780px) calc(50vw - 81px), calc(100vw - 40px)"
             />
-            <h1 className="text-center text-2xl font-semibold tracking-widest">{photo.sport}</h1>
+            <h1 className="text-center text-2xl font-semibold tracking-widest">
+              {photo.sport}
+            </h1>
             <h1 className="text-center text-xl">{photo.title}</h1>
           </div>
         ))}

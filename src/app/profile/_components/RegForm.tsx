@@ -65,14 +65,14 @@ const RegForm = () => {
             placeholder="Full Name"
             name="username"
             id="username"
-            className="w-[95%] rounded-xl border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
+            className="w-[95%] rounded-md border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
           />
         </div>
         <div className="flex flex-col  items-start gap-10">
           <div className="flex  flex-col gap-5 md:w-[60%]">
             <label htmlFor="phone">Phone Number</label>
             <div className="flex  flex-row gap-3">
-              <button className="rounded-xl bg-white p-3 text-black ">
+              <button className="rounded-md bg-white p-3 text-black ">
                 +91
               </button>
               <input
@@ -83,7 +83,7 @@ const RegForm = () => {
                 name="phone"
                 id="phone"
                 placeholder="94XXXXXXXX"
-                className="w-full rounded-xl border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400"
+                className="w-full rounded-md border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400"
               />
             </div>
           </div>
@@ -97,7 +97,7 @@ const RegForm = () => {
               required={true}
               id="college"
               placeholder="College Name"
-              className="w-[95%] rounded-xl  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
+              className="w-[95%] rounded-md  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
             />
           </div>
           <div className="flex w-full flex-col items-start gap-5">
@@ -110,7 +110,7 @@ const RegForm = () => {
               required={true}
               id="roll"
               placeholder="College Roll Number"
-              className="w-[95%] rounded-xl  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
+              className="w-[95%] rounded-md  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
             />
           </div>
           <div className="flex flex-col items-start gap-2">

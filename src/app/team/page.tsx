@@ -1,6 +1,5 @@
 import { constructMetaData } from "@/utils/metadata";
 import { Metadata } from "next";
-import TeamCard from "./_components/TeamCard";
 import { SectionHeader } from "@/components";
 
 export const metadata: Metadata = constructMetaData({

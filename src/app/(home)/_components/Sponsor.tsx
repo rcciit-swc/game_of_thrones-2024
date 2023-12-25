@@ -12,7 +12,7 @@ export default function SponsorPage() {
           return (
             <div
               key={index}
-              className="mx-auto flex  max-w-xl flex-col-reverse  items-center justify-center gap-5 rounded-xl   p-1 text-center"
+              className="mx-auto flex  max-w-xl flex-col-reverse  items-center justify-center gap-5 rounded-md   p-1 text-center"
             >
               <h2>
                 {sponsorName[0]} <br /> Partner

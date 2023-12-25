@@ -1,9 +1,5 @@
-import { SectionHeader } from "@/components";
 import Image from "next/image";
-import React from "react";
 import EventReg from "./EventReg";
-import EventSide from "./EventSide";
-
 
 const Dashboard = () => {
   return (
@@ -22,14 +18,14 @@ const Dashboard = () => {
             type="text"
             name=""
             id=""
-            className="bg-body max-md:w-[80%]  px-5 py-1 rounded-xl"
+            className="bg-body max-md:w-[80%]  px-5 py-1 rounded-md"
             placeholder="Search Events..."
           />
         </div>
       </div>
 
       <div className="flex  justify-center items-center w-full h-full mt-10">
-     <EventReg />
+        <EventReg />
       </div>
     </div>
   );

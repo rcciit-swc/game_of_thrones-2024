@@ -22,7 +22,12 @@ const Committee = () => {
                     <div className="flex flex-col items-center text-center">
                       <p className="font-semibold">{member.name}</p>
                       <p>{member.role}</p>
-                      <a href={`tel:${member.phone}`} className="hover:text-green-400">{member.phone}</a>
+                      <a
+                        href={`tel:${member.phone}`}
+                        className="hover:text-green-400"
+                      >
+                        {member.phone}
+                      </a>
                     </div>
                   </div>
                 );

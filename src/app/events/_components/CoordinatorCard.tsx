@@ -2,7 +2,7 @@ import React from "react";
 
 export const CoordinatorCard = ({ event }: { event: any }) => {
   return (
-    <div className="bg-[#252525] w-full  flex flex-col items-center p-5 gap-5 border-t-2 border-b-2 rounded-xl ">
+    <div className="bg-[#252525] w-full  flex flex-col items-center p-5 gap-5 border-t-2 border-b-2 rounded-md ">
       <h1 className="font-got text-xl font-semibold ">Coordinators</h1>
       <div className="flex flex-col items-start gap-2">
         {event.coordinators.map((coordinator: any, index: number) => (

@@ -4,7 +4,6 @@ import { useState } from "react";
 import { SectionHeader } from "@/components";
 import events from "@/utils/events";
 import Link from "next/link";
-import Image from "next/image";
 import EventCard from "@/app/events/_components/EventCard";
 
 const Events = () => {
@@ -16,9 +15,7 @@ const Events = () => {
         <div className={`mt-[10px] h-full w-full`}>
           <ul className="oveflow-x-scroll accordion gap-2 hidden justify-center space-x-2 xl:flex">
             {events.map((event, index) => (
-              <li
-                key={index}
-              >
+              <li key={index}>
                 <img
                   src={`${event.image} `}
                   height={0}

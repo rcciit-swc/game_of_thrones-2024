@@ -12,10 +12,9 @@ const EventCard = ({ event }: { event: any }) => {
   useEffect(() => {
     const fetchEventsData = async () => {
       const events = await fetchEvents(event.title);
-      console.log(events);
     };
     fetchEventsData();
-  },[])
+  }, []);
   return (
     <>
       <div className="cursor-pointer card w-[300px] md:h-[250px] md:w-[350px] rounded-md relative overflow-hidden">
@@ -33,12 +32,12 @@ const EventCard = ({ event }: { event: any }) => {
           <p className="px-4 py-2">{event.description}</p>
           <div className="pt-3 flex flex-row gap-5  justify-between px-5">
             <Link href={`/events/${event.title.toLowerCase()}`}>
-              <button className="px-2 bg-green-600 py-1 rounded-xl font-medium">
+              <button className="px-2 bg-green-600 py-1 rounded-md font-medium">
                 See More
               </button>
             </Link>
             <button
-              className="px-2 bg-violet-800 py-1 rounded-xl font-medium "
+              className="px-2 bg-violet-800 py-1 rounded-md font-medium "
               onClick={() => setOpenModal(true)}
             >
               Register Now
@@ -47,9 +46,7 @@ const EventCard = ({ event }: { event: any }) => {
         </div>
       </div>
 
-     
-      <RegModal openModal={openModal} setOpenModal={setOpenModal}  />
-    
+      <RegModal openModal={openModal} setOpenModal={setOpenModal} />
     </>
   );
 };

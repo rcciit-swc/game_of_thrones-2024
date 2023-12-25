@@ -263,7 +263,8 @@ const events: eventsType[] = [
     image: "/assets/events/badminton.svg",
     hoverImage: "/assets/events/badminton2.svg",
     title: "Kabaddi (Girls and Boys)",
-    description: " In the realm of agility and daring raids, Kabaddi takes center stage! 🤸‍♂ ",
+    description:
+      " In the realm of agility and daring raids, Kabaddi takes center stage! 🤸‍♂ ",
     regFees: "Rs. 400 /- per Team",
     prize: "Rs. 8,000 /-",
     venue: "KOLKATA KABADDI COACHING (Near Girish Park Metro)",
@@ -324,7 +325,8 @@ const events: eventsType[] = [
     image: "/assets/events/tug.svg",
     hoverImage: "/assets/events/tug2.svg",
     title: "Tug of War (boys and girls)",
-    description: "   Strength, strategy, and the ultimate test of teamwork! 💪🤝",
+    description:
+      "   Strength, strategy, and the ultimate test of teamwork! 💪🤝",
     regFees: "Rs. 400 /- (each team)",
     prize: "Rs. 8,000 /-",
     venue: "RCCIIT College Ground",
@@ -345,7 +347,7 @@ const events: eventsType[] = [
       {
         name: "Shreya Sarkar",
         phone: "7439727696",
-      }
+      },
     ],
 
     rules: `<!DOCTYPE html>
@@ -505,7 +507,7 @@ const events: eventsType[] = [
       {
         name: "Pritha Majumder",
         phone: "7586909097",
-      }
+      },
     ],
 
     rules: `<!DOCTYPE html>

@@ -1,6 +1,5 @@
 "use client";
-import { fetchEvents } from "@/utils/functions/fetchEvents";
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface formDataType {
   team_lead_phone: string;
@@ -27,26 +26,25 @@ const EventReg = () => {
     updatedMembersPhone[index] = phoneNumber;
     setMembersPhone(updatedMembersPhone);
   };
-  
+
   return (
-    <form
-      action=""
-      className="flex flex-col items-start gap-5 px-10 py-5 bg-[#252525] rounded-xl shadow-sm shadow-white overflow-x-hidden"
-    >
+    <form className="flex flex-col items-start gap-5 px-10 py-5 bg-[#252525] rounded-md shadow-sm shadow-white overflow-x-hidden">
       <h1 className="text-white font-semibold text-2xl tracking-widest">
         Event Registration
       </h1>
       <div className="flex flex-row items-center flex-wrap gap-3">
         <label htmlFor="team_lead_phone">Team Lead Phone</label>
-        <div className="flex flex-row items-center gap-1">
-          <button className="rounded-xl bg-white p-3 text-black ">+91</button>
+        <div className="flex flex-row items-center gap-2">
+          <button className="rounded-md bg-white px-3 py-1 text-black ">
+            +91
+          </button>
           <input
             type="number"
             name="team_lead_phone"
             value={formValues.team_lead_phone}
             onChange={handleChange}
             id="team_lead_phone"
-            className="rounded-xl border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
+            className="rounded-md border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 w-[60%] md:w-[80%]"
           />
         </div>
       </div>
@@ -59,19 +57,20 @@ const EventReg = () => {
           value={formValues.teamName}
           onChange={handleChange}
           id="team_name"
-          className="rounded-xl border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
+          className="rounded-md border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 w-[60%] md:w-[80%]"
         />
       </div>
       <div className="flex flex-col gap-2">
         {Array(members)
           .fill(0)
           .map((_, index) => (
-            <div className="flex flex-col items-start flex-wrap gap-3"
-            key={index}
+            <div
+              className="flex flex-col items-start flex-wrap gap-3"
+              key={index}
             >
               <label htmlFor="">Member {index + 1} Phone</label>
               <div className="flex flex-row items-center gap-2">
-                <button className="rounded-xl bg-white p-3 text-black ">
+                <button className="rounded-md bg-white px-3 py-1 text-black ">
                   +91
                 </button>
                 <input
@@ -81,7 +80,7 @@ const EventReg = () => {
                   onChange={(e) => handleMemberChange(index, e.target.value)}
                   name=""
                   id=""
-                  className="rounded-xl border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
+                  className="rounded-md border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 w-[70%] md:w-[80%]"
                 />
               </div>
             </div>
@@ -96,7 +95,7 @@ const EventReg = () => {
           onChange={handleChange}
           name="Transaction_id"
           id="Transaction_id"
-          className="rounded-xl border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
+          className="rounded-md border-b w-[50%] border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
         />
       </div>
       <div className="flex flex-row items-center flex-wrap gap-3">
@@ -106,10 +105,10 @@ const EventReg = () => {
           name="Transaction_SS_filename"
           onChange={handleFileChange}
           id="Transaction_SS_filename"
-          className="rounded-xl border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
+          className="rounded-md border-b w-[60%] border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
         />
       </div>
-      <button className="mx-auto w-1/3 bg-primary rounded-xl py-2 px-5 font-medium text-md text-center hover:bg-opacity-70 ">
+      <button className="mx-auto w-1/3 bg-primary rounded-md py-2 px-5 font-medium text-base text-center hover:bg-opacity-70 ">
         Submit
       </button>
     </form>
