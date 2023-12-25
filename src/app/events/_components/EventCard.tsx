@@ -2,21 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import RegModal from "./RegModal";
-import { fetchEvents } from "@/utils/functions/fetchEvents";
+import { useState } from "react";
+import EventReg from "@/app/dashboard/_components/EventReg";
 import { useGame } from "@/lib/store/user";
 
 const EventCard = ({ event }: { event: any }) => {
   const [openModal, setOpenModal] = useState(false);
   const setGame = useGame((state) => state.setGame);
 
-  useEffect(() => {
-    const fetchEventsData = async () => {
-      const events = await fetchEvents(event.title);
-    };
-    fetchEventsData();
-  }, []);
   return (
     <>
       <div className="card relative w-[300px] cursor-pointer overflow-hidden rounded-md md:h-[250px] md:w-[350px]">
@@ -51,7 +44,7 @@ const EventCard = ({ event }: { event: any }) => {
         </div>
       </div>
 
-      <RegModal openModal={openModal} setOpenModal={setOpenModal} />
+      <EventReg openModal={openModal} setOpenModal={setOpenModal} />
     </>
   );
 };

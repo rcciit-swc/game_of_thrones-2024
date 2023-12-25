@@ -1,5 +1,4 @@
 import Image from "next/image";
-import EventReg from "./EventReg";
 
 const Dashboard = () => {
   return (
@@ -24,9 +23,9 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="mt-10 flex h-full w-full items-center justify-center">
+      {/* <div className="mt-10 flex h-full w-full items-center justify-center">
         <EventReg />
-      </div>
+      </div> */}
     </div>
   );
 };
