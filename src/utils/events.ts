@@ -139,8 +139,8 @@ const events: eventsType[] = [
   {
     image: "/assets/events/chess.svg",
     hoverImage: "/assets/events/chess2.svg",
-    title: "CHESS",
-    description: "  Mind over board! ♚♛",
+    title: "Chess",
+    description: "Mind over board! ♚♛",
     regFees: "Rs. 150 /-",
     prize: "Rs. 2,500 /-",
     venue: "RCCIIT,Kolkata",
@@ -184,7 +184,7 @@ const events: eventsType[] = [
   {
     image: "/assets/events/carrom.svg",
     hoverImage: "/assets/events/carrom2.svg",
-    title: "CARROM",
+    title: "Carrom",
     description: "Striker, pocket, victory! 🎱",
     regFees: "Rs. 100 /- (Singles)  ;  Rs. 200 /- (Doubles)",
     prize: "Rs. 7,000 /-",
