@@ -1,5 +1,6 @@
 import { createBrowserClient } from "@supabase/ssr";
 
+
 export async function fetchEvents(name: string) {
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -8,7 +9,7 @@ export async function fetchEvents(name: string) {
   const { data, error } = await supabase
     .from("events")
     .select("*")
-    .eq("event_name", name);
+    .eq("event_name", name).single();
   if (data) {
     return data;
   }
@@ -17,3 +18,4 @@ export async function fetchEvents(name: string) {
     return;
   }
 }
+

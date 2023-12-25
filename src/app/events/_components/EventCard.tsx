@@ -3,11 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import RegModal from "./RegModal";
 import { fetchEvents } from "@/utils/functions/fetchEvents";
+import EventReg from "@/app/dashboard/_components/EventReg";
 
 const EventCard = ({ event }: { event: any }) => {
   const [openModal, setOpenModal] = useState(false);
+
 
   useEffect(() => {
     const fetchEventsData = async () => {
@@ -15,6 +16,7 @@ const EventCard = ({ event }: { event: any }) => {
     };
     fetchEventsData();
   }, []);
+
   return (
     <>
       <div className="cursor-pointer card w-[300px] md:h-[250px] md:w-[350px] rounded-md relative overflow-hidden">
@@ -46,7 +48,10 @@ const EventCard = ({ event }: { event: any }) => {
         </div>
       </div>
 
-      <RegModal openModal={openModal} setOpenModal={setOpenModal} />
+
+     
+      <EventReg openModal={openModal} setOpenModal={setOpenModal} event={event.title}   />
+
     </>
   );
 };

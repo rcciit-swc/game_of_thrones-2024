@@ -1,5 +1,9 @@
 import Image from "next/image";
-import EventReg from "./EventReg";
+
+import React from "react";
+
+import EventSide from "./EventSide";
+
 
 const Dashboard = () => {
   return (
@@ -25,7 +29,8 @@ const Dashboard = () => {
       </div>
 
       <div className="flex  justify-center items-center w-full h-full mt-10">
-        <EventReg />
+
+
       </div>
     </div>
   );
