@@ -378,7 +378,7 @@ const events: eventsType[] = [
   {
     image: "/assets/events/football.svg",
     hoverImage: "/assets/events/football2.svg",
-    title: "FOOTBALL TOURNAMENT",
+    title: "Football",
     description: " Kicking off the adrenaline rush! ⚽ ",
     regFees: "RS. 1500 (each team)",
     prize: "Rs. 20,000 /-",

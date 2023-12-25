@@ -52,10 +52,10 @@ const RegForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mx-auto w-screen rounded-2xl  bg-[#252525] py-10 md:w-[80%] lg:px-10"
+      className="mx-auto w-screen rounded-2xl bg-[#252525] py-10 md:w-[80%] lg:px-10"
     >
-      <div className="flex flex-col  gap-10  px-10">
-        <div className="flex w-full flex-col  items-start gap-5">
+      <div className="flex flex-col gap-10 px-10">
+        <div className="flex w-full flex-col items-start gap-5">
           <label htmlFor="username">Full Name</label>
           <input
             type="text"
@@ -68,10 +68,10 @@ const RegForm = () => {
             className="w-[95%] rounded-md border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
           />
         </div>
-        <div className="flex flex-col  items-start gap-10">
-          <div className="flex  flex-col gap-5 md:w-[60%]">
+        <div className="flex flex-col items-start gap-10">
+          <div className="flex flex-col gap-5 md:w-[60%]">
             <label htmlFor="phone">Phone Number</label>
-            <div className="flex  flex-row gap-3">
+            <div className="flex flex-row gap-3">
               <button className="rounded-md bg-white p-3 text-black ">
                 +91
               </button>
@@ -97,7 +97,7 @@ const RegForm = () => {
               required={true}
               id="college"
               placeholder="College Name"
-              className="w-[95%] rounded-md  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
+              className="w-[95%] rounded-md border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
             />
           </div>
           <div className="flex w-full flex-col items-start gap-5">

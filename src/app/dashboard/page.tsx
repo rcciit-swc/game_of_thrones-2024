@@ -4,7 +4,7 @@ import Dashboard from "./_components/Dashboard";
 
 const page = () => {
   return (
-    <div className="pt-20 flex flex-col lg:flex-row ">
+    <div className="flex flex-col pt-20 lg:flex-row ">
       <ProfileSide />
       <Dashboard />
     </div>

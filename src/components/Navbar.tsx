@@ -12,13 +12,10 @@ import { handleLogin } from "@/utils/functions/login";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
-
   const [userImg, setUserImg] = useState("");
 
   const router = useRouter();
-
   const pathname = usePathname();
-
   const user = useUser((state) => state.user);
   const setUser = useUser((state) => state.setUser);
 
@@ -42,11 +39,7 @@ const Navbar = () => {
     };
 
     const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setScrolling(true);
-      } else {
-        setScrolling(false);
-      }
+      setScrolling(window.scrollY > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -60,13 +53,11 @@ const Navbar = () => {
 
   return (
     <>
-      <div
-        className={`fixed left-0 top-0 z-[40] w-screen lg:w-full lg:overflow-x-hidden`}
-      >
+      <div className="fixed left-0 top-0 z-[40] w-screen lg:w-full lg:overflow-x-hidden">
         <div
           className={`${
             scrolling || isMenuOpen ? "bg-body" : "bg-transparent"
-          } items-center justify-around  gap-20 px-2 py-2 overflow-hidden md:mb-20 max-md:border-b md:flex lg:px-10`}
+          } items-center justify-around gap-20 overflow-hidden px-2 py-2 max-md:border-b md:mb-20 md:flex lg:px-10`}
         >
           <div className="flex cursor-pointer items-center font-[Poppins] text-2xl font-bold text-gray-800">
             <span className="mr-1 pt-2 text-3xl text-indigo-600">
@@ -93,7 +84,7 @@ const Navbar = () => {
                 src={"/assets/navbar/hamburger.svg"}
                 height={24}
                 width={24}
-                alt=""
+                alt="hamburger"
               />
             )}
           </div>
@@ -110,7 +101,7 @@ const Navbar = () => {
                 key={index}
               >
                 <li
-                  className={`my-4 pt-2 font-semibold duration-200 ease-linear md:my-0 md:ml-4 lg:ml-8 md:hover:scale-105 md:hover:text-yellow-300 xl:text-xl ${
+                  className={`my-4 pt-2 font-semibold duration-200 ease-linear md:my-0 md:ml-4 md:hover:scale-105 md:hover:text-yellow-300 lg:ml-8 xl:text-xl ${
                     pathname === link.href && "text-yellow-300"
                   }`}
                 >
@@ -120,13 +111,13 @@ const Navbar = () => {
             ))}
 
             {user && (
-              <div className="overflow-hidden md:ml-10 border-none">
+              <div className="overflow-hidden border-none md:ml-10">
                 <Dropdown
-                  className="bg-body border-none text-white "
+                  className="border-none bg-body text-white "
                   label={
                     <Image
                       src={userImg}
-                      className="w-12 rounded-full cursor-pointer pr-2 duration-500 ease-in-out hover:scale-105"
+                      className="w-12 cursor-pointer rounded-full pr-2 duration-500 ease-in-out hover:scale-105"
                       width={100}
                       height={100}
                       alt="logo"

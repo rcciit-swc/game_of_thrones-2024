@@ -10,3 +10,13 @@ export const useUser = create<UserState>()((set) => ({
   user: undefined,
   setUser: (user) => set(() => ({ user })),
 }));
+
+interface GameState {
+  gameName: string | undefined;
+  setGame: (gameName: string | undefined) => void;
+}
+
+export const useGame = create<GameState>()((set) => ({
+  gameName: undefined,
+  setGame: (gameName) => set(() => ({ gameName })),
+}));

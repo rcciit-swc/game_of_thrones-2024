@@ -7,11 +7,7 @@ export const metadata: Metadata = constructMetaData({
 });
 
 const ContactUs = () => {
-  return (
-    <>
-      <Block />
-    </>
-  );
+  return <Block />;
 };
 
 export default ContactUs;

@@ -20,7 +20,7 @@ const page = ({ params: { event } }: Params) => {
   const eventObj = fetchEvent(eventTitle);
   return (
     <>
-      <div className="mt-[100px] max-w-[1600px] overflow-x-hidden mx-auto flex flex-col  justify-between gap-12 px-3 md:px-10">
+      <div className="mx-auto mt-[100px] flex max-w-[1600px] flex-col justify-between gap-12 overflow-x-hidden px-3 md:px-10">
         <SectionHeader text={eventTitle} />
 
         <div className=" flex flex-row flex-wrap-reverse items-center justify-between gap-5 md:gap-10">
@@ -63,13 +63,13 @@ const page = ({ params: { event } }: Params) => {
             src={eventObj!.hoverImage}
             width={0}
             height={0}
-            className="w-[700px] max-2xl:mx-auto rounded-lg md:h-[400px]"
+            className="w-[700px] rounded-lg max-2xl:mx-auto md:h-[400px]"
             alt={eventTitle}
           />
         </div>
         <h1 className="font-got text-2xl font-semibold">Rules :</h1>
         <div
-          className="text-start bg-[#252525] px-10 py-5 rounded-2xl border-t-2 border-b-2"
+          className="rounded-2xl border-b-2 border-t-2 bg-[#252525] px-10 py-5 text-start"
           dangerouslySetInnerHTML={{ __html: eventObj!.rules }}
         />
       </div>

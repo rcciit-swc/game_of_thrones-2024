@@ -8,17 +8,17 @@ const RegModal = ({
   setOpenModal,
 }: {
   openModal: boolean;
-  setOpenModal: any;
+  setOpenModal: (value: boolean) => void;
 }) => {
   return (
     <div>
       <Modal
-        className="mx-auto mt-[100px] md:mt-[150px] border h-[calc(100vh-30vh)] md:h-[500px] rounded-md bg-body max-w-[800px]"
+        className="mx-auto mt-[100px] h-[calc(100vh-30vh)] max-w-[800px] rounded-md border bg-body md:mt-[150px] md:h-[500px]"
         show={openModal}
         onClose={() => setOpenModal(false)}
       >
         <Modal.Header className="bg-body">Terms of Service</Modal.Header>
-        <Modal.Body className="bg-body mx-auto w-full">
+        <Modal.Body className="mx-auto w-full bg-body">
           <EventReg />
         </Modal.Body>
       </Modal>

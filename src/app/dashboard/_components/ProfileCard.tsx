@@ -10,7 +10,7 @@ const ProfileCard = () => {
         label={
           <Image
             src={""}
-            className="w-9  cursor-pointer pr-2 rounded-full transition-colors duration-500 ease-in-out hover:scale-105  "
+            className="w-9 cursor-pointer rounded-full pr-2 transition-colors duration-500 ease-in-out hover:scale-105  "
             width={0}
             height={0}
             alt="logo"
