@@ -149,26 +149,29 @@ const EventReg = ({
         openModal ? "absolute" : "hidden"
       } inset-0 z-50  max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden bg-opacity-25  md:inset-0`}
     >
-      <div className="relative mx-auto my-auto flex h-screen w-full max-w-2xl items-center justify-center p-4 ">
+      <div className="relative mx-auto my-auto flex w-full max-w-2xl items-center justify-center p-4">
         <Modal
           show={openModal}
-          onClose={() => setOpenModal(false)}
+          onClose={() => {
+            setOpenModal(false);
+            setSingleDouble("Singles");
+          }}
           className="pt-[10vh]"
         >
           <Modal.Header className="rounded-t-md bg-body shadow-sm shadow-white ">
             Event Registration
           </Modal.Header>
 
-          <Modal.Body className="bg-body">
+          <Modal.Body className="rounded-md bg-body">
             <form
-              className="flex flex-col items-start gap-5 overflow-x-hidden overflow-y-scroll rounded-md bg-[#252525] px-10 py-5 shadow-sm shadow-white"
+              className="flex h-[calc(100vh-30vh)] flex-col items-start gap-5 overflow-x-hidden overflow-y-scroll rounded-md bg-[#252525] px-10 py-5 shadow-sm shadow-white"
               onSubmit={handleSubmit}
             >
               <h1 className="text-2xl font-semibold tracking-widest text-white">
                 Event Registration
               </h1>
               {!(teamType === "Team") && (
-                <div className="overflow-hidden border-none md:ml-10">
+                <div className="gap-3 overflow-hidden border-none">
                   <Dropdown
                     className="border-none bg-body text-white "
                     label={singleDouble}
@@ -191,36 +194,50 @@ const EventReg = ({
               )}
 
               {renderInputField(
-                "Team Lead Phone",
+                `${
+                  singleDouble === "Singles" ? "Your Phone" : "Team Lead Phone"
+                }`,
                 formValues.team_lead_phone,
                 handleChange,
                 "team_lead_phone",
                 "number",
               )}
               {renderInputField(
-                "Team Name",
+                `${singleDouble === "Singles" ? "Your Name" : "Team Name"}`,
                 formValues.teamName,
                 handleChange,
                 "teamName",
               )}
 
               <div className="flex flex-col gap-2">
-                {Array(membersMinMax.max)
+                {Array(
+                  singleDouble === "Singles"
+                    ? membersMinMax.min
+                    : membersMinMax.max,
+                )
                   .fill(0)
                   .map((_, index) => (
                     <div
                       className="flex flex-col flex-wrap items-start gap-3"
                       key={index}
                     >
-                      <label htmlFor="">Member {index + 1} Phone</label>
+                      <label htmlFor="">
+                        {singleDouble === "Singles"
+                          ? "Your Phone Number"
+                          : `Member ${index + 1} Phone`}
+                      </label>
                       <div className="flex flex-row items-center gap-2">
                         <button className="rounded-md bg-white px-3 py-1 text-black">
                           +91
                         </button>
                         <input
                           type="text"
-                          value={index === 0 ? user?.phone : membersPhone[index]}
-                          required
+                          value={
+                            index === 0 ? user?.phone : membersPhone[index]
+                          }
+                          required={
+                            index > membersMinMax.min - 1 ? false : true
+                          }
                           onChange={(e) =>
                             handleMemberChange(index, e.target.value)
                           }
