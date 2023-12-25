@@ -7,11 +7,11 @@ import EventReg from "@/app/dashboard/_components/EventReg";
 import { useGame } from "@/lib/store/user";
 
 const EventCard = ({ event }: { event: any }) => {
-  const [openModal, setOpenModal] = useState(false);
-  const setGame = useGame((state) => state.setGame);
+  
 
   return (
     <>
+    <Link href={`/events/${event.title.toLowerCase()}`}>
       <div className="card relative w-[300px] cursor-pointer overflow-hidden rounded-md md:h-[250px] md:w-[350px]">
         <Image
           src={event.hoverImage}
@@ -26,12 +26,12 @@ const EventCard = ({ event }: { event: any }) => {
           </h1>
           <p className="px-4 py-2">{event.description}</p>
           <div className="flex flex-row justify-between gap-5  px-5 pt-3">
-            <Link href={`/events/${event.title.toLowerCase()}`}>
+            {/* <Link href={`/events/${event.title.toLowerCase()}`}>
               <button className="rounded-md bg-green-600 px-2 py-1 font-medium">
                 See More
               </button>
-            </Link>
-            <button
+            </Link> */}
+            {/* <button
               className="rounded-md bg-violet-800 px-2 py-1 font-medium "
               onClick={() => {
                 setOpenModal(true);
@@ -39,12 +39,13 @@ const EventCard = ({ event }: { event: any }) => {
               }}
             >
               Register Now
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
+    </Link>
 
-      <EventReg openModal={openModal} setOpenModal={setOpenModal} />
+      {/* <EventReg openModal={openModal} setOpenModal={setOpenModal} /> */}
     </>
   );
 };

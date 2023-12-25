@@ -1,6 +1,6 @@
 "use client";
 
-import { useGame } from "@/lib/store/user";
+import { useGame, useUser } from "@/lib/store/user";
 import { fetchEvents } from "@/utils/functions/fetchEvents";
 
 import { createBrowserClient } from "@supabase/ssr";
@@ -26,6 +26,9 @@ const EventReg = ({
   const gameName = useGame((state) => state.gameName);
   const teamType = useGame((state) => state.teamType);
   const [singleDouble, setSingleDouble] = useState<string>("Singles");
+
+  const user = useUser((state) => state.user);
+
   useEffect(() => {
     const fetchEventsData = async () => {
       const events = await fetchEvents(gameName);
@@ -33,19 +36,23 @@ const EventReg = ({
     };
     fetchEventsData();
   }, [gameName]);
+
   const membersMinMax = {
     min: eventsData?.min_team_member,
     max: eventsData?.max_team_member,
   };
+
   const [membersPhone, setMembersPhone] = useState<string[]>(
     Array(membersMinMax.max).fill(""),
   );
+
   const [file, setFile] = useState<File | null>(null);
   const [formValues, setFormValues] = useState<formDataType>({
     team_lead_phone: "",
     teamName: "",
     Transaction_id: "",
   });
+
   const setGame = useGame((state) => state.setGame);
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -83,6 +90,7 @@ const EventReg = ({
         team_lead_phone: formValues.team_lead_phone,
       },
     ]);
+
     const { data: teamData } = await supabase.from("teams").select("team_id");
     // console.log(teamData);
     console.log(membersPhone);
@@ -122,9 +130,10 @@ const EventReg = ({
           </button>
         )}
         <input
+          disabled={name === "team_lead_phone" ? true : false}
           type={type}
           name={name}
-          value={value || ""}
+          value={name === "team_lead_phone" ? `${user?.phone}` : `${value}`}
           onChange={onChange}
           id={name}
           required={type !== "file"}
@@ -158,26 +167,29 @@ const EventReg = ({
               <h1 className="text-2xl font-semibold tracking-widest text-white">
                 Event Registration
               </h1>
-              <div className="overflow-hidden border-none md:ml-10">
-                <Dropdown
-                  className="border-none bg-body text-white "
-                  label={singleDouble}
-                  dismissOnClick={false}
-                >
-                  <Dropdown.Item
-                    onClick={() => setSingleDouble("Singles")}
-                    className="hover:bg-slate-400"
+              {!(teamType === "Team") && (
+                <div className="overflow-hidden border-none md:ml-10">
+                  <Dropdown
+                    className="border-none bg-body text-white "
+                    label={singleDouble}
+                    dismissOnClick={false}
                   >
-                    Show Profile
-                  </Dropdown.Item>
-                  <Dropdown.Item
-                    onClick={() => setSingleDouble("Doubles")}
-                    className="hover:bg-slate-400"
-                  >
-                    Doubles
-                  </Dropdown.Item>
-                </Dropdown>
-              </div>
+                    <Dropdown.Item
+                      onClick={() => setSingleDouble("Singles")}
+                      className="hover:bg-slate-400"
+                    >
+                      Singles
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={() => setSingleDouble("Doubles")}
+                      className="hover:bg-slate-400"
+                    >
+                      Doubles
+                    </Dropdown.Item>
+                  </Dropdown>
+                </div>
+              )}
+
               {renderInputField(
                 "Team Lead Phone",
                 formValues.team_lead_phone,
@@ -207,11 +219,12 @@ const EventReg = ({
                         </button>
                         <input
                           type="text"
-                          value={membersPhone[index]}
+                          value={index === 0 ? user?.phone : membersPhone[index]}
                           required
                           onChange={(e) =>
                             handleMemberChange(index, e.target.value)
                           }
+                          disabled={index === 0 ? true : false}
                           name=""
                           id=""
                           className="w-[70%] rounded-md border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
