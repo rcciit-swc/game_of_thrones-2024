@@ -4,7 +4,7 @@ import { useGame } from "@/lib/store/user";
 import { fetchEvents } from "@/utils/functions/fetchEvents";
 
 import { createBrowserClient } from "@supabase/ssr";
-import { Modal } from "flowbite-react";
+import { Modal, Dropdown } from "flowbite-react";
 
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -24,6 +24,8 @@ const EventReg = ({
 }) => {
   const [eventsData, setEventsData] = useState<any>([]);
   const gameName = useGame((state) => state.gameName);
+  const teamType = useGame((state) => state.teamType);
+  const [singleDouble, setSingleDouble] = useState<string>("Singles");
   useEffect(() => {
     const fetchEventsData = async () => {
       const events = await fetchEvents(gameName);
@@ -31,9 +33,12 @@ const EventReg = ({
     };
     fetchEventsData();
   }, [gameName]);
-  const members = eventsData?.max_team_member;
+  const membersMinMax = {
+    min: eventsData?.min_team_member,
+    max: eventsData?.max_team_member,
+  };
   const [membersPhone, setMembersPhone] = useState<string[]>(
-    Array(members).fill(""),
+    Array(membersMinMax.max).fill(""),
   );
   const [file, setFile] = useState<File | null>(null);
   const [formValues, setFormValues] = useState<formDataType>({
@@ -95,7 +100,7 @@ const EventReg = ({
       return;
     }
     toast.success("Successfully registered, please wait for verification");
-    setGame("");
+    setGame("", "");
     setFormValues({ team_lead_phone: "", teamName: "", Transaction_id: "" });
     setOpenModal(false);
   };
@@ -144,6 +149,7 @@ const EventReg = ({
           <Modal.Header className="rounded-t-md bg-body shadow-sm shadow-white ">
             Event Registration
           </Modal.Header>
+
           <Modal.Body className="bg-body">
             <form
               className="flex flex-col items-start gap-5 overflow-x-hidden overflow-y-scroll rounded-md bg-[#252525] px-10 py-5 shadow-sm shadow-white"
@@ -152,7 +158,26 @@ const EventReg = ({
               <h1 className="text-2xl font-semibold tracking-widest text-white">
                 Event Registration
               </h1>
-
+              <div className="overflow-hidden border-none md:ml-10">
+                <Dropdown
+                  className="border-none bg-body text-white "
+                  label={singleDouble}
+                  dismissOnClick={false}
+                >
+                  <Dropdown.Item
+                    onClick={() => setSingleDouble("Singles")}
+                    className="hover:bg-slate-400"
+                  >
+                    Show Profile
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onClick={() => setSingleDouble("Doubles")}
+                    className="hover:bg-slate-400"
+                  >
+                    Doubles
+                  </Dropdown.Item>
+                </Dropdown>
+              </div>
               {renderInputField(
                 "Team Lead Phone",
                 formValues.team_lead_phone,
@@ -168,7 +193,7 @@ const EventReg = ({
               )}
 
               <div className="flex flex-col gap-2">
-                {Array(members)
+                {Array(membersMinMax.max)
                   .fill(0)
                   .map((_, index) => (
                     <div

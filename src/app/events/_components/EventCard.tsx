@@ -35,7 +35,7 @@ const EventCard = ({ event }: { event: any }) => {
               className="rounded-md bg-violet-800 px-2 py-1 font-medium "
               onClick={() => {
                 setOpenModal(true);
-                setGame(event.title);
+                setGame(event.title, event.teamType);
               }}
             >
               Register Now

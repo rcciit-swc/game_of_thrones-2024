@@ -12,6 +12,7 @@ interface eventsType {
   venue: string;
   date: string;
   coordinators?: coordinatorType[];
+  teamType?: string;
   rules: string;
 }
 
@@ -25,6 +26,7 @@ const events: eventsType[] = [
     prize: "Rs. 15,000 /- ",
     venue: "RCCIIT College Ground",
     date: "12th to 14th January, 2024 ",
+    teamType: "Team",
     coordinators: [
       {
         name: "Tahir Imam",
@@ -97,7 +99,7 @@ const events: eventsType[] = [
         phone: "6289071523",
       },
     ],
-
+    teamType: "Singles & Doubles",
     rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -155,7 +157,7 @@ const events: eventsType[] = [
         phone: "9051484336",
       },
     ],
-
+    teamType: "Single",
     rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -204,7 +206,7 @@ const events: eventsType[] = [
         phone: "7278271477",
       },
     ],
-
+    teamType: "Singles & Doubles",
     rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -217,7 +219,6 @@ const events: eventsType[] = [
                 <li>2. Unsporting behavior of any player may result in direct disqualification of the team/player.</li>
                 <li>3. Once enlisted, players cannot switch teams/players.</li>
             </ol>
-        
             <h2 class="text-2xl font-semibold py-3">Game Rules:</h2>
             <div class="text-xl flex flex-col items-start gap-5">
             <div>
@@ -253,7 +254,6 @@ const events: eventsType[] = [
             <!-- Include all the position rules -->
             </div>
             </div>
-            
         </body>
         </html>
         
@@ -262,9 +262,9 @@ const events: eventsType[] = [
   {
     image: "/assets/events/badminton.svg",
     hoverImage: "/assets/events/badminton2.svg",
-    title: "Kabaddi (Girls and Boys)",
+    title: "Kabaddi (boys and girls)",
     description:
-      " In the realm of agility and daring raids, Kabaddi takes center stage! 🤸‍♂ ",
+      "In the realm of agility and daring raids, Kabaddi takes center stage! 🤸‍♂ ",
     regFees: "Rs. 400 /- per Team",
     prize: "Rs. 8,000 /-",
     venue: "KOLKATA KABADDI COACHING (Near Girish Park Metro)",
@@ -279,7 +279,7 @@ const events: eventsType[] = [
         phone: "7864061484",
       },
     ],
-
+    teamType: "Team",
     rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -318,15 +318,13 @@ const events: eventsType[] = [
             </ul>
         </body>
         </html>
-        
         `,
   },
   {
     image: "/assets/events/tug.svg",
     hoverImage: "/assets/events/tug2.svg",
     title: "Tug of War (boys and girls)",
-    description:
-      "   Strength, strategy, and the ultimate test of teamwork! 💪🤝",
+    description: "Strength, strategy, and the ultimate test of teamwork! 💪🤝",
     regFees: "Rs. 400 /- (each team)",
     prize: "Rs. 8,000 /-",
     venue: "RCCIIT College Ground",
@@ -349,7 +347,7 @@ const events: eventsType[] = [
         phone: "7439727696",
       },
     ],
-
+    teamType: "Team",
     rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -372,14 +370,13 @@ const events: eventsType[] = [
             </ol>
         </body>
         </html>
-        
         `,
   },
   {
     image: "/assets/events/football.svg",
     hoverImage: "/assets/events/football2.svg",
     title: "Football",
-    description: " Kicking off the adrenaline rush! ⚽ ",
+    description: "Kicking off the adrenaline rush! ⚽ ",
     regFees: "RS. 1500 (each team)",
     prize: "Rs. 20,000 /-",
     venue: "",
@@ -402,6 +399,7 @@ const events: eventsType[] = [
         phone: "9681162881",
       },
     ],
+    teamType: "Team",
     rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -428,7 +426,6 @@ const events: eventsType[] = [
             </ol>
         </body>
         </html>
-        
         `,
   },
   {
@@ -454,7 +451,7 @@ const events: eventsType[] = [
         phone: "9330613148",
       },
     ],
-
+    teamType: "Singles & Doubles",
     rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -479,14 +476,13 @@ const events: eventsType[] = [
             </ul>
         </body>
         </html>
-        
         `,
   },
   {
     image: "/assets/events/handball.svg",
     hoverImage: "/assets/events/handball2.svg",
-    title: "Handball (Girls)",
-    description: " Fast-paced, dynamic, and full of twists! 🤾‍♀",
+    title: "Handball (girls)",
+    description: "Fast-paced, dynamic, and full of twists! 🤾‍♀",
     regFees: "Rs. 250 /- (each team)",
     prize: "Rs. 2,000 /-",
     venue: "RCCIIT College Middle Ground , Kolkata",
@@ -509,7 +505,7 @@ const events: eventsType[] = [
         phone: "7586909097",
       },
     ],
-
+    teamType: "Team",
     rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -555,7 +551,7 @@ const events: eventsType[] = [
   {
     image: "/assets/events/handball.svg",
     hoverImage: "/assets/events/handball2.svg",
-    title: "Volleyball (Boys)",
+    title: "Volleyball (boys)",
     description: "Spike it, set it, win it! 🏐",
     regFees: "Rs. 500 /- (each team)",
     prize: "Rs. 4,500 /-",
@@ -575,7 +571,7 @@ const events: eventsType[] = [
         phone: "8910170643",
       },
     ],
-
+    teamType: "Team",
     rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -617,7 +613,6 @@ const events: eventsType[] = [
             </ul>
         </body>
         </html>
-        
         `,
   },
 ];
