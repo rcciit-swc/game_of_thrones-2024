@@ -28,7 +28,7 @@ const EventReg = () => {
   };
 
   return (
-    <form className="flex flex-col items-start gap-5 px-10 py-5 bg-[#252525] rounded-md shadow-sm shadow-white overflow-x-hidden">
+    <form className="flex flex-col items-start gap-5 px-10 py-5 bg-[#252525] rounded-md overflow-y-scroll  overflow-x-hidden">
       <h1 className="text-white font-semibold text-2xl tracking-widest">
         Event Registration
       </h1>

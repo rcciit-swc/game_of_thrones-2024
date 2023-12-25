@@ -13,7 +13,7 @@ const RegModal = ({
   return (
     <div>
       <Modal
-        className="mx-auto mt-[100px] md:mt-[150px] border h-[calc(100vh-30vh)] md:h-[500px] rounded-md bg-body max-w-[800px]"
+        className="mx-auto mt-[100px] md:mt-[150px]   h-[calc(100vh-30vh)] md:h-[500px] rounded-md  max-w-[800px]"
         show={openModal}
         onClose={() => setOpenModal(false)}
       >
