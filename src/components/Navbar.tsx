@@ -8,6 +8,8 @@ import { useUser } from "@/lib/store/user";
 import { createBrowserClient } from "@supabase/ssr";
 import { usePathname, useRouter } from "next/navigation";
 import { handleLogin } from "@/utils/functions/login";
+import { supabase } from "@/lib/supabase-client";
+import { checkIfUserRegistered } from "@/utils/functions/checkIfUserRegistered";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,10 +21,7 @@ const Navbar = () => {
   const user = useUser((state) => state.user);
   const setUser = useUser((state) => state.setUser);
 
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-  );
+  const [showDashboard, setShowDashboard] = useState(false);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -37,11 +36,24 @@ const Navbar = () => {
         setUserImg(data?.session?.user.user_metadata?.avatar_url);
       }
     };
+    const handleDashboard = async () => {
+      const data = await checkIfUserRegistered({
+        phone_param: user?.phone!,
+      });
+      console.log(data);
+      if (data.length > 0) {
+        setShowDashboard(true);
+        return;
+      }
+      setShowDashboard(false);
+    };
+    handleDashboard();
 
     const handleScroll = () => {
       setScrolling(window.scrollY > 0);
     };
 
+    console.log(user);
     window.addEventListener("scroll", handleScroll);
 
     readUserSession();
@@ -49,7 +61,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [user]);
 
   return (
     <>
@@ -109,7 +121,17 @@ const Navbar = () => {
                 </li>
               </Link>
             ))}
-
+            {showDashboard && (
+              <Link href="/dashboard">
+                <li
+                  className={`my-4 pt-2 font-semibold duration-200 ease-linear md:my-0 md:ml-4 md:hover:scale-105 md:hover:text-yellow-300 lg:ml-8 xl:text-xl ${
+                    pathname === "/dashboard" && "text-yellow-300"
+                  }`}
+                >
+                  <h1 className="cursor-pointer p-2 transition">Dashboard</h1>
+                </li>
+              </Link>
+            )}
             {user && (
               <div className="overflow-hidden border-none md:ml-10">
                 <Dropdown

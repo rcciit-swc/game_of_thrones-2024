@@ -57,19 +57,17 @@ const Page = ({ params: { event } }: Params) => {
     }
   };
 
-
   const checkEventRegistered = (eventReg: any) => {
-    if (eventObj?.teamType === "Singles & Doubles"){
+    if (eventObj?.teamType === "Singles & Doubles") {
       const eventRegistered = eventReg?.filter(
-        (event: any) => event.event_id === eventObj?.id
+        (event: any) => event.event_id === eventObj?.id,
       );
-      if (eventRegistered?.length === 2) {
+      if (eventRegistered?.length === 2 || eventRegistered?.length === 1) {
         setIsRegistered(true);
       }
-    }
-    else {
+    } else {
       const eventRegistered = eventReg?.filter(
-        (event: any) => event.event_id === eventObj?.id
+        (event: any) => event.event_id === eventObj?.id,
       );
       if (eventRegistered?.length === 1) {
         setIsRegistered(true);
