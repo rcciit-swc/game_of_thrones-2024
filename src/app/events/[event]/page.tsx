@@ -27,8 +27,6 @@ const fetchEvent = (eventId: string) => {
   return eventObj;
 };
 
-const checkEventRegistered = (eventTitle: any) => {};
-
 const Page = ({ params: { event } }: Params) => {
   const user = useUser((state) => state.user);
 
@@ -59,12 +57,32 @@ const Page = ({ params: { event } }: Params) => {
     }
   };
 
+
+  const checkEventRegistered = (eventReg: any) => {
+    if (eventObj?.teamType === "Singles & Doubles"){
+      const eventRegistered = eventReg?.filter(
+        (event: any) => event.event_id === eventObj?.id
+      );
+      if (eventRegistered?.length === 2) {
+        setIsRegistered(true);
+      }
+    }
+    else {
+      const eventRegistered = eventReg?.filter(
+        (event: any) => event.event_id === eventObj?.id
+      );
+      if (eventRegistered?.length === 1) {
+        setIsRegistered(true);
+      }
+    }
+  };
+
   useEffect(() => {
     if (user && user.phone) {
       checkIfUserRegistered({
         phone_param: user.phone,
       }).then((data) => {
-        console.log(data);
+        checkEventRegistered(data);
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -124,14 +142,24 @@ const Page = ({ params: { event } }: Params) => {
           className="rounded-2xl border-b-2 border-t-2 bg-[#252525] px-10 py-5 text-justify"
           dangerouslySetInnerHTML={{ __html: eventObj!.rules }}
         />
-        {user && (
-          <button
-            className="w-fit rounded-md bg-violet-800 px-3 py-2 font-medium"
-            onClick={handleRegister}
-          >
-            Register Now
-          </button>
-        )}
+        {user &&
+          (isRegistered ? (
+            <button
+              className="w-fit rounded-md bg-violet-800 px-3 py-2 font-medium"
+              onClick={() => {
+                router.push("/dashboard");
+              }}
+            >
+              Go to Dashboard
+            </button>
+          ) : (
+            <button
+              className="w-fit rounded-md bg-violet-800 px-3 py-2 font-medium"
+              onClick={handleRegister}
+            >
+              Register Now
+            </button>
+          ))}
       </div>
 
       <EventReg
