@@ -559,8 +559,8 @@ const events: eventsType[] = [
         `,
   },
   {
-    image: "/assets/events/handball.svg",
-    hoverImage: "/assets/events/handball2.svg",
+    image: "/assets/events/volleyball.svg",
+    hoverImage: "/assets/events/volleyball2.svg",
     title: "Volleyball (boys)",
     description: "Spike it, set it, win it! 🏐",
     regFees: "Rs. 500 /- (each team)",

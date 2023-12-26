@@ -16,12 +16,18 @@ type Params = {
     event: string;
   };
 };
+
 const fetchEvent = (eventdata: any) => {
   const eventObj = events.find(
     (event) => event.title.toLowerCase() === eventdata.toLowerCase(),
   );
   return eventObj;
 };
+
+const checkEventRegistered = (eventTitle: any) => {
+
+};
+
 const Page = ({ params: { event } }: Params) => {
   const user = useUser((state) => state.user);
 
@@ -30,24 +36,11 @@ const Page = ({ params: { event } }: Params) => {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
   );
 
-  useEffect(() => {
-    if (user && user.phone) {
-      console.log(user);
-
-      supabase
-        .rpc("check_if_user_registered", {
-          phone_param: user.phone,
-        })
-        .then(({ data, error }) => {
-          console.log(data);
-        });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
-
   const router = useRouter();
 
   const [openModal, setOpenModal] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(false);
+
   const setGame = useGame((state) => state.setGame);
 
   const eventTitle = decodeURIComponent(event);
@@ -69,9 +62,24 @@ const Page = ({ params: { event } }: Params) => {
     }
   };
 
+  useEffect(() => {
+    if (user && user.phone) {
+
+      supabase
+        .rpc("check_if_user_registered", {
+          phone_param: user.phone,
+        })
+        .then(({ data, error }) => {
+          console.log(data);
+        });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
+
   return (
     <>
-      <div className="mx-auto mt-[100px] flex max-w-[1600px] flex-col justify-between gap-12 overflow-x-hidden px-3 md:px-10">
+      <div className="mx-auto mt-[100px] flex max-w-[1600px] flex-col justify-between gap-12 overflow-x-hidden px-3 md:px-10 items-center">
         <SectionHeader text={eventTitle} />
 
         <div className=" flex flex-row flex-wrap-reverse items-center justify-between gap-5 md:gap-10">
@@ -120,12 +128,12 @@ const Page = ({ params: { event } }: Params) => {
         </div>
         <h1 className="font-got text-2xl font-semibold">Rules :</h1>
         <div
-          className="rounded-2xl border-b-2 border-t-2 bg-[#252525] px-10 py-5 text-start"
+          className="rounded-2xl border-b-2 border-t-2 bg-[#252525] px-10 py-5 text-justify"
           dangerouslySetInnerHTML={{ __html: eventObj!.rules }}
         />
         {user && (
           <button
-            className="rounded-md bg-violet-800 px-2 py-1 font-medium "
+            className="rounded-md bg-violet-800 px-3 py-2 font-medium w-fit"
             onClick={handleRegister}
           >
             Register Now
