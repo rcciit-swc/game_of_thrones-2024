@@ -1,14 +1,16 @@
 "use client";
 
-import { useGame, useUser } from "@/lib/store/user";
+import { useEvent, useUser } from "@/lib/store/user";
+import { supabase } from "@/lib/supabase-client";
+import { DOUBLES, SINGLES, TEAM } from "@/utils/events";
 import { fetchEvents } from "@/utils/functions/fetchEvents";
 
-import { createBrowserClient } from "@supabase/ssr";
 import { Modal, Dropdown } from "flowbite-react";
 import Image from "next/image";
 
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { toast } from "sonner";
+import { v4 as uuidv4 } from "uuid";
 
 interface formDataType {
   team_lead_phone: string;
@@ -19,26 +21,26 @@ interface formDataType {
 const EventReg = ({
   openModal,
   setOpenModal,
-  registrationFees
+  registrationFees,
 }: {
   openModal: boolean;
   setOpenModal: (value: boolean) => void;
   registrationFees: string;
 }) => {
   const [eventsData, setEventsData] = useState<any>([]);
-  const gameName = useGame((state) => state.gameName);
-  const teamType = useGame((state) => state.teamType);
-  const [singleDouble, setSingleDouble] = useState<string>("Singles");
+  const eventId = useEvent((state) => state.eventId);
+  const teamType = useEvent((state) => state.teamType);
+  const [singleDouble, setSingleDouble] = useState<string>(SINGLES);
 
   const user = useUser((state) => state.user);
 
   useEffect(() => {
     const fetchEventsData = async () => {
-      const events = await fetchEvents(gameName);
+      const events = await fetchEvents(eventId);
       setEventsData(events);
     };
     fetchEventsData();
-  }, [gameName]);
+  }, [eventId]);
 
   const membersMinMax = {
     min: eventsData?.min_team_member,
@@ -60,7 +62,7 @@ const EventReg = ({
     transaction_id: "",
   });
 
-  const setGame = useGame((state) => state.setGame);
+  const setEvent = useEvent((state) => state.setEvent);
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -80,69 +82,62 @@ const EventReg = ({
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const supabase = createBrowserClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    );
-    const { data: eventsData } = await supabase
-      .from("events")
-      .select()
-      .eq("event_name", gameName);
 
-
-    const { data, error } = await supabase.from("teams").insert([
-      {
-        event_id: eventsData![0].id,
-        team_name: formValues.teamName,
-        transaction_id: formValues.transaction_id,
-        team_lead_phone: user?.phone!,
-      },
-    ]);
-
-    const { data: teamData } = await supabase
-      .from("teams")
-      .select("team_id")
-      .eq("event_id", eventsData![0].id)
-      .eq("team_name", formValues.teamName)
-      .eq("team_lead_phone", user?.phone!);
+    const teamId = uuidv4();
 
     const { data: uploadFile, error: uploadError } = await supabase.storage
-      .from("got_2024")
-      .upload(`transactions/${teamData?.[0].team_id}.png`, file!);
+      .from("fests")
+      .upload(
+        `Game of Thrones/2024/${eventId}/transactions/${teamId}.png`,
+        file!,
+      );
 
     if (uploadError) {
-      toast.error("Screenshot upload failed,Please Contact Admin");
-    }
-    if (uploadFile) {
-      const { data: updateFileName, error: updateError } = await supabase
-        .from("teams")
-        .update({ transaction_ss_filename: `${teamData?.[0].team_id}.png` })
-        .eq("team_id", teamData?.[0].team_id);
-      toast.success("Screenshot uploaded successfully");
-    }
-
-    membersPhone[0] = user?.phone!;
-
-    for (const item of membersPhone) {
-      const { error: participantError } = await supabase
-        .from("participations")
-        .insert({
-          team_name: formValues.teamName,
-          phone: item,
-          team_id: teamData![0].team_id,
-        });
-    }
-    if (error) {
-      toast.error("There is something wrong.");
+      toast.error("File upload failed! Register Again!");
       return;
     }
+
+    if (uploadFile) {
+      const { error: teamsInsertError } = await supabase.from("teams").insert([
+        {
+          event_id: eventId,
+          team_name: formValues.teamName,
+          transaction_id: formValues.transaction_id,
+          team_lead_phone: user?.phone!,
+          team_id: teamId,
+          transaction_ss_filename: `${teamId}.png`,
+        },
+      ]);
+
+      if (teamsInsertError) {
+        toast.error("Error uploading registration details! Register Again!");
+        return;
+      }
+    }
+
+    const postTeamMembers = [];
+
+    const temp = membersPhone.splice(1, membersPhone.length - 1);
+
+    for (const item of temp) {
+      postTeamMembers.push(
+        supabase.from("participations").insert({
+          phone: item,
+          team_id: teamId,
+        }),
+      );
+    }
+
+    await Promise.all(postTeamMembers);
+
     toast.success("Successfully registered, please wait for verification");
-    setGame("", "");
+
     setFormValues({
       team_lead_phone: user?.phone!,
       teamName: "",
       transaction_id: "",
     });
+
     setOpenModal(false);
   };
 
@@ -200,7 +195,7 @@ const EventReg = ({
           show={openModal}
           onClose={() => {
             setOpenModal(false);
-            setSingleDouble("Singles");
+            setSingleDouble(SINGLES);
           }}
           className="pt-[10vh]"
         >
@@ -210,26 +205,26 @@ const EventReg = ({
 
           <Modal.Body className="rounded-md bg-body">
             <form
-              className="flex h-[calc(100vh-30vh)] flex-col items-start gap-5 overflow-x-hidden overflow-y-scroll rounded-md bg-[#252525] px-10 py-5 shadow-sm shadow-white"
+              className="flex h-[calc(100vh-30vh)] flex-col items-start gap-5 overflow-x-hidden overflow-y-scroll rounded-b-md bg-[#252525] px-10 py-5 shadow-sm shadow-white"
               onSubmit={handleSubmit}
             >
               <h1 className="text-2xl font-semibold tracking-widest text-white">
                 Event Registration
               </h1>
-              {!(teamType === "Team") && (
+              {!(teamType === TEAM || teamType === SINGLES) && (
                 <Dropdown
                   className="border-none bg-body text-white "
                   label={singleDouble}
                   dismissOnClick={false}
                 >
                   <Dropdown.Item
-                    onClick={() => setSingleDouble("Singles")}
+                    onClick={() => setSingleDouble(SINGLES)}
                     className="hover:bg-slate-400"
                   >
                     Singles
                   </Dropdown.Item>
                   <Dropdown.Item
-                    onClick={() => setSingleDouble("Doubles")}
+                    onClick={() => setSingleDouble(DOUBLES)}
                     className="hover:bg-slate-400"
                   >
                     Doubles
@@ -239,7 +234,9 @@ const EventReg = ({
 
               {renderInputField(
                 `${
-                  singleDouble === "Singles" ? "Your Phone" : "Team Lead Phone"
+                  singleDouble === SINGLES && teamType !== TEAM
+                    ? "Your Phone"
+                    : "Team Lead Phone"
                 }`,
                 formValues.team_lead_phone,
                 handleChange,
@@ -247,7 +244,11 @@ const EventReg = ({
                 "number",
               )}
               {renderInputField(
-                `${singleDouble === "Singles" ? "Your Name" : "Team Name"}`,
+                `${
+                  singleDouble === SINGLES && teamType !== TEAM
+                    ? "Your Name"
+                    : "Team Name"
+                }`,
                 formValues.teamName,
                 handleChange,
                 "teamName",
@@ -255,7 +256,7 @@ const EventReg = ({
 
               <div className="flex flex-col gap-2">
                 {Array(
-                  singleDouble === "Singles"
+                  singleDouble === SINGLES
                     ? membersMinMax.min
                     : membersMinMax.max,
                 )
@@ -266,7 +267,7 @@ const EventReg = ({
                       key={index}
                     >
                       <label htmlFor="">
-                        {singleDouble === "Singles"
+                        {singleDouble === SINGLES && teamType !== TEAM
                           ? "Your Phone Number"
                           : `Member ${index + 1} Phone`}
                       </label>

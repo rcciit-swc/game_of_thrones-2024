@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import events from "@/utils/events";
 import { SectionHeader } from "@/components";
 import EventCard from "./_components/EventCard";
+
 export const metadata: Metadata = constructMetaData({
   title: "Events | GOT RCCIIT",
 });

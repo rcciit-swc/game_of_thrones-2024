@@ -1,8 +1,13 @@
+export const SINGLES = "Singles";
+export const DOUBLES = "Doubles";
+export const TEAM = "Team";
+export const SINGLES_DOUBLES = "Singles & Doubles";
+
 interface coordinatorType {
   name: string;
   phone: string;
 }
-interface eventsType {
+export interface eventsType {
   id: string;
   image: string;
   hoverImage: string;
@@ -13,7 +18,7 @@ interface eventsType {
   venue: string;
   date: string;
   coordinators?: coordinatorType[];
-  teamType?: string;
+  teamType?: "Singles" | "Team" | "Singles & Doubles";
   rules: string;
 }
 
@@ -162,7 +167,7 @@ const events: eventsType[] = [
         phone: "9051484336",
       },
     ],
-    teamType: "Single",
+    teamType: "Singles",
     rules: `<!DOCTYPE html>
         <html>
         <head>

@@ -4,13 +4,17 @@ import events from "@/utils/events";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { CoordinatorCard } from "../_components/CoordinatorCard";
-import { useGame, useUser } from "@/lib/store/user";
-import EventReg from "@/app/dashboard/_components/EventReg";
+import { useEvent, useUser } from "@/lib/store/user";
 import { useRouter } from "next/navigation";
 import { checkUserDetails } from "@/utils/functions/checkUserDetails";
 import { toast } from "sonner";
 import { supabase } from "@/lib/supabase-client";
 import { checkIfUserRegistered } from "@/utils/functions/checkIfUserRegistered";
+import dynamic from "next/dynamic";
+
+const EventReg = dynamic(() => import("@/app/dashboard/_components/EventReg"), {
+  ssr: false,
+});
 
 type Params = {
   params: {
@@ -18,10 +22,8 @@ type Params = {
   };
 };
 
-const fetchEvent = (eventdata: any) => {
-  const eventObj = events.find(
-    (event) => event.title.toLowerCase() === eventdata.toLowerCase(),
-  );
+const fetchEvent = (eventId: string) => {
+  const eventObj = events.find((event) => event.id === eventId);
   return eventObj;
 };
 
@@ -35,10 +37,10 @@ const Page = ({ params: { event } }: Params) => {
   const [openModal, setOpenModal] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
 
-  const setGame = useGame((state) => state.setGame);
+  const setEvent = useEvent((state) => state.setEvent);
 
-  const eventTitle = decodeURIComponent(event);
-  const eventObj = fetchEvent(eventTitle);
+  const eventId = decodeURIComponent(event);
+  const eventObj = fetchEvent(eventId);
 
   const handleRegister = async () => {
     const { data } = await supabase.auth.getSession();
@@ -47,12 +49,13 @@ const Page = ({ params: { event } }: Params) => {
       .from("users")
       .select()
       .eq("id", data.session?.user.id);
+
     if (!checkUserDetails(userDetails?.data?.[0])) {
       toast.error("Please complete your profile first");
       router.push("/profile");
     } else {
       setOpenModal(true);
-      setGame(eventObj?.title, eventObj?.teamType);
+      setEvent(eventObj?.id, eventObj?.teamType);
     }
   };
 
@@ -70,7 +73,7 @@ const Page = ({ params: { event } }: Params) => {
   return (
     <>
       <div className="mx-auto mt-[100px] flex max-w-[1600px] flex-col items-center justify-between gap-12 overflow-x-hidden px-3 md:px-10">
-        <SectionHeader text={eventTitle} />
+        <SectionHeader text={eventObj?.title ?? ""} />
 
         <div className=" flex flex-row flex-wrap-reverse items-center justify-between gap-5 md:gap-10">
           <div className="flex flex-col gap-8 font-got text-xl font-semibold md:text-2xl">
@@ -113,7 +116,7 @@ const Page = ({ params: { event } }: Params) => {
             width={0}
             height={0}
             className="w-[700px] rounded-lg max-2xl:mx-auto md:h-[400px]"
-            alt={eventTitle}
+            alt={eventObj?.title ?? "event poster"}
           />
         </div>
         <h1 className="font-got text-2xl font-semibold">Rules :</h1>

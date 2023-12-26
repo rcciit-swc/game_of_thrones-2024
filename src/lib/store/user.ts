@@ -11,14 +11,14 @@ export const useUser = create<UserState>()((set) => ({
   setUser: (user) => set(() => ({ user })),
 }));
 
-interface GameState {
-  gameName: string | undefined;
+interface EventState {
+  eventId: string | undefined;
   teamType: string | undefined;
-  setGame: (gameName: string | undefined, teamType: string | undefined) => void;
+  setEvent: (eventId: string | undefined, teamType: string | undefined) => void;
 }
 
-export const useGame = create<GameState>()((set) => ({
-  gameName: undefined,
+export const useEvent = create<EventState>()((set) => ({
+  eventId: undefined,
   teamType: undefined,
-  setGame: (gameName, teamType) => set(() => ({ gameName, teamType })),
+  setEvent: (eventId, teamType) => set(() => ({ eventId, teamType })),
 }));
