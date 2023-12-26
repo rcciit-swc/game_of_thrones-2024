@@ -2,7 +2,7 @@
 import { SectionHeader } from "@/components";
 import events from "@/utils/events";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { CoordinatorCard } from "../_components/CoordinatorCard";
 import { useGame, useUser } from "@/lib/store/user";
 import EventReg from "@/app/dashboard/_components/EventReg";
@@ -23,14 +23,26 @@ const fetchEvent = (eventdata: any) => {
   return eventObj;
 };
 const Page = ({ params: { event } }: Params) => {
+
+  const user = useUser((state) => state.user);
+
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
   );
 
-  const router = useRouter();
+  // useEffect(() => {
 
-  const user = useUser((state) => state.user);
+  //   supabase.rpc('check_if_user_registered', {
+  //     phone_param: user?.phone!,
+  //   })
+  //   .then(({ data, error }) => {
+  //     console.log(data)
+  //   })
+
+  // }, []);
+
+  const router = useRouter();
 
   const [openModal, setOpenModal] = useState(false);
   const setGame = useGame((state) => state.setGame);
@@ -70,7 +82,7 @@ const Page = ({ params: { event } }: Params) => {
               </span>
             </h1>
             <h1>
-              Prize :{" "}
+              Total Prize Pool :{" "}
               <span className="font-sans font-medium">
                 {eventObj?.prize == ""
                   ? "Yet to be Announced"
@@ -118,7 +130,9 @@ const Page = ({ params: { event } }: Params) => {
         )}
       </div>
 
-      <EventReg openModal={openModal} setOpenModal={setOpenModal} 
+      <EventReg
+        openModal={openModal}
+        setOpenModal={setOpenModal}
         registrationFees={eventObj?.regFees!}
       />
     </>

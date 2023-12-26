@@ -43,7 +43,7 @@ const RegForm = () => {
         throw error;
       }
       toast.success("Form submitted successfully.");
-      router.push("/dashboard");
+      router.push("/events");
     } catch (error) {
       console.log("Error occurred", { error });
     }

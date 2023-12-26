@@ -13,7 +13,7 @@ import { toast } from "sonner";
 interface formDataType {
   team_lead_phone: string;
   teamName: string;
-  Transaction_id: string;
+  transaction_id: string;
 }
 
 const EventReg = ({
@@ -57,7 +57,7 @@ const EventReg = ({
   const [formValues, setFormValues] = useState<formDataType>({
     team_lead_phone: user?.phone!,
     teamName: "",
-    Transaction_id: "",
+    transaction_id: "",
   });
 
   const setGame = useGame((state) => state.setGame);
@@ -94,7 +94,7 @@ const EventReg = ({
       {
         event_id: eventsData![0].id,
         team_name: formValues.teamName,
-        Transaction_id: formValues.Transaction_id,
+        transaction_id: formValues.transaction_id,
         team_lead_phone: user?.phone!,
       },
     ]);
@@ -116,7 +116,7 @@ const EventReg = ({
     if (uploadFile) {
       const { data: updateFileName, error: updateError } = await supabase
         .from("teams")
-        .update({ Transaction_SS_filename: `${teamData?.[0].team_id}.png` })
+        .update({ transaction_ss_filename: `${teamData?.[0].team_id}.png` })
         .eq("team_id", teamData?.[0].team_id);
       toast.success("Screenshot uploaded successfully");
     }
@@ -141,7 +141,7 @@ const EventReg = ({
     setFormValues({
       team_lead_phone: user?.phone!,
       teamName: "",
-      Transaction_id: "",
+      transaction_id: "",
     });
     setOpenModal(false);
   };
@@ -313,16 +313,16 @@ const EventReg = ({
               </div>
 
               {renderInputField(
-                "Transaction ID",
-                formValues.Transaction_id,
+                "Transaction id",
+                formValues.transaction_id,
                 handleChange,
-                "Transaction_id",
+                "transaction_id",
               )}
               {renderInputField(
                 "Transaction ScreenShot",
                 "",
                 handleFileChange,
-                "Transaction_SS_filename",
+                "transaction_ss_filename",
                 "file",
               )}
 
