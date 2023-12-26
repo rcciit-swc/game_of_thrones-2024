@@ -52,10 +52,13 @@ const RegForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mx-auto w-screen rounded-2xl bg-[#252525] py-10 md:w-[80%] lg:px-10"
+      className="mx-auto w-screen rounded-2xl bg-[#252525] py-10"
     >
       <div className="flex flex-col gap-10 px-10">
         <div className="flex w-full flex-col items-start gap-5">
+          <h1 className="my-6 font-got text-xl font-semibold tracking-wider max-md:mx-auto lg:text-3xl">
+            Registration
+          </h1>
           <label htmlFor="username">Full Name</label>
           <input
             type="text"

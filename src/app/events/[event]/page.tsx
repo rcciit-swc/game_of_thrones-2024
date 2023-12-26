@@ -2,7 +2,7 @@
 import { SectionHeader } from "@/components";
 import events from "@/utils/events";
 import Image from "next/image";
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CoordinatorCard } from "../_components/CoordinatorCard";
 import { useGame, useUser } from "@/lib/store/user";
 import EventReg from "@/app/dashboard/_components/EventReg";
@@ -23,7 +23,6 @@ const fetchEvent = (eventdata: any) => {
   return eventObj;
 };
 const Page = ({ params: { event } }: Params) => {
-
   const user = useUser((state) => state.user);
 
   const supabase = createBrowserClient(
@@ -31,16 +30,20 @@ const Page = ({ params: { event } }: Params) => {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
   );
 
-  // useEffect(() => {
+  useEffect(() => {
+    if (user && user.phone) {
+      console.log(user);
 
-  //   supabase.rpc('check_if_user_registered', {
-  //     phone_param: user?.phone!,
-  //   })
-  //   .then(({ data, error }) => {
-  //     console.log(data)
-  //   })
-
-  // }, []);
+      supabase
+        .rpc("check_if_user_registered", {
+          phone_param: user.phone,
+        })
+        .then(({ data, error }) => {
+          console.log(data);
+        });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   const router = useRouter();
 

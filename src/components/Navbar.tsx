@@ -126,7 +126,7 @@ const Navbar = () => {
                   dismissOnClick={false}
                 >
                   <Dropdown.Item className="hover:bg-slate-400">
-                    Show Profile
+                    <Link href="/profile">Show Profile</Link>
                   </Dropdown.Item>
                   <Dropdown.Item
                     onClick={handleLogout}
