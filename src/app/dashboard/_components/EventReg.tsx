@@ -5,6 +5,7 @@ import { fetchEvents } from "@/utils/functions/fetchEvents";
 
 import { createBrowserClient } from "@supabase/ssr";
 import { Modal, Dropdown } from "flowbite-react";
+import Image from "next/image";
 
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -18,9 +19,11 @@ interface formDataType {
 const EventReg = ({
   openModal,
   setOpenModal,
+  registrationFees
 }: {
   openModal: boolean;
   setOpenModal: (value: boolean) => void;
+  registrationFees: string;
 }) => {
   const [eventsData, setEventsData] = useState<any>([]);
   const gameName = useGame((state) => state.gameName);
@@ -42,13 +45,17 @@ const EventReg = ({
     max: eventsData?.max_team_member,
   };
 
-  const [membersPhone, setMembersPhone] = useState<string[]>(
-    Array(membersMinMax.max).fill(""),
-  );
+  const [membersPhone, setMembersPhone] = useState<string[]>(() => {
+    const initialArray = Array(membersMinMax.max).fill("");
+    if (user?.phone!) {
+      initialArray[0] = user.phone;
+    }
+    return initialArray;
+  });
 
   const [file, setFile] = useState<File | null>(null);
   const [formValues, setFormValues] = useState<formDataType>({
-    team_lead_phone: "",
+    team_lead_phone: user?.phone!,
     teamName: "",
     Transaction_id: "",
   });
@@ -81,19 +88,41 @@ const EventReg = ({
       .from("events")
       .select()
       .eq("event_name", gameName);
-    // console.log(eventData![0].id);
+
+
     const { data, error } = await supabase.from("teams").insert([
       {
         event_id: eventsData![0].id,
         team_name: formValues.teamName,
         Transaction_id: formValues.Transaction_id,
-        team_lead_phone: formValues.team_lead_phone,
+        team_lead_phone: user?.phone!,
       },
     ]);
 
-    const { data: teamData } = await supabase.from("teams").select("team_id");
-    // console.log(teamData);
-    console.log(membersPhone);
+    const { data: teamData } = await supabase
+      .from("teams")
+      .select("team_id")
+      .eq("event_id", eventsData![0].id)
+      .eq("team_name", formValues.teamName)
+      .eq("team_lead_phone", user?.phone!);
+
+    const { data: uploadFile, error: uploadError } = await supabase.storage
+      .from("got_2024")
+      .upload(`transactions/${teamData?.[0].team_id}.png`, file!);
+
+    if (uploadError) {
+      toast.error("Screenshot upload failed,Please Contact Admin");
+    }
+    if (uploadFile) {
+      const { data: updateFileName, error: updateError } = await supabase
+        .from("teams")
+        .update({ Transaction_SS_filename: `${teamData?.[0].team_id}.png` })
+        .eq("team_id", teamData?.[0].team_id);
+      toast.success("Screenshot uploaded successfully");
+    }
+
+    membersPhone[0] = user?.phone!;
+
     for (const item of membersPhone) {
       const { error: participantError } = await supabase
         .from("participations")
@@ -109,7 +138,11 @@ const EventReg = ({
     }
     toast.success("Successfully registered, please wait for verification");
     setGame("", "");
-    setFormValues({ team_lead_phone: "", teamName: "", Transaction_id: "" });
+    setFormValues({
+      team_lead_phone: user?.phone!,
+      teamName: "",
+      Transaction_id: "",
+    });
     setOpenModal(false);
   };
 
@@ -129,17 +162,30 @@ const EventReg = ({
             +91
           </button>
         )}
-        <input
-          disabled={name === "team_lead_phone" ? true : false}
-          type={type}
-          name={name}
-          value={name === "team_lead_phone" ? `${user?.phone}` : `${value}`}
-          onChange={onChange}
-          id={name}
-          required={type !== "file"}
-          placeholder={placeholder}
-          className=" w-full rounded-md border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
-        />
+        {type !== "file" && (
+          <input
+            disabled={name === "team_lead_phone" ? true : false}
+            type={type}
+            name={name}
+            value={name === "team_lead_phone" ? `${user?.phone}` : `${value}`}
+            onChange={onChange}
+            id={name}
+            required
+            placeholder={placeholder}
+            className=" w-full rounded-md border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
+          />
+        )}
+        {type === "file" && (
+          <input
+            type={type}
+            name={name}
+            onChange={onChange}
+            id={name}
+            required
+            placeholder={placeholder}
+            className=" w-full rounded-md border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
+          />
+        )}
       </div>
     </div>
   );
@@ -171,26 +217,24 @@ const EventReg = ({
                 Event Registration
               </h1>
               {!(teamType === "Team") && (
-                <div className="gap-3 overflow-hidden border-none">
-                  <Dropdown
-                    className="border-none bg-body text-white "
-                    label={singleDouble}
-                    dismissOnClick={false}
+                <Dropdown
+                  className="border-none bg-body text-white "
+                  label={singleDouble}
+                  dismissOnClick={false}
+                >
+                  <Dropdown.Item
+                    onClick={() => setSingleDouble("Singles")}
+                    className="hover:bg-slate-400"
                   >
-                    <Dropdown.Item
-                      onClick={() => setSingleDouble("Singles")}
-                      className="hover:bg-slate-400"
-                    >
-                      Singles
-                    </Dropdown.Item>
-                    <Dropdown.Item
-                      onClick={() => setSingleDouble("Doubles")}
-                      className="hover:bg-slate-400"
-                    >
-                      Doubles
-                    </Dropdown.Item>
-                  </Dropdown>
-                </div>
+                    Singles
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onClick={() => setSingleDouble("Doubles")}
+                    className="hover:bg-slate-400"
+                  >
+                    Doubles
+                  </Dropdown.Item>
+                </Dropdown>
               )}
 
               {renderInputField(
@@ -249,6 +293,23 @@ const EventReg = ({
                       </div>
                     </div>
                   ))}
+              </div>
+
+              <div className="flex flex-col items-center gap-2 rounded-md border-2 border-slate-400 p-2">
+                <Image
+                  src={`/assets/registration/payment_qr.png`}
+                  alt="qr"
+                  width={200}
+                  height={200}
+                />
+                <span className="text-center">
+                  UPI ID:{" "}
+                  <span className="font-semibold">iamtridibes@paytm</span>
+                </span>
+                <span className="text-center">
+                  Scan this QR code and pay the registration fee of ₹ &nbsp;
+                  {registrationFees} to the UPI ID given below.
+                </span>
               </div>
 
               {renderInputField(

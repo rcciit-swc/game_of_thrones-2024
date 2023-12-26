@@ -118,7 +118,9 @@ const Page = ({ params: { event } }: Params) => {
         )}
       </div>
 
-      <EventReg openModal={openModal} setOpenModal={setOpenModal} />
+      <EventReg openModal={openModal} setOpenModal={setOpenModal} 
+        registrationFees={eventObj?.regFees!}
+      />
     </>
   );
 };
