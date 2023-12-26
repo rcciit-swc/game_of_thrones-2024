@@ -7,9 +7,10 @@ import { CoordinatorCard } from "../_components/CoordinatorCard";
 import { useGame, useUser } from "@/lib/store/user";
 import EventReg from "@/app/dashboard/_components/EventReg";
 import { useRouter } from "next/navigation";
-import { createBrowserClient } from "@supabase/ssr";
 import { checkUserDetails } from "@/utils/functions/checkUserDetails";
 import { toast } from "sonner";
+import { supabase } from "@/lib/supabase-client";
+import { checkIfUserRegistered } from "@/utils/functions/checkIfUserRegistered";
 
 type Params = {
   params: {
@@ -24,17 +25,10 @@ const fetchEvent = (eventdata: any) => {
   return eventObj;
 };
 
-const checkEventRegistered = (eventTitle: any) => {
-
-};
+const checkEventRegistered = (eventTitle: any) => {};
 
 const Page = ({ params: { event } }: Params) => {
   const user = useUser((state) => state.user);
-
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-  );
 
   const router = useRouter();
 
@@ -64,22 +58,18 @@ const Page = ({ params: { event } }: Params) => {
 
   useEffect(() => {
     if (user && user.phone) {
-
-      supabase
-        .rpc("check_if_user_registered", {
-          phone_param: user.phone,
-        })
-        .then(({ data, error }) => {
-          console.log(data);
-        });
+      checkIfUserRegistered({
+        phone_param: user.phone,
+      }).then((data) => {
+        console.log(data);
+      });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
-
   return (
     <>
-      <div className="mx-auto mt-[100px] flex max-w-[1600px] flex-col justify-between gap-12 overflow-x-hidden px-3 md:px-10 items-center">
+      <div className="mx-auto mt-[100px] flex max-w-[1600px] flex-col items-center justify-between gap-12 overflow-x-hidden px-3 md:px-10">
         <SectionHeader text={eventTitle} />
 
         <div className=" flex flex-row flex-wrap-reverse items-center justify-between gap-5 md:gap-10">
@@ -133,7 +123,7 @@ const Page = ({ params: { event } }: Params) => {
         />
         {user && (
           <button
-            className="rounded-md bg-violet-800 px-3 py-2 font-medium w-fit"
+            className="w-fit rounded-md bg-violet-800 px-3 py-2 font-medium"
             onClick={handleRegister}
           >
             Register Now

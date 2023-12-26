@@ -3,6 +3,7 @@ interface coordinatorType {
   phone: string;
 }
 interface eventsType {
+  id: string;
   image: string;
   hoverImage: string;
   title: string;
@@ -18,6 +19,7 @@ interface eventsType {
 
 const events: eventsType[] = [
   {
+    id: "e470c74a-77b3-4b12-ba06-95a1e6253092",
     image: "/assets/events/cricket.svg",
     hoverImage: "/assets/events/cricket2.svg",
     title: "Short Hand Cricket",
@@ -73,6 +75,7 @@ const events: eventsType[] = [
             `,
   },
   {
+    id: "21d118dc-a0c8-46ca-afcb-a0b5bbc24a6f",
     image: "/assets/events/badminton.svg",
     hoverImage: "/assets/events/badminton2.svg",
     title: "Badminton",
@@ -107,7 +110,7 @@ const events: eventsType[] = [
             <title>Tournament Rules</title>
         </head>
         <body>
-           
+
             <ul class="flex flex-col gap-3 text-xl">
                 <li>• Singles and double tournaments will be organized separately.</li>
                 <li>• All students must carry their student-identity card.</li>
@@ -128,7 +131,7 @@ const events: eventsType[] = [
                 <li>Service Courts: During service, the shuttlecock must be hit within the diagonally opposite service court. The server must stand within the service court and hit the shuttlecock to the diagonally opposite service court. Third court service will be considered out.</li>
                 <li>Mid-Court Line: During a serve, the shuttlecock must pass over the first court line without touching it. Players should not touch any of the lines on the court during a serve. This includes the feet of the server and receiver. Players can stand anywhere in their half of the court, but they cannot touch any of the lines or be outside of the playing court.</li>
             </ul>
-            
+
             <h3 class="text-xl font-bold underline tracking-wider pt-2">Doubles Boundary Rules:</h3>
             <ul class="flex flex-col gap-3 text-xl py-3">
                 <li><b>Sidelines:</b> Similar to singles, the shuttlecock must land within the inner boundary lines of the court's doubles sideline.</li>
@@ -140,6 +143,7 @@ const events: eventsType[] = [
         </html>`,
   },
   {
+    id: "b56c053d-48a4-4b16-9704-caa87826a0d0",
     image: "/assets/events/chess.svg",
     hoverImage: "/assets/events/chess2.svg",
     title: "Chess",
@@ -185,6 +189,7 @@ const events: eventsType[] = [
         `,
   },
   {
+    id: "af2c22fc-794e-4c09-a1dc-94d80d6ba5a8",
     image: "/assets/events/carrom.svg",
     hoverImage: "/assets/events/carrom2.svg",
     title: "Carrom",
@@ -261,10 +266,11 @@ const events: eventsType[] = [
             </div>
         </body>
         </html>
-        
+
         `,
   },
   {
+    id: "00cacb70-2afa-4503-8560-3bdf14e07c5a",
     image: "/assets/events/kabaddi.svg",
     hoverImage: "/assets/events/kabaddi2.svg",
     title: "Kabaddi (boys and girls)",
@@ -326,6 +332,7 @@ const events: eventsType[] = [
         `,
   },
   {
+    id: "5dad5c6e-4c47-429d-986f-b084d1483f76",
     image: "/assets/events/tug.svg",
     hoverImage: "/assets/events/tug2.svg",
     title: "Tug of War (boys and girls)",
@@ -378,6 +385,7 @@ const events: eventsType[] = [
         `,
   },
   {
+    id: "deb0df56-953d-4c80-a7fc-5c0f89c0ad24",
     image: "/assets/events/football.svg",
     hoverImage: "/assets/events/football2.svg",
     title: "Football",
@@ -434,6 +442,7 @@ const events: eventsType[] = [
         `,
   },
   {
+    id: "ae4a5c82-d6ae-4772-be7a-e45ea51d5919",
     image: "/assets/events/tt.svg",
     hoverImage: "/assets/events/tt2.svg",
     title: "Table Tennis",
@@ -489,6 +498,7 @@ const events: eventsType[] = [
         `,
   },
   {
+    id: "8363dae3-e65b-4dbb-ab90-ec24ee395692",
     image: "/assets/events/handball.svg",
     hoverImage: "/assets/events/handball2.svg",
     title: "Handball (girls)",
@@ -559,6 +569,7 @@ const events: eventsType[] = [
         `,
   },
   {
+    id: "48319762-6743-4bef-be27-303d53feb018",
     image: "/assets/events/volleyball.svg",
     hoverImage: "/assets/events/volleyball2.svg",
     title: "Volleyball (boys)",
