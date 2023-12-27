@@ -31,14 +31,14 @@ const Hero = () => {
         <div className="z-[30] block w-full md:hidden">
           {user ? (
             <button
-              className="text-md absolute left-[14%] top-[60%] rounded-xl border-2 border-neutral bg-[#2D3493] px-20 py-5 font-semibold shadow-md shadow-neutral"
-              onClick={() => router.push("/dashboard")}
+              className="text-md absolute left-[14%] top-[60%] rounded-md border-2 border-neutral bg-[#2D3493] px-20 py-5 font-semibold shadow-md shadow-neutral"
+              onClick={() => router.push("/events")}
             >
-              View Dashboard
+              View Events
             </button>
           ) : (
             <button
-              className="text-md absolute left-[14%] top-[60%] rounded-xl border-2 border-neutral bg-[#2D3493] px-20 py-5 font-semibold shadow-md shadow-neutral"
+              className="text-md absolute left-[14%] top-[60%] rounded-md border-2 border-neutral bg-[#2D3493] px-20 py-5 font-semibold shadow-md shadow-neutral"
               onClick={handleLogin}
             >
               Register Now
@@ -104,14 +104,14 @@ const Hero = () => {
 
           {user ? (
             <button
-              className="hidden rounded-xl border-2 border-neutral bg-[#2D3493] px-10 py-5 font-bold shadow-md transition-all duration-300 ease-in-out hover:bg-[#242975] hover:shadow-neutral md:block"
-              onClick={() => router.push("/dashboard")}
+              className="hidden rounded-md border-2 border-neutral bg-[#2D3493] px-10 py-5 font-bold shadow-md transition-all duration-300 ease-in-out hover:bg-[#242975] hover:shadow-neutral md:block"
+              onClick={() => router.push("/events")}
             >
-              View Dashboard
+              View Events
             </button>
           ) : (
             <button
-              className="hidden rounded-xl border-2 border-neutral bg-[#2D3493] px-10 py-5 font-bold shadow-md transition-all duration-300 ease-in-out hover:bg-[#242975] hover:shadow-neutral md:block"
+              className="hidden rounded-md border-2 border-neutral bg-[#2D3493] px-10 py-5 font-bold shadow-md transition-all duration-300 ease-in-out hover:bg-[#242975] hover:shadow-neutral md:block"
               onClick={handleLogin}
             >
               Register Now

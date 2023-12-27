@@ -1,4 +1,3 @@
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { createBrowserClient } from "@supabase/ssr";
 
 export async function logOut() {
@@ -6,5 +5,5 @@ export async function logOut() {
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
   );
-    await supabase.auth.signOut();
-  }
+  await supabase.auth.signOut();
+}

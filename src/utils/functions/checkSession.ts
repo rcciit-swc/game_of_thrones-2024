@@ -1,8 +1,8 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 export const checkSession = async () => {
-    const supabase = createClientComponentClient();
-    const { data, error } = await supabase.auth.getSession();
+  const supabase = createClientComponentClient();
+  const { data, error } = await supabase.auth.getSession();
   if (error) {
     console.error(error);
     return null;
@@ -13,5 +13,4 @@ export const checkSession = async () => {
   }
 
   return data;
-   
-  };
+};

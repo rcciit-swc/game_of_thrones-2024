@@ -8,15 +8,15 @@ import Location from "./Location";
 const Block = () => {
   const [selected, setSelected] = useState(true);
   return (
-    <div className="relative mx-auto pt-20 overflow-x-hidden pb-20">
+    <div className="relative mx-auto min-h-screen overflow-x-hidden pt-20">
       <SectionHeader text="Contact Us" />
 
-      <div className="w-[90%] lg:w-1/2 mx-auto ">
-        <div className="  flex flex-row gap-1">
+      <div className="mx-auto w-[90%] lg:w-1/2 ">
+        <div className="flex flex-row gap-1">
           <Image
             onClick={() => setSelected(true)}
             src={"/assets/contacts/location.svg"}
-            className="w-20  lg:w-20 border-b-0  border p-2 rounded-xl "
+            className="w-20 rounded-md border border-b-0 p-2 lg:w-20 "
             height={0}
             width={0}
             alt="location"
@@ -24,13 +24,13 @@ const Block = () => {
           <Image
             onClick={() => setSelected(false)}
             src={"/assets/contacts/people.svg"}
-            className="w-20 border p-2 rounded-xl "
+            className="w-20 rounded-md border p-2 "
             height={0}
             width={0}
             alt="location"
           />
         </div>
-        <div className="border px-5 py-10 lg:px-10 lg:py-20 rounded-xl">
+        <div className="rounded-md border px-5 py-10 lg:px-10 lg:py-20">
           {selected ? <Location /> : <Committee />}
         </div>
       </div>

@@ -2,7 +2,6 @@
 
 import { useUser } from "@/lib/store/user";
 import { getUserInfo } from "@/utils/functions/getUserInfo";
-import { createBrowserClient } from "@supabase/ssr";
 import { useEffect } from "react";
 
 const SessionProvider = () => {

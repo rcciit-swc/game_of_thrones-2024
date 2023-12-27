@@ -1,4 +1,3 @@
-import { teachers } from "@/utils/constant";
 import Image from "next/image";
 import { SectionHeader } from "@/components";
 
@@ -20,7 +19,7 @@ export default function TeachersDesk({ value }: any) {
             height={74}
           />
         </div>
-        <div className="relative mx-2 flex w-[340px] flex-col rounded-xl bg-primary md:w-[600px] lg:w-[1200px]">
+        <div className="relative mx-2 flex w-[340px] flex-col rounded-md bg-primary md:w-[600px] lg:w-[1200px]">
           <div className="my-6 pl-8 text-2xl">Dear students,</div>
           <p className="px-4 text-justify text-sm md:pl-12 md:pr-72 md:text-xl">
             {value.speech}

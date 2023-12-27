@@ -4,10 +4,13 @@ import { useState } from "react";
 import { SectionHeader } from "@/components";
 import events from "@/utils/events";
 import Link from "next/link";
-import Image from "next/image";
 import EventCard from "@/app/events/_components/EventCard";
+import { useRouter } from "next/navigation";
 
 const Events = () => {
+
+  const router = useRouter();
+
   const [hover, setHover] = useState(false);
   return (
     <section>
@@ -16,8 +19,8 @@ const Events = () => {
         <div className={`mt-[10px] h-full w-full`}>
           <ul className="oveflow-x-scroll accordion gap-2 hidden justify-center space-x-2 xl:flex">
             {events.map((event, index) => (
-              <li
-                key={index}
+              <li key={index}
+              onClick={() => router.push(`/events/${event.id}`)}
               >
                 <img
                   src={`${event.image} `}
@@ -36,7 +39,7 @@ const Events = () => {
                       </h2>
                       <p className="text-center">{event.description}</p>
                     </div>
-                    <Link href={`/events/${event.title.toLowerCase()}`}>
+                    <Link href={`/events/${event.id}`}>
                       <button className="pb-5 tracking-widest duration-300 hover:scale-105 hover:text-green-300">
                         {`Know More >>`}
                       </button>
