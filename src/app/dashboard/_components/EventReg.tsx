@@ -13,6 +13,8 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { v4 as uuidv4 } from "uuid";
 
+import * as Sentry from "@sentry/nextjs";
+
 interface formDataType {
   team_lead_phone: string;
   teamName: string;
@@ -96,6 +98,7 @@ const EventReg = ({
 
     if (uploadError) {
       toast.error("File upload failed! Register Again!");
+      Sentry.captureException(uploadError);
       return;
     }
 
@@ -103,7 +106,8 @@ const EventReg = ({
       const { error: teamsInsertError } = await supabase.from("teams").insert([
         {
           event_id: eventId,
-          team_name: singleDouble === SINGLES ? user?.name : formValues.teamName,
+          team_name:
+            singleDouble === SINGLES ? user?.name : formValues.teamName,
           transaction_id: formValues.transaction_id,
           team_lead_phone: user?.phone!,
           team_id: teamId,
@@ -113,6 +117,7 @@ const EventReg = ({
 
       if (teamsInsertError) {
         toast.error("Error uploading registration details! Register Again!");
+        Sentry.captureException(teamsInsertError);
         return;
       }
     }
@@ -130,7 +135,13 @@ const EventReg = ({
       );
     }
 
-    await Promise.all(postTeamMembers);
+    const response = await Promise.all(postTeamMembers);
+
+    response.forEach(({ error }) => {
+      if (error) {
+        Sentry.captureException(error);
+      }
+    });
 
     toast.success("Successfully registered, please wait for verification");
 
@@ -166,7 +177,8 @@ const EventReg = ({
         {type !== "file" && (
           <input
             disabled={
-              (name === "team_lead_phone" ||  "team_name" ) && (name !== "transaction_id")
+              (name === "team_lead_phone" || "team_name") &&
+              name !== "transaction_id"
                 ? singleDouble === SINGLES && teamType !== TEAM
                   ? true
                   : false

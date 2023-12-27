@@ -5,7 +5,6 @@ import { navRoutes } from "@/utils/constant";
 import { useState, useEffect } from "react";
 import { Dropdown } from "flowbite-react";
 import { useUser } from "@/lib/store/user";
-import { createBrowserClient } from "@supabase/ssr";
 import { usePathname, useRouter } from "next/navigation";
 import { handleLogin } from "@/utils/functions/login";
 import { supabase } from "@/lib/supabase-client";
