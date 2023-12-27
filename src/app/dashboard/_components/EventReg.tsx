@@ -285,7 +285,7 @@ const EventReg = ({
 
               <div className="flex flex-col gap-2">
                 {Array(
-                  singleDouble === SINGLES
+                  singleDouble === SINGLES && teamType !== TEAM
                     ? membersMinMax.min
                     : membersMinMax.max,
                 )
