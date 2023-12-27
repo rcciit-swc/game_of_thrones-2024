@@ -219,7 +219,7 @@ const gallery = [
   "https://i.imgur.com/wrrNl9y.jpg",
   "https://i.imgur.com/1g5f0Tc.jpg",
   "https://i.imgur.com/EkSWxv6.jpg",
-  "https://i.imgur.com/1KFoy84.jpg"
+  "https://i.imgur.com/1KFoy84.jpg",
 ];
 
 const locations = [
