@@ -205,83 +205,21 @@ const CommitteeDetails = [
 ];
 
 const gallery = [
-  {
-    image: "https://i.imgur.com/SHBXkRE.jpg",
-    title: "Game of Thrones 2023",
-    sport: "Carrom",
-  },
-  {
-    image: "https://i.imgur.com/u2P39Nq.jpg",
-    title: "Game of Thrones 2023",
-    sport: "Kabaddi",
-  },
-  {
-    image: "https://i.imgur.com/s9Wk8Y0.jpg",
-    title: "Game of Thrones 2023",
-    sport: "Prize Distribution",
-  },
-  {
-    image: "https://i.imgur.com/g88ASiX.jpg",
-    title: "Game of Thrones 2023",
-    sport: "Our Principal Sir",
-  },
-  {
-    image: "https://i.imgur.com/DTgsRgf.jpg",
-    title: "Game of Thrones 2023",
-    sport: "Football",
-  },
-  {
-    image: "https://i.imgur.com/EKK6eT3.jpg",
-    title: "Game of Thrones 2023",
-    sport: "Football",
-  },
-  {
-    image: "https://i.imgur.com/wqZ8enj.jpg",
-    title: "Game of Thrones 2023",
-    sport: "Badminton",
-  },
-  {
-    image: "https://i.imgur.com/wltRKfO.jpg",
-    title: "Game of Thrones 2023",
-    sport: "Cricket",
-  },
-  {
-    image: "https://i.imgur.com/NBlrs4A.jpg",
-    title: "Game of Thrones 2023",
-    sport: "Our Faculties",
-  },
-  {
-    image: "https://i.imgur.com/SuhFhE9.jpg",
-    title: "Game of Thrones 2023",
-    sport: "Cricket",
-  },
-  // {
-  //   image:"/assets/gallery/6.jpg",
-  //   title:"Game of Thrones",
-  //   sport:"Cricket",
-  // },
-
-  {
-    image: "https://i.imgur.com/Eva7WcO.jpg",
-    title: "Game of Thrones 2023",
-    sport: "Badminton",
-  },
-
-  {
-    image: "https://i.imgur.com/wrrNl9y.jpg",
-    title: "Game of Thrones 2023",
-    sport: "Football",
-  },
-  {
-    image: "https://i.imgur.com/1g5f0Tc.jpg",
-    title: "Game of Thrones 2023",
-    sport: "Tug of War",
-  },
-  {
-    image: "https://i.imgur.com/EkSWxv6.jpg",
-    title: "Game of Thrones 2023",
-    sport: "Chess",
-  },
+  "https://i.imgur.com/SHBXkRE.jpg",
+  "https://i.imgur.com/u2P39Nq.jpg",
+  "https://i.imgur.com/s9Wk8Y0.jpg",
+  "https://i.imgur.com/g88ASiX.jpg",
+  "https://i.imgur.com/DTgsRgf.jpg",
+  "https://i.imgur.com/EKK6eT3.jpg",
+  "https://i.imgur.com/4PEK53m.jpg",
+  "https://i.imgur.com/wltRKfO.jpg",
+  "https://i.imgur.com/NBlrs4A.jpg",
+  "https://i.imgur.com/SuhFhE9.jpg",
+  "https://i.imgur.com/Eva7WcO.jpg",
+  "https://i.imgur.com/wrrNl9y.jpg",
+  "https://i.imgur.com/1g5f0Tc.jpg",
+  "https://i.imgur.com/EkSWxv6.jpg",
+  "https://i.imgur.com/1KFoy84.jpg"
 ];
 
 const locations = [

@@ -14,16 +14,20 @@ const Gallery = () => {
       <SectionHeader text="gallery" />
       <div className="mx-auto grid max-w-[1600px] grid-cols-1 items-center justify-center gap-20 rounded-2xl px-5 py-10 font-sans md:grid-cols-2 md:border md:px-10 md:py-20 lg:grid-cols-3">
         {gallery.map((photo, index) => (
-          <div className="relative w-[400] h-[300px] rounded-2xl overflow-hidden 
-          grayscale hover:grayscale-0
-        
-          " key={index}>
-
+          <div
+            className="relative h-[300px] w-[400] transform overflow-hidden 
+          rounded-2xl grayscale transition-all duration-500 ease-in-out hover:scale-105 hover:grayscale-0
+          "
+            key={index}
+          >
             <Image
-              src={photo.image}
+              src={photo}
               alt="image"
               fill={true}
-              style={{ objectFit: "cover" }}
+              style={{
+                objectFit: "cover",
+                backgroundPosition: "bottom between",
+              }}
               // className="h-full w-full rounded-2xl object-cover "
               // width={480}
               // height={480}
