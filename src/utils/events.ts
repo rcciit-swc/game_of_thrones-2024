@@ -246,13 +246,31 @@ const events: eventsType[] = [
             </div>
             <div>
             <h3><b>Striking the Carrommen with Striker:</b></h3>
-            <p>How to strike carrommen: Rules for striking the carrommen with the striker. As per carrom board rules, the first server has three(3) attempts to break the cluster of carrommen on their first strike. However, after the first turn is over, you have only one chance to strike the carrommen properly. To make the most of one’s strike, one must bear the following points in mind:</p>
-            <!-- Include all the points -->
+            <p>However, after the first turn is over, you have only one chance to strike the carrommen properly. To make the most of one’s strike, one must bear the following points in mind:</p>
+            <ul>
+            <li>1. The given time to strike is 15 seconds, you must hit the striker within time.</li>
+            <li>2. You must place your striker either behind the baseline or on its left-ended or right-ended circle.</li>
+            <li>3. Your striker should be in contact with the front and back lines of the baseline.</li>
+            <li>4. Your striker should not be placed half on the baseline and half on the baseline circle. Rather, it should either be fully within the baseline or be fully within the baseline circle. In short, cutting the moon is prohibited.</li>
+            <li>5. In order to make the striker cross the front part of the baseline and hit the carrommen, you ought to flick the striker with only one finger.</li>
+            <li>6. You cannot flick the striker in the backward or horizontal direction.</li>
+            <li>7. While attempting a stroke, you cannot let your hand or arm cross the diagonal lines that are known as foul lines.</li>
+            <li>8. You are allowed three attempts to break the cluster of carrommen on your first turn.</li>
+            <li>9. In case you strike and luckily pocket as well as cover the queen, you get points and retain the striker.</li>
+            <li>10. After the first turn is over and the cluster of pieces/carrommen is scattered, you should neither fail to pocket your carromman nor fall prey to improper stroke. In either case, your turn will end.</li>
+            </ul>
             </div>
             <div>
             <h3><b>Rules for Queen/Red Queen:</b></h3>
-            <p>How and when to cover the Queen: Rules for the queen/ Rules for the red coin As per the rules of carrom board, you can neither pocket nor cover the queen whenever you like. So, let’s see when and how you can pocket and cover the queen:</p>
-            <!-- Include all the rules for the queen -->
+            <p>As per the rules of carrom board, pocketing and covering the queen have specific conditions:</p>
+            <ul>
+            <li>You can pocket the queen only after you have pocketed at least one of your carrommen.</li>
+            <li>If, during the process of breaking the cluster of pieces, you only pocket the queen, it is returned to the center.</li>
+            <li>If you pocket the queen before pocketing any of your own carrommen, the queen is returned to the center while you retain the turn.</li>
+            <li>Pocketing the queen after pocketing at least one of your carrommen is considered legal.</li>
+            <li>Pocketing and covering the queen simultaneously grants points, regardless of which piece enters the pocket first.</li>
+            <li>If you pocket the queen but fail to cover it, the queen is returned to the center for both players/teams.</li>
+            </ul>
             </div>
             <div>
             <h3><b>Carrom Board Arrow Rules:</b></h3>
@@ -265,9 +283,35 @@ const events: eventsType[] = [
             </div>
             <div>
             <h3><b>Position Rules:</b></h3>
-            <p>Rules for the Position of Pieces and strikers after they leave the board or get entangled. During the course of play, some pieces and the striker may take awkward positions or may go out of the board and fall on the ground. Let’s see what the rules for such situations are:</p>
+            <h4>Rules for the Position of Pieces and strikers after they leave the board or get entangled. </h4>
+            <p>During the course of play, some pieces and the striker may take awkward positions or may go out of the board and fall on the ground.
+            Let’s see what the rules for such situations are:
+            </p>
+            <ul>
+            <li>1. In case a piece has overtaken another piece, you cannot reposition them with bare hands. Rather you have to separate them by means of strokes.</li>
+            <li>2. In case any piece, either yours or that of your opponent’s, has fallen down from the board, you can simply take that and place it in the center of the board.</li>
+            <li>3. If a piece is positioned on the edge of the board, you cannot settle it with your hands. Rather, you have to consider it in play; hence, strike it with the striker.</li>
+            <li>4. In case your striker is entangled under some pieces or even comes under only one piece, you can remove the striker without causing much displacement of the pieces/piece. After all, it is the striker with which you have to continue your game. </li>
+            </ul>
             <!-- Include all the position rules -->
             </div>
+            <div>
+            <h2 class="text-2xl font-semibold py-3">Rules for Faults & Penalties :-</h2>
+            <ol style="list-style:decimal;"  class="flex flex-col gap-3 text-xl list-decimal">
+                <li>The time to hit striker is 15 seconds, if someone fails to hit striker within said time, he will lose his turn.</li>
+                <li>When a player pockets his striker instead of his carrommen. In this case, the violator has to return one piece from his pocketed pieces and place it in the centre, and finish his turn.</li>
+                <li>When a player, instead of pocketing his own carromen, pockets his opponent’s carromen, pocketed carrommen will be legal for opponent and striking player will lose his turn.</li>
+                <li>After the stroke, either the striker or the carrommen fall off the board. In this case, the offender has to sacrifice his turn and place the grounded piece or striker on the board. The piece is positioned in the center, whereas the striker goes to the opponent.</li>
+                <li>When a player pockets the queen and covers it with his opponent’s piece. In this situation, the queen is taken out of the pocket and placed in the center.</li>
+                <li>When a player, either knowingly or unknowingly, touches any of the carrommen with his hands or any other body part, the referee will take the necessary action.</li>
+                <li>In case the first server, during his first turn, misses breaking the cluster of carrommen in three attempts, opponent will get the chance to break the cluster.</li>
+                <li>When a player, while making a stroke, pushes the striker rather than flicking it with his finger, the referee will take the necessary action.</li>
+                <li>While attempting a stroke, you cannot let your hand or arm cross the diagonal lines that are known as foul lines.</li>
+                <li>While aiming at the carrommen you can place your hand on the beats of the board , but if you don’t remove your arm while hitting you will be penalized with a fine of one carrommen of yours.</li>
+                <li>You cannot hit your striker reverse, it will also be considered a penalty.</li>
+            </ol>
+            </div>
+
             </div>
         </body>
         </html>
