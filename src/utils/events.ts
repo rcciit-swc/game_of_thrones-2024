@@ -386,7 +386,7 @@ const events: eventsType[] = [
         </head>
         <body>
         <ol style="list-style-type: decimal;">
-        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>A team should have a total of 5 players with 1 reserve player.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>A team should have a total of 6 players with 1 reserve player.</span></li>
         <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Each match will be of Knock-out type.</span></li>
         <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>There will be 3 rounds in each game. The team with maximum wins will qualify to the next round.</span></li>
         <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Members must carry their college ID Cards during the entire event.</span></li>
@@ -439,7 +439,7 @@ const events: eventsType[] = [
         </head>
         <body>
         <ol style="list-style-type: decimal;">
-        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Each team can register a maximum of 13</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Each team can register a maximum of 14 with 5 reserve.</span></li>
         <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>The match will be of 9 - side and maximum of 4 substitutions can be made per match, including the goalkeeper.</span></li>
         <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>There will be offside which will be monitored by official referees.</span></li>
         <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>decision will be final decision, in case of argument team will be disqualified.</span></li>
@@ -552,7 +552,7 @@ const events: eventsType[] = [
         </head>
         <body>
             <ol  class="flex flex-col gap-3 text-xl">
-                <li>1. Each team should have a total of 5 players with 2 reserve players (optional).</li>
+                <li>1. Each team should have a total of 7 players with 2 reserve players (optional).</li>
                 <li>2. Each match will be of Knock-out type.</li>
                 <li>3. Only 5 players on the floor at any given time (4 players + 1 goalkeeper).</li>
                 <li>4. All students must carry their student-identity card and Aadhaar card.</li>
@@ -623,7 +623,7 @@ const events: eventsType[] = [
         </head>
         <body>
         <ol style="list-style-type: decimal;">
-        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>A team should have a total of 6 players with 2 reserve players.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>A team should have a total of 8 players with 2 reserve players.</span></li>
         <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Each match will be of Knock-out type.</span></li>
         <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Only 6 players on the floor at any given time: 3 in the front row and 3 in the back row.</span></li>
         <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>All students must carry their student-identity card and Aadhaar card.</span></li>
