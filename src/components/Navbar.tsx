@@ -40,7 +40,6 @@ const Navbar = () => {
       const data = await checkIfUserRegistered({
         phone_param: user?.phone!,
       });
-      console.log(data);
       if (data.length > 0) {
         setShowDashboard(true);
         return;
@@ -53,7 +52,6 @@ const Navbar = () => {
       setScrolling(window.scrollY > 0);
     };
 
-    console.log(user);
     window.addEventListener("scroll", handleScroll);
 
     readUserSession();
