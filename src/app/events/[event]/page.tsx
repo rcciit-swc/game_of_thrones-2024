@@ -62,7 +62,7 @@ const Page = ({ params: { event } }: Params) => {
       const eventRegistered = eventReg?.filter(
         (event: any) => event.event_id === eventObj?.id,
       );
-      if (eventRegistered?.length === 2 ) {
+      if (eventRegistered?.length === 2) {
         setIsRegistered(true);
       }
     } else {
