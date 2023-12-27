@@ -1,10 +1,6 @@
-import { createBrowserClient } from "@supabase/ssr";
+import { supabase } from "@/lib/supabase-client";
 
 export async function getUserInfo() {
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-  );
   const { data, error } = await supabase.auth.getSession();
   const userDetails = await supabase
     .from("users")
@@ -12,8 +8,8 @@ export async function getUserInfo() {
     .eq("id", data.session?.user.id);
 
   if (error) {
-    console.error("Error getting user data:", error);
-    return;
+    throw error;
   }
+
   return userDetails?.data?.[0];
 }

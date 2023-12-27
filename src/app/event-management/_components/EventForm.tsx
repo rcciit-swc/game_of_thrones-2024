@@ -1,7 +1,7 @@
 "use client";
 import { createBrowserClient } from "@supabase/ssr";
 import dynamic from "next/dynamic";
-import React, { useMemo } from "react";
+import React, { useMemo, useState, ChangeEvent, FormEvent } from "react";
 import "react-quill/dist/quill.snow.css";
 import { toast } from "sonner";
 
@@ -23,7 +23,7 @@ const EventForm = () => {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
   );
 
-  const [formValues, setFormValues] = React.useState<valuesType>({
+  const [formValues, setFormValues] = useState<valuesType>({
     name: "",
     imageUrl: "",
     description: "",
@@ -33,17 +33,17 @@ const EventForm = () => {
     gender: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const { data, error } = await supabase.from("events").insert({
+      const { error } = await supabase.from("events").insert({
         fest_name: "Game of Thrones",
         year: 2024,
         event_name: formValues.name,
@@ -103,116 +103,55 @@ const EventForm = () => {
     "link",
   ];
 
+  const inputField = (
+    label: string,
+    name: keyof valuesType,
+    type: string,
+    placeholder: string,
+  ) => (
+    <div className="flex flex-col items-start gap-5">
+      <label htmlFor={name}>{label}</label>
+      <input
+        type={type}
+        name={name}
+        value={formValues[name]}
+        onChange={handleChange}
+        required={true}
+        id={name}
+        placeholder={placeholder}
+        className="w-[95%] rounded-md border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
+      />
+    </div>
+  );
+
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col md:flex-row items-center gap-10 flex-wrap px-10"
+      className="flex flex-col flex-wrap items-center gap-10 px-10 md:flex-row"
     >
-      <div className="flex flex-col items-start gap-5">
-        <label htmlFor="name">Event Name</label>
-        <input
-          type="text"
-          name="name"
-          value={formValues.name}
-          onChange={handleChange}
-          required={true}
-          id="name"
-          placeholder="Event Name"
-          className="w-[95%] rounded-md  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
-        />
-      </div>
-      <div className="flex flex-col items-start gap-5">
-        <label htmlFor="imageUrl">Event Image Url</label>
-        <input
-          type="text"
-          name="imageUrl"
-          value={formValues.imageUrl}
-          onChange={handleChange}
-          required={true}
-          id="imageUrl"
-          placeholder="Event Image Url"
-          className="w-[95%] rounded-md  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
-        />
-      </div>
-      <div className="flex flex-col items-start gap-5">
-        <label htmlFor="minMembers">Minimum Members</label>
-        <input
-          type="text"
-          name="minMembers"
-          value={formValues.minMembers}
-          onChange={handleChange}
-          required={true}
-          id="minMembers"
-          placeholder="Minimum Members"
-          className="w-[95%] rounded-md  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
-        />
-      </div>
-      <div className="flex flex-col items-start gap-5">
-        <label htmlFor="maxMembers">Maximum Members</label>
-        <input
-          type="text"
-          name="maxMembers"
-          value={formValues.maxMembers}
-          onChange={handleChange}
-          required={true}
-          id="maxMembers"
-          placeholder="Maximum Members"
-          className="w-[95%] rounded-md  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
-        />
-      </div>
-      <div className="flex flex-col items-start gap-5">
-        <label htmlFor="fees">Registration Fees</label>
-        <input
-          type="number"
-          name="fees"
-          value={formValues.fees}
-          onChange={handleChange}
-          required={true}
-          id="fees"
-          placeholder="Registration Fees"
-          className="w-[95%] rounded-md  border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
-        />
-      </div>
+      {inputField("Event Name", "name", "text", "Event Name")}
+      {inputField("Event Image Url", "imageUrl", "text", "Event Image Url")}
+      {inputField("Minimum Members", "minMembers", "text", "Minimum Members")}
+      {inputField("Maximum Members", "maxMembers", "text", "Maximum Members")}
+      {inputField("Registration Fees", "fees", "number", "Registration Fees")}
 
       <div className="flex flex-col items-start gap-2">
         <label htmlFor="gender">Gender</label>
         <div className="flex flex-col items-start gap-5 md:flex-row md:items-center md:gap-16">
-          <label className="flex flex-row items-center gap-1">
-            <input
-              name="gender"
-              type="radio"
-              value="male"
-              className="text-primary"
-              checked={formValues.gender === "male"}
-              onChange={handleChange}
-              required={true}
-            />
-            Male
-          </label>
-          <label className="flex flex-row items-center gap-1">
-            <input
-              name="gender"
-              type="radio"
-              value="female"
-              className="text-primary"
-              checked={formValues.gender === "female"}
-              onChange={handleChange}
-              required={true}
-            />
-            Female
-          </label>
-          <label className="flex flex-row items-center gap-1">
-            <input
-              name="gender"
-              type="radio"
-              value="mixed"
-              className="text-primary"
-              checked={formValues.gender === "mixed"}
-              onChange={handleChange}
-              required={true}
-            />
-            Mixed
-          </label>
+          {["male", "female", "mixed"].map((gen) => (
+            <label key={gen} className="flex flex-row items-center gap-1">
+              <input
+                name="gender"
+                type="radio"
+                value={gen}
+                className="text-primary"
+                checked={formValues.gender === gen}
+                onChange={handleChange}
+                required={true}
+              />
+              {gen.charAt(0).toUpperCase() + gen.slice(1)}
+            </label>
+          ))}
         </div>
       </div>
 
@@ -224,12 +163,12 @@ const EventForm = () => {
         onChange={(value: any) =>
           setFormValues({ ...formValues, description: value })
         }
-        className="w-full rounded-md text-black bg-white border-b border-slate-400 bg-transparent p-5  placeholder:text-slate-400 md:w-full"
+        className="w-full rounded-md border-b border-slate-400 bg-transparent bg-white p-5 text-black  placeholder:text-slate-400 md:w-full"
       />
 
       <button
         type="submit"
-        className="bg-primary text-white px-5 py-2 rounded-md"
+        className="rounded-md bg-primary px-5 py-2 text-white"
       >
         Add Event
       </button>

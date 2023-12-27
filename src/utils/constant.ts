@@ -27,7 +27,7 @@ const links = [
   { text: "Gallery", url: "https://got.rcciit.org.in/gallery" },
   {
     text: "Sponsorship Brochure",
-    url: "https://drive.google.com/file/d/1h2i1Qe8KqKFs4RrfEyEc3FPHkxd3u5xD/view?usp=sharing",
+    url: "https://drive.google.com/file/d/1vJklBjwzKoUiiUFwRJlrcrCMn41WoGa5/view?usp=sharing",
   },
   { text: "Contact Us", url: "https://got.rcciit.org.in/contacts" },
 ];
@@ -61,7 +61,7 @@ const teachers = [
       detrimental to their mental and physical health. This is one reason why RCCIIT has put lot of emphasis on games and sports. By accommodating traditional versions of the games in GoT and making those open for all, we believe it will uphold the true spirit of
       games and sports and foster sportsmanship, positivity and friendship among the students. I wish all success of this mega event and hope it will be even better organized this year, particularly considering the institute's silver jubilee celebration year 2024. I also expect better participation and competition this time.`,
     signL1: "Prof.(Dr.) Anirban Mukherjee",
-    signL2: "Principal (Officiating) RCCIIT &Professor, IT, RCCIIT",
+    signL2: "Principal (Officiating) RCCIIT & Professor, IT, RCCIIT",
     img: "https://i.imgur.com/QNCJB8M.png",
     header: "Principal's Desk",
   },

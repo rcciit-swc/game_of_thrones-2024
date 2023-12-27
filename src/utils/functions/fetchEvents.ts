@@ -1,19 +1,17 @@
-import { createBrowserClient } from "@supabase/ssr";
+import { supabase } from "@/lib/supabase-client";
 
-export async function fetchEvents(name: string) {
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-  );
+export async function fetchEvents(id: string | undefined) {
   const { data, error } = await supabase
     .from("events")
     .select("*")
-    .eq("event_name", name);
+    .eq("id", id)
+    .single();
+
+  if (error) {
+    throw error;
+  }
+
   if (data) {
     return data;
-  }
-  if (error) {
-    console.error("Error getting user data:", error);
-    return;
   }
 }

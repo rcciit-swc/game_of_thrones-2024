@@ -4,8 +4,8 @@ import EventForm from "./_components/EventForm";
 
 const EventManagement = () => {
   return (
-    <div className="w-full py-24 max-w-[1400px] mx-auto">
-      <h1 className="text-3xl font-bold text-center mb-10">Event Management</h1>
+    <div className="mx-auto w-full max-w-[1400px] py-24">
+      <h1 className="mb-10 text-center text-3xl font-bold">Event Management</h1>
       <EventForm />
     </div>
   );

@@ -1,8 +1,14 @@
+export const SINGLES = "Singles";
+export const DOUBLES = "Doubles";
+export const TEAM = "Team";
+export const SINGLES_DOUBLES = "Singles & Doubles";
+
 interface coordinatorType {
   name: string;
   phone: string;
 }
-interface eventsType {
+export interface eventsType {
+  id: string;
   image: string;
   hoverImage: string;
   title: string;
@@ -12,11 +18,13 @@ interface eventsType {
   venue: string;
   date: string;
   coordinators?: coordinatorType[];
+  teamType?: "Singles" | "Team" | "Singles & Doubles";
   rules: string;
 }
 
 const events: eventsType[] = [
   {
+    id: "e470c74a-77b3-4b12-ba06-95a1e6253092",
     image: "/assets/events/cricket.svg",
     hoverImage: "/assets/events/cricket2.svg",
     title: "Short Hand Cricket",
@@ -25,11 +33,8 @@ const events: eventsType[] = [
     prize: "Rs. 15,000 /- ",
     venue: "RCCIIT College Ground",
     date: "12th to 14th January, 2024 ",
+    teamType: "Team",
     coordinators: [
-      {
-        name: "Tahir Imam",
-        phone: "8910303288",
-      },
       {
         name: "Basanta Kumar Shaw",
         phone: "7547927975",
@@ -37,6 +42,10 @@ const events: eventsType[] = [
       {
         name: "Soumyadip Pal",
         phone: "8617321378",
+      },
+      {
+        name: "Tahir Imam",
+        phone: "8910303288",
       },
     ],
     rules: `<!DOCTYPE html>
@@ -71,11 +80,13 @@ const events: eventsType[] = [
             `,
   },
   {
+    id: "21d118dc-a0c8-46ca-afcb-a0b5bbc24a6f",
     image: "/assets/events/badminton.svg",
     hoverImage: "/assets/events/badminton2.svg",
     title: "Badminton",
     description: "Shuttle your way to glory! 🏸",
-    regFees: "Rs. 100 /- (Singles)  ;  Rs. 200 /- (Doubles)",
+    regFees:
+      "Rs. 150 /- (Singles Boys and Girls)  ;  Rs. 250 /- (Boys Doubles)",
     prize: "Rs. 7,000 /-",
     venue: "Spuddy Badminton Academy",
     date: "20-21st January,2024",
@@ -97,14 +108,14 @@ const events: eventsType[] = [
         phone: "6289071523",
       },
     ],
-
+    teamType: "Singles & Doubles",
     rules: `<!DOCTYPE html>
         <html>
         <head>
             <title>Tournament Rules</title>
         </head>
         <body>
-           
+
             <ul class="flex flex-col gap-3 text-xl">
                 <li>• Singles and double tournaments will be organized separately.</li>
                 <li>• All students must carry their student-identity card.</li>
@@ -125,7 +136,7 @@ const events: eventsType[] = [
                 <li>Service Courts: During service, the shuttlecock must be hit within the diagonally opposite service court. The server must stand within the service court and hit the shuttlecock to the diagonally opposite service court. Third court service will be considered out.</li>
                 <li>Mid-Court Line: During a serve, the shuttlecock must pass over the first court line without touching it. Players should not touch any of the lines on the court during a serve. This includes the feet of the server and receiver. Players can stand anywhere in their half of the court, but they cannot touch any of the lines or be outside of the playing court.</li>
             </ul>
-            
+
             <h3 class="text-xl font-bold underline tracking-wider pt-2">Doubles Boundary Rules:</h3>
             <ul class="flex flex-col gap-3 text-xl py-3">
                 <li><b>Sidelines:</b> Similar to singles, the shuttlecock must land within the inner boundary lines of the court's doubles sideline.</li>
@@ -137,10 +148,11 @@ const events: eventsType[] = [
         </html>`,
   },
   {
+    id: "b56c053d-48a4-4b16-9704-caa87826a0d0",
     image: "/assets/events/chess.svg",
     hoverImage: "/assets/events/chess2.svg",
-    title: "CHESS",
-    description: "  Mind over board! ♚♛",
+    title: "Chess",
+    description: "Mind over board! ♚♛",
     regFees: "Rs. 150 /-",
     prize: "Rs. 2,500 /-",
     venue: "RCCIIT,Kolkata",
@@ -155,7 +167,7 @@ const events: eventsType[] = [
         phone: "9051484336",
       },
     ],
-
+    teamType: "Singles",
     rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -182,12 +194,13 @@ const events: eventsType[] = [
         `,
   },
   {
+    id: "af2c22fc-794e-4c09-a1dc-94d80d6ba5a8",
     image: "/assets/events/carrom.svg",
     hoverImage: "/assets/events/carrom2.svg",
-    title: "CARROM",
+    title: "Carrom",
     description: "Striker, pocket, victory! 🎱",
-    regFees: "Rs. 100 /- (Singles)  ;  Rs. 200 /- (Doubles)",
-    prize: "Rs. 7,000 /-",
+    regFees: "Rs. 150 /- (Singles)  ;  Rs. 250 /- (Doubles)",
+    prize: "Rs. 5,000 /-",
     venue: "RCCIIT College Campus",
     date: "12th & 13th January,2024",
     coordinators: [
@@ -203,8 +216,12 @@ const events: eventsType[] = [
         name: "Grantha Das",
         phone: "7278271477",
       },
+      {
+        name: "Suvam Chanda",
+        phone: "8013513742",
+      },
     ],
-
+    teamType: "Singles & Doubles",
     rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -217,7 +234,6 @@ const events: eventsType[] = [
                 <li>2. Unsporting behavior of any player may result in direct disqualification of the team/player.</li>
                 <li>3. Once enlisted, players cannot switch teams/players.</li>
             </ol>
-        
             <h2 class="text-2xl font-semibold py-3">Game Rules:</h2>
             <div class="text-xl flex flex-col items-start gap-5">
             <div>
@@ -253,21 +269,21 @@ const events: eventsType[] = [
             <!-- Include all the position rules -->
             </div>
             </div>
-            
         </body>
         </html>
-        
+
         `,
   },
   {
-    image: "/assets/events/badminton.svg",
-    hoverImage: "/assets/events/badminton2.svg",
-    title: "Kabaddi (Girls and Boys)",
+    id: "00cacb70-2afa-4503-8560-3bdf14e07c5a",
+    image: "/assets/events/kabaddi.svg",
+    hoverImage: "/assets/events/kabaddi2.svg",
+    title: "Kabaddi (boys and girls)",
     description:
-      " In the realm of agility and daring raids, Kabaddi takes center stage! 🤸‍♂ ",
-    regFees: "Rs. 400 /- per Team",
+      "In the realm of agility and daring raids, Kabaddi takes center stage! 🤸‍♂ ",
+    regFees: "Rs. 400 /- per Team boys and girls",
     prize: "Rs. 8,000 /-",
-    venue: "KOLKATA KABADDI COACHING (Near Girish Park Metro)",
+    venue: "SAI NSEC Campus, Kolkata",
     date: "13 th & 14 th January, 2024",
     coordinators: [
       {
@@ -279,55 +295,68 @@ const events: eventsType[] = [
         phone: "7864061484",
       },
     ],
-
+    teamType: "Team",
     rules: `<!DOCTYPE html>
         <html>
         <head>
             <title>Kabaddi Tournament Rules</title>
         </head>
         <body>
-            <ul  class="flex flex-col gap-3 text-xl">
-                <li>1. A team should have a total of 10 players with 3 reserve players.</li>
-                <li>2. All participants must carry their valid student-identity card and Aadhaar card.</li>
-                <li>3. All participants must be 17+ as well as a college student.</li>
-                <li>4. Each match will be of Knock-out type.</li>
-                <li>5. Raiders must enter the opponent's half in a crouching position and make a continuous audible chant of "kabaddi."</li>
-                <li>6. Players must complete a raid within a specified time.</li>
-                <li>7. Points are scored when a raider successfully crosses the baulk line and returns to their half without being tagged. Each tagged defender also earns a point for the raider's team.</li>
-                <li>8. Not more than one raider shall be allowed inside the court of the opponent in a single round.</li>
-                <li>9. If a player crosses the boundary line, they are out.</li>
-                <li>10. The game will consist of two halves, each lasting 10 minutes (may vary). There is a break of 5 minutes between the halves.</li>
-                <li>11. None of the antis will be allowed to touch the raider’s court during the raid or before the raid has been completed. If any antis touch the raider’s court before the raid has been completed, they shall be declared out, and the opponent team will be rewarded.</li>
-                <li>12. <b>Bonus Point Rule:</b>
-                    <ul  class="flex flex-col gap-3 text-xl">
-                        <li>• The raider must cross the bonus line without being touched by any defenders.</li>
-                        <li>• There should be a minimum number of defenders on the court for the raid to be eligible for a bonus point. Typically, at least six defenders must be present on the court.</li>
-                    </ul>
-                </li>
-                <li>13. <b>DO OR DIE RAID:</b> If a team has two successive Empty raids, the third raid is a Do-Or-Die raid, and failure to score in this third raid results in the raider being out, and the opposite team gets a point.</li>
-                <li>14. <b>SUPER TACKLE:</b> If the defending team has three or fewer players on the ground, then with the successful tackle of a raider, the team gets two points instead of one.</li>
-                <li>15. <b>SUPER RAID:</b> When a raider scores three or more points for the team in a single raid.</li>
-                <li>16. <b>ALL OUT:</b> If a team gets all seven players on the opposing team out ("All Out"), they earn two additional points, and the players are placed back in the game.</li>
-                <li>17. Substitution is allowed during the match time.</li>
-                <li>18. Decisions given by the match Referee are the final decisions regarding any concern.</li>
-                <li>19. Indiscipline towards any officials or volunteers will not be tolerated and will result in immediate disqualification.</li>
-                <li>20. Everyone is requested to stay in the venue while the matches for their upcoming rounds.</li>
-                <li>21. Fixtures will be released before the start of the tournament.</li>
-                <li>22. Every participant is to arrive 30 mins before the start of the event for their verification.</li>
-                <li>23. Cash prizes, trophies, and certificates will be distributed at the end of the day of the tournament.</li>
+        <ul type="disc" style="margin-bottom:0cm;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>A team should have a total of 10 players with 3 reserve players.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>All participants must carry their valid student identity card and Aadhaar card.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>All participants must be 17+ as well as a college student.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Each match will be of a Knock-out type.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Raiders must enter the opponent&apos;s half in a crouching position and make a continuous audible chant of &quot;kabaddi.&quot;</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Players must complete a raid within a specified time.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>A raid is valid when the raider crosses the baulk Line with the other leg on air. Each tagged defender also earns a point for the raider&apos;s team.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Not more than one raider shall be allowed inside the court of the opponent in a single round</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>If a player crosses the boundary line, they are out.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>The game will consist of two halves, each lasting 10 minutes (may vary). There is a break of 5 minutes between the halves.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>None of the antis will be allowed to touch the raider&rsquo;s court during the raid or before the raid has been completed. If any antis touch the raider&rsquo;s court before the raid has been completed, they shall be declared out and the opponent team will be rewarded.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Raiders may only be grabbed by their limbs or torso, not by their hair, clothes or anywhere else.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Bonus Point Rule- The bonus line is a specific line on the opponent&apos;s side of the court, usually located between the balk line and the end line.&nbsp;</span></li>
+    </ul>
+    <div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
+        <ul style="margin-bottom:0cm;list-style-type: disc;">
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-family:"Times New Roman",serif;font-size:14.0pt;'>Conditions for Earning a Bonus Point:&nbsp;</span></li>
+        </ul>
+    </div>
+    <ul type="disc" style="margin-bottom:0cm;">
+        <ul type="circle" style="margin-bottom:0cm;">
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>The raider must cross the bonus line without being touched by any defenders.</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>There should be a minimum number of defenders on the court for the raid to be eligible for a bonus point. Typically, at least six defenders must be present on the court.</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>One leg must cross or cut the bonus line while the other leg must be in air.&nbsp;</span></li>
+        </ul>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>DO OR DIE RAID: if a team has two successive Empty raids, the third raid is a Do-Or-Die raid, and failure to score in this third raid results in the raider being out and the opposite team gets a point.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>SUPER TACKLE: If the defending team has three or fewer players on the ground, then with the successful tackle of a raider the team gets two points instead of one.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>SUPER RAID: when a raider scores three or more points for the team in a single raid.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>ALL OUT: If a team gets all seven players on the opposing team out (&quot;All Out&quot;), they earn two additional points and the players are placed back in the game.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>LOBBY RULES:</span>
+            <ul type="circle" style="margin-bottom:0cm;">
+                <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>If a raider steps out of bounds and a defender follows him, then the defender is also ruled out and the raiding team gets the point.</span></li>
+                <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Lobby will be active only when contact has been made between the raider and a defender. Else, it is considered out of bounds for both raider and the defenders.</span></li>
             </ul>
+        </li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Substitution is allowed during the match time.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Decisions given by the match Referee are the final decision regarding any concern.&nbsp;</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Indiscipline to any officials or volunteers will not be tolerated and will be disqualified immediately.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Everyone is requested to stay in the venue during the matches for their upcoming rounds.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Fixtures will be released before the start of the tournament.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Every participant is to arrive 30 minutes before the start of the event for their verification.</span></li>
+    </ul>
+    <p><span style='font-size:19px;font-family:"Times New Roman",serif;'>Cash prizes, trophies, and certificates will be distributed at the end of day of the tournament.</span></p>
         </body>
         </html>
-        
         `,
   },
   {
+    id: "5dad5c6e-4c47-429d-986f-b084d1483f76",
     image: "/assets/events/tug.svg",
     hoverImage: "/assets/events/tug2.svg",
     title: "Tug of War (boys and girls)",
-    description:
-      "   Strength, strategy, and the ultimate test of teamwork! 💪🤝",
-    regFees: "Rs. 400 /- (each team)",
+    description: "Strength, strategy, and the ultimate test of teamwork! 💪🤝",
+    regFees: "Rs. 400 /- (each team) boys and girls",
     prize: "Rs. 8,000 /-",
     venue: "RCCIIT College Ground",
     date: "19th January, 2024",
@@ -349,40 +378,40 @@ const events: eventsType[] = [
         phone: "7439727696",
       },
     ],
-
+    teamType: "Team",
     rules: `<!DOCTYPE html>
         <html>
         <head>
             <title>Tug-of-War Tournament Rules</title>
         </head>
         <body>
-            <ol  class="flex flex-col gap-3 text-xl">
-                <li>1. A team should have a total of 5 players with 1 reserve player.</li>
-                <li>2. Each match will be of Knock-out type.</li>
-                <li>3. There will be 3 rounds in each game. The team with the maximum wins will qualify for the next round.</li>
-                <li>4. Members must carry their college ID Cards during the entire event.</li>
-                <li>5. Playing in both sports shoes and barefoot is allowed, but no spikes or strengthening kind of gear are allowed. Shoes will be checked prior to the match.</li>
-                <li>6. No hand grips are allowed.</li>
-                <li>7. Once enlisted, players cannot switch the team.</li>
-                <li>8. The rope will be divided equally, and in the middle, a red knot will be tied, which will mark the middle, and whichever team makes it cross their line wins the round.</li>
-                <li>9. The rope will be tied to the anchors at the two ends, and only anchors can wrap their hand around the rope, and no other player can.</li>
-                <li>10. Players cannot sit or lie down to pull the rope or to get balance else will be disqualified.</li>
-                <li>11. No team can change a player in the middle of the game unless someone is injured.</li>
-                <li>12. Unsporting behaviour of any player may result in the direct disqualification of the team.</li>
-            </ol>
+        <ol style="list-style-type: decimal;">
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>A team should have a total of 6 players with 1 reserve player.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Each match will be of Knock-out type.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>There will be 3 rounds in each game. The team with maximum wins will qualify to the next round.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Members must carry their college ID Cards during the entire event.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Playing in both sports shoes and bare foot are allowed but no spikes or strengthening kind of gear&nbsp;are&nbsp;allowed. Shoes will be check prior the match.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>No hand grips are allowed.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Once enlisted players cannot switch the team.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>The rope will be divided equally and, in the middle, a red knot will be tied which will mark the middle and whichever team makes it cross their line wins the round.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>The rope will be tied to the anchors at the 2 ends and only anchors can wrap their hand around the rope and no other player can.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Players cannot sit or lie down to pull the rope or to get balance else will be disqualified.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>No team can change player in the middle of the game unless someone is injured.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Unsporting behaviour of any player may result in the direct disqualification of the team.</span></li>
+    </ol>
         </body>
         </html>
-        
         `,
   },
   {
+    id: "deb0df56-953d-4c80-a7fc-5c0f89c0ad24",
     image: "/assets/events/football.svg",
     hoverImage: "/assets/events/football2.svg",
-    title: "FOOTBALL TOURNAMENT",
-    description: " Kicking off the adrenaline rush! ⚽ ",
+    title: "Football",
+    description: "Kicking off the adrenaline rush! ⚽ ",
     regFees: "RS. 1500 (each team)",
     prize: "Rs. 20,000 /-",
-    venue: "",
+    venue: "SAI NSEC Campus, Kolkata",
     date: "20th & 21st January, 2024",
     coordinators: [
       {
@@ -402,43 +431,44 @@ const events: eventsType[] = [
         phone: "9681162881",
       },
     ],
+    teamType: "Team",
     rules: `<!DOCTYPE html>
         <html>
         <head>
             <title>Football Tournament Rules</title>
         </head>
         <body>
-            <ol class="flex flex-col gap-3 text-xl">
-                <li>1. Each team can register a maximum of 13 players.</li>
-                <li>2. The match will be of 9-a-side, and a maximum of 4 substitutions can be made per match, including the goalkeeper.</li>
-                <li>3. There will be an offside rule, which will be monitored by official referees.</li>
-                <li>4. The referee's decision will be final. In case of an argument, the team will be disqualified.</li>
-                <li>5. All teams must report 1 hour before the match time.</li>
-                <li>6. If any team fails to report before the match, 5 minutes will be given. After that, if the other team is present, they will automatically receive a walkover with a 1-0 scoreline.</li>
-                <li>7. Each team must carry their own football kits along with their jerseys.</li>
-                <li>8. Aadhar card and college ID card are mandatory for every player.</li>
-                <li>9. If anyone fails to show a valid ID card, they will not be allowed to play in the tournament.</li>
-                <li>10. Use of a fake ID card will result in the disqualification of the team.</li>
-                <li>11. Only college students are allowed to play in this tournament; no outside players will be permitted.</li>
-                <li>12. Merging of teams is prohibited in the later stages of the game.</li>
-                <li>13. Registration during the tournament is not allowed.</li>
-                <li>14. The tournament will consist of 16 teams divided into 4 groups.</li>
-                <li>15. In case of a draw in the semifinal and final matches, there will be a penalty shootout.</li>
-                <li>16. The match duration will be 20-5-20 minutes.</li>
-            </ol>
+        <ol style="list-style-type: decimal;">
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Each team can register a maximum of 14 with 5 reserve.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>The match will be of 9 - side and maximum of 4 substitutions can be made per match, including the goalkeeper.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>There will be offside which will be monitored by official referees.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>decision will be final decision, in case of argument team will be disqualified.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>All the teams must report 1 hour before match time.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>If any team fails to report before match, 5 mins will be given and after that if the other team is present, they will get automatically walk over of 1-0 scoreline.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Each team must carry their own football kits along with their jersey.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Aadhar card and college id card are mandatory, every player must carry.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>If anyone fails to show valid id card then he will not be allowed to play in the tournament.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Fake id card will result in disqualification of the team.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Only college students are allowed to play in this tournament no outside players will be allowed.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Merging of team is prohibited in the later stages of the game.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>registration is not allowed.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Tournament will be of 16 teams in 4 groups.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>There will be penalty shootout in case of draw in the semifinal and final.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>The match will be of 15-5-15 minutes duration.</span></li>
+    </ol>
         </body>
         </html>
-        
         `,
   },
   {
+    id: "ae4a5c82-d6ae-4772-be7a-e45ea51d5919",
     image: "/assets/events/tt.svg",
     hoverImage: "/assets/events/tt2.svg",
     title: "Table Tennis",
     description: "Ping, pong, perfection! 🏓 ",
     regFees: "Rs. 100 /- (Singles)  ;  Rs. 200 /- (Doubles)",
-    prize: "Rs. 4,500 /-",
-    venue: "East Calcutta District Sports Council",
+    prize: "Rs. 5,000 /-",
+    venue: "SAI NSEC Campus, Kolkata",
     date: "13th January, 2024",
     coordinators: [
       {
@@ -454,40 +484,45 @@ const events: eventsType[] = [
         phone: "9330613148",
       },
     ],
-
+    teamType: "Singles & Doubles",
     rules: `<!DOCTYPE html>
         <html>
         <head>
             <title>Tournament Rules and Regulations</title>
         </head>
         <body>
-            <ul class="flex flex-col gap-3 text-xl">
-                <li>1. Singles and doubles tournaments will be organized separately.</li>
-                <li>2. All participants must carry their student-identity card and Aadhaar card.</li>
-                <li>3. Each player should be a college student and must be 17+.</li>
-                <li>4. Each match will be of Knock-out type.</li>
-                <li>5. Ball will be provided by the tournament officials.</li>
-                <li>6. Everyone is requested to carry their own rackets.</li>
-                <li>7. Everyone is requested not to litter the venue.</li>
-                <li>8. Intentional damages to any equipment will not be tolerated and will be compensated.</li>
-                <li>9. Indiscipline towards any officials or volunteers will not be tolerated and will result in immediate disqualification.</li>
-                <li>10. Everyone is requested to stay in the venue while the matches for their upcoming rounds.</li>
-                <li>11. Rules of the game will be followed according to the official rules of WTTF (World Table Tennis Federation).</li>
-                <li>12. Fixtures will be released before the start of the tournament.</li>
-                <li>13. Every participant is to arrive 30 mins before the start of the event for their verification.</li>
-                <li>14. Cash prizes, trophies, and certificates will be distributed at the end of the day of the tournament.</li>
-            </ul>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>&bull; Singles and doubles tournaments will be organized separately.</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>&bull; All participants must carry their student-identity card and Aadhaar card.</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>&bull; Each player should be a college student.</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>&bull; All participants must be 17+.</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>&bull; Each match will be of Knock-out type.</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>&bull; Ball will be provided by the tournament officials.</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>&bull; Everyone is requested to carry their own rackets.</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>&bull; Everyone is requested not to litter the venue.</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>&bull; Intentional damages to any equipment will not be tolerated and will be</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>compensated.</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>&bull; Indiscipline to any officials or volunteers will not be tolerated and will be</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>disqualified immediately.</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>&bull; Everyone is requested to stay in the venue while the matches for their</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>upcoming rounds.</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>&bull; Rules of the game will be followed according to the official rules of</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>WTTF.</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>&bull; Fixtures will be released before the start of the tournament.</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>&bull; Every participant is to arrive 30 mins before start of the event for their</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>verification.</span></p>
+        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>&bull; Cash prizes, trophies and certificates will be distributed at the end of day</span></p>
+        <p><span style='font-size:19px;font-family:"Times New Roman",serif;'>of the tournament.</span></p>
         </body>
         </html>
-        
         `,
   },
   {
+    id: "8363dae3-e65b-4dbb-ab90-ec24ee395692",
     image: "/assets/events/handball.svg",
     hoverImage: "/assets/events/handball2.svg",
-    title: "Handball (Girls)",
-    description: " Fast-paced, dynamic, and full of twists! 🤾‍♀",
-    regFees: "Rs. 250 /- (each team)",
+    title: "Handball (girls)",
+    description: "Fast-paced, dynamic, and full of twists! 🤾‍♀",
+    regFees: "Rs. 250 /- (each team) girls",
     prize: "Rs. 2,000 /-",
     venue: "RCCIIT College Middle Ground , Kolkata",
     date: "19th January, 2024",
@@ -497,10 +532,6 @@ const events: eventsType[] = [
         phone: "9073569808",
       },
       {
-        name: "Ankuri Sen",
-        phone: "9903290308",
-      },
-      {
         name: "Srinanda Das",
         phone: "7980505034",
       },
@@ -508,8 +539,12 @@ const events: eventsType[] = [
         name: "Pritha Majumder",
         phone: "7586909097",
       },
+      {
+        name: "Ankuri Sen",
+        phone: "9903290308",
+      },
     ],
-
+    teamType: "Team",
     rules: `<!DOCTYPE html>
         <html>
         <head>
@@ -517,7 +552,7 @@ const events: eventsType[] = [
         </head>
         <body>
             <ol  class="flex flex-col gap-3 text-xl">
-                <li>1. Each team should have a total of 5 players with 2 reserve players (optional).</li>
+                <li>1. Each team should have a total of 7 players with 2 reserve players (optional).</li>
                 <li>2. Each match will be of Knock-out type.</li>
                 <li>3. Only 5 players on the floor at any given time (4 players + 1 goalkeeper).</li>
                 <li>4. All students must carry their student-identity card and Aadhaar card.</li>
@@ -553,13 +588,14 @@ const events: eventsType[] = [
         `,
   },
   {
-    image: "/assets/events/handball.svg",
-    hoverImage: "/assets/events/handball2.svg",
-    title: "Volleyball (Boys)",
+    id: "48319762-6743-4bef-be27-303d53feb018",
+    image: "/assets/events/volleyball.svg",
+    hoverImage: "/assets/events/volleyball2.svg",
+    title: "Volleyball (boys)",
     description: "Spike it, set it, win it! 🏐",
     regFees: "Rs. 500 /- (each team)",
     prize: "Rs. 4,500 /-",
-    venue: "Beleghata Balak Brinda Club, CIT More",
+    venue: "SAI NSEC Campus, Kolkata",
     date: "14th January, 2024",
     coordinators: [
       {
@@ -574,50 +610,54 @@ const events: eventsType[] = [
         name: "Piyush Prasad",
         phone: "8910170643",
       },
+      {
+        name: "Indranil Lohar",
+        phone: "8240574541",
+      },
     ],
-
+    teamType: "Team",
     rules: `<!DOCTYPE html>
         <html>
         <head>
             <title>Volleyball Tournament Rules</title>
         </head>
         <body>
-            <ol class="flex flex-col gap-3 text-xl">
-                <li>1. A team should have a total of 6 players with 2 reserve players.</li>
-                <li>2. Each match will be of Knock-out type.</li>
-                <li>3. Only 6 players on the floor at any given time: 3 in the front row and 3 in the back row.</li>
-                <li>4. All students must carry their student-identity card and Aadhaar card.</li>
-                <li>5. Each player should be a college student.</li>
-                <li>6. Points are made on every serve for the winning team of the rally (rally-point scoring).</li>
-                <li>7. Players may not hit the ball twice in succession (a block is not considered a hit).</li>
-                <li>9. Ball may be played off the net during a volley and on a serve.</li>
-                <li>10. A ball hitting a boundary line is in.</li>
-                <li>11. A ball is out if it hits an antennae, the floor completely outside the court, any part of the net or cables outside the antennae, the referee stand or pole, or the ceiling above a non-playable area.</li>
-                <li>12. It is legal to contact the ball with any part of a player’s body.</li>
-                <li>14. It is illegal to catch, hold, or throw the ball.</li>
-                <li>15. A player cannot block or attack a serve from on or inside the 10-foot line.</li>
-                <li>16. After the serve, front-line players may switch positions at the net.</li>
-                <li>17. Matches are made up of sets; the number depends on the level of play.</li>
-                <li>18. Intentional damages to any equipment will not be tolerated and will be compensated.</li>
-                <li>19. Indiscipline towards any officials or volunteers will not be tolerated and will result in immediate disqualification.</li>
-                <li>20. If the number of teams is very low, then the prize money can be deducted.</li>
-            </ol>
-            <p class="py-3 text-xl"><b><span class="text-red-600">*</span> Committing any of these volleyball rule violations results in a point for the opponent:</b></p>
-            <ul class="flex flex-col gap-3 text-xl">
-                <li>&nbsp;&nbsp;&nbsp;&nbsp;• Stepping on or across the service line when serving while making contact with the ball.</li>
-                <li>&nbsp;&nbsp;&nbsp;&nbsp;• Failure to serve the ball over the net successfully.</li>
-                <li>&nbsp;&nbsp;&nbsp;&nbsp;• Ball-handling errors and contacting the ball illegally (double touching, lifting, carrying, throwing, etc.).</li>
-                <li>&nbsp;&nbsp;&nbsp;&nbsp;• Touching the net with any part of the body while the ball is in play.</li>
-                <li>&nbsp;&nbsp;&nbsp;&nbsp;• Blocking a ball coming from the opponent’s court and contacting the ball when reaching over the net if your opponent has not used 3 contacts AND has a player there to make a play on the ball.</li>
-                <li>&nbsp;&nbsp;&nbsp;&nbsp;• Attacking a ball coming from the opponent’s court and contacting the ball when reaching over the net when the ball has not yet broken the vertical plane of the net.</li>
-                <li>&nbsp;&nbsp;&nbsp;&nbsp;• Crossing the court centerline with any part of your body, with the exception of a hand or foot. It is only considered a violation if the entire hand or entire foot crosses the court centerline.</li>
-                <li>&nbsp;&nbsp;&nbsp;&nbsp;• Serving out of rotation or out of order.</li>
-                <li>&nbsp;&nbsp;&nbsp;&nbsp;• Back row player blocking (deflecting a ball coming from the opponent) when, at the moment of contact, the back row player is near the net and has part of their body above the top of the net. This is an illegal block.</li>
-                <li>&nbsp;&nbsp;&nbsp;&nbsp;• Back row player attacking a ball inside the front zone (the area inside the 3M/10-foot line) when, at the moment of contact, the ball is completely above the net. This is an illegal attack.</li>
-            </ul>
+        <ol style="list-style-type: decimal;">
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>A team should have a total of 8 players with 2 reserve players.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Each match will be of Knock-out type.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Only 6 players on the floor at any given time: 3 in the front row and 3 in the back row.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>All students must carry their student-identity card and Aadhaar card.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Each player should be a college student.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Points are made on every serve for the winning team of the rally (rally-point scoring).</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Players may not hit the ball twice in succession (a block is not considered a hit).</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Ball may be played off the net during a volley and on a serve.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>A ball hitting a boundary line is in.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>A ball is out if it hits an antennae, the floor completely outside the court, any of the net or cables outside the antennae, the referee stand or pole, or the ceiling above a non-playable area.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>It is legal to contact the ball with any part of a player&rsquo;s body.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>It is illegal to catch, hold or throw the ball.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>A player cannot block or attack a serve from on or inside the 10-foot line.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>After the serve, front-line players may switch positions at the net.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Matches are made up of sets; the number depends on level of play.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Intentional damages to any equipment will not be tolerated and will be compensated.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Indiscipline to any officials or volunteers will not be tolerated and will be disqualified immediately.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>If the number of teams is very low, then the prize money can be deducted.</span></li>
+    </ol>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
+    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:18.0pt;font-size:11.0pt;font-family:"Calibri",sans-serif;'><strong><u><span style='font-size:19px;line-height:107%;font-family:"Times New Roman",serif;'>Committing any of these volleyball rule violations results in a point for the opponent.</span></u></strong></p>
+    <ul style="list-style-type: disc;margin-left:44px;">
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Stepping on or across the service line when serving while making contact with the ball.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Failure to serve the ball over the net successfully.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Ball-handling errors and contacting the ball illegally (double touching, lifting, carrying, throwing, etc.)</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Touching the net with any part of the body while the ball is in play.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Blocking a ball coming from the opponent&rsquo;s court and contacting the ball when reaching over the net if your opponent has not used 3 contacts AND has a player there to make a play on the ball.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Attacking a ball coming from the opponent&rsquo;s court and contacting the ball when reaching over the net when the ball has not yet broken the vertical plane of the net.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Crossing the court centerline with any part of your body, with the exception of a hand or foot. It is only considered a violation if the entire hand or entire foot crosses the court centerline.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Serving out of rotation or out of order.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Back row player blocking (deflecting a ball coming from the opponent) when, at the moment of contact, the back row player is near the net and has part of their body above the top of the net. This is an illegal block.</span></li>
+    </ul>
+    <p><span style='font-size:19px;font-family:"Times New Roman",serif;'>Back row player attacking a ball inside the front zone (the area inside the 3M/10-foot line) when, at the moment of contact, the ball is completely above the net. This is an illegal attack.</span></p>
         </body>
         </html>
-        
         `,
   },
 ];

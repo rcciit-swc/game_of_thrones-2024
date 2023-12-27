@@ -4,15 +4,15 @@ import React from "react";
 
 const Location = () => {
   return (
-    <div className="flex flex-col  items-start gap-10">
-      <h1 className="font-got lg:px-10 text-primary text-2xl tracking-wider">
+    <div className="flex flex-col items-start gap-10">
+      <h1 className="font-got text-2xl tracking-wider text-primary lg:px-10">
         Locations
       </h1>
-      <div className="flex flex-col w-[90%] mx-auto   gap-10 ">
+      <div className="mx-auto flex w-[90%] flex-col gap-10 ">
         {locations.map((location, index) => {
           return (
             <>
-              <div className="flex lg:px-8 flex-row gap-2 text-md">
+              <div className="text-md flex flex-row gap-2 lg:px-8">
                 <Image
                   src="/assets/contacts/redpin.svg"
                   height={0}
@@ -26,7 +26,7 @@ const Location = () => {
                 </p>
               </div>
               <iframe
-                className="w-[90%] mx-auto h-[300px] lg:h-[500px]  rounded-md"
+                className="mx-auto h-[300px] w-[90%] rounded-md lg:h-[500px]"
                 loading="lazy"
                 src={location.place}
               ></iframe>
