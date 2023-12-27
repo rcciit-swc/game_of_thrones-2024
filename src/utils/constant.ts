@@ -27,7 +27,7 @@ const links = [
   { text: "Gallery", url: "https://got.rcciit.org.in/gallery" },
   {
     text: "Sponsorship Brochure",
-    url: "https://drive.google.com/file/d/1h2i1Qe8KqKFs4RrfEyEc3FPHkxd3u5xD/view?usp=sharing",
+    url: "https://drive.google.com/file/d/1vJklBjwzKoUiiUFwRJlrcrCMn41WoGa5/view?usp=sharing",
   },
   { text: "Contact Us", url: "https://got.rcciit.org.in/contacts" },
 ];
