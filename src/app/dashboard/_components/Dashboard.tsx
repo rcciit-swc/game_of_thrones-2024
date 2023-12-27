@@ -2,7 +2,6 @@
 import { useUser } from "@/lib/store/user";
 import { checkIfUserRegistered } from "@/utils/functions/checkIfUserRegistered";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import events from "@/utils/events";
 import { SectionHeader } from "@/components";
@@ -35,8 +34,6 @@ const Dashboard = () => {
     handleDashboard();
   }, [user]);
 
-  console.log(dashboardData);
-
   return (
     <div className="flex h-full w-full flex-col overflow-y-auto">
       <SectionHeader text="Dashboard" />
@@ -45,11 +42,11 @@ const Dashboard = () => {
        md:pt-10"
       >
         <>
-        {
-          dashboardData.length === 0 && (
-            <h1 className="text-2xl font-bold text-center">You have not registered for any events yet</h1>
-          )
-        }
+          {dashboardData.length === 0 && (
+            <h1 className="text-center text-2xl font-bold">
+              You have not registered for any events yet
+            </h1>
+          )}
           {dashboardData.map((value: any, index: number) => (
             <div
               className="card relative w-[300px] cursor-pointer overflow-hidden rounded-md md:h-[250px] md:w-[350px]"
