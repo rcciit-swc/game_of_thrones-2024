@@ -302,36 +302,50 @@ const events: eventsType[] = [
             <title>Kabaddi Tournament Rules</title>
         </head>
         <body>
-            <ul  class="flex flex-col gap-3 text-xl">
-                <li>1. A team should have a total of 10 players with 3 reserve players.</li>
-                <li>2. All participants must carry their valid student-identity card and Aadhaar card.</li>
-                <li>3. All participants must be 17+ as well as a college student.</li>
-                <li>4. Each match will be of Knock-out type.</li>
-                <li>5. Raiders must enter the opponent's half in a crouching position and make a continuous audible chant of "kabaddi."</li>
-                <li>6. Players must complete a raid within a specified time.</li>
-                <li>7. Points are scored when a raider successfully crosses the baulk line and returns to their half without being tagged. Each tagged defender also earns a point for the raider's team.</li>
-                <li>8. Not more than one raider shall be allowed inside the court of the opponent in a single round.</li>
-                <li>9. If a player crosses the boundary line, they are out.</li>
-                <li>10. The game will consist of two halves, each lasting 10 minutes (may vary). There is a break of 5 minutes between the halves.</li>
-                <li>11. None of the antis will be allowed to touch the raider’s court during the raid or before the raid has been completed. If any antis touch the raider’s court before the raid has been completed, they shall be declared out, and the opponent team will be rewarded.</li>
-                <li>12. <b>Bonus Point Rule:</b>
-                    <ul  class="flex flex-col gap-3 text-xl">
-                        <li>• The raider must cross the bonus line without being touched by any defenders.</li>
-                        <li>• There should be a minimum number of defenders on the court for the raid to be eligible for a bonus point. Typically, at least six defenders must be present on the court.</li>
-                    </ul>
-                </li>
-                <li>13. <b>DO OR DIE RAID:</b> If a team has two successive Empty raids, the third raid is a Do-Or-Die raid, and failure to score in this third raid results in the raider being out, and the opposite team gets a point.</li>
-                <li>14. <b>SUPER TACKLE:</b> If the defending team has three or fewer players on the ground, then with the successful tackle of a raider, the team gets two points instead of one.</li>
-                <li>15. <b>SUPER RAID:</b> When a raider scores three or more points for the team in a single raid.</li>
-                <li>16. <b>ALL OUT:</b> If a team gets all seven players on the opposing team out ("All Out"), they earn two additional points, and the players are placed back in the game.</li>
-                <li>17. Substitution is allowed during the match time.</li>
-                <li>18. Decisions given by the match Referee are the final decisions regarding any concern.</li>
-                <li>19. Indiscipline towards any officials or volunteers will not be tolerated and will result in immediate disqualification.</li>
-                <li>20. Everyone is requested to stay in the venue while the matches for their upcoming rounds.</li>
-                <li>21. Fixtures will be released before the start of the tournament.</li>
-                <li>22. Every participant is to arrive 30 mins before the start of the event for their verification.</li>
-                <li>23. Cash prizes, trophies, and certificates will be distributed at the end of the day of the tournament.</li>
+        <ul type="disc" style="margin-bottom:0cm;">
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>A team should have a total of 10 players with 3 reserve players.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>All participants must carry their valid student identity card and Aadhaar card.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>All participants must be 17+ as well as a college student.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Each match will be of a Knock-out type.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Raiders must enter the opponent&apos;s half in a crouching position and make a continuous audible chant of &quot;kabaddi.&quot;</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Players must complete a raid within a specified time.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>A raid is valid when the raider crosses the baulk Line with the other leg on air. Each tagged defender also earns a point for the raider&apos;s team.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Not more than one raider shall be allowed inside the court of the opponent in a single round</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>If a player crosses the boundary line, they are out.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>The game will consist of two halves, each lasting 10 minutes (may vary). There is a break of 5 minutes between the halves.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>None of the antis will be allowed to touch the raider&rsquo;s court during the raid or before the raid has been completed. If any antis touch the raider&rsquo;s court before the raid has been completed, they shall be declared out and the opponent team will be rewarded.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Raiders may only be grabbed by their limbs or torso, not by their hair, clothes or anywhere else.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Bonus Point Rule- The bonus line is a specific line on the opponent&apos;s side of the court, usually located between the balk line and the end line.&nbsp;</span></li>
+    </ul>
+    <div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>
+        <ul style="margin-bottom:0cm;list-style-type: disc;">
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'><span style='font-family:"Times New Roman",serif;font-size:14.0pt;'>Conditions for Earning a Bonus Point:&nbsp;</span></li>
+        </ul>
+    </div>
+    <ul type="disc" style="margin-bottom:0cm;">
+        <ul type="circle" style="margin-bottom:0cm;">
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>The raider must cross the bonus line without being touched by any defenders.</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>There should be a minimum number of defenders on the court for the raid to be eligible for a bonus point. Typically, at least six defenders must be present on the court.</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>One leg must cross or cut the bonus line while the other leg must be in air.&nbsp;</span></li>
+        </ul>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>DO OR DIE RAID: if a team has two successive Empty raids, the third raid is a Do-Or-Die raid, and failure to score in this third raid results in the raider being out and the opposite team gets a point.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>SUPER TACKLE: If the defending team has three or fewer players on the ground, then with the successful tackle of a raider the team gets two points instead of one.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>SUPER RAID: when a raider scores three or more points for the team in a single raid.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>ALL OUT: If a team gets all seven players on the opposing team out (&quot;All Out&quot;), they earn two additional points and the players are placed back in the game.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>LOBBY RULES:</span>
+            <ul type="circle" style="margin-bottom:0cm;">
+                <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>If a raider steps out of bounds and a defender follows him, then the defender is also ruled out and the raiding team gets the point.</span></li>
+                <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Lobby will be active only when contact has been made between the raider and a defender. Else, it is considered out of bounds for both raider and the defenders.</span></li>
             </ul>
+        </li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Substitution is allowed during the match time.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Decisions given by the match Referee are the final decision regarding any concern.&nbsp;</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Indiscipline to any officials or volunteers will not be tolerated and will be disqualified immediately.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Everyone is requested to stay in the venue during the matches for their upcoming rounds.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Fixtures will be released before the start of the tournament.</span></li>
+        <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:19px;font-family:"Times New Roman",serif;'>Every participant is to arrive 30 minutes before the start of the event for their verification.</span></li>
+    </ul>
+    <p><span style='font-size:19px;font-family:"Times New Roman",serif;'>Cash prizes, trophies, and certificates will be distributed at the end of day of the tournament.</span></p>
         </body>
         </html>
         `,
