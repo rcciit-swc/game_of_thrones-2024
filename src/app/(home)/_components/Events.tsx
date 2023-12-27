@@ -5,8 +5,12 @@ import { SectionHeader } from "@/components";
 import events from "@/utils/events";
 import Link from "next/link";
 import EventCard from "@/app/events/_components/EventCard";
+import { useRouter } from "next/navigation";
 
 const Events = () => {
+
+  const router = useRouter();
+
   const [hover, setHover] = useState(false);
   return (
     <section>
@@ -15,7 +19,9 @@ const Events = () => {
         <div className={`mt-[10px] h-full w-full`}>
           <ul className="oveflow-x-scroll accordion gap-2 hidden justify-center space-x-2 xl:flex">
             {events.map((event, index) => (
-              <li key={index}>
+              <li key={index}
+              onClick={() => router.push(`/events/${event.id}`)}
+              >
                 <img
                   src={`${event.image} `}
                   height={0}

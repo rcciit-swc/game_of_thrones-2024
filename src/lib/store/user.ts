@@ -2,7 +2,8 @@ import { User } from "@supabase/supabase-js";
 import { create } from "zustand";
 
 interface UserState {
-  user: User | undefined;
+  // TODO: Add user type
+  user: any;
   setUser: (user: User | undefined) => void;
 }
 

@@ -7,6 +7,7 @@ import { fetchEvents } from "@/utils/functions/fetchEvents";
 
 import { Modal, Dropdown } from "flowbite-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -27,12 +28,13 @@ const EventReg = ({
   setOpenModal: (value: boolean) => void;
   registrationFees: string;
 }) => {
+  const user = useUser((state) => state.user);
+  const router = useRouter();
+
   const [eventsData, setEventsData] = useState<any>([]);
   const eventId = useEvent((state) => state.eventId);
   const teamType = useEvent((state) => state.teamType);
   const [singleDouble, setSingleDouble] = useState<string>(SINGLES);
-
-  const user = useUser((state) => state.user);
 
   useEffect(() => {
     const fetchEventsData = async () => {
@@ -101,7 +103,7 @@ const EventReg = ({
       const { error: teamsInsertError } = await supabase.from("teams").insert([
         {
           event_id: eventId,
-          team_name: formValues.teamName,
+          team_name: singleDouble === SINGLES ? user?.name : formValues.teamName,
           transaction_id: formValues.transaction_id,
           team_lead_phone: user?.phone!,
           team_id: teamId,
@@ -132,13 +134,17 @@ const EventReg = ({
 
     toast.success("Successfully registered, please wait for verification");
 
-    setFormValues({
-      team_lead_phone: user?.phone!,
-      teamName: "",
-      transaction_id: "",
-    });
-
     setOpenModal(false);
+
+    setTimeout(() => {
+      router.push("/dashboard");
+    }, 1500);
+
+    // setFormValues({
+    //   team_lead_phone: user?.phone!,
+    //   teamName: "",
+    //   transaction_id: "",
+    // });
   };
 
   const renderInputField = (
@@ -159,7 +165,13 @@ const EventReg = ({
         )}
         {type !== "file" && (
           <input
-            disabled={name === "team_lead_phone" ? true : false}
+            disabled={
+              (name === "team_lead_phone" ||  "team_name" ) && (name !== "transaction_id")
+                ? singleDouble === SINGLES && teamType !== TEAM
+                  ? true
+                  : false
+                : false
+            }
             type={type}
             name={name}
             value={name === "team_lead_phone" ? `${user?.phone}` : `${value}`}
@@ -184,6 +196,7 @@ const EventReg = ({
       </div>
     </div>
   );
+
   return (
     <div
       className={`${
@@ -249,7 +262,11 @@ const EventReg = ({
                     ? "Your Name"
                     : "Team Name"
                 }`,
-                formValues.teamName,
+                `${
+                  singleDouble === SINGLES && teamType !== TEAM
+                    ? user?.name
+                    : formValues.teamName
+                }`,
                 handleChange,
                 "teamName",
               )}
