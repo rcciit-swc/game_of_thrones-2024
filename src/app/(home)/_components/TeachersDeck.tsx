@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { SectionHeader } from "@/components";
 
@@ -21,8 +22,9 @@ export default function TeachersDesk({ value }: any) {
         </div>
         <div className="relative mx-2 flex w-[340px] flex-col rounded-md bg-primary md:w-[600px] lg:w-[1200px]">
           <div className="my-6 pl-8 text-2xl">Dear students,</div>
-          <p className="px-4 text-justify text-sm md:pl-12 md:pr-72 md:text-xl">
-            {value.speech}
+          <p className="px-4 text-justify text-sm md:pl-12 md:pr-72 md:text-xl"
+          dangerouslySetInnerHTML={{ __html: value.speech }}
+          >
           </p>
           <p className="mb-6 mt-4 pl-20 text-sm font-semibold tracking-wider md:pl-56 md:text-xl">
             {value.signL1} <br /> {value.signL2}

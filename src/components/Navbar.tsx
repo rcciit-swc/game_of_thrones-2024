@@ -66,7 +66,8 @@ const Navbar = () => {
         <div
           className={`${
             scrolling || isMenuOpen ? "bg-body" : "bg-transparent"
-          } items-center justify-around gap-20 overflow-hidden px-2 py-2 max-md:border-b md:mb-20 md:flex lg:px-10`}
+          } flex flex-row items-center justify-between gap-20 overflow-hidden py-2 pl-2 pr-4 max-md:border-b md:mb-20 md:flex lg:px-10
+          `}
         >
           <div className="flex cursor-pointer items-center font-[Poppins] text-2xl font-bold text-gray-800">
             <span className="mr-1 pt-2 text-3xl text-indigo-600">
@@ -81,67 +82,80 @@ const Navbar = () => {
               </Link>
             </span>
           </div>
+          <div className="flex flex-row-reverse items-center justify-between gap-4 md:flex-row">
+            <div
+              className="flex h-full w-8 cursor-pointer flex-col items-center justify-center gap-[6px]
+             md:hidden
+            "
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <span
+                className={`block h-[2px] w-7 bg-neutral transition-all duration-500
+              ${isMenuOpen ? "translate-y-2 rotate-45" : ""}
+              `}
+              ></span>
+              <span
+                className={`block h-[2px] w-7 bg-neutral transition-all duration-500
+              ${isMenuOpen ? "translate-x-44 " : "translate-x-0"}
+              `}
+              ></span>
+              <span
+                className={`block h-[2px] w-7 bg-neutral transition-all duration-500
+              ${isMenuOpen ? "-translate-y-2 -rotate-45" : ""}
+              `}
+              ></span>
+            </div>
 
-          <div
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="absolute right-8 top-7 cursor-pointer text-3xl md:hidden"
-          >
-            {isMenuOpen ? (
-              <h1 className="text-2xl font-semibold">X</h1>
-            ) : (
-              <Image
-                src={"/assets/navbar/hamburger.svg"}
-                height={24}
-                width={24}
-                alt="hamburger"
-              />
-            )}
-          </div>
-
-          <ul
-            className={`absolute z-[-1] w-full border-white bg-body pb-12 pl-9 transition-all duration-500 ease-in md:static md:z-auto md:flex md:w-auto md:items-center md:border-b md:bg-transparent md:pb-0 md:pl-0 ${
-              isMenuOpen ? "right-0" : "right-[-790px]"
-            }`}
-          >
-            {navRoutes.map((link, index) => (
-              <Link
-                href={link.href}
-                onClick={() => setIsMenuOpen(false)}
-                key={index}
-              >
-                <li
-                  className={`my-4 pt-2 font-semibold duration-200 ease-linear md:my-0 md:ml-4 md:hover:scale-105 md:hover:text-yellow-300 lg:ml-8 xl:text-xl ${
-                    pathname === link.href && "text-yellow-300"
-                  }`}
+            <ul
+              className={`absolute top-16 z-[-1] w-full border-white bg-body pb-12 pl-9 transition-all duration-500 ease-in md:static md:z-auto md:flex md:w-auto md:items-center md:bg-transparent md:pb-0 md:pl-0  ${
+                isMenuOpen ? "right-0" : "right-[-790px]"
+              }`}
+            >
+              {navRoutes.map((link, index) => (
+                <Link
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  key={index}
                 >
-                  <h1 className="cursor-pointer p-2 transition">{link.name}</h1>
-                </li>
-              </Link>
-            ))}
-            {showDashboard && (
-              <Link href="/dashboard">
-                <li
-                  className={`my-4 pt-2 font-semibold duration-200 ease-linear md:my-0 md:ml-4 md:hover:scale-105 md:hover:text-yellow-300 lg:ml-8 xl:text-xl ${
-                    pathname === "/dashboard" && "text-yellow-300"
-                  }`}
-                >
-                  <h1 className="cursor-pointer p-2 transition">Dashboard</h1>
-                </li>
-              </Link>
-            )}
+                  <li
+                    className={`my-4 pt-2 font-semibold duration-200 ease-linear md:my-0 md:ml-4 md:hover:scale-105 md:hover:text-yellow-300 lg:ml-8 xl:text-xl ${
+                      pathname === link.href && "text-yellow-300"
+                    }`}
+                  >
+                    <h1 className="cursor-pointer p-2 transition">
+                      {link.name}
+                    </h1>
+                  </li>
+                </Link>
+              ))}
+              {showDashboard && (
+                <Link href="/dashboard">
+                  <li
+                    className={`my-4 pt-2 font-semibold duration-200 ease-linear md:my-0 md:ml-4 md:hover:scale-105 md:hover:text-yellow-300 lg:ml-8 xl:text-xl ${
+                      pathname === "/dashboard" && "text-yellow-300"
+                    }`}
+                  >
+                    <h1 className="cursor-pointer p-2 transition">Dashboard</h1>
+                  </li>
+                </Link>
+              )}
+            </ul>
             {user && (
-              <div className="overflow-hidden border-none md:ml-10">
+              <div className="overflow-hidden border-none ">
                 <Dropdown
-                  className="border-none bg-body text-white "
+                  className="bg-body text-white "
                   label={
                     <Image
                       src={userImg}
-                      className="w-12 cursor-pointer rounded-full pr-2 duration-500 ease-in-out hover:scale-105"
-                      width={100}
-                      height={100}
-                      alt="logo"
+                      width={40}
+                      height={40}
+                      className="mr-2 rounded-full"
+                      alt="user"
                     />
                   }
+                  style={{
+                    border: "none",
+                  }}
                   dismissOnClick={false}
                 >
                   <Dropdown.Item className="hover:bg-slate-400">
@@ -157,16 +171,17 @@ const Navbar = () => {
               </div>
             )}
             {!user && (
-              <li className="max-md:mt-10 md:ml-6 lg:ml-20 ">
+              <div className="">
                 <button
-                  className="text-md rounded-md border bg-[#2D3493] px-14 py-2 font-semibold hover:bg-[#242975] md:px-10"
+                  className="text-sm rounded-md border bg-[#2D3493] px-5 py-2 font-normal hover:bg-[#242975] 
+                  md:px-10"
                   onClick={handleLogin}
                 >
                   Login
                 </button>
-              </li>
+              </div>
             )}
-          </ul>
+          </div>
         </div>
       </div>
     </>

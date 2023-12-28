@@ -222,7 +222,10 @@ const EventReg = ({
             setOpenModal(false);
             setSingleDouble(SINGLES);
           }}
-          className="pt-[10vh]"
+          style={{
+            backdropFilter: "blur(2px) contrast(80%) brightness(80%)",
+          }}
+          className="pt-[10vh] border-none rounded-md shadow-sm shadow-white outline-none"
         >
           <Modal.Header className="rounded-t-md bg-body shadow-sm shadow-white ">
             Event Registration
