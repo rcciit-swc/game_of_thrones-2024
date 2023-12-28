@@ -16,7 +16,7 @@ const navRoutes = [
     href: "/team",
   },
   {
-    name: "Contact Us",
+    name: "Contacts",
     href: "/contacts",
   },
 ];
@@ -52,6 +52,8 @@ const teachers = [
     speech: `Life is big – achieving perfection in academic or technical domain is important for professional success in life. But that is not all; one must look for opportunities to explore life beyond that. The young undergrads are having lot of energy and spirit within them which needs expression in different forms. After entering the college, while enjoying the adulthood for the first time in life, a student gets some reprieve from the pressure of
       competitive academics and gets time and
       freedom to nurture his/her talent in sports, arts, performing arts, innovations and all.
+      <br />
+      <br />
       The college fests provide the real platform to showcase their talents and unleash their energy - their youthful exuberance.
       Game of Thrones (GoT) – the annual sports fest of RCCIIT is one such platform created and traditionally supported by RCCIIT. Members of the Student Welfare
       Committee along with hundreds of senior and junior student volunteers have come up and are working together under the careful guidance of senior faculty members to make the 2024 version of GoT a grand success. From last year GoT  has taken up a big challenge by scaling it up to
@@ -59,7 +61,10 @@ const teachers = [
       fewer in numbers compared to earlier days. Trendy games like gully cricket, futsal are
       more popular which doesn’t hold the traditional spirit of the on-field games. Moreover, it is observed that students are now more inclined towards digital games, which is
       detrimental to their mental and physical health. This is one reason why RCCIIT has put lot of emphasis on games and sports. By accommodating traditional versions of the games in GoT and making those open for all, we believe it will uphold the true spirit of
-      games and sports and foster sportsmanship, positivity and friendship among the students. I wish all success of this mega event and hope it will be even better organized this year, particularly considering the institute's silver jubilee celebration year 2024. I also expect better participation and competition this time.`,
+      games and sports and foster sportsmanship, positivity and friendship among the students. 
+      <br />
+      <br />
+      I wish all success of this mega event and hope it will be even better organized this year, particularly considering the institute's silver jubilee celebration year 2024. I also expect better participation and competition this time.`,
     signL1: "Prof.(Dr.) Anirban Mukherjee",
     signL2: "Principal (Officiating) RCCIIT & Professor, IT, RCCIIT",
     img: "https://i.imgur.com/QNCJB8M.png",
