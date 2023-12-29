@@ -28,7 +28,7 @@ const About = () => {
             Technology&apos;s Annual Sports Meet, is back as a National Inter
             College Sports Tournament in Kolkata happening in January 2024.
             Featuring diverse sports competitions and attractive prizes,
-            GoT&apos;23 invites colleges nationwide for intense and inclusive
+            GoT&apos;24 invites colleges nationwide for intense and inclusive
             contests. Beyond rivalry, it emphasizes sportsmanship and teamwork,
             offering a platform for students to showcase talents and create
             lasting memories. Don&apos;t miss the biggest sports event of the
