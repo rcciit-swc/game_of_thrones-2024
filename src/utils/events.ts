@@ -495,9 +495,9 @@ const events: eventsType[] = [
         <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Fake id card will result in disqualification of the team.</span></li>
         <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Only college students are allowed to play in this tournament no outside players will be allowed.</span></li>
         <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Merging of team is prohibited in the later stages of the game.</span></li>
-        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>registration is not allowed.</span></li>
-        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Tournament will be of 16 teams in 4 groups.</span></li>
-        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>There will be penalty shootout in case of draw in the semifinal and final.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Spot registration is not allowed.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>Tournament will be of 16 teams in knock-out format.</span></li>
+        <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>There will be penalty shootout in case of draw in all matches including semifinal and final.</span></li>
         <li><span style='line-height:107%;font-family:"Times New Roman",serif;font-size:19px;'>The match will be of 15-5-15 minutes duration.</span></li>
     </ol>
         </body>
