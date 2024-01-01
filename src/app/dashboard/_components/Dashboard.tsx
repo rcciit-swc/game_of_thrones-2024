@@ -35,7 +35,7 @@ const Dashboard = () => {
   }, [user]);
 
   return (
-    <div className="flex h-full w-full flex-col overflow-y-auto">
+    <main className="flex h-full w-full flex-col overflow-y-auto">
       <SectionHeader text="Dashboard" />
       <div
         className=" mx-auto flex flex-col justify-center gap-10 pt-3 md:flex-row md:flex-wrap md:gap-10 md:px-20
@@ -106,7 +106,7 @@ const Dashboard = () => {
           {/* <EventReg openModal={openModal} setOpenModal={setOpenModal} /> */}
         </>
       </div>
-    </div>
+    </main>
   );
 };
 
