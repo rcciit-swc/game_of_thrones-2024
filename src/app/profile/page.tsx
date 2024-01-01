@@ -1,5 +1,6 @@
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
+
 import RegForm from "./_components/RegForm";
 
 const page = () => {

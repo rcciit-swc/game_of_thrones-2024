@@ -22,7 +22,7 @@ export interface eventsType {
   rules: string;
 }
 
-const events: eventsType[] = [
+export const events: eventsType[] = [
   {
     id: "e470c74a-77b3-4b12-ba06-95a1e6253092",
     image: "/assets/events/cricket.svg",
@@ -705,5 +705,3 @@ const events: eventsType[] = [
         `,
   },
 ];
-
-export default events;

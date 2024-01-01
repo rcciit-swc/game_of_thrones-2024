@@ -1,9 +1,10 @@
 "use client";
 
-import SectionHeader from "@/components/SectionHeader";
-import { supabase } from "@/lib/supabase-client";
-import events from "@/utils/events";
 import { FormEvent, useEffect, useState } from "react";
+
+import SectionHeader from "@/components/SectionHeader";
+import { supabase } from "@/lib";
+import { events } from "@/utils";
 
 const RoleManagement = () => {
   const [roles, setRoles] = useState<string[] | undefined>();

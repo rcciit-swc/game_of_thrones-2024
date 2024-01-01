@@ -1,7 +1,8 @@
-import { constructMetaData } from "@/utils/metadata";
 import { Metadata } from "next";
-import events from "@/utils/events";
+
+import { constructMetaData, events } from "@/utils";
 import { SectionHeader } from "@/components";
+
 import EventCard from "./_components/EventCard";
 
 export const metadata: Metadata = constructMetaData({

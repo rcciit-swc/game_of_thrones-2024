@@ -1,11 +1,12 @@
 "use client";
 
-import { valuesType } from "@/utils/functions/validate";
 import { useState } from "react";
-import { createBrowserClient } from "@supabase/ssr";
-import { useUser } from "@/lib/store/user";
-import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { createBrowserClient } from "@supabase/ssr";
+
+import { validate, valuesType } from "@/utils";
+import { useUser } from "@/lib";
 
 const RegForm = () => {
   const router = useRouter();
@@ -32,6 +33,35 @@ const RegForm = () => {
   async function handleSubmit(e: any) {
     e.preventDefault();
     const { username, phone, college, gender, roll } = formValues;
+    let toastError = 0;
+    let formErrors = validate(formValues);
+    if (formErrors.phone.length > 0) {
+      toast.error("Phone number is invalid");
+      toastError++;
+    }
+    if (formErrors.username.length > 0) {
+      toast.error("Name is invalid");
+      toastError++;
+    }
+    if (formErrors.roll.length > 0) {
+      toast.error("Invalid College Roll");
+      toastError++;
+    }
+    if (formErrors.college.length > 0) {
+      toast.error("Invalid College Name");
+      toastError++;
+    }
+    if (toastError > 0) {
+      formErrors = {
+        username: "",
+        phone: "",
+        college: "",
+        roll: "",
+        gender: "",
+      };
+      toastError = 0;
+      return;
+    }
     try {
       const { error } = await supabase
         .from("users")

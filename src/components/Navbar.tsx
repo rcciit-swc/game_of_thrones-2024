@@ -1,14 +1,13 @@
 "use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { navRoutes } from "@/utils/constant";
-import { useState, useEffect } from "react";
-import { Dropdown } from "flowbite-react";
-import { useUser } from "@/lib/store/user";
 import { usePathname, useRouter } from "next/navigation";
-import { handleLogin } from "@/utils/functions/login";
-import { supabase } from "@/lib/supabase-client";
-import { checkIfUserRegistered } from "@/utils/functions/checkIfUserRegistered";
+import { Dropdown } from "flowbite-react";
+
+import { navRoutes, handleLogin, checkIfUserRegistered } from "@/utils";
+import { useUser, supabase } from "@/lib";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -173,7 +172,7 @@ const Navbar = () => {
             {!user && (
               <div className="">
                 <button
-                  className="text-sm rounded-md border bg-[#2D3493] px-5 py-2 font-normal hover:bg-[#242975] 
+                  className="rounded-md border bg-[#2D3493] px-5 py-2 text-sm font-normal hover:bg-[#242975] 
                   md:px-10"
                   onClick={handleLogin}
                 >

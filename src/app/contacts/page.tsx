@@ -1,5 +1,7 @@
-import { constructMetaData } from "@/utils/metadata";
 import { Metadata } from "next";
+
+import { constructMetaData } from "@/utils";
+
 import Block from "./_components/Block";
 
 export const metadata: Metadata = constructMetaData({

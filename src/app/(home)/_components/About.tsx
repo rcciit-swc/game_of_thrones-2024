@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import { SectionHeader } from "@/components";
 
 const About = () => {

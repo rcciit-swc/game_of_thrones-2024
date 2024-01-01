@@ -1,6 +1,7 @@
-import { supabase } from "@/lib/supabase-client";
 import { toast } from "sonner";
 import * as Sentry from "@sentry/nextjs";
+
+import { supabase } from "@/lib";
 
 export async function assignRoleToUser(
   phone: string,

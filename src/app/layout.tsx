@@ -1,10 +1,11 @@
-import { Poppins } from "next/font/google";
-import "./globals.css";
-import { constructMetaData } from "@/utils/metadata";
-import SessionProvider from "@/components/session-provider";
-import { Navbar, Footer } from "@/components";
-import { Toaster } from "sonner";
 import { Suspense } from "react";
+import { Poppins } from "next/font/google";
+import { Toaster } from "sonner";
+
+import { constructMetaData } from "@/utils/";
+import { Navbar, Footer, SessionProvider } from "@/components";
+
+import "./globals.css";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800", "900"],

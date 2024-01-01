@@ -1,5 +1,6 @@
+import { teachers } from "@/utils";
+
 import { TeachersDeck, About, Events, Hero } from "./_components";
-import { teachers } from "@/utils/constant";
 
 export default function Home() {
   return (

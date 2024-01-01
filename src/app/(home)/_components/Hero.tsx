@@ -1,10 +1,12 @@
 "use client";
-import { useUser } from "@/lib/store/user";
-import { handleLogin } from "@/utils/functions/login";
+
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React from "react";
+
+import { useUser } from "@/lib";
+import { handleLogin } from "@/utils";
 
 const Hero = () => {
   const router = useRouter();

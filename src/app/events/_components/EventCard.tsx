@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { eventsType } from "@/utils/events";
+
+import { eventsType } from "@/utils";
 
 const EventCard = ({ event }: { event: eventsType }) => {
   return (

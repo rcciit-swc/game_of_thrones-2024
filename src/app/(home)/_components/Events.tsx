@@ -1,11 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+
 import { useState } from "react";
-import { SectionHeader } from "@/components";
-import events from "@/utils/events";
 import Link from "next/link";
-import EventCard from "@/app/events/_components/EventCard";
 import { useRouter } from "next/navigation";
+
+import { SectionHeader } from "@/components";
+import { events } from "@/utils";
+import EventCard from "@/app/events/_components/EventCard";
 
 const Events = () => {
   const router = useRouter();

@@ -44,3 +44,14 @@ export const validate = (values: valuesType) => {
 
   return errors;
 };
+
+export function validateTeamPhoneNumbers(numbers: string[]) {
+  for (const number of numbers) {
+    const regexPhone =
+      /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
+    if (!regexPhone.test(number)) {
+      return 1;
+    }
+  }
+  return 0;
+}

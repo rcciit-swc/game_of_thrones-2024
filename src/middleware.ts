@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { checkUserDetails } from "./utils/functions/checkUserDetails";
 import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs";
+
+import { checkUserDetails } from "./utils/functions/checkUserDetails";
 
 export async function middleware(request: NextRequest) {
   const res = NextResponse.next();

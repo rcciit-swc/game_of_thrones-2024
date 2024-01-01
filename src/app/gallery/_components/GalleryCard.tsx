@@ -1,6 +1,7 @@
 "use client";
-import Image from "next/image";
+
 import React, { useState } from "react";
+import Image from "next/image";
 
 const GalleryCard = ({ photo }: { photo: string }) => {
   const [loaded, setLoaded] = useState(false);
@@ -22,11 +23,9 @@ const GalleryCard = ({ photo }: { photo: string }) => {
         }}
         onLoadingComplete={() => setLoaded(true)}
       />
-      {
-        !loaded && (
-          <div className="absolute top-0 left-0 w-full h-full bg-gray-100 animate-pulse"></div>
-        )
-      }
+      {!loaded && (
+        <div className="absolute left-0 top-0 h-full w-full animate-pulse bg-gray-100"></div>
+      )}
     </div>
   );
 };

@@ -1,10 +1,10 @@
-import { supabase } from "@/lib/supabase-client";
+import { supabase } from "@/lib";
 
 export const handleLogin = async () => {
   supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
-      redirectTo: location.origin + "/profile",
+      redirectTo: location.origin + "/auth/callback?next=",
     },
   });
 };

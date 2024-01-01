@@ -1,6 +1,7 @@
-import { locations } from "@/utils/constant";
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
+
+import { locations } from "@/utils";
 
 const Location = () => {
   return (

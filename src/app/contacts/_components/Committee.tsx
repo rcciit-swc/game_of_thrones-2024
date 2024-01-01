@@ -1,4 +1,4 @@
-import { CommitteeDetails } from "@/utils/constant";
+import { CommitteeDetails } from "@/utils";
 
 const Committee = () => {
   return (
