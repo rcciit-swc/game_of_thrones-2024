@@ -4,7 +4,7 @@ export function constructMetaData({
   title = "Game of Thrones 2024",
   description = "Game of thrones(GOT) is the official intercollege national level sports fest conducted by RCCIIT.",
   image = "/thumbnail.png", // put a thumbnail.png in public folder, resolution 1200x630
-  authors = { name: "GOT RCCIIT Team", url: "https://stabble.org" },
+  authors = { name: "GOT RCCIIT Team", url: "https://got.rcciit.org.in/" },
   creator = "GOT RCCIIT Team",
   generator = "Next.js",
   publisher = "GOT",
