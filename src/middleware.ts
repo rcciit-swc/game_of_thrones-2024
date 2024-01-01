@@ -21,7 +21,8 @@ export async function middleware(request: NextRequest) {
       url.pathname.startsWith("/dashboard") ||
       url.pathname === "/profile" ||
       url.pathname === "/event-management" ||
-      url.pathname === "/role-management"
+      url.pathname === "/role-management"  ||
+      url.pathname === "/admin-dashboard"
     ) {
       return NextResponse.redirect(new URL("/", request.url));
     }
@@ -43,7 +44,7 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(new URL("/profile", request.url));
     }
 
-    if (url.pathname === "/role-management") {
+    if (url.pathname === "/role-management" || url.pathname === "/admin-dashboard") {
       const userRoles = await supabase
         .from("roles")
         .select("role")
@@ -56,6 +57,7 @@ export async function middleware(request: NextRequest) {
       }
     }
 
+
     // TODO: implement event management page
   }
 
@@ -63,5 +65,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/:path*"],
+  matcher: ["/((?!api|_next/static|_next/image|assets|favicon.ico|logo.png|sw.js).*)"],
 };

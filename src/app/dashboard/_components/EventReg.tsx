@@ -113,8 +113,9 @@ const EventReg = ({
       toast.error("Invalid Phone Number");
       toastError++;
     }
-    if (!regexName.test(formValues.teamName)) {
-      toast.error("Invalid Team");
+
+    if (formValues.teamName === user?.name) {
+      toast.error("Team name cannot be your name");
       toastError++;
     }
 
@@ -301,7 +302,7 @@ const EventReg = ({
                 `${
                   singleDouble === SINGLES && teamType !== TEAM
                     ? "Your Name"
-                    : "Team Name"
+                    : "Team Name/College Name"
                 }`,
                 `${
                   singleDouble === SINGLES && teamType !== TEAM

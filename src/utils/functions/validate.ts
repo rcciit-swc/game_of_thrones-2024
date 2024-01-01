@@ -16,7 +16,6 @@ export const validate = (values: valuesType) => {
   const regexPhone =
     /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
   const regexName = /^[a-zA-Z ]{2,30}$/;
-  const regexRoll = /^[a-zA-Z0-9]{2,30}$/;
   const regexCollege = /^[a-zA-Z ]{2,50}$/;
   if (!values.username) {
     errors.username = "Name is required";
@@ -33,11 +32,7 @@ export const validate = (values: valuesType) => {
   } else if (!regexCollege.test(values.college)) {
     errors.college = "College is invalid";
   }
-  if (!values.roll) {
-    errors.roll = "Roll is required";
-  } else if (!regexRoll.test(values.roll)) {
-    errors.roll = "Roll is invalid";
-  }
+  
   if (!values.gender) {
     errors.gender = "Gender is required";
   }

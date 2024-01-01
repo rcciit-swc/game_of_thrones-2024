@@ -37,7 +37,7 @@ const RoleManagement = () => {
     <main className="flex flex-col items-center gap-y-12 py-12">
       <SectionHeader text="Assign Role" />
       <form
-        className="flex w-full flex-col items-center gap-y-8 md:w-4/5 lg:w-2/4"
+        className="flex w-full flex-col items-center gap-y-8 md:w-4/5 lg:w-2/4 px-10"
         onSubmit={handleSubmit}
       >
         <label className="w-full">
@@ -58,7 +58,9 @@ const RoleManagement = () => {
           >
             {roles?.map((value, index) => {
               return (
-                <option key={`role_options__${index}`} value={value}>
+                <option key={`role_options__${index}`} value={value}
+                className="text-black"
+                >
                   {value}
                 </option>
               );
@@ -71,10 +73,14 @@ const RoleManagement = () => {
             className="w-full rounded-md border-b border-slate-400 bg-transparent px-5 py-1"
             name="selected_event"
           >
-            <option value={""}>No Event</option>
+            <option value={""}
+            className="text-black"
+            >No Event</option>
             {events?.map((value, index) => {
               return (
-                <option key={`event_options__${index}`} value={value.id}>
+                <option key={`event_options__${index}`} value={value.id}
+                className="text-black"
+                >
                   {value.title}
                 </option>
               );
