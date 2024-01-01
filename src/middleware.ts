@@ -13,6 +13,8 @@ export async function middleware(request: NextRequest) {
 
   const url = new URL(request.url);
 
+  // case: user is trying to access a protected page without logging in
+  // redirect to landing page
   if (!session) {
     if (
       url.pathname.startsWith("/dashboard") ||
@@ -22,13 +24,21 @@ export async function middleware(request: NextRequest) {
     ) {
       return NextResponse.redirect(new URL("/", request.url));
     }
-  } else {
+  }
+  // case: user is logged in
+  // check if user has completed profile
+  // if not, redirect to profile page
+  else {
     const userDetails = await supabase
       .from("users")
       .select()
       .eq("id", session?.user.id);
 
-    if (!checkUserDetails(userDetails?.data?.[0])) {
+    // if user is already in the profile page, dont redirect again
+    if (
+      !checkUserDetails(userDetails?.data?.[0]) &&
+      url.pathname !== "/profile"
+    ) {
       return NextResponse.redirect(new URL("/profile", request.url));
     }
 
@@ -37,8 +47,6 @@ export async function middleware(request: NextRequest) {
         .from("roles")
         .select("role")
         .eq("id", session?.user.id);
-
-      console.log(userRoles);
 
       if (!userRoles?.data?.[0]?.role?.includes("super_admin")) {
         return NextResponse.redirect(
@@ -54,11 +62,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    "/profile",
-    "/dashboard/:path*",
-    "/dashboard",
-    "/event-management",
-    "/role-management",
-  ],
+  matcher: ["/:path*"],
 };

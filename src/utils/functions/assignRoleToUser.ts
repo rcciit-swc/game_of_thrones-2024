@@ -5,7 +5,7 @@ import * as Sentry from "@sentry/nextjs";
 export async function assignRoleToUser(
   phone: string,
   role: string,
-  event_id: string,
+  event_id?: string,
 ) {
   // any role other than super_admin must have an event_id
   if (!event_id && role !== "super_admin") {
@@ -20,17 +20,16 @@ export async function assignRoleToUser(
     .single();
 
   if (fetch_user_id_error || !user_id) {
-    toast.error("Error fetching user id");
+    toast.error("No user found with this phone number");
     Sentry.captureException(fetch_user_id_error);
     return;
   }
 
   const { data: role_exists, error: fetch_role_error } = await supabase
     .from("roles")
-    .select("role")
+    .select("role,event_id")
     .match({
       id: user_id.id,
-      event_id,
     });
 
   if (fetch_role_error) {
@@ -39,9 +38,46 @@ export async function assignRoleToUser(
     return;
   }
 
-  if (role_exists) {
-    toast.warning("User already has this event role");
-    return;
+  let break_out_of_function = false;
+
+  if (role_exists.length != 0) {
+    // super_admin role already has access to everything
+    role_exists.forEach((role) => {
+      if (role.role === "super_admin") {
+        toast.warning("User is already a super admin");
+        break_out_of_function = true;
+        return;
+      }
+    });
+
+    if (break_out_of_function) return;
+
+    // user already has this role
+    role_exists.forEach((role) => {
+      console.log(role.event_id, event_id);
+      if (role.event_id === event_id) {
+        toast.warning("User already has this event role");
+        break_out_of_function = true;
+        return;
+      }
+    });
+
+    if (break_out_of_function) return;
+  }
+
+  if (role === "super_admin") {
+    const { error: delete_role_error } = await supabase
+      .from("roles")
+      .delete()
+      .match({
+        id: user_id.id,
+      });
+
+    if (delete_role_error) {
+      toast.error("Error deleting previously assigned roles to the user");
+      Sentry.captureException(delete_role_error);
+      return;
+    }
   }
 
   const { error: insert_role_error } = await supabase.from("roles").insert({

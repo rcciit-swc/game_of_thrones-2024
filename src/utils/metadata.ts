@@ -34,7 +34,6 @@ export function constructMetaData({
     // },
     icons,
     metadataBase: new URL("https://got.rcciit.org.in/"),
-    themeColor: "#FFF",
     ...(noIndex && {
       robots: {
         index: false,
