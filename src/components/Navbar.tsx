@@ -8,6 +8,7 @@ import { Dropdown } from "flowbite-react";
 
 import { navRoutes, handleLogin, checkIfUserRegistered } from "@/utils";
 import { useUser, supabase } from "@/lib";
+import { getRole } from "@/utils/functions/getRole";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,6 +21,9 @@ const Navbar = () => {
   const setUser = useUser((state) => state.setUser);
 
   const [showDashboard, setShowDashboard] = useState(false);
+  const [showCoordinatorDashboard, setShowCoordinatorDashboard] =
+    useState(false);
+  const [showAdminDashboard, setShowAdminDashboard] = useState(false);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -33,7 +37,25 @@ const Navbar = () => {
       if (data) {
         setUserImg(data?.session?.user.user_metadata?.avatar_url);
       }
+
+      const { data: roleData } = await supabase
+        .from("roles")
+        .select()
+        .match({ id: data?.session?.user?.id });
+
+      if (roleData) {
+        if (roleData?.[0]?.role === "event_coordinator") {
+          setShowCoordinatorDashboard(true);
+          return;
+        }
+        if (roleData?.[0]?.role === "super_admin") {
+          setShowCoordinatorDashboard(true);
+          setShowAdminDashboard(true);
+          return;
+        }
+      }
     };
+
     const handleDashboard = async () => {
       const data = await checkIfUserRegistered({
         phone_param: user?.phone!,
@@ -127,14 +149,42 @@ const Navbar = () => {
                   </li>
                 </Link>
               ))}
+              
               {showDashboard && (
                 <Link href="/dashboard">
                   <li
-                    className={`my-4 pt-2 font-semibold duration-200 ease-linear md:my-0 md:ml-4 md:hover:scale-105 md:hover:text-yellow-300 lg:ml-8 xl:text-xl ${
+                    className={`my-4 pt-2 font-semibold duration-200 ease-linear md:my-0 md:ml-2 md:hover:scale-105 md:hover:text-yellow-300 lg:ml-4 xl:text-xl ${
                       pathname === "/dashboard" && "text-yellow-300"
                     }`}
                   >
                     <h1 className="cursor-pointer p-2 transition">Dashboard</h1>
+                  </li>
+                </Link>
+              )}
+              {showCoordinatorDashboard && (
+                <Link href="/coordinator-dashboard">
+                  <li
+                    className={`my-4 pt-2 font-semibold duration-200 ease-linear md:my-0  md:hover:scale-105 md:hover:text-yellow-300 md:ml-4 xl:ml-8 xl:text-xl ${
+                      pathname === "/coordinator-dashboard" &&
+                      "text-yellow-300"
+                    }`}
+                  >
+                    <h1 className="cursor-pointer p-2 transition">
+                      Coordinator
+                    </h1>
+                  </li>
+                </Link>
+              )}
+              {showAdminDashboard && (
+                <Link href="/admin-dashboard">
+                  <li
+                    className={`my-4 pt-2 font-semibold duration-200 ease-linear md:my-0 md:hover:scale-105 md:hover:text-yellow-300 md:ml-4 xl:ml-8 xl:text-xl ${
+                      pathname === "/admin-dashboard" && "text-yellow-300"
+                    }`}
+                  >
+                    <h1 className="cursor-pointer p-2 transition">
+                      Admin
+                    </h1>
                   </li>
                 </Link>
               )}

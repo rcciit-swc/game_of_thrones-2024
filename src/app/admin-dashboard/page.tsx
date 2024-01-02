@@ -1,20 +1,13 @@
 "use client"
 import { SectionHeader } from "@/components";
-import { supabase } from "@/lib";
+import { getRegisteredTeams } from "@/utils/functions/getRegisteredTeams";
 import React, { useEffect } from "react";
 
 const AdminDashboard = () => {
-//   const getEventParticipations = async () => {
-//     const { data, error } = await supabase.rpc("get_event_participations", {
-        
-//     });
-//     if (error) console.error(error);
-//     else console.log(data);
-//   };
 
-//   useEffect(() => {
-//     getEventParticipations();
-//   }, []);
+  useEffect(() => {
+    getRegisteredTeams();
+  }, []);
 
   return (
     <div className="flex flex-col pt-20">

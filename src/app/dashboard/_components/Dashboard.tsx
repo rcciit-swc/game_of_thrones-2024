@@ -35,6 +35,11 @@ const Dashboard = () => {
       <div className="md: sticky mx-auto flex flex-col justify-between pt-3 md:flex-col md:px-10 md:pt-10">
         <div className="flex flex-row items-center gap-3">
           <>
+          {dashboardData.length === 0 && (
+            <h1 className="text-center text-2xl font-bold">
+              You have not registered for any events yet
+            </h1>
+          )}
             {dashboardData.map((value: any, index: number) => (
               <Link href={`/`} key={index}>
                 <div className="card relative w-[300px] cursor-pointer overflow-hidden rounded-md md:h-[250px] md:w-[350px]">
