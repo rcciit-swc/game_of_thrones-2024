@@ -1,5 +1,7 @@
 "use client";
+
 import React from "react";
+
 import EventForm from "./_components/EventForm";
 
 const EventManagement = () => {

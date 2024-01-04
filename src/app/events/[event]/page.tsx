@@ -1,16 +1,16 @@
 "use client";
-import { SectionHeader } from "@/components";
-import events from "@/utils/events";
-import Image from "next/image";
+
 import React, { useEffect, useState } from "react";
-import { CoordinatorCard } from "../_components/CoordinatorCard";
-import { useEvent, useUser } from "@/lib/store/user";
-import { useRouter } from "next/navigation";
-import { checkUserDetails } from "@/utils/functions/checkUserDetails";
-import { toast } from "sonner";
-import { supabase } from "@/lib/supabase-client";
-import { checkIfUserRegistered } from "@/utils/functions/checkIfUserRegistered";
+import Image from "next/image";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+
+import { SectionHeader } from "@/components";
+import { events, checkUserDetails, checkIfUserRegistered } from "@/utils";
+import { useEvent, useUser, supabase } from "@/lib";
+
+import { CoordinatorCard } from "../_components/CoordinatorCard";
 
 const EventReg = dynamic(() => import("@/app/dashboard/_components/EventReg"), {
   ssr: false,
@@ -62,7 +62,7 @@ const Page = ({ params: { event } }: Params) => {
       const eventRegistered = eventReg?.filter(
         (event: any) => event.event_id === eventObj?.id,
       );
-      if (eventRegistered?.length === 2 ) {
+      if (eventRegistered?.length === 2) {
         setIsRegistered(true);
       }
     } else {

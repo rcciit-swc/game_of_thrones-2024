@@ -1,11 +1,11 @@
 "use client";
 
-import { valuesType } from "@/utils/functions/validate";
 import { useState } from "react";
-import { createBrowserClient } from "@supabase/ssr";
-import { useUser } from "@/lib/store/user";
-import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+
+import { validate, valuesType } from "@/utils";
+import { supabase, useUser } from "@/lib";
 
 const RegForm = () => {
   const router = useRouter();
@@ -22,24 +22,45 @@ const RegForm = () => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-  );
-
   const user = useUser((state) => state.user);
 
   async function handleSubmit(e: any) {
     e.preventDefault();
     const { username, phone, college, gender, roll } = formValues;
+    let toastError = 0;
+    let formErrors = validate(formValues);
+    if (formErrors.phone.length > 0) {
+      toast.error("Phone number is invalid");
+      toastError++;
+    }
+    if (formErrors.username.length > 0) {
+      toast.error("Name is invalid");
+      toastError++;
+    }
+    if (formErrors.college.length > 0) {
+      toast.error("Invalid College Name");
+      toastError++;
+    }
+    if (toastError > 0) {
+      formErrors = {
+        username: "",
+        phone: "",
+        college: "",
+        roll: "",
+        gender: "",
+      };
+      toastError = 0;
+      return;
+    }
     try {
       const { error } = await supabase
         .from("users")
         .update({ college, phone, name: username, gender, college_roll: roll })
         .eq("id", user?.id);
       if (error) {
-        toast.error("There is something wrong");
-        console.log(error);
+        error.message.includes("duplicate key value")
+          ? toast.error("Phone number already registered")
+          : toast.error("There was an error submitting the form");
         throw error;
       }
       toast.success("Form submitted successfully.");
@@ -75,7 +96,7 @@ const RegForm = () => {
           <div className="flex flex-col gap-5 md:w-[60%]">
             <label htmlFor="phone">Phone Number</label>
             <div className="flex flex-row gap-3">
-              <button className="rounded-md bg-white p-3 text-black ">
+              <button className="rounded-md bg-white p-3 text-black">
                 +91
               </button>
               <input
@@ -149,7 +170,7 @@ const RegForm = () => {
           <input
             type="submit"
             value="Submit"
-            className="mx-auto w-[80%] rounded-full bg-primary py-3 font-semibold tracking-wider"
+            className="mx-auto w-[80%] rounded-full bg-primary py-3 font-semibold tracking-wider hover:cursor-pointer hover:bg-[#ff5e5e]"
           />
         </div>
       </div>

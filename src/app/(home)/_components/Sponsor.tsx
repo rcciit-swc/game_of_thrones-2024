@@ -1,6 +1,7 @@
 import Image from "next/image";
+
 import { SectionHeader } from "@/components";
-import { sponsorsData } from "@/utils/constant";
+import { sponsorsData } from "@/utils";
 
 export default function SponsorPage() {
   return (

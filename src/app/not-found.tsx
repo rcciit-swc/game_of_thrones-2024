@@ -1,5 +1,6 @@
-import { SectionHeader } from "@/components";
 import Link from "next/link";
+
+import { SectionHeader } from "@/components";
 
 const NotFound = () => {
   return (

@@ -1,6 +1,6 @@
-import { IUser } from "@/types/user";
-import { User } from "@supabase/supabase-js";
 import { create } from "zustand";
+
+import { IUser } from "@/types/user";
 
 interface UserState {
   // TODO: Add user type

@@ -1,5 +1,6 @@
-import { constructMetaData } from "@/utils/metadata";
 import { Metadata } from "next";
+
+import { constructMetaData } from "@/utils";
 import { SectionHeader } from "@/components";
 import { team } from "@/utils/constant";
 import Image from "next/image";

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { links, socials } from "@/utils/constant";
+import { links, socials } from "@/utils";
 
 export default function Footer() {
   return (

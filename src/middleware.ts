@@ -1,99 +1,93 @@
-import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs";
+
 import { checkUserDetails } from "./utils/functions/checkUserDetails";
 
 export async function middleware(request: NextRequest) {
-  let response = NextResponse.next({
-    request: {
-      headers: request.headers,
-    },
-  });
+  const res = NextResponse.next();
 
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        get(name: string) {
-          return request.cookies.get(name)?.value;
-        },
-        set(name: string, value: string, options: CookieOptions) {
-          request.cookies.set({
-            name,
-            value,
-            ...options,
-          });
-          response = NextResponse.next({
-            request: {
-              headers: request.headers,
-            },
-          });
-        },
-        remove(name: string, options: CookieOptions) {
-          request.cookies.set({
-            name,
-            value: "",
-            ...options,
-          });
-          response = NextResponse.next({
-            request: {
-              headers: request.headers,
-            },
-          });
-        },
-      },
-    },
-  );
+  const supabase = createMiddlewareClient({ req: request, res });
 
-  const protectedRoutes = ["event-management", "role-management"];
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
 
-  const pageIndex = request.nextUrl.pathname.split("/")?.[1];
+  const url = new URL(request.url);
 
-  if (protectedRoutes.includes(pageIndex)) {
-    const { data } = await supabase.auth.getSession();
-    if (!data.session) {
+  // case: user is trying to access a protected page without logging in
+  // redirect to landing page
+  if (!session) {
+    if (
+      url.pathname.startsWith("/dashboard") ||
+      url.pathname === "/profile" ||
+      url.pathname === "/event-management" ||
+      url.pathname === "/role-management" ||
+      url.pathname === "/admin-dashboard" ||
+      url.pathname.startsWith("/coordinator-dashboard")
+
+    ) {
       return NextResponse.redirect(new URL("/", request.url));
     }
-
+  }
+  // case: user is logged in
+  // check if user has completed profile
+  // if not, redirect to profile page
+  else {
     const userDetails = await supabase
       .from("users")
       .select()
-      .eq("id", data.session?.user.id);
-    if (!checkUserDetails(userDetails?.data?.[0])) {
+      .eq("id", session?.user.id);
+
+    // if user is already in the profile page, dont redirect again
+    if (
+      !checkUserDetails(userDetails?.data?.[0]) &&
+      url.pathname !== "/profile"
+    ) {
       return NextResponse.redirect(new URL("/profile", request.url));
     }
 
-    const userRoles = await supabase
-      .from("roles")
-      .select()
-      .eq("id", data.session?.user.id);
-    if (!userRoles?.data?.[0]?.role?.includes("super_admin")) {
-      return NextResponse.redirect(new URL("/", request.url));
+    if (
+      url.pathname === "/role-management" ||
+      url.pathname === "/admin-dashboard"
+    ) {
+      const userRoles = await supabase
+        .from("roles")
+        .select("role")
+        .eq("id", session?.user.id);
+
+      if (!userRoles?.data?.[0]?.role?.includes("super_admin")) {
+        return NextResponse.redirect(
+          new URL("/?error=permission_error", request.url),
+        );
+      }
     }
-    return response;
+
+    if (url.pathname === "/coordinator-dashboard") {
+      const userRoles = await supabase
+        .from("roles")
+        .select()
+        .eq("id", session?.user.id);
+
+      if (
+        !userRoles?.data?.[0]?.role?.includes("event_coordinator") &&
+        !userRoles?.data?.[0]?.role?.includes("super_admin")
+      ) {
+        return NextResponse.redirect(
+          new URL("/?error=permission_error", request.url),
+        );
+      }
+
+      return NextResponse.next();
+    }
+
+    // TODO: implement event management page
   }
 
-  if (pageIndex.includes("dashboard")) {
-    const { data } = await supabase.auth.getSession();
-    if (!data.session) {
-      return NextResponse.redirect(new URL("/", request.url));
-    }
-    const userDetails = await supabase
-      .from("users")
-      .select()
-      .eq("id", data.session?.user.id);
-
-    if (!checkUserDetails(userDetails?.data?.[0])) {
-      return NextResponse.redirect(new URL("/profile", request.url));
-    }
-    return response;
-  }
-
-  if (pageIndex.includes("profile")) {
-    const { data } = await supabase.auth.getSession();
-    if (!data.session) {
-      return NextResponse.redirect(new URL("/", request.url));
-    }
-    return response;
-  }
+  return res;
 }
+
+export const config = {
+  matcher: [
+    "/((?!api|_next/static|_next/image|assets|favicon.ico|logo.png|sw.js).*)",
+  ],
+};

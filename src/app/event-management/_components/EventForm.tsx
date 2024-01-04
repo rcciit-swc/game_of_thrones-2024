@@ -1,9 +1,11 @@
 "use client";
-import { createBrowserClient } from "@supabase/ssr";
-import dynamic from "next/dynamic";
+
 import React, { useMemo, useState, ChangeEvent, FormEvent } from "react";
-import "react-quill/dist/quill.snow.css";
+import dynamic from "next/dynamic";
+import { createBrowserClient } from "@supabase/ssr";
 import { toast } from "sonner";
+
+import "react-quill/dist/quill.snow.css";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 

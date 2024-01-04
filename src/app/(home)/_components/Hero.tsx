@@ -1,10 +1,12 @@
 "use client";
-import { useUser } from "@/lib/store/user";
-import { handleLogin } from "@/utils/functions/login";
+
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React from "react";
+
+import { useUser } from "@/lib";
+import { handleLogin } from "@/utils";
 
 const Hero = () => {
   const router = useRouter();
@@ -51,7 +53,7 @@ const Hero = () => {
         <Image
           src="/assets/hero/line-1.svg"
           alt="footballer"
-          className="relative h-screen w-full z-[-1] -scale-x-90 overflow-hidden lg:-left-10 lg:mt-14 lg:rotate-12 lg:scale-x-90  2xl:left-5 2xl:mt-0"
+          className="relative z-[-1] h-screen w-full -scale-x-90 overflow-hidden lg:-left-10 lg:mt-14 lg:rotate-12 lg:scale-x-90  2xl:left-5 2xl:mt-0"
           priority
           width={0}
           height={0}
@@ -71,7 +73,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className=" absolute max-lg:top-[12%] top-[8%] z-30 p-4 max-md:left-1 md:w-[45%] lg:right-20">
+      <div className=" absolute top-[8%] z-30 p-4 max-lg:top-[12%] max-md:left-1 md:w-[45%] lg:right-20">
         <div className="flex flex-col items-start gap-8 md:items-center md:gap-12 lg:gap-16">
           <div className="flex flex-row items-center gap-2">
             <Link href={"https://rcciit.org/"} target="_blank">
@@ -123,7 +125,7 @@ const Hero = () => {
       <Image
         src="/assets/hero/rightdown.svg"
         alt="footballer"
-        className="absolute z-0 h-screen w-full -scale-x-90 overflow-x-hidden max-md:-left-8 max-lg:-left-12 max-lg:mt-[10%] lg:-right-[48px] lg:w-[80%] lg:scale-x-90 xl:-right-[56px] 2xl:-right-[70px] min-[1700px]:-right-[84px]"
+        className="absolute z-0 h-screen w-full -scale-x-90 overflow-x-hidden max-lg:-left-12 max-lg:mt-[10%] max-md:-left-8 lg:-right-[48px] lg:w-[80%] lg:scale-x-90 xl:-right-[56px] 2xl:-right-[70px] min-[1700px]:-right-[84px]"
         width={0}
         height={0}
       />

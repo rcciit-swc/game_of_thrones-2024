@@ -1,8 +1,9 @@
 "use client";
 
-import { useUser } from "@/lib/store/user";
-import { getUserInfo } from "@/utils/functions/getUserInfo";
 import { useEffect } from "react";
+
+import { useUser } from "@/lib";
+import { getUserInfo } from "@/utils";
 
 const SessionProvider = () => {
   const setUser = useUser((state) => state.setUser);

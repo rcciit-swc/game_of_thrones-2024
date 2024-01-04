@@ -2,13 +2,18 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { eventsType } from "@/utils/events";
+
+import { eventsType } from "@/utils";
 
 const EventCard = ({ event }: { event: eventsType }) => {
   return (
     <>
       <Link href={`/events/${event.id}`}>
-        <div className="card relative w-[300px] cursor-pointer overflow-hidden rounded-md md:h-[250px] md:w-[350px]">
+        <div
+          className="card relative w-[300px] cursor-pointer overflow-hidden rounded-md transition-all duration-500
+        ease-in-out hover:scale-110 md:h-[250px] md:w-[350px]
+        "
+        >
           <Image
             src={event.hoverImage}
             alt="football"
@@ -16,7 +21,7 @@ const EventCard = ({ event }: { event: eventsType }) => {
             width={0}
             height={0}
           />
-          <div className="card-body absolute bottom-[-100%] flex h-full w-full flex-col items-center justify-center bg-[#1f3d4738] backdrop-blur-[5px] duration-500">
+          <div className="card-body absolute bottom-[-100%] flex h-full w-full flex-col items-center justify-center bg-[#1f3d4738] px-3 backdrop-blur-[5px] duration-500">
             <h1 className="pt-2 text-center font-got font-semibold md:text-2xl">
               {event.title}
             </h1>

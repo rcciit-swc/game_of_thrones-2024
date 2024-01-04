@@ -1,19 +1,21 @@
 "use client";
 
-import { useEvent, useUser } from "@/lib/store/user";
-import { supabase } from "@/lib/supabase-client";
-import { DOUBLES, SINGLES, TEAM } from "@/utils/events";
-import { fetchEvents } from "@/utils/functions/fetchEvents";
-
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { Modal, Dropdown } from "flowbite-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { v4 as uuidv4 } from "uuid";
-
 import * as Sentry from "@sentry/nextjs";
+
+import { useEvent, useUser, supabase } from "@/lib";
+import {
+  fetchEvents,
+  validateTeamPhoneNumbers,
+  SINGLES,
+  DOUBLES,
+  TEAM,
+} from "@/utils";
 
 interface formDataType {
   team_lead_phone: string;
@@ -102,6 +104,37 @@ const EventReg = ({
       return;
     }
 
+    const regexPhone =
+      /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
+    const regexName = /^[a-zA-Z ]{2,30}$/;
+    let toastError = 0;
+
+    if (!regexPhone.test(formValues.team_lead_phone)) {
+      toast.error("Invalid Phone Number");
+      toastError++;
+    }
+
+    if (formValues.teamName === user?.name) {
+      toast.error("Team name cannot be your name");
+      toastError++;
+    }
+
+    const checkTeamPhone = validateTeamPhoneNumbers(membersPhone);
+    if (checkTeamPhone === 1) {
+      toast.error("One of your team member's phone is invalid");
+      toastError++;
+    }
+
+    if (toastError > 0) {
+      setFormValues({
+        team_lead_phone: user?.phone!,
+        teamName: "",
+        transaction_id: "",
+      });
+      toastError = 0;
+      return;
+    }
+
     if (uploadFile) {
       const { error: teamsInsertError } = await supabase.from("teams").insert([
         {
@@ -150,12 +183,6 @@ const EventReg = ({
     setTimeout(() => {
       router.push("/dashboard");
     }, 1500);
-
-    // setFormValues({
-    //   team_lead_phone: user?.phone!,
-    //   teamName: "",
-    //   transaction_id: "",
-    // });
   };
 
   const renderInputField = (
@@ -222,7 +249,10 @@ const EventReg = ({
             setOpenModal(false);
             setSingleDouble(SINGLES);
           }}
-          className="pt-[10vh]"
+          style={{
+            backdropFilter: "blur(2px) contrast(80%) brightness(80%)",
+          }}
+          className="rounded-md border-none pt-[10vh] shadow-sm shadow-white outline-none"
         >
           <Modal.Header className="rounded-t-md bg-body shadow-sm shadow-white ">
             Event Registration
@@ -272,7 +302,7 @@ const EventReg = ({
                 `${
                   singleDouble === SINGLES && teamType !== TEAM
                     ? "Your Name"
-                    : "Team Name"
+                    : "Team Name/College Name"
                 }`,
                 `${
                   singleDouble === SINGLES && teamType !== TEAM

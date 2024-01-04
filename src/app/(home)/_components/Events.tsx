@@ -1,14 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+
 import { useState } from "react";
-import { SectionHeader } from "@/components";
-import events from "@/utils/events";
 import Link from "next/link";
-import EventCard from "@/app/events/_components/EventCard";
 import { useRouter } from "next/navigation";
 
-const Events = () => {
+import { SectionHeader } from "@/components";
+import { events } from "@/utils";
+import EventCard from "@/app/events/_components/EventCard";
 
+const Events = () => {
   const router = useRouter();
 
   const [hover, setHover] = useState(false);
@@ -17,10 +18,11 @@ const Events = () => {
       <div className="mx-auto max-w-full ">
         <SectionHeader text="Events" />
         <div className={`mt-[10px] h-full w-full`}>
-          <ul className="oveflow-x-scroll accordion gap-2 hidden justify-center space-x-2 xl:flex">
+          <ul className="oveflow-x-scroll accordion hidden justify-center gap-2 space-x-2 xl:flex">
             {events.map((event, index) => (
-              <li key={index}
-              onClick={() => router.push(`/events/${event.id}`)}
+              <li
+                key={index}
+                onClick={() => router.push(`/events/${event.id}`)}
               >
                 <img
                   src={`${event.image} `}

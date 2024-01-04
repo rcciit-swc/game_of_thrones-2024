@@ -1,7 +1,10 @@
 "use client";
-import { SectionHeader } from "@/components";
-import Image from "next/image";
+
 import { useState } from "react";
+import Image from "next/image";
+
+import { SectionHeader } from "@/components";
+
 import Committee from "./Committee";
 import Location from "./Location";
 
