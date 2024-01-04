@@ -22,7 +22,9 @@ export async function middleware(request: NextRequest) {
       url.pathname === "/profile" ||
       url.pathname === "/event-management" ||
       url.pathname === "/role-management" ||
-      url.pathname === "/admin-dashboard"
+      url.pathname === "/admin-dashboard" ||
+      url.pathname.startsWith("/coordinator-dashboard")
+
     ) {
       return NextResponse.redirect(new URL("/", request.url));
     }
@@ -66,8 +68,6 @@ export async function middleware(request: NextRequest) {
         .select()
         .eq("id", session?.user.id);
 
-      console.log(userRoles);
-
       if (
         !userRoles?.data?.[0]?.role?.includes("event_coordinator") &&
         !userRoles?.data?.[0]?.role?.includes("super_admin")
@@ -77,20 +77,7 @@ export async function middleware(request: NextRequest) {
         );
       }
 
-      if (userRoles?.data?.[0]?.role?.includes("event_coordinator")) {
-        return NextResponse.redirect(
-          new URL(
-            `/coordinator-dashboard/${userRoles?.data?.[0]?.event_id}`,
-            request.url,
-          ),
-        );
-      }
-
-      if (!userRoles?.data?.[0]?.role?.includes("super_admin")) {
-        return NextResponse.redirect(
-          new URL("/coordinator-dashboard", request.url),
-        );
-      }
+      return NextResponse.next();
     }
 
     // TODO: implement event management page
