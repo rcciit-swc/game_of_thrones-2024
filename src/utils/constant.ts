@@ -284,6 +284,269 @@ const gallery = [
   },
 ];
 
+const team = [
+  {
+    image: "https://i.imgur.com/SHBXkRE.jpg",
+    title: "Deep Das ",
+    sport: "Football",
+  },
+  {
+    image: "https://i.imgur.com/u2P39Nq.jpg",
+    title: "Dwaipayan Bhattacharjee  ",
+    sport: "Football",
+  },
+  {
+    image: "https://i.imgur.com/s9Wk8Y0.jpg",
+    title: "Pritam Das",
+    sport: "Football",
+  },
+  {
+    image: "https://i.imgur.com/qcxMrrB.jpg",
+    title: "Joydeep Das ",
+    sport: "Football",
+  },
+  {
+    image: "https://i.imgur.com/SdMhMtK.jpg",
+    title: "Tahir Imam ",
+    sport: "Short hand cricket",
+  },
+  {
+    image: "https://i.imgur.com/deFV8Ev.jpg",
+    title: "Soumyadip Pal ",
+    sport: "Short hand cricket",
+  },
+  {
+    image: "https://i.imgur.com/rOJZqPR.jpg",
+    title: "Basanta Kumar Shaw ",
+    sport: "Short hand cricket",
+  },
+  {
+    image: "https://i.imgur.com/5sY4NLq.jpg",
+    title: "Shreya Sarkar ",
+    sport: "Tug of war",
+  },
+  {
+    image: "https://i.imgur.com/WCxBRN6.jpg",
+    title: "Swastika Bose",
+    sport: "Tug of war",
+  },
+  {
+    image: "https://i.imgur.com/6Tpmsch.jpg",
+    title: "Swapnil Chowdhury ",
+    sport: "Tug of war",
+  },
+
+  {
+    image: "https://i.imgur.com/eUcTTJ1.jpg",
+    title: "Souvik Panda ",
+    sport: "Tug of war",
+  },
+
+  {
+    image: "https://i.imgur.com/wrrNl9y.jpg",
+    title: "Riyan Sarkar ",
+    sport: "Carrom",
+  },
+  {
+    image: "https://i.imgur.com/1g5f0Tc.jpg",
+    title: "Sneha Das ",
+    sport: "Carrom",
+  },
+  {
+    image: "https://i.imgur.com/EkSWxv6.jpg",
+    title: "Grantha Das ",
+    sport: "Carrom",
+  },
+  {
+    image: "https://i.imgur.com/5sY4NLq.jpg",
+    title: "Soumyadeep Chakraborty ",
+    sport: "Chessr",
+  },
+  {
+    image: "https://i.imgur.com/WCxBRN6.jpg",
+    title: "Dibakar Banerjee ",
+    sport: "Chess",
+  },
+  {
+    image: "https://i.imgur.com/6Tpmsch.jpg",
+    title: "Subhasis Ghosh  ",
+    sport: "Volleyball",
+  },
+
+  {
+    image: "https://i.imgur.com/eUcTTJ1.jpg",
+    title: "Subhodip Chakraborty ",
+    sport: "Volleyball",
+  },
+
+  {
+    image: "https://i.imgur.com/wrrNl9y.jpg",
+    title: "Piyush prasad  ",
+    sport: "Volleyball",
+  },
+  {
+    image: "https://i.imgur.com/1g5f0Tc.jpg",
+    title: "Indranil Lohar ",
+    sport: "Volleyball",
+  },
+  {
+    image: "https://i.imgur.com/EkSWxv6.jpg",
+    title: "Harsh Jaiswal  ",
+    sport: "Kabbadi",
+  },
+  {
+    image: "https://i.imgur.com/EkSWxv6.jpg",
+    title: "Sreya sahoo ",
+    sport: "Kabbadi",
+  },
+  {
+    image: "https://i.imgur.com/5sY4NLq.jpg",
+    title: "Subhranil Saha ",
+    sport: "TT",
+  },
+  {
+    image: "https://i.imgur.com/WCxBRN6.jpg",
+    title: "Debasmita Dey",
+    sport: "TT",
+  },
+  {
+    image: "https://i.imgur.com/6Tpmsch.jpg",
+    title: "Souvik Mandal",
+    sport: "TT",
+  },
+
+  {
+    image: "https://i.imgur.com/eUcTTJ1.jpg",
+    title: "Ankita Naskar",
+    sport: "Handball",
+  },
+
+  {
+    image: "https://i.imgur.com/wrrNl9y.jpg",
+    title: "Ankuri Sen",
+    sport: "Handball",
+  },
+  {
+    image: "https://i.imgur.com/1g5f0Tc.jpg",
+    title: "Srinanda Das",
+    sport: "Handball",
+  },
+  {
+    image: "https://i.imgur.com/EkSWxv6.jpg",
+    title: "Pritha Majumder",
+    sport: "Handball",
+  },
+  {
+    image: "https://i.imgur.com/6Tpmsch.jpg",
+    title: "Arnab Dey",
+    sport: "Badminton",
+  },
+
+  {
+    image: "https://i.imgur.com/eUcTTJ1.jpg",
+    title: "Shreya Shome",
+    sport: "Badminton",
+  },
+
+  {
+    image: "https://i.imgur.com/wrrNl9y.jpg",
+    title: "Sauradip Paul",
+    sport: "Badminton",
+  },
+  {
+    image: "https://i.imgur.com/1g5f0Tc.jpg",
+    title: "Atanu Biswas",
+    sport: "Badminton",
+  },
+  {
+    image: "https://i.imgur.com/EkSWxv6.jpg",
+    title: "Aranya Nandy",
+    sport: "Sponsorship",
+  },
+  {
+    image: "https://i.imgur.com/EkSWxv6.jpg",
+    title: "Swagat Santra",
+    sport: "Sponsorship",
+  },
+  {
+    image: "https://i.imgur.com/5sY4NLq.jpg",
+    title: "Shuvangi De ",
+    sport: "Sponsorship",
+  },
+  {
+    image: "https://i.imgur.com/WCxBRN6.jpg",
+    title: "Swapnendu Banerjee",
+    sport: "Sponsorship",
+  },
+
+  {
+    image: "https://i.imgur.com/eUcTTJ1.jpg",
+    title: "Swastika Bose",
+    sport: "Sponsorship",
+  },
+
+  {
+    image: "https://i.imgur.com/wrrNl9y.jpg",
+    title: "Swastika Bose",
+    sport: "Graphics ",
+  },
+  {
+    image: "https://i.imgur.com/1g5f0Tc.jpg",
+    title: "Debdatta Ray",
+    sport: "Graphics",
+  },
+  {
+    image: "https://i.imgur.com/EkSWxv6.jpg",
+    title: "Aryan Bhakat",
+    sport: "Graphics",
+  },
+  {
+    image: "https://i.imgur.com/EkSWxv6.jpg",
+    title: "Hirak Sabui",
+    sport: "Graphics",
+  },
+  {
+    image: "https://i.imgur.com/EkSWxv6.jpg",
+    title: "Anirban Kar",
+    sport: "Graphics",
+  },
+  {
+    image: "https://i.imgur.com/EkSWxv6.jpg",
+    title: "Sattamedha Chowdhury",
+    sport: "Graphics",
+  },
+  {
+    image: "https://i.imgur.com/EkSWxv6.jpg",
+    title: "Soham Sarkar",
+    sport: "Graphics",
+  },
+  {
+    image: "https://i.imgur.com/wrrNl9y.jpg",
+    title: "Alimpan De",
+    sport: "Tech",
+  },
+  {
+    image: "https://i.imgur.com/1g5f0Tc.jpg",
+    title: "Shuvangi De",
+    sport: "Tech",
+  },
+  {
+    image: "https://i.imgur.com/EkSWxv6.jpg",
+    title: "Aryan Bhakat",
+    sport: "Tech",
+  },
+  {
+    image: "https://i.imgur.com/EkSWxv6.jpg",
+    title: "Sansrita Saha",
+    sport: "Tech",
+  },
+  {
+    image: "https://i.imgur.com/EkSWxv6.jpg",
+    title: "Manish Saha",
+    sport: "Tech",
+  },
+];
+
 const locations = [
   {
     name: "Canal S Rd, Beleghata, Kolkata, West Bengal 700015",
@@ -313,5 +576,6 @@ export {
   navRoutes,
   CommitteeDetails,
   gallery,
+  team,
   locations,
 };
