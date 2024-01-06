@@ -7,10 +7,11 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 import { SectionHeader } from "@/components";
-import { events, checkUserDetails, checkIfUserRegistered } from "@/utils";
-import { useEvent, useUser, supabase } from "@/lib";
+import { events, checkIfUserRegistered } from "@/utils";
+import { useEvent, useUser } from "@/lib";
 
 import { CoordinatorCard } from "../_components/CoordinatorCard";
+import { checkIfRegsClosed } from "@/utils/functions/checkIfRegsClosed";
 
 const EventReg = dynamic(() => import("@/app/dashboard/_components/EventReg"), {
   ssr: false,
@@ -34,6 +35,7 @@ const Page = ({ params: { event } }: Params) => {
 
   const [openModal, setOpenModal] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
+  const [regsClosed, setRegsClosed] = useState(false);
 
   const setEvent = useEvent((state) => state.setEvent);
 
@@ -41,20 +43,12 @@ const Page = ({ params: { event } }: Params) => {
   const eventObj = fetchEvent(eventId);
 
   const handleRegister = async () => {
-    const { data } = await supabase.auth.getSession();
-
-    const userDetails = await supabase
-      .from("users")
-      .select()
-      .eq("id", data.session?.user.id);
-
-    if (!checkUserDetails(userDetails?.data?.[0])) {
-      toast.error("Please complete your profile first");
-      router.push("/profile");
-    } else {
-      setOpenModal(true);
-      setEvent(eventObj?.id, eventObj?.teamType);
+    if (regsClosed) {
+      toast.warning("Registrations are closed for this event");
+      return;
     }
+    setOpenModal(true);
+    setEvent(eventObj?.id, eventObj?.teamType);
   };
 
   const checkEventRegistered = (eventReg: any) => {
@@ -77,10 +71,18 @@ const Page = ({ params: { event } }: Params) => {
 
   useEffect(() => {
     if (user && user.phone) {
-      checkIfUserRegistered({
-        phone_param: user.phone,
+      checkIfRegsClosed({
+        event_id_param: event,
       }).then((data) => {
-        checkEventRegistered(data);
+        if (data && data[0] && !data[0].closed) {
+          checkIfUserRegistered({
+            phone_param: user.phone,
+          }).then((data) => {
+            checkEventRegistered(data);
+          });
+        } else {
+          setRegsClosed(true);
+        }
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -152,10 +154,12 @@ const Page = ({ params: { event } }: Params) => {
             </button>
           ) : (
             <button
-              className="w-fit rounded-md bg-violet-800 px-3 py-2 font-medium"
+              className={`w-fit rounded-md px-3 py-2 font-medium ${
+                regsClosed ? "bg-red-500" : "bg-violet-800"
+              }`}
               onClick={handleRegister}
             >
-              Register Now
+              {regsClosed ? "Registrations Closed" : "Register Now"}
             </button>
           ))}
       </div>

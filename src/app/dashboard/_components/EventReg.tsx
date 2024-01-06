@@ -106,7 +106,6 @@ const EventReg = ({
 
     const regexPhone =
       /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
-    const regexName = /^[a-zA-Z ]{2,30}$/;
     let toastError = 0;
 
     if (!regexPhone.test(formValues.team_lead_phone)) {
@@ -242,157 +241,150 @@ const EventReg = ({
         openModal ? "absolute" : "hidden"
       } inset-0 z-50  max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden bg-opacity-25  md:inset-0`}
     >
-      <div className="relative mx-auto my-auto flex w-full max-w-2xl items-center justify-center p-4">
-        <Modal
-          show={openModal}
-          onClose={() => {
-            setOpenModal(false);
-            setSingleDouble(SINGLES);
-          }}
-          style={{
-            backdropFilter: "blur(2px) contrast(80%) brightness(80%)",
-          }}
-          className="rounded-md border-none pt-[10vh] shadow-sm shadow-white outline-none"
-        >
-          <Modal.Header className="rounded-t-md bg-body shadow-sm shadow-white ">
-            Event Registration
-          </Modal.Header>
+      <Modal
+        show={openModal}
+        onClose={() => {
+          setOpenModal(false);
+          setSingleDouble(SINGLES);
+        }}
+        style={{
+          backdropFilter: "blur(2px) contrast(80%) brightness(80%)",
+          height: "auto",
+        }}
+      >
+        <Modal.Header className="rounded-t-md bg-body shadow-sm shadow-white ">
+          Event Registration
+        </Modal.Header>
 
-          <Modal.Body className="rounded-md bg-body">
-            <form
-              className="flex h-[calc(100vh-30vh)] flex-col items-start gap-5 overflow-x-hidden overflow-y-scroll rounded-b-md bg-[#252525] px-10 py-5 shadow-sm shadow-white"
-              onSubmit={handleSubmit}
-            >
-              <h1 className="text-2xl font-semibold tracking-widest text-white">
-                Event Registration
-              </h1>
-              {!(teamType === TEAM || teamType === SINGLES) && (
-                <Dropdown
-                  className="border-none bg-body text-white "
-                  label={singleDouble}
-                  dismissOnClick={false}
+        <Modal.Body className="rounded-md bg-body">
+          <form
+            className="flex h-[calc(100vh-30vh)] flex-col items-start gap-5 overflow-x-hidden overflow-y-scroll rounded-b-md bg-[#252525] px-10 py-5 shadow-sm shadow-white"
+            onSubmit={handleSubmit}
+          >
+            <h1 className="text-2xl font-semibold tracking-widest text-white">
+              Event Registration
+            </h1>
+            {!(teamType === TEAM || teamType === SINGLES) && (
+              <Dropdown
+                className="border-none bg-body text-white "
+                label={singleDouble}
+                dismissOnClick={false}
+              >
+                <Dropdown.Item
+                  onClick={() => setSingleDouble(SINGLES)}
+                  className="hover:bg-slate-400"
                 >
-                  <Dropdown.Item
-                    onClick={() => setSingleDouble(SINGLES)}
-                    className="hover:bg-slate-400"
-                  >
-                    Singles
-                  </Dropdown.Item>
-                  <Dropdown.Item
-                    onClick={() => setSingleDouble(DOUBLES)}
-                    className="hover:bg-slate-400"
-                  >
-                    Doubles
-                  </Dropdown.Item>
-                </Dropdown>
-              )}
+                  Singles
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => setSingleDouble(DOUBLES)}
+                  className="hover:bg-slate-400"
+                >
+                  Doubles
+                </Dropdown.Item>
+              </Dropdown>
+            )}
 
-              {renderInputField(
-                `${
-                  singleDouble === SINGLES && teamType !== TEAM
-                    ? "Your Phone"
-                    : "Team Lead Phone"
-                }`,
-                formValues.team_lead_phone,
-                handleChange,
-                "team_lead_phone",
-                "number",
-              )}
-              {renderInputField(
-                `${
-                  singleDouble === SINGLES && teamType !== TEAM
-                    ? "Your Name"
-                    : "Team Name/College Name"
-                }`,
-                `${
-                  singleDouble === SINGLES && teamType !== TEAM
-                    ? user?.name
-                    : formValues.teamName
-                }`,
-                handleChange,
-                "teamName",
-              )}
+            {renderInputField(
+              `${
+                singleDouble === SINGLES && teamType !== TEAM
+                  ? "Your Phone"
+                  : "Team Lead Phone"
+              }`,
+              formValues.team_lead_phone,
+              handleChange,
+              "team_lead_phone",
+              "number",
+            )}
+            {renderInputField(
+              `${
+                singleDouble === SINGLES && teamType !== TEAM
+                  ? "Your Name"
+                  : "Team Name/College Name"
+              }`,
+              `${
+                singleDouble === SINGLES && teamType !== TEAM
+                  ? user?.name
+                  : formValues.teamName
+              }`,
+              handleChange,
+              "teamName",
+            )}
 
-              <div className="flex flex-col gap-2">
-                {Array(
-                  singleDouble === SINGLES && teamType !== TEAM
-                    ? membersMinMax.min
-                    : membersMinMax.max,
-                )
-                  .fill(0)
-                  .map((_, index) => (
-                    <div
-                      className="flex flex-col flex-wrap items-start gap-3"
-                      key={index}
-                    >
-                      <label htmlFor="">
-                        {singleDouble === SINGLES && teamType !== TEAM
-                          ? "Your Phone Number"
-                          : `Member ${index + 1} Phone`}
-                      </label>
-                      <div className="flex flex-row items-center gap-2">
-                        <button className="rounded-md bg-white px-3 py-1 text-black">
-                          +91
-                        </button>
-                        <input
-                          type="text"
-                          value={
-                            index === 0 ? user?.phone : membersPhone[index]
-                          }
-                          required={
-                            index > membersMinMax.min - 1 ? false : true
-                          }
-                          onChange={(e) =>
-                            handleMemberChange(index, e.target.value)
-                          }
-                          disabled={index === 0 ? true : false}
-                          name=""
-                          id=""
-                          className="w-[70%] rounded-md border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
-                        />
-                      </div>
+            <div className="flex flex-col gap-2">
+              {Array(
+                singleDouble === SINGLES && teamType !== TEAM
+                  ? membersMinMax.min
+                  : membersMinMax.max,
+              )
+                .fill(0)
+                .map((_, index) => (
+                  <div
+                    className="flex flex-col flex-wrap items-start gap-3"
+                    key={index}
+                  >
+                    <label htmlFor="">
+                      {singleDouble === SINGLES && teamType !== TEAM
+                        ? "Your Phone Number"
+                        : `Member ${index + 1} Phone`}
+                    </label>
+                    <div className="flex flex-row items-center gap-2">
+                      <button className="rounded-md bg-white px-3 py-1 text-black">
+                        +91
+                      </button>
+                      <input
+                        type="text"
+                        value={index === 0 ? user?.phone : membersPhone[index]}
+                        required={index > membersMinMax.min - 1 ? false : true}
+                        onChange={(e) =>
+                          handleMemberChange(index, e.target.value)
+                        }
+                        disabled={index === 0 ? true : false}
+                        name=""
+                        id=""
+                        className="w-[70%] rounded-md border-b border-slate-400 bg-transparent px-5 py-1 placeholder:text-slate-400 md:w-[80%]"
+                      />
                     </div>
-                  ))}
-              </div>
+                  </div>
+                ))}
+            </div>
 
-              <div className="flex flex-col items-center gap-2 rounded-md border-2 border-slate-400 p-2">
-                <Image
-                  src={`/assets/registration/payment_qr.png`}
-                  alt="qr"
-                  width={200}
-                  height={200}
-                />
-                <span className="text-center">
-                  UPI ID:{" "}
-                  <span className="font-semibold">iamtridibes@paytm</span>
-                </span>
-                <span className="text-center">
-                  Scan this QR code and pay the registration fee of ₹ &nbsp;
-                  {registrationFees} to the UPI ID given below.
-                </span>
-              </div>
+            <div className="flex flex-col items-center gap-2 rounded-md border-2 border-slate-400 p-2">
+              <Image
+                src={`/assets/registration/payment_qr.png`}
+                alt="qr"
+                width={200}
+                height={200}
+              />
+              <span className="text-center">
+                UPI ID: <span className="font-semibold">iamtridibes@paytm</span>
+              </span>
+              <span className="text-center">
+                Scan this QR code and pay the registration fee of ₹ &nbsp;
+                {registrationFees} to the UPI ID given below.
+              </span>
+            </div>
 
-              {renderInputField(
-                "Transaction id",
-                formValues.transaction_id,
-                handleChange,
-                "transaction_id",
-              )}
-              {renderInputField(
-                "Transaction ScreenShot",
-                "",
-                handleFileChange,
-                "transaction_ss_filename",
-                "file",
-              )}
+            {renderInputField(
+              "Transaction id",
+              formValues.transaction_id,
+              handleChange,
+              "transaction_id",
+            )}
+            {renderInputField(
+              "Transaction ScreenShot",
+              "",
+              handleFileChange,
+              "transaction_ss_filename",
+              "file",
+            )}
 
-              <button className="mx-auto w-1/3 rounded-md bg-primary px-5 py-2 text-center text-base font-medium hover:bg-opacity-70">
-                Submit
-              </button>
-            </form>
-          </Modal.Body>
-        </Modal>
-      </div>
+            <button className="mx-auto rounded-md bg-primary px-5 py-2 text-center text-base font-medium hover:bg-opacity-70 md:w-1/3">
+              Submit
+            </button>
+          </form>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };
