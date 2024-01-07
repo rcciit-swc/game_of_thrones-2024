@@ -118,11 +118,11 @@ const EventReg = ({
       toastError++;
     }
 
-    const checkTeamPhone = validateTeamPhoneNumbers(membersPhone);
-    if (checkTeamPhone === 1) {
-      toast.error("One of your team member's phone is invalid");
-      toastError++;
-    }
+    // const checkTeamPhone = validateTeamPhoneNumbers(membersPhone);
+    // if (checkTeamPhone === 1) {
+    //   toast.error("One of your team member's phone is invalid");
+    //   toastError++;
+    // }
 
     if (toastError > 0) {
       setFormValues({
