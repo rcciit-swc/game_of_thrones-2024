@@ -247,6 +247,65 @@ const locations = [
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.3830077589655!2d88.40770427601406!3d22.564774079497397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02742cd148e14b%3A0xc91b0ac3803b0462!2sSports%20Authority%20Of%20India!5e0!3m2!1sen!2sin!4v1703174045601!5m2!1sen!2sin",
   },
 ];
+
+const Headers = [
+  {
+    label: "Id",
+    key: "team_id",
+  },
+  {
+    label: "Team Name",
+    key: "team_name",
+  },
+  {
+    label: "Event Name",
+    key: "event_name",
+  },
+  {
+    label: "Team Type",
+    key: "teamType",
+  },
+  {
+    label: "Team Lead/Player Name",
+    key: "name",
+  },
+  {
+    label: "Team Lead/Player Phone",
+    key: "team_lead_phone",
+  },
+  {
+    label: "College",
+    key: "college",
+  },
+];
+
+const adminHeaders = [
+  {
+    label: "Id",
+    key: "team_id",
+  },
+  {
+    label: "Team Name",
+    key: "team_name",
+  },
+  {
+    label: "Event Name",
+    key: "event_name",
+  },
+  {
+    label: "Team Lead/Player Name",
+    key: "name",
+  },
+  {
+    label: "Team Lead/Player Phone",
+    key: "team_lead_phone",
+  },
+  {
+    label: "College",
+    key: "college",
+  },
+];
+
 export {
   links,
   socials,
@@ -257,4 +316,6 @@ export {
   CommitteeDetails,
   gallery,
   locations,
+  Headers,
+  adminHeaders,
 };
