@@ -8,8 +8,6 @@ interface TableProps {
 
 const Table = ({ registrationData }: TableProps) => {
 
-
-
   return (
     <>
       <div className="mb-4 flex flex-row items-center justify-between px-3">
@@ -28,29 +26,49 @@ const Table = ({ registrationData }: TableProps) => {
           <thead>
             <tr>
               <th className="px-4 py-2 text-left">Sl. No.</th>
+              <th className="px-4 py-2 text-left">Event Name</th>
               <th className="px-4 py-2 text-left">Type</th>
+              <th className="px-4 py-2 text-left">Gender</th>
               <th className="px-4 py-2 text-left">Team Name</th>
               <th className="px-4 py-2 text-left">College</th>
               <th className="px-4 py-2 text-left">Team Lead / Player</th>
               <th className="px-4 py-2 text-left">Team Lead Phone</th>
+              <th className="px-4 py-2 text-left">Verification Status</th>
             </tr>
           </thead>
           <tbody>
             {registrationData?.map((row, index) => (
               <tr key={row.id}>
                 <td className="border px-4 py-2">{index + 1}</td>
-                <td className="border px-4 py-2">{row.teamType}</td>
+                <td className="border px-4 py-2">{row.event_name}</td>
+                <td className="border px-4 py-2 capitalize">{row.teamType}</td>
+                <td className="border px-4 py-2 capitalize">{row.gender}</td>
                 <td className="border px-4 py-2">{row.team_name}</td>
                 <td className="border px-4 py-2">{row.college}</td>
                 <td className="border px-4 py-2">{row.name}</td>
-                <td className="border px-4 py-2">{row.team_lead_phone}</td>
+                <td className="border px-4 py-2">
+                  <a
+                    href={`
+                    tel:${row.team_lead_phone}
+                  `}
+                  className="text-blue-500 hover:text-blue-600"
+                  >
+                    {row.team_lead_phone}
+                  </a>
+                </td>
+                <td className="border px-4 py-2 capitalize">
+                  {row.transaction_verified ? (
+                    <span className="text-green-500">Verified</span>
+                  ) : (
+                    <span className="text-red-500">Not Verified</span>
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
     </>
-
   );
 };
 
