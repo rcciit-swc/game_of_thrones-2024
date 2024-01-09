@@ -10,17 +10,17 @@ interface VerificationModalProps {
   modalData: any;
   showModal: boolean;
   setShowModal: any;
-  setReigstrations:any;
+  setReigstrations: any;
 }
 
 const VerificationModal = ({
   modalData,
   showModal,
   setShowModal,
-  setReigstrations
+  setReigstrations,
 }: VerificationModalProps) => {
-
-
+  const [loaded, setLoaded] = useState(false);
+  const [imageUrl, setImageUrl] = useState("");
 
   const handleAccept = async () => {
     const { error: updateLeadError } = await supabase
@@ -32,10 +32,7 @@ const VerificationModal = ({
       toast.error("Error Occured");
       setImageUrl("");
       setShowModal(false);
-    }
-
-    else if (!updateLeadError) {
-
+    } else if (!updateLeadError) {
       // Send email to team lead
 
       toast.success("Team Verified");
@@ -43,19 +40,24 @@ const VerificationModal = ({
       setReigstrations(data);
       setImageUrl("");
       setShowModal(false);
+      setLoaded(false);
     }
-
   };
 
-  const [imageUrl, setImageUrl] = useState("");
-
   useEffect(() => {
-    getImageUrl({
-      event_id_param: modalData.event_id,
-      image_id_param: modalData.team_id,
-    }).then((data) => {
-      setImageUrl(data.publicUrl);
-    });
+    setLoaded(false);
+
+    const fetchData = async () => {
+      const data = await getImageUrl({
+        event_id_param: modalData.event_id,
+        image_id_param: modalData.team_id,
+      });
+      if (data) {
+        setImageUrl(data.publicUrl);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
@@ -69,6 +71,7 @@ const VerificationModal = ({
                 onClick={() => {
                   setShowModal(false);
                   setImageUrl("");
+                  setLoaded(false);
                 }}
               >
                 Close
@@ -76,7 +79,7 @@ const VerificationModal = ({
             </div>
             {/* Modal content goes here */}
             <div
-              className="flex max-h-96 flex-col items-center gap-2 overflow-y-scroll px-3
+              className="flex h-96 flex-col items-center gap-2 overflow-y-scroll px-3
             text-left
             "
             >
@@ -105,12 +108,17 @@ const VerificationModal = ({
                   {modalData.team_lead_phone}
                 </a>
               </h2>
+
+              {!loaded && (
+                <div className="h-[200px] w-[300px] animate-pulse border-2 border-gray-600 bg-gray-500"></div>
+              )}
               <Image
                 src={imageUrl}
                 alt="Team Image"
                 width={300}
                 height={300}
                 className="border-2 border-gray-600"
+                onLoadingComplete={() => setLoaded(true)}
               />
             </div>
             <div className="mt-5 flex flex-row items-center justify-center gap-5">
@@ -119,6 +127,7 @@ const VerificationModal = ({
                 onClick={() => {
                   setShowModal(false);
                   setImageUrl("");
+                  setLoaded(false);
                 }}
               >
                 Reject
