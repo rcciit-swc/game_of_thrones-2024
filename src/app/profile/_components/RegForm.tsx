@@ -33,14 +33,6 @@ const RegForm = () => {
       toast.error("Phone number is invalid");
       toastError++;
     }
-    if (formErrors.username.length > 0) {
-      toast.error("Name is invalid");
-      toastError++;
-    }
-    if (formErrors.college.length > 0) {
-      toast.error("Invalid College Name");
-      toastError++;
-    }
     if (toastError > 0) {
       formErrors = {
         username: "",

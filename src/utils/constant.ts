@@ -268,7 +268,7 @@ const team = [
     title: "Shreya Sarkar ",
     sport: "Tug of war",
   },
-  
+
   {
     image: "https://i.imgur.com/6Tpmsch.jpg",
     title: "Swapnil Chowdhury ",
@@ -282,7 +282,7 @@ const team = [
   },
 
   {
-    image: "https://i.imgur.com/wrrNl9y.jpg",
+    image: "https://i.imgur.com/cC7Uipz.jpg",
     title: "Riyan Sarkar ",
     sport: "Carrom",
   },
@@ -477,6 +477,11 @@ const team = [
     image: "https://i.imgur.com/KRKUdEN.jpg",
     title: "Prerna Sharma",
     sport: "UI team",
+  },
+  {
+    image: "https://i.imgur.com/lI43rzf.jpg",
+    title: "Rishi Paul",
+    sport: "Tech Team",
   },
 ];
 
