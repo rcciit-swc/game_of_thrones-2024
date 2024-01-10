@@ -229,17 +229,17 @@ const gallery = [
 
 const team = [
   {
-    image: "https://i.imgur.com/SHBXkRE.jpg",
+    image: "https://i.imgur.com/R9s6nBU.png",
     title: "Deep Das ",
     sport: "Football",
   },
   {
-    image: "https://i.imgur.com/u2P39Nq.jpg",
+    image: "https://i.imgur.com/XRU0Aw9.jpg",
     title: "Dwaipayan Bhattacharjee  ",
     sport: "Football",
   },
   {
-    image: "https://i.imgur.com/s9Wk8Y0.jpg",
+    image: "https://i.imgur.com/PpYtFpK.jpg",
     title: "Pritam Das",
     sport: "Football",
   },
@@ -268,11 +268,7 @@ const team = [
     title: "Shreya Sarkar ",
     sport: "Tug of war",
   },
-  {
-    image: "https://i.imgur.com/WCxBRN6.jpg",
-    title: "Swastika Bose",
-    sport: "Tug of war",
-  },
+  
   {
     image: "https://i.imgur.com/6Tpmsch.jpg",
     title: "Swapnil Chowdhury ",
@@ -291,202 +287,196 @@ const team = [
     sport: "Carrom",
   },
   {
-    image: "https://i.imgur.com/1g5f0Tc.jpg",
+    image: "https://i.imgur.com/OvXSmS1.jpg",
     title: "Sneha Das ",
     sport: "Carrom",
   },
   {
-    image: "https://i.imgur.com/EkSWxv6.jpg",
+    image: "https://i.imgur.com/lx7szxa.png",
     title: "Grantha Das ",
     sport: "Carrom",
   },
   {
-    image: "https://i.imgur.com/5sY4NLq.jpg",
+    image: "https://i.imgur.com/C8RqvX9.jpg",
     title: "Soumyadeep Chakraborty ",
-    sport: "Chessr",
+    sport: "Chess",
   },
   {
-    image: "https://i.imgur.com/WCxBRN6.jpg",
+    image: "https://i.imgur.com/5O2ut74.jpg",
     title: "Dibakar Banerjee ",
     sport: "Chess",
   },
   {
-    image: "https://i.imgur.com/6Tpmsch.jpg",
+    image: "https://i.imgur.com/md38Ctm.jpg",
     title: "Subhasis Ghosh  ",
     sport: "Volleyball",
   },
 
   {
-    image: "https://i.imgur.com/eUcTTJ1.jpg",
+    image: "https://i.imgur.com/4lGyYmR.jpg",
     title: "Subhodip Chakraborty ",
     sport: "Volleyball",
   },
 
   {
-    image: "https://i.imgur.com/wrrNl9y.jpg",
+    image: "https://i.imgur.com/p4nstI7.jpg",
     title: "Piyush prasad  ",
     sport: "Volleyball",
   },
   {
-    image: "https://i.imgur.com/1g5f0Tc.jpg",
+    image: "https://i.imgur.com/swtfPfD.jpg",
     title: "Indranil Lohar ",
     sport: "Volleyball",
   },
   {
-    image: "https://i.imgur.com/EkSWxv6.jpg",
+    image: "https://i.imgur.com/UdCB1Jg.jpg",
     title: "Harsh Jaiswal  ",
     sport: "Kabbadi",
   },
   {
-    image: "https://i.imgur.com/EkSWxv6.jpg",
+    image: "https://i.imgur.com/fgLaG7I.jpg",
     title: "Sreya sahoo ",
     sport: "Kabbadi",
   },
   {
-    image: "https://i.imgur.com/5sY4NLq.jpg",
+    image: "https://i.imgur.com/DrORHhk.jpg",
     title: "Subhranil Saha ",
-    sport: "TT",
+    sport: "Table Tennis",
   },
   {
-    image: "https://i.imgur.com/WCxBRN6.jpg",
+    image: "https://i.imgur.com/CZF1PPT.jpg",
     title: "Debasmita Dey",
-    sport: "TT",
+    sport: "Table Tennis",
   },
   {
-    image: "https://i.imgur.com/6Tpmsch.jpg",
+    image: "https://i.imgur.com/hC3hDTT.jpg",
     title: "Souvik Mandal",
-    sport: "TT",
+    sport: "Table Tennis",
   },
 
   {
-    image: "https://i.imgur.com/eUcTTJ1.jpg",
+    image: "https://i.imgur.com/qgZVOe3.jpg",
     title: "Ankita Naskar",
     sport: "Handball",
   },
 
   {
-    image: "https://i.imgur.com/wrrNl9y.jpg",
+    image: "https://i.imgur.com/EuhdT9S.jpg",
     title: "Ankuri Sen",
     sport: "Handball",
   },
   {
-    image: "https://i.imgur.com/1g5f0Tc.jpg",
+    image: "https://i.imgur.com/vcD9y4v.jpg",
     title: "Srinanda Das",
     sport: "Handball",
   },
   {
-    image: "https://i.imgur.com/EkSWxv6.jpg",
+    image: "https://i.imgur.com/jLHlULJ.jpg",
     title: "Pritha Majumder",
     sport: "Handball",
   },
   {
-    image: "https://i.imgur.com/6Tpmsch.jpg",
+    image: "https://i.imgur.com/EjMuVkC.jpg",
     title: "Arnab Dey",
     sport: "Badminton",
   },
 
   {
-    image: "https://i.imgur.com/eUcTTJ1.jpg",
+    image: "https://i.imgur.com/artMEW8.jpg",
     title: "Shreya Shome",
     sport: "Badminton",
   },
 
   {
-    image: "https://i.imgur.com/wrrNl9y.jpg",
+    image: "https://i.imgur.com/038zAor.jpg",
     title: "Sauradip Paul",
     sport: "Badminton",
   },
   {
-    image: "https://i.imgur.com/1g5f0Tc.jpg",
+    image: "https://i.imgur.com/YM1iUhs.jpg",
     title: "Atanu Biswas",
     sport: "Badminton",
   },
   {
-    image: "https://i.imgur.com/EkSWxv6.jpg",
+    image: "https://i.imgur.com/yhTE06d.jpg",
     title: "Aranya Nandy",
-    sport: "Sponsorship",
+    sport: "Sponsorship Team",
   },
   {
-    image: "https://i.imgur.com/EkSWxv6.jpg",
+    image: "https://i.imgur.com/BzOVSBa.jpg",
     title: "Swagat Santra",
-    sport: "Sponsorship",
+    sport: "Sponsorship Team",
   },
   {
-    image: "https://i.imgur.com/5sY4NLq.jpg",
+    image: "https://i.imgur.com/iMBBteF.jpg",
     title: "Shuvangi De ",
-    sport: "Sponsorship",
+    sport: "Sponsorship and Tech Team",
   },
+  {
+    image: "https://i.imgur.com/ymtmBYG.jpg",
+    title: "Swapnendu Banerjee",
+    sport: "Sponsorship Team",
+  },
+
   {
     image: "https://i.imgur.com/WCxBRN6.jpg",
-    title: "Swapnendu Banerjee",
-    sport: "Sponsorship",
-  },
-
-  {
-    image: "https://i.imgur.com/eUcTTJ1.jpg",
-    title: "Swastika Bose",
-    sport: "Sponsorship",
-  },
-
-  {
-    image: "https://i.imgur.com/wrrNl9y.jpg",
-    title: "Swastika Bose",
-    sport: "Graphics ",
+    title: "Swastika Bose ",
+    sport: "Tug Of War, Sponsorship and Graphics Team",
   },
   {
-    image: "https://i.imgur.com/1g5f0Tc.jpg",
+    image: "https://i.imgur.com/j8NrsSP.jpg",
     title: "Debdatta Ray",
-    sport: "Graphics",
+    sport: "Graphics Team",
   },
   {
-    image: "https://i.imgur.com/EkSWxv6.jpg",
+    image: "https://i.imgur.com/ymUt6Bc.jpg",
     title: "Aryan Bhakat",
-    sport: "Graphics",
+    sport: "Graphics Team",
   },
   {
-    image: "https://i.imgur.com/EkSWxv6.jpg",
+    image: "https://i.imgur.com/KFtfcb0.jpg",
     title: "Hirak Sabui",
-    sport: "Graphics",
+    sport: "Graphics Team",
   },
   {
-    image: "https://i.imgur.com/EkSWxv6.jpg",
+    image: "https://i.imgur.com/lAFP7GB.png",
     title: "Anirban Kar",
-    sport: "Graphics",
+    sport: "Graphics Team",
   },
   {
-    image: "https://i.imgur.com/EkSWxv6.jpg",
+    image: "https://i.imgur.com/QV9GE3B.jpg",
     title: "Sattamedha Chowdhury",
-    sport: "Graphics",
+    sport: "Graphics Team",
   },
   {
-    image: "https://i.imgur.com/EkSWxv6.jpg",
+    image: "https://i.imgur.com/gyKoLQj.jpg",
     title: "Soham Sarkar",
-    sport: "Graphics",
+    sport: "Graphics Team",
   },
   {
-    image: "https://i.imgur.com/wrrNl9y.jpg",
+    image: "https://i.imgur.com/hVrOFvB.jpg",
     title: "Alimpan De",
-    sport: "Tech",
+    sport: "Tech team",
   },
   {
-    image: "https://i.imgur.com/1g5f0Tc.jpg",
-    title: "Shuvangi De",
-    sport: "Tech",
-  },
-  {
-    image: "https://i.imgur.com/EkSWxv6.jpg",
-    title: "Aryan Bhakat",
-    sport: "Tech",
-  },
-  {
-    image: "https://i.imgur.com/EkSWxv6.jpg",
+    image: "https://i.imgur.com/PjtMbCP.jpg",
     title: "Sansrita Saha",
-    sport: "Tech",
+    sport: "Tech team",
   },
   {
-    image: "https://i.imgur.com/EkSWxv6.jpg",
+    image: "https://i.imgur.com/0BObkMR.jpg",
     title: "Manish Saha",
-    sport: "Tech",
+    sport: "Tech team",
+  },
+  {
+    image: "https://i.imgur.com/xVMP5RE.jpg",
+    title: "Soumyaraj Bag",
+    sport: "Tech team",
+  },
+  {
+    image: "https://i.imgur.com/KRKUdEN.jpg",
+    title: "Prerna Sharma",
+    sport: "UI team",
   },
 ];
 
@@ -510,65 +500,6 @@ const locations = [
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.3830077589655!2d88.40770427601406!3d22.564774079497397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02742cd148e14b%3A0xc91b0ac3803b0462!2sSports%20Authority%20Of%20India!5e0!3m2!1sen!2sin!4v1703174045601!5m2!1sen!2sin",
   },
 ];
-
-const Headers = [
-  {
-    label: "Id",
-    key: "team_id",
-  },
-  {
-    label: "Team Name",
-    key: "team_name",
-  },
-  {
-    label: "Event Name",
-    key: "event_name",
-  },
-  {
-    label: "Team Type",
-    key: "teamType",
-  },
-  {
-    label: "Team Lead/Player Name",
-    key: "name",
-  },
-  {
-    label: "Team Lead/Player Phone",
-    key: "team_lead_phone",
-  },
-  {
-    label: "College",
-    key: "college",
-  },
-];
-
-const adminHeaders = [
-  {
-    label: "Id",
-    key: "team_id",
-  },
-  {
-    label: "Team Name",
-    key: "team_name",
-  },
-  {
-    label: "Event Name",
-    key: "event_name",
-  },
-  {
-    label: "Team Lead/Player Name",
-    key: "name",
-  },
-  {
-    label: "Team Lead/Player Phone",
-    key: "team_lead_phone",
-  },
-  {
-    label: "College",
-    key: "college",
-  },
-];
-
 export {
   links,
   socials,
@@ -580,6 +511,4 @@ export {
   gallery,
   team,
   locations,
-  Headers,
-  adminHeaders,
 };
