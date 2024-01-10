@@ -6,8 +6,6 @@ import Image from "next/image";
 const GalleryCard = ({ photo }: { photo: string }) => {
   const [loaded, setLoaded] = useState(false);
 
-  console.log(photo);
-
   return (
     <div
       className="relative h-[300px] w-[400] transform overflow-hidden 

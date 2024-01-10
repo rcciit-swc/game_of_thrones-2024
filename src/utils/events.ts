@@ -328,7 +328,7 @@ export const events: eventsType[] = [
     regFees: "Rs. 400 /- per Team boys and girls",
     prize: "Rs. 8,000 /-",
     venue: "SAI NSEC Campus, Kolkata",
-    date: "13 th & 14 th January, 2024",
+    date: "20th & 21st January, 2024",
     coordinators: [
       {
         name: "Harsh Jaiswal",
@@ -640,7 +640,7 @@ export const events: eventsType[] = [
     regFees: "Rs. 500 /- (each team)",
     prize: "Rs. 4,500 /-",
     venue: "SAI NSEC Campus, Kolkata",
-    date: "14th January, 2024",
+    date: "20th January, 2024",
     coordinators: [
       {
         name: "Subhasis Ghosh",
