@@ -49,7 +49,10 @@ export default function Footer() {
           </Link>
         ))}
       </div>
-      <p className="pt-2">Made with ❤️ by GOT Tech Team of RCCIIT </p>
+      <p className="pt-2">Made with ❤️ by  <a className="underline" href="https://github.com/rcciit-swc/game_of_thrones-2024/graphs/contributors
+      "
+      target="_blank "
+      rel="noreferrer noopener"> GOT Tech Team </a> </p>
     </footer>
   );
 }
