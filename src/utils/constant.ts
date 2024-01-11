@@ -456,7 +456,7 @@ const team = [
   {
     image: "https://i.imgur.com/hVrOFvB.jpg",
     title: "Alimpan De",
-    sport: "Tech team",
+    sport: "Tech Lead",
   },
   {
     image: "https://i.imgur.com/PjtMbCP.jpg",
@@ -482,6 +482,31 @@ const team = [
     image: "https://i.imgur.com/lI43rzf.jpg",
     title: "Rishi Paul",
     sport: "Tech Team",
+  },
+  {
+    image: "https://i.imgur.com/ES5rCnj.jpg",
+    title: "Anirban Majumder",
+    sport: "Tech Team",
+  },
+  {
+    image: "https://i.imgur.com/jlYNDO3.jpg",
+    title: "Sagnik Datta",
+    sport: "Sponsorship Team",
+  },
+  {
+    image: "https://i.imgur.com/BkViygc.jpg",
+    title: "Shourya Shikhar Ghosh",
+    sport: "A.G.S. Tech",
+  },
+  {
+    image: "https://i.imgur.com/KaGmv4T.jpg",
+    title: "Tridibes Pal",
+    sport: "A.G.S. Sports",
+  },
+  {
+    image: "https://i.imgur.com/kIFb7td.jpg",
+    title: "MD. Sabique",
+    sport: "General Secretary",
   },
 ];
 

@@ -25,17 +25,17 @@ const TeamCard = ({ member }: any) => {
           //width={480}
           // height={480}
           // sizes="(min-width: 1680px) 453px, (min-width: 1040px) calc(30.16vw - 48px), (min-width: 780px) calc(50vw - 81px), calc(100vw - 40px)"
-          onLoadingComplete={() => setLoaded(true)}
+          onLoad={() => setLoaded(true)}
         />
         {!loaded && (
           <div className="absolute left-0 top-0 h-full w-full animate-pulse bg-gray-100"></div>
         )}
       </div>
 
-      <h1 className="mt-4 text-center text-2xl font-semibold tracking-widest">
+      <h1 className="mt-4 text-center text-2xl font-semibold tracking-widest capitalize">
         {member.title}
       </h1>
-      <h1 className="mt-1 text-center text-xl">{member.sport}</h1>
+      <h1 className="mt-1 text-center text-xl capitalize">{member.sport}</h1>
     </div>
   );
 };

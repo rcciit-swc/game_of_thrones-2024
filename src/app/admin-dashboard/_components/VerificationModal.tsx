@@ -110,7 +110,7 @@ const VerificationModal = ({
               </h2>
 
               {!loaded && (
-                <div className="h-[200px] w-[300px] animate-pulse border-2 border-gray-600 bg-gray-500"></div>
+                <div className="h-[300px] w-[300px] animate-pulse border-2 border-gray-600 bg-gray-500"></div>
               )}
               <Image
                 src={imageUrl}
@@ -118,7 +118,7 @@ const VerificationModal = ({
                 width={300}
                 height={300}
                 className="border-2 border-gray-600"
-                onLoadingComplete={() => setLoaded(true)}
+                onLoad={() => setLoaded(true)}
               />
             </div>
             <div className="mt-5 flex flex-row items-center justify-center gap-5">

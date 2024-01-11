@@ -19,7 +19,7 @@ const GalleryCard = ({ photo }: { photo: string }) => {
         style={{
           objectFit: "cover",
         }}
-        onLoadingComplete={() => setLoaded(true)}
+        onLoad={() => setLoaded(true)}
       />
       {!loaded && (
         <div className="absolute left-0 top-0 h-full w-full animate-pulse bg-gray-100"></div>

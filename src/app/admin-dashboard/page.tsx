@@ -21,6 +21,8 @@ const AdminDashboard = () => {
 
   const [transaction_id, setTransaction_id] = useState("");
 
+  const [eventName, setEventName] = useState("");
+
   const handleSort = () => {
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
   };
@@ -55,7 +57,7 @@ const AdminDashboard = () => {
   }, []);
 
   useEffect(() => {
-    if (!phone && !transaction_id) {
+    if (!phone && !transaction_id && !eventName) {
       setFilteredResults(promiseresults);
       return;
     }
@@ -66,19 +68,22 @@ const AdminDashboard = () => {
       if (transaction_id && item.transaction_id.includes(transaction_id)) {
         return true;
       }
+      if (eventName && item.event_name.toLowerCase().includes(eventName)) {
+        return true;
+      }
       return false;
     });
 
     setFilteredResults(filteredData);
-  }, [phone, transaction_id, promiseresults]);
+  }, [phone, transaction_id, promiseresults, eventName]);
 
   return (
     <>
       <div className="flex flex-col pt-20">
         <SectionHeader text="Admin Dashboard" />
         <div className="mb-4 flex flex-row items-center justify-between px-3">
-          <div className="flex w-full items-center justify-end gap-5">
-            <label className="text-sm font-medium ">
+          <div className="flex w-full items-center justify-end gap-5 flex-col md:flex-row">
+            <label className="text-sm font-medium w-[90%]">
               Phone Number
               <input
                 type="text"
@@ -87,13 +92,22 @@ const AdminDashboard = () => {
                 onChange={(e) => setPhone(e.target.value)}
               />
             </label>
-            <label className="text-sm font-medium">
+            <label className="text-sm font-medium w-[90%]">
               Transaction Id
               <input
                 type="text"
                 className="focus mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-black
               shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 onChange={(e) => setTransaction_id(e.target.value)}
+              />
+            </label>
+            <label className="text-sm font-medium w-[90%]">
+              Event Name
+              <input
+                type="text"
+                className="focus mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-black
+              shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                onChange={(e) => setEventName(e.target.value)}
               />
             </label>
           </div>
@@ -144,14 +158,15 @@ const AdminDashboard = () => {
                     </td>
                     <td className="border border-gray-300 px-4 py-2 capitalize ">
                       {e.transaction_verified ? (
-                        <span className="text-green-500">Verified
-                        <Image
-                          src="https://img.icons8.com/fluency/48/checked-2.png"
-                          alt="warning"
-                          width={20}
-                          height={20}
-                          className="inline-block"
-                        />
+                        <span className="text-green-500">
+                          Verified
+                          <Image
+                            src="https://img.icons8.com/fluency/48/checked-2.png"
+                            alt="warning"
+                            width={20}
+                            height={20}
+                            className="inline-block"
+                          />
                         </span>
                       ) : (
                         <span className="text-red-500">
