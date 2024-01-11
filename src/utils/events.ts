@@ -512,7 +512,7 @@ export const events: eventsType[] = [
     description: "Ping, pong, perfection! 🏓 ",
     regFees: "Rs. 100 /- (Singles)  ;  Rs. 200 /- (Doubles)",
     prize: "Rs. 5,000 /-",
-    venue: "SAI NSEC Campus, Kolkata",
+    venue: "East Calcutta District Sports Council, Kolkata",
     date: "13th January, 2024",
     coordinators: [
       {
