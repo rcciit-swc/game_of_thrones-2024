@@ -7,8 +7,8 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 import { SectionHeader } from "@/components";
-import { events, checkIfUserRegistered } from "@/utils";
-import { useEvent, useUser } from "@/lib";
+import { events, checkIfUserRegistered, checkUserDetails } from "@/utils";
+import { supabase, useEvent, useUser } from "@/lib";
 
 import { CoordinatorCard } from "../_components/CoordinatorCard";
 import { checkIfRegsClosed } from "@/utils/functions/checkIfRegsClosed";
@@ -43,10 +43,24 @@ const Page = ({ params: { event } }: Params) => {
   const eventObj = fetchEvent(eventId);
 
   const handleRegister = async () => {
+    
     if (regsClosed) {
       toast.warning("Registrations are closed for this event");
       return;
     }
+
+    const { data } = await supabase.auth.getSession();
+
+    const userDetails = await supabase
+      .from("users")
+      .select()
+      .eq("id", data.session?.user.id);
+
+    if (!checkUserDetails(userDetails?.data?.[0])) {
+      toast.error("Please complete your profile first");
+      router.push("/profile");
+    } 
+
     setOpenModal(true);
     setEvent(eventObj?.id, eventObj?.teamType);
   };
